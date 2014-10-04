@@ -1,0 +1,8 @@
+Welcome to the CorgFu wiki!
+===========================
+
+Use Cases:
+----------
+
+Use Case Number: 1
+Use Case Name: BrowseQuestions
