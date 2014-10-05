@@ -1,5 +1,5 @@
-Use Cases:
-==========
+Use Cases
+=========
 ####	Use Case Number: 1
 	Use Case Name:   BrowseQuestions
 	Participants:    AppUser
