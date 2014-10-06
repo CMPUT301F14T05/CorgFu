@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="New document 1">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3907"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#04c2d2;stop-opacity:1;"
+         offset="0"
+         id="stop3909" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3889"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#04c2d2;stop-opacity:1;"
+         offset="0"
+         id="stop3891" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3883"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3885" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3869"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#04c2d2;stop-opacity:1;"
+         offset="0"
+         id="stop3871" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3863"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3865" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3851"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#5c4cb7;stop-opacity:1;"
+         offset="0"
+         id="stop3853" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3845"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#0096ff;stop-opacity:0.89803922;"
+         offset="0"
+         id="stop3847" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3839"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#0096ff;stop-opacity:0.89803922;"
+         offset="0"
+         id="stop3841" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3773"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3773"
+       id="linearGradient3777"
+       x1="28.571428"
+       y1="352.36218"
+       x2="271.42858"
+       y2="352.36218"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-327.28942,12.121835)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3863"
+       id="linearGradient3867"
+       x1="-170"
+       y1="298.79074"
+       x2="78.571426"
+       y2="298.79074"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3869"
+       id="linearGradient3873"
+       x1="-170"
+       y1="298.79074"
+       x2="78.571426"
+       y2="298.79074"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3883"
+       id="linearGradient3887"
+       x1="-279.2818"
+       y1="280.60563"
+       x2="95.434021"
+       y2="280.60563"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3889"
+       id="linearGradient3893"
+       x1="-279.2818"
+       y1="280.60563"
+       x2="95.434021"
+       y2="280.60563"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3883"
+       id="linearGradient3895"
+       gradientUnits="userSpaceOnUse"
+       x1="-279.2818"
+       y1="280.60563"
+       x2="95.434021"
+       y2="280.60563" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3889"
+       id="linearGradient3897"
+       gradientUnits="userSpaceOnUse"
+       x1="-279.2818"
+       y1="280.60563"
+       x2="95.434021"
+       y2="280.60563" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3907"
+       id="linearGradient3911"
+       x1="-238.57143"
+       y1="648.79074"
+       x2="50.000015"
+       y2="648.79074"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3434234,0,0,1.5374088,38.114536,-348.79133)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="101.33728"
+     inkscape:cy="607.44795"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1028"
+     inkscape:window-height="638"
+     inkscape:window-x="94"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient3777);stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003"
+       width="417.14285"
+       height="608.57153"
+       x="-298.71802"
+       y="141.62686" />
+    <a
+       id="a3832"
+       transform="translate(-1.4285714,192.85714)"
+       style="fill:url(#linearGradient3887);fill-opacity:1;stroke:url(#linearGradient3893)">
+      <rect
+         y="236.15892"
+         x="-276.7818"
+         height="88.89341"
+         width="369.71582"
+         id="rect3797"
+         style="fill:url(#linearGradient3895);fill-opacity:1;stroke:url(#linearGradient3897);stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none" />
+    </a>
+    <a
+       id="a3835"
+       transform="matrix(1.654242,0,0,2.1076225,4.0639519,-109.02973)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text3824"
+         y="287.60492"
+         x="-158.58163"
+         style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           y="287.60492"
+           x="-158.58163"
+           id="tspan3826"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">A Question</tspan></text>
+    </a>
+    <text
+       xml:space="preserve"
+       style="font-size:134.00723267px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="23.9095"
+       y="284.70087"
+       id="text3857"
+       sodipodi:linespacing="125%"
+       transform="scale(1.2030567,0.831216)"><tspan
+         sodipodi:role="line"
+         id="tspan3859"
+         x="23.9095"
+         y="284.70087"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">I</tspan></text>
+    <rect
+       style="fill:url(#linearGradient3867);fill-opacity:1;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke:url(#linearGradient3873)"
+       id="rect3861"
+       width="248.57143"
+       height="55.714287"
+       x="-170"
+       y="270.93359" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+       x="-154.28572"
+       y="310.93359"
+       id="text3875"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3877"
+         x="-154.28572"
+         y="310.93359">A Username</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:57.70840073px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-316.83774"
+       y="328.76202"
+       id="text3879"
+       sodipodi:linespacing="125%"
+       transform="scale(0.83866085,1.1923771)"><tspan
+         sodipodi:role="line"
+         id="tspan3881"
+         x="-316.83774"
+         y="328.76202"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">was wondering:</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient3911);stroke-width:2.87429357;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3899"
+       width="387.67365"
+       height="177.90018"
+       x="-282.38791"
+       y="559.71527" />
+    <text
+       xml:space="preserve"
+       style="font-size:215.53105164px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-296.52106"
+       y="675.50031"
+       id="text3913"
+       sodipodi:linespacing="125%"
+       transform="scale(0.93041849,1.0747852)"><tspan
+         sodipodi:role="line"
+         id="tspan3915"
+         x="-296.52106"
+         y="675.50031"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">ASK</tspan></text>
+  </g>
+</svg>
