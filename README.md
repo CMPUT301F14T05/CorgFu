@@ -7,7 +7,7 @@ CMPUT 301 Team Project
 Licence
 =======
 
-Copyright 2014 Alex Makepeace, Wyatt Fleming, Auhmed Beshry, Devon Sigurdson,
+Copyright 2014 Alex Makepeace, Wyatt Fleming, Ahmed Beshry, Devon Sigurdson,
 	       Athony Wu, and Oleksii Shevchenko
 
 Licensed under the Apache License, Version 2.0 (the "License");
