@@ -18,7 +18,7 @@ Use Cases
 	Use Case Name: 	ViewReplies
 	Participants:	AppUser
 	Goal:		 	To view replies to a question or answer
-	Precondition:	AppUser has selected a specific question and is currently viewing it
+	Precondition:	AppUser has selected a specific question or answer and is currently viewing it
 	Postcondition:	AppUser can view replies to selected question or answer
 	
 ####	Case Number: 	4
