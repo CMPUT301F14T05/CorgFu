@@ -115,22 +115,14 @@ Use Cases
 	Postcondition:	AppUser views number of answers to questions while browsing questions
 	
 ####	Case Number: 	16
-	Use Case Name: 	SearchQuestions
+	Use Case Name: 	SearchQuestionsAndAnswers
 	Participants:	AppUser, Elastisearch
-	Goal:			To find specific questions using keywords
-	Precondition:	AppUser must have keyword(s) for question of interest and internet connection
-	Postcondition:	AppUser views questions in descending relevency to the keyword returned by
+	Goal:			To find specific questions or answers using keywords
+	Precondition:	AppUser must have keyword(s) for question or answers of interest and internet connection
+	Postcondition:	AppUser views questions and answers in descending relevency to the keyword returned by
 					Elastisearch
 					
 ####	Case Number: 	17
-	Use Case Name: 	SearchAnswers
-	Participants:	AppUser, Elastisearch
-	Goal:			To find specific answers using keywords
-	Precondition:	AppUser must have keyword(s) for answer of interest and internet connection
-	Postcondition:	AppUser views answers in descending relevency to the keyword returned by
-					Elastisearch
-
-####	Case Number: 	18
 	Use Case Name: 	RememberQuestionsAsked
 	Participants:	Author
 	Goal:			To have device remember which questions were asked by the Author
@@ -138,7 +130,7 @@ Use Cases
 	Postcondition:	Author can browse and view all questions she/he has asked and any 
 					corresponding answers
 
-####	Case Number: 	19
+####	Case Number: 	18
 	Use Case Name: 	ViewOffline
 	Participants:	AppUser
 	Goal:			To be able to view questions and corresponding answers offline
@@ -147,7 +139,7 @@ Use Cases
 	Postcondition:	AppUser can view previously viewed questions and answers or selected 
 					questions and answers offline
 
-####	Case Number: 	20
+####	Case Number: 	19
 	Use Case Name: 	SetFavorites
 	Participants:	AppUser
 	Goal:			To indicate a specific question as a favorite and view it offline
@@ -155,7 +147,7 @@ Use Cases
 	Postcondition:	AppUser can browse and select favorited questions on and offline via
 					ViewOffline
 	
-####	Case Number: 	21
+####	Case Number: 	20
 	Use Case Name: 	AuthorOffline
 	Participants:	Author
 	Goal:			For author to write replies, questions, and answers offline
@@ -165,7 +157,7 @@ Use Cases
 					corresponding answers offline
 	
 	
-####	Case Number: 	22
+####	Case Number: 	21
 	Use Case Name: 	PushOfflineContent
 	Participants:	Author
 	Goal:			For author to push content created in use case AuthorOffline
@@ -174,7 +166,7 @@ Use Cases
 	Postcondition:	Other AppUsers and Authors can view the questions, answers, and replies
 					and interact with them accordingly
 	
-####	Case Number: 	23
+####	Case Number: 	22
 	Use Case Name: 	ViewMostFresh
 	Participants:	AppUser
 	Goal:			For AppUser to view the most recent comments first when viewing
@@ -182,7 +174,7 @@ Use Cases
 	Precondition:	AppUser must have selected a question for viewing
 	Postcondition:	AppUser can views comments in descending order of date and time published
 	
-####	Case Number: 	24
+####	Case Number: 	23
 	Use Case Name: 	SetUsername
 	Participants:	Author
 	Goal:			For author to have choice of available usernames
