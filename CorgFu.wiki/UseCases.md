@@ -96,7 +96,7 @@ Use Cases
 ####	Case Number: 	13
 	Use Case Name: 	ViewMostUpvotedQuestion
 	Participants:	AppUser
-	Goal:			To view most upvoted question when browsing questions
+	Goal:			To view most upvoted question when browsing questions, if desired
 	Precondition:	AppUser must be currently able to browse questions (internet connection)
 	Postcondition:	AppUser views questions in descending order of number of upvotes
 	
