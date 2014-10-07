@@ -1,8 +1,8 @@
-package ca.ualberta.corgfuapp.test;
+package ca.ualberta.cs.corgfuapp.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-public class ViewMostUpvotedQuestionTest extends
+public class RememberQuestionsAskedTest extends
 		ActivityInstrumentationTestCase2<T> {
 
 }

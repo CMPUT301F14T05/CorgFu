@@ -1,4 +1,4 @@
-package ca.ualberta.corgfuapp.test;
+package ca.ualberta.cs.corgfuapp.test;
 
 import android.test.ActivityInstrumentationTestCase2;
 
