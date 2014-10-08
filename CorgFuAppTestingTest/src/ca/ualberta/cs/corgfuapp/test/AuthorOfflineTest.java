@@ -1,7 +1,7 @@
 package ca.ualberta.cs.corgfuapp.test;
 
-import android.test.ActivityInstrumentationTestCase2;
+import junit.framework.TestCase;
 
-public class AuthorOfflineTest extends ActivityInstrumentationTestCase2<T> {
+public class AuthorOfflineTest extends TestCase {
 
 }
