@@ -1,10 +1,13 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.util.Collection;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFuModels.Question;
 
 public class BrowseItems extends Activity {
 
@@ -39,5 +42,12 @@ public class BrowseItems extends Activity {
 	
 	public void viewMostUpvotedAnswers(){
 		
+	}
+
+	public static Collection<Question> getCurrentDisplayCollection()
+	{
+
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
