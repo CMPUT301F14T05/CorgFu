@@ -1987,6 +1987,174 @@
        id="linearGradient7651"
        xlink:href="#linearGradient3773-3-8"
        inkscape:collect="always" />
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,6252.5799,1909.1118)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient7651-9"
+       xlink:href="#linearGradient3773-3-8-2"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3773-3-8-2"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775-8-9-4" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3773-3-8-2"
+       id="linearGradient8039"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7089.7226,1900.5402)"
+       x1="28.571428"
+       y1="352.36218"
+       x2="271.42859"
+       y2="352.36218" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3773-3-8-2-2"
+       id="linearGradient8039-1"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7089.7226,1900.5402)"
+       x1="28.571428"
+       y1="352.36218"
+       x2="271.42859"
+       y2="352.36218" />
+    <linearGradient
+       id="linearGradient3773-3-8-2-2"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775-8-9-4-6" />
+    </linearGradient>
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7892.5796,1900.5401)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8112"
+       xlink:href="#linearGradient3773-3-8-2-2"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7886.8653,1914.8258)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8112-1"
+       xlink:href="#linearGradient3773-3-8-2-2-0"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3773-3-8-2-2-0"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775-8-9-4-6-1" />
+    </linearGradient>
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,5426.8654,3220.5401)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8278"
+       xlink:href="#linearGradient3773-3-8-2-2-0"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7886.8653,1914.8258)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8112-2"
+       xlink:href="#linearGradient3773-3-8-2-2-7"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3773-3-8-2-2-7"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775-8-9-4-6-0" />
+    </linearGradient>
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,6681.151,3226.2545)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8454"
+       xlink:href="#linearGradient3773-3-8-2-2-7"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,6681.151,3226.2545)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8454-2"
+       xlink:href="#linearGradient3773-3-8-2-2-7-3"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3773-3-8-2-2-7-3"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775-8-9-4-6-0-7" />
+    </linearGradient>
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7499.7224,3249.1118)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8697"
+       xlink:href="#linearGradient3773-3-8-2-2-7-3"
+       inkscape:collect="always" />
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,7892.5796,1900.5401)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8112-6"
+       xlink:href="#linearGradient3773-3-8-2-2-76"
+       inkscape:collect="always" />
+    <linearGradient
+       id="linearGradient3773-3-8-2-2-76"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3775-8-9-4-6-2" />
+    </linearGradient>
+    <linearGradient
+       y2="352.36218"
+       x2="271.42859"
+       y1="352.36218"
+       x1="28.571428"
+       gradientTransform="matrix(1.189616,0,0,1.5618963,5426.8653,4246.2543)"
+       gradientUnits="userSpaceOnUse"
+       id="linearGradient8894"
+       xlink:href="#linearGradient3773-3-8-2-2-76"
+       inkscape:collect="always" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1996,8 +2164,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="5794.518"
-     inkscape:cy="-1998.4927"
+     inkscape:cx="6024.1297"
+     inkscape:cy="-4079.4336"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -6357,5 +6525,1853 @@
          x="5542.8574"
          y="3305.2195"
          id="tspan7766">question to read later</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient8039);stroke-width:6.81552792;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003-9-2-3"
+       width="496.23981"
+       height="950.52563"
+       x="7123.7119"
+       y="2102.8137" />
+    <rect
+       style="opacity:0.88333333;fill:#04c2d2;fill-opacity:1;stroke:#050a0a;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6143-7-9"
+       width="492.95444"
+       height="88.893425"
+       x="7123.6812"
+       y="2105.8154" />
+    <text
+       xml:space="preserve"
+       style="font-size:89.1896286px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6780.6235"
+       y="2302.9153"
+       id="text6145-6-2"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0579412,0.94523211)"><tspan
+         sodipodi:role="line"
+         id="tspan6147-8-8"
+         x="6780.6235"
+         y="2302.9153"
+         style="fill:#ffffff;fill-opacity:1;font-family:rockwell;-inkscape-font-specification:rockwell">Question</tspan></text>
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6"
+       width="311.12698"
+       height="40.406101"
+       x="7127.7217"
+       y="2919.2207"
+       ry="0" />
+    <g
+       id="g7585-9-9"
+       transform="translate(1459.9981,3.8748084)">
+      <rect
+         y="2915.5481"
+         x="5996.7983"
+         height="40.091442"
+         width="151.20822"
+         id="rect6155-8-9"
+         style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0535987,0.94912798)"
+         sodipodi:linespacing="125%"
+         id="text6157-8-2"
+         y="3103.5754"
+         x="5694.3423"
+         style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+           y="3103.5754"
+           x="5694.3423"
+           id="tspan6159-4-2"
+           sodipodi:role="line">Answer</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:50.61040115px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6827.4707"
+       y="2353.5557"
+       id="text6165-0-1"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0484183,0.95381777)"><tspan
+         sodipodi:role="line"
+         id="tspan6167-0-5"
+         x="6827.4707"
+         y="2353.5557"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Selected question</tspan><tspan
+         sodipodi:role="line"
+         x="6827.4707"
+         y="2416.8186"
+         id="tspan6169-2-3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">written here.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8950.2354"
+       y="1933.3406"
+       id="text6171-7-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-4-6"
+         x="8950.2354"
+         y="1933.3406"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes /Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8101.1484"
+       y="2069.6682"
+       id="text6175-0-6"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-9-1"
+         x="8101.1484"
+         y="2069.6682"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7388.5698"
+       y="2524.8088"
+       id="text6576-8-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6578-8-6"
+         x="7388.5698"
+         y="2524.8088"
+         style="font-family:Rockwell;-inkscape-font-specification:Rockwell">Top Answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.62367249px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8409.8027"
+       y="2186.9875"
+       id="text6580-3-9"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84697364,1.1806743)"><tspan
+         sodipodi:role="line"
+         id="tspan6582-3-2"
+         x="8409.8027"
+         y="2186.9875"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+   id="tspan6584-6-5">This is the top voted answer</tspan>.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7134.2842"
+       y="2464.8086"
+       id="text6586-2-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-4-4"
+         x="7134.2842"
+         y="2464.8086"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7551.4268,2424.8085 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-34-3"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7141.021"
+       y="2697.6658"
+       id="text6586-6-4-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-4-3"
+         x="7141.021"
+         y="2697.6658"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7552.4493,2649.0941 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-2-5"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8100.0068"
+       y="2323.5178"
+       id="text6175-2-3-0"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-4-4"
+         x="8100.0068"
+         y="2323.5178"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8964.249"
+       y="2169.6812"
+       id="text6171-2-7-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-9-5"
+         x="8964.249"
+         y="2169.6812"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7251.4272"
+       y="2407.6658"
+       id="text6684-0-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6686-0-7"
+         x="7251.4272"
+         y="2407.6658"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">View picture.</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7119.9982,2744.8084 497.1429,0"
+       id="path6688-8-4"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7134.2847"
+       y="2784.8088"
+       id="text6690-6-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6692-6-2"
+         x="7134.2847"
+         y="2784.8088"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Your Answers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8096.7651"
+       y="2497.2588"
+       id="text6175-2-2-2-1"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-1-7-4"
+         x="8096.7651"
+         y="2497.2588"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8960.1514"
+       y="2330.0693"
+       id="text6171-2-5-6-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-5-0-7"
+         x="8960.1514"
+         y="2330.0693"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7277.1416"
+       y="3027.6658"
+       id="text7542-5-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7544-7-9"
+         x="7277.1416"
+         y="3027.6658"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">Read Later</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7136.7104"
+       y="2874.3496"
+       id="text6586-6-1-7-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-0-8-7"
+         x="7136.7104"
+         y="2874.3496"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7552.8554,2834.8084 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-0-2-9"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:none;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect7590-1-7"
+       width="237.14287"
+       height="60"
+       x="7257.1416"
+       y="2981.9514" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6314.2856"
+       y="2960.9336"
+       id="text8041"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8043"
+         x="6314.2856"
+         y="2960.9336">Your Answer</tspan></text>
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path8045"
+       d="m 6718.2099,2956.9282 c -2.133,17.3174 -1.9981,34.8424 -1.8602,52.2629 0.057,15.7321 0.2791,31.4672 1.1674,47.1768 2.6491,15.2519 27.3243,13.3779 -41.6225,0.7591 -1.8468,-0.338 0.1802,-3.7521 0.1776,-5.6296 -0.01,-6.586 -0.3221,-13.1682 -0.495,-19.752 -0.1855,-23.4994 -2.5371,-46.9059 -3.2968,-70.3779 -0.028,-1.2332 -0.3758,-7.9405 0.1713,-9.8371 0.6675,-2.3141 2.5334,-4.6657 5.2654,-4.6984 42.5344,-0.5082 31.7917,-3.2861 51.5087,2.917 14.5552,4.0623 29.2479,7.4595 44.2232,9.5082 11.856,1.3819 23.8101,1.4223 35.7297,1.4576 18.2775,-0.09 -1.7974,0.018 -31.293,-0.055 -0.7726,-0 1.5451,-0.026 2.3172,-0.054 2.4529,-0.088 3.7617,-2.3482 -0.3014,6.5168 -0.3029,0.6609 -1.4537,-0.029 -2.1805,-0.043 -16.0364,-0.2648 -32.076,-0.277 -48.1142,-0.2865 -18.2197,-0.1256 -36.43,0.5542 -54.6103,-0.8212 -31.7029,-0.9267 18.7224,-13.5141 34.5749,-4.6004 7.3169,4.2731 13.7051,10.0071 20.0824,15.547 14.2185,15.314 26.4924,32.2488 40.1828,48.0291 13.8997,16.8333 28.2262,33.211 43.5349,48.7749 6.3982,6.1716 12.4762,12.6902 18.9693,18.7642 5.1699,4.8364 10.2627,9.0965 14.8671,14.4929 3.9906,5.0071 8.04,9.9619 11.5995,15.2867 0,0 -41.1799,2.3911 -41.1799,2.3911 l 0,0 c -3.2716,-5.1048 -6.7427,-10.0979 -10.5676,-14.8067 -10.2095,-11.5945 -21.9412,-21.7512 -32.3648,-33.1577 -14.8504,-15.7563 -28.6246,-32.3797 -42.4122,-49.0651 -13.793,-16.0328 -26.8775,-32.8607 -42.4997,-47.1787 -6.9958,-5.4365 -14.1415,-10.7849 -22.1433,-14.6729 -18.5977,-11.0181 33.8382,-8.013 47.1127,-5.7945 17.5561,1.3221 35.1685,0.6527 52.7591,0.8083 17.1583,-0.01 34.3169,-0.041 51.4743,-0.2262 4.506,-0.029 4.2489,-0.9973 3.6968,6.573 -8e-4,0.011 -2.1076,-0.048 -4.2032,-0.05 -48.948,-0.057 -29.4477,0.1508 -49.2512,-0.077 -11.8668,-0.1575 -23.7845,-0.2558 -35.5411,-2.0717 -14.9283,-2.5327 -29.5504,-6.4128 -44.2664,-9.937 -18.9927,-4.1705 -3.8288,-0.3192 29.3155,-2.0346 1.6788,-0.087 -3.9185,-1.878 -5.0075,-0.5974 -1.32,1.552 -1.8764,8.0593 -2.023,9.0712 -1.6352,23.2953 -0.2781,46.7932 1.9337,70.0031 1.2849,9.6335 1.3116,10.8868 2.9471,19.7085 0.3346,1.805 2.9216,5.0341 1.1211,5.392 -67.6276,13.4437 -43.5494,14.8495 -40.939,-0.1755 0.8883,-15.7096 1.1099,-31.4447 1.1674,-47.1768 0.1379,-17.4205 0.2728,-34.9455 -1.8602,-52.2629 0,0 42.1339,0 42.1339,0 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6817.1431"
+       y="3178.0764"
+       id="text8047"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8049"
+         x="6817.1431"
+         y="3178.0764">Click answer to add your</tspan><tspan
+         sodipodi:role="line"
+         x="6817.1431"
+         y="3228.0764"
+         id="tspan8051">answer</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient8112);stroke-width:6.81552792;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003-9-2-3-7"
+       width="496.23981"
+       height="950.52563"
+       x="7926.5688"
+       y="2102.8137" />
+    <rect
+       style="opacity:0.88333333;fill:#04c2d2;fill-opacity:1;stroke:#050a0a;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6143-7-9-5"
+       width="492.95444"
+       height="88.893425"
+       x="7926.5381"
+       y="2105.8154" />
+    <text
+       xml:space="preserve"
+       style="font-size:89.1896286px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7539.5098"
+       y="2302.915"
+       id="text6145-6-2-3"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0579412,0.94523211)"><tspan
+         sodipodi:role="line"
+         id="tspan6147-8-8-4"
+         x="7539.5098"
+         y="2302.915"
+         style="fill:#ffffff;fill-opacity:1;font-family:rockwell;-inkscape-font-specification:rockwell">Question</tspan></text>
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2"
+       width="311.12698"
+       height="40.406101"
+       x="7930.5786"
+       y="2919.2207"
+       ry="0" />
+    <g
+       id="g7585-9-9-7"
+       transform="translate(2262.8551,3.8748105)">
+      <rect
+         y="2915.5481"
+         x="5996.7983"
+         height="40.091442"
+         width="151.20822"
+         id="rect6155-8-9-4"
+         style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0535987,0.94912798)"
+         sodipodi:linespacing="125%"
+         id="text6157-8-2-6"
+         y="3103.5754"
+         x="5694.3423"
+         style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+           y="3103.5754"
+           x="5694.3423"
+           id="tspan6159-4-2-6"
+           sodipodi:role="line">Answer</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:50.61040115px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7593.2495"
+       y="2353.5557"
+       id="text6165-0-1-7"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0484183,0.95381777)"><tspan
+         sodipodi:role="line"
+         id="tspan6167-0-5-9"
+         x="7593.2495"
+         y="2353.5557"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Selected question</tspan><tspan
+         sodipodi:role="line"
+         x="7593.2495"
+         y="2416.8186"
+         id="tspan6169-2-3-5"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">written here.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9924.2979"
+       y="1933.3406"
+       id="text6171-7-3-5"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-4-6-0"
+         x="9924.2979"
+         y="1933.3406"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes /Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9012.1465"
+       y="2069.6682"
+       id="text6175-0-6-0"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-9-1-1"
+         x="9012.1465"
+         y="2069.6682"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8191.4268"
+       y="2524.8088"
+       id="text6576-8-8-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6578-8-6-2"
+         x="8191.4268"
+         y="2524.8088"
+         style="font-family:Rockwell;-inkscape-font-specification:Rockwell">Top Answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.62367249px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9357.7158"
+       y="2186.9875"
+       id="text6580-3-9-9"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84697364,1.1806743)"><tspan
+         sodipodi:role="line"
+         id="tspan6582-3-2-6"
+         x="9357.7158"
+         y="2186.9875"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+   id="tspan6584-6-5-5">This is the top voted answer</tspan>.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7937.1411"
+       y="2464.8086"
+       id="text6586-2-4-9"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-4-4-3"
+         x="7937.1411"
+         y="2464.8086"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 8354.2838,2424.8084 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-34-3-6"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7943.8779"
+       y="2697.6658"
+       id="text6586-6-4-8-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-4-3-9"
+         x="7943.8779"
+         y="2697.6658"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 8355.3063,2649.094 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-2-5-5"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9011.0049"
+       y="2323.5178"
+       id="text6175-2-3-0-9"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-4-4-0"
+         x="9011.0049"
+         y="2323.5178"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9938.3115"
+       y="2169.6809"
+       id="text6171-2-7-3-2"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-9-5-8"
+         x="9938.3115"
+         y="2169.6809"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8054.2842"
+       y="2407.6658"
+       id="text6684-0-8-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6686-0-7-0"
+         x="8054.2842"
+         y="2407.6658"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">View picture.</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7922.8552,2744.8083 497.1429,0"
+       id="path6688-8-4-5"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7937.1416"
+       y="2784.8088"
+       id="text6690-6-8-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6692-6-2-4"
+         x="7937.1416"
+         y="2784.8088"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Other Answers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9007.7627"
+       y="2497.2588"
+       id="text6175-2-2-2-1-2"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-1-7-4-5"
+         x="9007.7627"
+         y="2497.2588"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9934.2139"
+       y="2330.0693"
+       id="text6171-2-5-6-3-1"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-5-0-7-2"
+         x="9934.2139"
+         y="2330.0693"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8079.999"
+       y="3027.6658"
+       id="text7542-5-8-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7544-7-9-6"
+         x="8079.999"
+         y="3027.6658"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">Read Later</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7939.5674"
+       y="2874.3496"
+       id="text6586-6-1-7-1-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-0-8-7-0"
+         x="7939.5674"
+         y="2874.3496"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 8355.7124,2834.8083 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-0-2-9-3"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:none;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect7590-1-7-0"
+       width="237.14287"
+       height="60"
+       x="8059.9985"
+       y="2981.9514" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient8278);stroke-width:6.81552792;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003-9-2-3-7-4"
+       width="496.23981"
+       height="950.52563"
+       x="5460.8545"
+       y="3422.8137" />
+    <rect
+       style="opacity:0.88333333;fill:#04c2d2;fill-opacity:1;stroke:#050a0a;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6143-7-9-5-0"
+       width="492.95444"
+       height="88.893425"
+       x="5460.8237"
+       y="3425.8154" />
+    <text
+       xml:space="preserve"
+       style="font-size:89.1896286px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5208.8374"
+       y="3699.3975"
+       id="text6145-6-2-3-1"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0579412,0.94523211)"><tspan
+         sodipodi:role="line"
+         id="tspan6147-8-8-4-0"
+         x="5208.8374"
+         y="3699.3975"
+         style="fill:#ffffff;fill-opacity:1;font-family:rockwell;-inkscape-font-specification:rockwell">Question</tspan></text>
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2-3"
+       width="311.12698"
+       height="40.406101"
+       x="5464.8643"
+       y="4239.2207"
+       ry="0" />
+    <g
+       id="g7585-9-9-7-1"
+       transform="translate(-202.85917,1323.8748)">
+      <rect
+         y="2915.5481"
+         x="5996.7983"
+         height="40.091442"
+         width="151.20822"
+         id="rect6155-8-9-4-6"
+         style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0535987,0.94912798)"
+         sodipodi:linespacing="125%"
+         id="text6157-8-2-6-6"
+         y="3103.5754"
+         x="5694.3423"
+         style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+           y="3103.5754"
+           x="5694.3423"
+           id="tspan6159-4-2-6-4"
+           sodipodi:role="line">Answer</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:50.61040115px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5241.4077"
+       y="3737.4678"
+       id="text6165-0-1-7-9"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0484183,0.95381777)"><tspan
+         sodipodi:role="line"
+         id="tspan6167-0-5-9-8"
+         x="5241.4077"
+         y="3737.4678"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Selected question</tspan><tspan
+         sodipodi:role="line"
+         x="5241.4077"
+         y="3800.7307"
+         id="tspan6169-2-3-5-7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">written here.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6932.7808"
+       y="3021.3313"
+       id="text6171-7-3-5-4"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-4-6-0-6"
+         x="6932.7808"
+         y="3021.3313"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes /Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6214.313"
+       y="3232.9766"
+       id="text6175-0-6-0-5"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-9-1-1-5"
+         x="6214.313"
+         y="3232.9766"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5725.7124"
+       y="3844.8088"
+       id="text6576-8-8-4-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6578-8-6-2-6"
+         x="5725.7124"
+         y="3844.8088"
+         style="font-family:Rockwell;-inkscape-font-specification:Rockwell">Top Answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.62367249px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6446.5098"
+       y="3304.9927"
+       id="text6580-3-9-9-5"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84697364,1.1806743)"><tspan
+         sodipodi:role="line"
+         id="tspan6582-3-2-6-0"
+         x="6446.5098"
+         y="3304.9927"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+   id="tspan6584-6-5-5-4">This is the top voted answer</tspan>.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5471.4268"
+       y="3784.8086"
+       id="text6586-2-4-9-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-4-4-3-9"
+         x="5471.4268"
+         y="3784.8086"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5888.5696,3744.8084 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-34-3-6-0"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5478.1636"
+       y="4017.6658"
+       id="text6586-6-4-8-3-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-4-3-9-1"
+         x="5478.1636"
+         y="4017.6658"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5889.5921,3969.094 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-2-5-5-6"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6213.1714"
+       y="3486.8262"
+       id="text6175-2-3-0-9-9"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-4-4-0-0"
+         x="6213.1714"
+         y="3486.8262"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6946.7944"
+       y="3257.6716"
+       id="text6171-2-7-3-2-2"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-9-5-8-1"
+         x="6946.7944"
+         y="3257.6716"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5588.5698"
+       y="3727.6658"
+       id="text6684-0-8-3-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6686-0-7-0-8"
+         x="5588.5698"
+         y="3727.6658"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">View picture.</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5457.141,4064.8083 497.1429,0"
+       id="path6688-8-4-5-3"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5471.4272"
+       y="4104.8086"
+       id="text6690-6-8-8-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6692-6-2-4-9"
+         x="5471.4272"
+         y="4104.8086"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Other Answers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6209.9292"
+       y="3660.5671"
+       id="text6175-2-2-2-1-2-8"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-1-7-4-5-8"
+         x="6209.9292"
+         y="3660.5671"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6942.6968"
+       y="3418.0601"
+       id="text6171-2-5-6-3-1-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-5-0-7-2-6"
+         x="6942.6968"
+         y="3418.0601"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5614.2847"
+       y="4347.6655"
+       id="text7542-5-8-2-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7544-7-9-6-0"
+         x="5614.2847"
+         y="4347.6655"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">Read Later</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5473.853"
+       y="4194.3496"
+       id="text6586-6-1-7-1-4-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-0-8-7-0-7"
+         x="5473.853"
+         y="4194.3496"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5889.9982,4154.8083 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-0-2-9-3-9"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:none;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect7590-1-7-0-5"
+       width="237.14287"
+       height="60"
+       x="5594.2842"
+       y="4301.9512" />
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path8387"
+       d="m 5917.9616,3766.3232 c 8.3009,-3.2788 15.8937,-8.1508 23.6187,-12.5818 8.4723,-5.2179 17.1424,-9.966 26.3696,-13.7006 1.1979,-0.4547 2.3979,-0.9036 3.5936,-1.3639 0.8627,-0.3321 1.7266,-0.6619 2.5817,-1.0133 1.6023,-0.6583 2.143,-1.0346 2.1488,-0.9668 0.1507,1.7576 -2.0591,5.0648 -0.3086,5.2831 13.571,1.6923 27.3519,-0.1369 41.0279,-0.2054 -8.7861,3.57 -17.4557,7.3332 -25.934,11.5946 -2.7137,1.8637 -15.0239,6.4787 -15.6863,9.9945 -0.1038,0.5509 0.2224,1.0989 0.3336,1.6484 5.2682,9.6087 13.0761,17.7796 20.696,25.5851 6.0722,6.4015 12.7413,12.0915 20.4429,16.4075 0.7569,0.3792 1.4357,0.9983 2.2708,1.1376 0.424,0.071 1.5886,-0.5819 1.159,-0.5656 -14.1274,0.5369 -28.2216,2.1205 -42.3592,2.1313 -0.7986,6e-4 -0.7397,-1.4171 -1.1571,-2.0981 -3.314,-5.4074 -2.8068,-4.3602 -7.3619,-9.9885 -5.2083,-6.468 -10.9542,-12.4635 -16.554,-18.584 -3.7678,-4.1182 -7.1273,-7.2526 -9.4332,-12.3164 0.2684,-1.2542 0.085,-2.7014 0.8052,-3.7627 3.4749,-5.1199 13.0086,-4.5689 18.0928,-4.5431 46.5389,0.2355 33.9132,-0.5304 59.9349,1.5644 21.5331,2.4122 43.1098,4.3695 64.7383,5.6695 8.2322,0.4001 4.2798,0.2365 11.8567,0.504 0,0 -40.1666,6.167 -40.1666,6.167 l 0,0 c -7.0308,-0.4243 -3.3627,-0.1823 -11.0037,-0.7374 -21.0091,-1.832 -41.9805,-4.0352 -62.9835,-5.9289 -22.1193,-1.3923 -13.6074,-0.5548 16.7578,-1.1353 4.16,-0.08 -8.3174,0.264 -12.4748,0.4315 -4.4616,0.1798 -1.4775,-0.4927 -4.0401,0.1889 1.3309,4.1879 4.5343,7.6665 7.3244,10.9956 5.3525,6.3864 11.1156,12.4323 16.6482,18.6592 3.2768,3.5506 6.4704,6.7188 9.2394,10.662 0.8275,1.1784 3.5925,3.4471 2.1804,3.7292 -63.5854,12.7022 -29.7048,11.9627 -44.7837,2.0009 -7.1555,-5.053 -13.5408,-10.9948 -19.3462,-17.5599 -7.8878,-8.8126 -16.8159,-17.3282 -22.0677,-28.0211 -0.1725,-1.4274 -0.6919,-2.8551 -0.5175,-4.2823 0.7069,-5.7866 12.9541,-9.809 17.1633,-12.4564 6.381,-3.0831 12.63,-6.6718 19.1422,-9.4623 1.0104,-0.433 2.1218,-0.6067 3.1216,-1.0636 0.6885,-0.3147 1.2709,-0.8228 1.9064,-1.2343 14.4405,-0.4522 28.9341,-2.6729 43.3216,-1.3567 1.773,0.1622 0.4563,3.5769 0.1924,5.3375 -0.1651,1.1012 -5.5619,2.5129 -5.9942,2.657 -1.2216,0.4071 -2.4488,0.7973 -3.6732,1.1959 -9.3423,3.6145 -18.5699,7.2578 -26.8656,13.0265 -7.4311,4.3927 -14.8022,8.8674 -22.1767,13.3539 0,0 -41.7804,-4.9967 -41.7804,-4.9967 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6134.2856"
+       y="3758.0764"
+       id="text8389"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8391"
+         x="6134.2856"
+         y="3758.0764">Click the arrow to view</tspan><tspan
+         sodipodi:role="line"
+         x="6134.2856"
+         y="3808.0764"
+         id="tspan8393">replies</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient8454);stroke-width:6.81552792;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003-9-2-3-7-41"
+       width="496.23981"
+       height="950.52563"
+       x="6715.1401"
+       y="3428.5278" />
+    <rect
+       style="opacity:0.88333333;fill:#04c2d2;fill-opacity:1;stroke:#050a0a;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6143-7-9-5-5"
+       width="492.95444"
+       height="88.893425"
+       x="6715.1094"
+       y="3431.5295" />
+    <text
+       xml:space="preserve"
+       style="font-size:89.1896286px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6394.4287"
+       y="3705.4431"
+       id="text6145-6-2-3-7"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0579412,0.94523211)"><tspan
+         sodipodi:role="line"
+         id="tspan6147-8-8-4-5"
+         x="6394.4287"
+         y="3705.4431"
+         style="fill:#ffffff;fill-opacity:1;font-family:rockwell;-inkscape-font-specification:rockwell">Question</tspan></text>
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2-32"
+       width="311.12698"
+       height="40.406101"
+       x="6719.1499"
+       y="4244.9351"
+       ry="0" />
+    <g
+       id="g7585-9-9-7-17"
+       transform="translate(1051.4266,1329.5892)">
+      <rect
+         y="2915.5481"
+         x="5996.7983"
+         height="40.091442"
+         width="151.20822"
+         id="rect6155-8-9-4-4"
+         style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0535987,0.94912798)"
+         sodipodi:linespacing="125%"
+         id="text6157-8-2-6-4"
+         y="3103.5754"
+         x="5694.3423"
+         style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+           y="3103.5754"
+           x="5694.3423"
+           id="tspan6159-4-2-6-3"
+           sodipodi:role="line">Answer</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:50.61040115px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6437.7676"
+       y="3743.4587"
+       id="text6165-0-1-7-4"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0484183,0.95381777)"><tspan
+         sodipodi:role="line"
+         id="tspan6167-0-5-9-1"
+         x="6437.7676"
+         y="3743.4587"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Selected question</tspan><tspan
+         sodipodi:role="line"
+         x="6437.7676"
+         y="3806.7217"
+         id="tspan6169-2-3-5-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">written here.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8454.5371"
+       y="3026.0413"
+       id="text6171-7-3-5-5"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-4-6-0-2"
+         x="8454.5371"
+         y="3026.0413"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes /Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7637.5449"
+       y="3238.0127"
+       id="text6175-0-6-0-2"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-9-1-1-6"
+         x="7637.5449"
+         y="3238.0127"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6979.998"
+       y="4016.2373"
+       id="text6576-8-8-4-18"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6578-8-6-2-2"
+         x="6979.998"
+         y="4016.2373"
+         style="font-family:Rockwell;-inkscape-font-specification:Rockwell">Top Answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.62367249px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7927.4131"
+       y="3457.448"
+       id="text6580-3-9-9-4"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84697364,1.1806743)"><tspan
+         sodipodi:role="line"
+         id="tspan6582-3-2-6-8"
+         x="7927.4131"
+         y="3457.448"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+   id="tspan6584-6-5-5-46">This is the top voted answer</tspan>.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6725.7124"
+       y="3790.5227"
+       id="text6586-2-4-9-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-4-4-3-8"
+         x="6725.7124"
+         y="3790.5227"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7185.3917,3766.9418 -27.3157,52.1065 -32.6667,-50.6513 19.3705,-26.1918 20.9643,39.5032 7.6681,-37.3398 z"
+       id="path6602-34-3-6-2"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6723.8779"
+       y="4209.0942"
+       id="text6586-6-4-8-3-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-4-3-9-8"
+         x="6723.8779"
+         y="4209.0942"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7141.0206,4169.0941 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-2-5-5-9"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7623.4355"
+       y="3658.0493"
+       id="text6175-2-3-0-9-0"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-4-4-0-3"
+         x="7623.4355"
+         y="3658.0493"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8468.5508"
+       y="3417.8088"
+       id="text6171-2-7-3-2-6"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-9-5-8-2"
+         x="8468.5508"
+         y="3417.8088"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6842.8555"
+       y="3733.3799"
+       id="text6684-0-8-3-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6686-0-7-0-6"
+         x="6842.8555"
+         y="3733.3799"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">View picture.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6868.5703"
+       y="4353.3804"
+       id="text7542-5-8-2-21"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7544-7-9-6-2"
+         x="6868.5703"
+         y="4353.3804"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">Read Later</tspan></text>
+    <rect
+       style="fill:none;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect7590-1-7-0-54"
+       width="237.14287"
+       height="60"
+       x="6848.5698"
+       y="4307.666" />
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 6720.0001,3835.2193 497.1429,0"
+       id="path6688-8-4-5-3-7"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 6711.4287,3892.3623 497.1429,0"
+       id="path6688-8-4-5-3-71"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2-32-7"
+       width="311.12698"
+       height="40.406101"
+       x="6727.2939"
+       y="3895.0164"
+       ry="0" />
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6155-8-9-4-4-5"
+       width="151.20822"
+       height="40.091442"
+       x="7050.1104"
+       y="3895.1736" />
+    <text
+       xml:space="preserve"
+       style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6696.7817"
+       y="4135.7075"
+       id="text6157-8-2-6-4-4"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0535987,0.94912798)"><tspan
+         sodipodi:role="line"
+         id="tspan6159-4-2-6-3-8"
+         x="6696.7817"
+         y="4135.7075"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">  Reply</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6831.4287"
+       y="3875.2192"
+       id="text8636"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8638"
+         x="6831.4287"
+         y="3875.2192"
+         style="-inkscape-font-specification:Rockwell;font-family:Rockwell;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal">Most Recent Reply</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient8697);stroke-width:6.81552792;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003-9-2-3-7-41-1"
+       width="496.23981"
+       height="950.52563"
+       x="7533.7114"
+       y="3451.385" />
+    <rect
+       style="opacity:0.88333333;fill:#04c2d2;fill-opacity:1;stroke:#050a0a;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6143-7-9-5-5-8"
+       width="492.95444"
+       height="88.893425"
+       x="7533.6807"
+       y="3454.3867" />
+    <text
+       xml:space="preserve"
+       style="font-size:89.1896286px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7168.1689"
+       y="3729.6248"
+       id="text6145-6-2-3-7-6"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0579412,0.94523211)"><tspan
+         sodipodi:role="line"
+         id="tspan6147-8-8-4-5-0"
+         x="7168.1689"
+         y="3729.6248"
+         style="fill:#ffffff;fill-opacity:1;font-family:rockwell;-inkscape-font-specification:rockwell">Question</tspan></text>
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2-32-5"
+       width="311.12698"
+       height="40.406101"
+       x="7537.7212"
+       y="4267.7925"
+       ry="0" />
+    <g
+       id="g7585-9-9-7-17-4"
+       transform="translate(1869.998,1352.4464)">
+      <rect
+         y="2915.5481"
+         x="5996.7983"
+         height="40.091442"
+         width="151.20822"
+         id="rect6155-8-9-4-4-2"
+         style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0535987,0.94912798)"
+         sodipodi:linespacing="125%"
+         id="text6157-8-2-6-4-9"
+         y="3103.5754"
+         x="5694.3423"
+         style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+           y="3103.5754"
+           x="5694.3423"
+           id="tspan6159-4-2-6-3-6"
+           sodipodi:role="line">Answer</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:50.61040115px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7218.5356"
+       y="3767.4226"
+       id="text6165-0-1-7-4-5"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0484183,0.95381777)"><tspan
+         sodipodi:role="line"
+         id="tspan6167-0-5-9-1-5"
+         x="7218.5356"
+         y="3767.4226"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Selected question</tspan><tspan
+         sodipodi:role="line"
+         x="7218.5356"
+         y="3830.6855"
+         id="tspan6169-2-3-5-0-6"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">written here.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9447.666"
+       y="3044.8811"
+       id="text6171-7-3-5-5-0"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-4-6-0-2-9"
+         x="9447.666"
+         y="3044.8811"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes /Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8566.373"
+       y="3258.1567"
+       id="text6175-0-6-0-2-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-9-1-1-6-1"
+         x="8566.373"
+         y="3258.1567"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7798.5693"
+       y="4039.0947"
+       id="text6576-8-8-4-18-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6578-8-6-2-2-9"
+         x="7798.5693"
+         y="4039.0947"
+         style="font-family:Rockwell;-inkscape-font-specification:Rockwell">Top Answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.62367249px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8893.8789"
+       y="3476.8076"
+       id="text6580-3-9-9-4-5"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84697364,1.1806743)"><tspan
+         sodipodi:role="line"
+         id="tspan6582-3-2-6-8-6"
+         x="8893.8789"
+         y="3476.8076"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+   id="tspan6584-6-5-5-46-5">This is the top voted answer</tspan>.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7544.2837"
+       y="3813.3799"
+       id="text6586-2-4-9-3-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-4-4-3-8-7"
+         x="7544.2837"
+         y="3813.3799"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 8003.9631,3789.7991 -27.3157,52.1065 -32.6667,-50.6513 19.3705,-26.1918 20.9643,39.5032 7.6681,-37.3398 z"
+       id="path6602-34-3-6-2-4"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7542.4492"
+       y="4231.9517"
+       id="text6586-6-4-8-3-7-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-4-3-9-8-9"
+         x="7542.4492"
+         y="4231.9517"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7959.592,4191.9514 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-2-5-5-9-8"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="8552.2637"
+       y="3678.1934"
+       id="text6175-2-3-0-9-0-6"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-4-4-0-3-7"
+         x="8552.2637"
+         y="3678.1934"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9461.6797"
+       y="3436.6487"
+       id="text6171-2-7-3-2-6-2"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-9-5-8-2-6"
+         x="9461.6797"
+         y="3436.6487"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7661.4268"
+       y="3756.2371"
+       id="text6684-0-8-3-3-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6686-0-7-0-6-7"
+         x="7661.4268"
+         y="3756.2371"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">View picture.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7687.1416"
+       y="4376.2378"
+       id="text7542-5-8-2-21-4"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7544-7-9-6-2-9"
+         x="7687.1416"
+         y="4376.2378"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">Read Later</tspan></text>
+    <rect
+       style="fill:none;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect7590-1-7-0-54-9"
+       width="237.14287"
+       height="60"
+       x="7667.1411"
+       y="4330.5234" />
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7538.5715,3858.0766 497.1429,0"
+       id="path6688-8-4-5-3-7-9"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 7530.0001,3915.2196 497.1429,0"
+       id="path6688-8-4-5-3-71-3"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2-32-7-4"
+       width="311.12698"
+       height="40.406101"
+       x="7543.0083"
+       y="3960.7307"
+       ry="0" />
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6155-8-9-4-4-5-9"
+       width="151.20822"
+       height="40.091442"
+       x="7868.6816"
+       y="3960.8879" />
+    <text
+       xml:space="preserve"
+       style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7476.4224"
+       y="4201.9341"
+       id="text6157-8-2-6-4-4-5"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0535987,0.94912798)"><tspan
+         sodipodi:role="line"
+         id="tspan6159-4-2-6-3-8-5"
+         x="7476.4224"
+         y="4201.9341"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">  Reply</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7650"
+       y="3898.0764"
+       id="text8636-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8638-6"
+         x="7650"
+         y="3898.0764"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Most Recent Reply</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6754.2861"
+       y="3926.6479"
+       id="text8800"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8802"
+         x="6754.2861"
+         y="3926.6479"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Your reply</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7805.5664"
+       y="3947.4221"
+       id="text8800-6"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8802-3"
+         x="7805.5664"
+         y="3947.4221"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Your reply</tspan></text>
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path8825"
+       d="m 7179.4859,3922.1424 c 5.8089,2.538 10.6265,6.783 16.0047,10.0572 12.3724,7.5321 -1.1735,-1.5094 10.6569,6.5894 7.6033,4.5904 14.9877,8.8942 21.507,14.9619 7.8573,7.5505 16.0763,14.7184 23.4397,22.7631 -0.4373,1.6603 2.2558,2.1917 2.3998,3.6371 1.4576,14.6278 -29.1777,4.7066 -43.8758,4.4505 -0.93,-0.016 -1.2103,-1.4134 -1.8405,-2.0976 -0.7991,-0.8674 -1.6309,-1.7041 -2.4463,-2.5561 -7.6546,-6.3591 -15.322,-12.7187 -23.0448,-18.9958 -4.1827,-3.8704 -8.6273,-7.0228 -11.5331,-12.0081 -2.8756,-4.2843 -3.221,-7.9823 -0.2481,-12.3046 5.6779,-4.2787 13.2778,-4.1613 20.0912,-4.5119 24.994,-0.36 49.9952,-0.1648 74.9921,-0.08 9.5048,-0.032 19.0114,0.054 28.5153,-0.1129 2.6419,-0.1506 4.2193,-0.4976 -0.4263,6.5981 -0.5657,0.8641 -2.0652,-0.039 -3.0979,-0.053 -5.8951,-0.079 -11.7904,-0.1069 -17.6859,-0.1294 -28.3699,0.01 -56.7395,-0.1166 -85.1091,0.013 -3.1846,-0.3523 -16.0423,1.2481 -18.2928,-1.88 -0.422,-0.5865 -0.3441,-1.4035 -0.5162,-2.1052 0.1506,-1.0015 0.09,-2.0585 0.4519,-3.0044 0.3907,-1.0211 1.7869,-1.7117 2.8006,-1.7186 24.2703,-0.1652 32.5306,-3.006 49.4503,1.5757 11.6581,3.3257 22.9013,7.7775 34.3297,11.7793 11.768,3.8036 22.9213,9.0184 33.9387,14.5501 7.0568,3.6415 14.5584,6.2834 21.7482,9.6167 7.8013,2.5083 14.9496,6.3047 21.5729,11.0587 3.8046,1.9164 7.5888,3.8534 11.4498,5.6627 0,0 -41.4005,4.5983 -41.4005,4.5983 l 0,0 c -3.7748,-2.0193 -7.6772,-3.8381 -11.1907,-6.3056 -6.5735,-4.5085 -13.9705,-7.4436 -21.399,-10.2492 -7.2218,-2.9832 -14.296,-6.2401 -21.1953,-9.9248 -10.667,-5.5508 -21.715,-10.2932 -33.1247,-14.1155 -11.7034,-4.23 -23.4496,-8.4128 -35.6356,-11.062 -15.6236,-2.4738 -32.6759,-0.5705 33.2435,-1.1285 0.7473,-0.01 -1.8471,-0.085 -2.0988,-0.7882 -0.2612,-0.7304 -0.2117,-1.5369 -0.3176,-2.3054 -0.047,-0.417 -0.4001,-0.9201 -0.1419,-1.2509 0,-0 2.4741,0.4062 3.2288,0.4708 4.2585,0.3648 8.54,0.1151 12.8052,0.2371 16.1328,0.079 74.6485,0.081 5.8684,0.014 5.3468,-0.021 10.6937,-0.042 16.04,-0.1303 0.8004,-0.013 2.0379,-0.7674 2.4011,-0.054 1.0145,1.9929 0.6345,4.4273 0.9517,6.6409 -0.04,-0.016 -0.079,-0.033 -0.1189,-0.049 -8.8503,-0.2349 -17.7076,-0.1 -26.5596,-0.1977 -14.0681,-0 -43.7764,-0.076 20.2277,0 1.2678,0 -4.9289,0.01 -10.7153,0.068 -1.4086,0.015 -2.8171,0.038 -4.2256,0.057 -6.3447,0.1545 -12.8012,0.218 -18.9918,1.7556 -3.7132,0.8028 -0.9319,4.1756 0.2182,6.323 3.0818,4.06 7.0621,7.2805 10.6108,10.9172 7.4278,6.7597 15.2963,12.9173 23.3568,18.9076 0.9688,0.6364 1.8467,1.4397 2.9066,1.909 0.6171,0.2732 2.6809,0.2334 2.0069,0.2665 -13.5996,0.6677 -27.2562,0.3921 -40.8149,1.6389 -0.9496,0.087 1.6227,3.8862 0.2265,1.0563 -0.3007,-0.6094 -0.6771,-1.1784 -1.0156,-1.7676 -6.5811,-8.3455 -14.7036,-15.3204 -22.8329,-22.1132 -6.8272,-5.1071 -13.9653,-9.7358 -20.9757,-14.5841 -9.1028,-5.9456 -18.3939,-11.8879 -28.5216,-15.9288 0,0 41.9518,-4.6638 41.9518,-4.6638 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="7251.4287"
+       y="4043.7908"
+       id="text8827"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8829"
+         x="7251.4287"
+         y="4043.7908">To enter your</tspan><tspan
+         sodipodi:role="line"
+         x="7251.4287"
+         y="4093.7908"
+         id="tspan8831">reply click</tspan><tspan
+         sodipodi:role="line"
+         x="7251.4287"
+         y="4143.791"
+         id="tspan8833">reply</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient8894);stroke-width:6.81552792;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect3003-9-2-3-7-43"
+       width="496.23981"
+       height="950.52563"
+       x="5460.8545"
+       y="4448.5278" />
+    <rect
+       style="opacity:0.88333333;fill:#04c2d2;fill-opacity:1;stroke:#050a0a;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6143-7-9-5-9"
+       width="492.95444"
+       height="88.893425"
+       x="5460.8237"
+       y="4451.5293" />
+    <text
+       xml:space="preserve"
+       style="font-size:89.1896286px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5208.8374"
+       y="4784.543"
+       id="text6145-6-2-3-4"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0579412,0.94523211)"><tspan
+         sodipodi:role="line"
+         id="tspan6147-8-8-4-01"
+         x="5208.8374"
+         y="4784.543"
+         style="fill:#ffffff;fill-opacity:1;font-family:rockwell;-inkscape-font-specification:rockwell">Question</tspan></text>
+    <rect
+       style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6149-5-6-2-8"
+       width="311.12698"
+       height="40.406101"
+       x="5464.8643"
+       y="5264.9346"
+       ry="0" />
+    <g
+       id="g7585-9-9-7-2"
+       transform="translate(-202.8592,2349.5891)">
+      <rect
+         y="2915.5481"
+         x="5996.7983"
+         height="40.091442"
+         width="151.20822"
+         id="rect6155-8-9-4-47"
+         style="opacity:0.88333333;fill:#ffffff;fill-opacity:1;stroke:#04c2d2;stroke-width:5.21746349;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <text
+         transform="scale(1.0535987,0.94912798)"
+         sodipodi:linespacing="125%"
+         id="text6157-8-2-6-69"
+         y="3103.5754"
+         x="5694.3423"
+         style="font-size:39.07181549px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+           y="3103.5754"
+           x="5694.3423"
+           id="tspan6159-4-2-6-8"
+           sodipodi:role="line">Answer</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:50.61040115px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5241.4072"
+       y="4812.8457"
+       id="text6165-0-1-7-95"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0484183,0.95381777)"><tspan
+         sodipodi:role="line"
+         id="tspan6167-0-5-9-0"
+         x="5241.4072"
+         y="4812.8457"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Selected question</tspan><tspan
+         sodipodi:role="line"
+         x="5241.4072"
+         y="4876.1089"
+         id="tspan6169-2-3-5-8"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">written here.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6932.7803"
+       y="3866.7612"
+       id="text6171-7-3-5-1"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-4-6-0-1"
+         x="6932.7803"
+         y="3866.7612"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes /Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6214.3135"
+       y="4136.9326"
+       id="text6175-0-6-0-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-9-1-1-8"
+         x="6214.3135"
+         y="4136.9326"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5725.7124"
+       y="4870.5229"
+       id="text6576-8-8-4-0"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6578-8-6-2-7"
+         x="5725.7124"
+         y="4870.5229"
+         style="font-family:Rockwell;-inkscape-font-specification:Rockwell">Top Answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:44.62367249px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6446.5103"
+       y="4173.7456"
+       id="text6580-3-9-9-7"
+       sodipodi:linespacing="125%"
+       transform="scale(0.84697364,1.1806743)"><tspan
+         sodipodi:role="line"
+         id="tspan6582-3-2-6-9"
+         x="6446.5103"
+         y="4173.7456"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell"
+   id="tspan6584-6-5-5-5">This is the top voted answer</tspan>.</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5471.4268"
+       y="4810.5225"
+       id="text6586-2-4-9-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-4-4-3-6"
+         x="5471.4268"
+         y="4810.5225"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5888.5695,4770.5226 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-34-3-6-28"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5478.1636"
+       y="5043.3799"
+       id="text6586-6-4-8-3-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-4-3-9-80"
+         x="5478.1636"
+         y="5043.3799"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5889.592,4994.8082 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-2-5-5-2"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6213.1719"
+       y="4390.7822"
+       id="text6175-2-3-0-9-5"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-4-4-0-5"
+         x="6213.1719"
+         y="4390.7822"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6946.7939"
+       y="4103.1016"
+       id="text6171-2-7-3-2-3"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-9-5-8-4"
+         x="6946.7939"
+         y="4103.1016"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5588.5698"
+       y="4753.3799"
+       id="text6684-0-8-3-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6686-0-7-0-84"
+         x="5588.5698"
+         y="4753.3799"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">View picture.</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#04c2d2;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5457.1409,5090.5225 497.1429,0"
+       id="path6688-8-4-5-9"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#04c2d2;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5471.4272"
+       y="5130.5229"
+       id="text6690-6-8-8-3"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6692-6-2-4-94"
+         x="5471.4272"
+         y="5130.5229"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#04c2d2;fill-opacity:1;font-family:Rockwell;-inkscape-font-specification:Rockwell">Other Answers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:45.38778687px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6209.9297"
+       y="4564.5234"
+       id="text6175-2-2-2-1-2-6"
+       sodipodi:linespacing="125%"
+       transform="scale(0.88129433,1.1346947)"><tspan
+         sodipodi:role="line"
+         id="tspan6177-5-1-7-4-5-3"
+         x="6209.9297"
+         y="4564.5234"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Favourite</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:36.70677185px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6942.6963"
+       y="4263.4897"
+       id="text6171-2-5-6-3-1-6"
+       sodipodi:linespacing="125%"
+       transform="scale(0.82423528,1.2132458)"><tspan
+         sodipodi:role="line"
+         id="tspan6173-3-5-0-7-2-0"
+         x="6942.6963"
+         y="4263.4897"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">Upvotes/Upvote</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5614.2847"
+       y="5373.3799"
+       id="text7542-5-8-2-5"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan7544-7-9-6-5"
+         x="5614.2847"
+         y="5373.3799"
+         style="font-family:rockwell;-inkscape-font-specification:rockwell">Read Later</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5473.853"
+       y="5220.0635"
+       id="text6586-6-1-7-1-4-22"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6588-2-0-8-7-0-8"
+         x="5473.853"
+         y="5220.0635"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rockwell;-inkscape-font-specification:Rockwell">View replies</tspan></text>
+    <path
+       style="fill:#04c2d2;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 5889.9981,5180.5225 51.4286,28.5714 -51.4286,31.4286 -25.7143,-20 40,-20 -37.1428,-8.5715 z"
+       id="path6602-3-0-2-9-3-2"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:none;stroke:#04c2d2;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect7590-1-7-0-8"
+       width="237.14287"
+       height="60"
+       x="5594.2842"
+       y="5327.6655" />
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path9003"
+       d="m 5880.8475,5160.5658 c 10.7181,-1.812 19.1597,-9.4491 27.6885,-15.6485 8.366,-5.6245 15.8841,-12.3296 23.6894,-18.665 4.5649,-3.5123 8.5221,-7.5137 12.0566,-12.0347 12.4836,-15.8873 -5.3895,-5.5208 45.6589,-3.6673 -3.8808,4.2193 -7.3501,8.7863 -11.4081,12.8923 -6.3816,5.6464 -11.9165,12.0984 -16.6517,19.168 -3.0093,4.9679 -6.716,8.8825 -11.7366,11.7547 -4.5884,2.0414 -8.5754,4.832 -12.2912,8.162 -2.5447,3.2508 -0.9775,0.3149 0.88,0.3607 1.5165,0.037 6.6456,1.5524 7.6181,1.8168 14.0427,3.4191 27.1044,9.4606 40.0649,15.6909 14.6935,7.0563 28.4013,15.6979 41.3166,25.5963 5.8571,5.2228 11.809,10.6503 16.7735,16.7573 -50.1637,3.1966 -34.6417,10.9453 -55.455,-10.9521 -9.1492,-10.1205 -19.9318,-18.4177 -31.1137,-26.1381 -6.8997,-6.0195 -14.9088,-9.7358 -23.3017,-13.0346 -2.4926,-1.2595 -9.6312,-2.1277 -10.7595,-5.0714 -0.2824,-0.7368 -0.1574,-1.5703 -0.2362,-2.3555 0.4568,-1.0163 0.5818,-2.2617 1.3703,-3.0489 2.3962,-2.3925 19.3992,-1.474 22.6529,-1.4923 21.5284,0.046 43.0562,0.042 64.585,0.055 3.1958,0 12.7831,0.057 9.5876,0.013 -30.0226,-0.4076 -39.3609,0.2626 -20.5566,-0.7291 12.7306,-1.0229 25.3616,-2.9523 38.0656,-4.2402 6.3467,-0.7144 12.7345,-0.8497 19.1137,-0.9612 3.1907,-0.1031 1.5981,0.042 4.7774,-0.4399 0,0 41.4196,5.7461 41.4196,5.7461 l 0,0 c -3.2806,0.7778 -1.624,0.3799 -4.9698,1.1943 -6.6373,-0.02 -13.281,0.025 -19.9042,0.5054 -13.2989,0.9808 -26.5163,2.7086 -39.7735,4.117 -24.4121,1.3297 -7.2793,0.5325 -56.4738,0.872 -3.2277,0.022 -12.911,-3e-4 -9.6833,0 9.7098,0.012 19.4197,-0.012 29.1295,0.02 5.2082,0.017 -19.2328,0.067 -15.6243,0.099 -5.1279,0.052 -10.2534,0.1112 -15.3796,0.2585 -0.5593,0.016 -4.5297,0.2449 -4.9062,-0.066 -0.5863,-0.4836 -0.5566,-1.4145 -0.8349,-2.1218 -0.058,-0.3742 -0.3796,-0.8048 -0.1738,-1.1227 0.039,-0.061 1.0522,0.5272 2.3585,1.0257 2.477,0.9454 5.0421,1.677 7.4327,2.8484 8.0628,3.4534 15.044,8.6129 21.8396,14.1163 11.235,8.1367 22.025,16.8369 31.7455,26.7681 3.464,3.2976 6.8908,6.6618 10.4633,9.8435 12.9665,11.5484 20.6363,2.7533 -37.9489,6.6198 -3.2672,-6.0631 -8.8587,-10.8469 -13.9549,-15.4496 -12.5777,-9.7795 -26.1102,-18.1247 -40.598,-24.8092 -13.3565,-6.1891 -27.0472,-11.6557 -41.5023,-14.7162 -5.8576,-1.3306 -16.0877,-2.6494 -9.7364,-10.972 3.7726,-3.7752 7.6958,-7.1513 12.5816,-9.4021 5.0274,-2.0386 8.7051,-5.0829 11.8262,-9.5835 4.8791,-7.1359 10.6175,-13.7761 16.8078,-19.7996 3.655,-4.1644 7.9764,-7.9601 10.1547,-13.1924 15.8386,0.1823 56.9794,-9.4747 38.527,9.7162 -3.5662,5.1064 -7.945,9.3089 -12.8794,13.1023 -8.2295,6.2088 -16.0238,12.9929 -24.6083,18.7335 -5.0153,3.6151 -9.8924,7.3818 -14.9255,10.9721 -1.9774,1.4106 -5.9795,4.4595 -8.3095,5.6657 -0.8691,0.4498 -1.8435,0.6571 -2.7653,0.9857 0,0 -41.7228,-5.7665 -41.7228,-5.7665 z"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path9005"
+       d="m 5502.3692,5164.2406 c -21.6488,-0.3482 -43.3012,-0.4298 -64.9524,-0.5022 -35.7319,-0.1157 -71.464,-0.1 -107.1958,0.022 -20.2038,0.075 -40.4076,0.1575 -60.611,0.3026 -4.9012,-0.159 -11.3309,2.7258 -6.2552,-6.4456 0.4178,-0.7549 1.725,0.047 2.5876,0.063 1.6027,0.03 3.2054,0.051 4.8081,0.076 20.668,0.2199 41.3375,0.2267 62.0064,0.2355 19.3386,-0.017 38.6772,-0.086 58.0156,-0.1816 9.1981,-0.05 18.3964,-0.075 27.5946,-0.1241 14.5776,-0.1265 35.8217,0.7575 -32.4359,-0.094 -0.8652,-0.011 1.7159,-0.2266 2.57,-0.3654 1.7474,-0.284 3.4836,-0.6331 5.2262,-0.945 5.9477,-1.078 11.9957,-1.2346 18.0216,-1.3748 21.6284,-0.1659 43.2583,0.012 64.8874,-0.072 -8.6858,0.1101 19.1464,-0.037 9.7315,-0.028 -13.2877,0.018 -26.5754,0.036 -39.8631,0.054 0.4237,0.8705 0.4392,0.4515 0.05,1.2569 -8.6547,-5.7876 -16.7938,-12.3652 -25.1124,-18.64 -7.5498,-5.2961 -14.6465,-12.3509 -23.4414,-15.6907 -0.6762,-0.2567 -1.4388,-0.1501 -2.1582,-0.2252 14.1408,-0.9239 28.2817,-1.8479 42.4225,-2.7718 8.5483,7.4789 18.0411,13.6962 27.2997,20.2284 5.5774,3.8912 11.0336,7.9339 16.5004,11.9739 3.681,2.7203 7.0152,4.7591 9.8293,8.3701 0.1466,1.1092 0.5899,2.2188 0.4399,3.3275 -0.8837,6.5318 -14.4625,16.1132 -19.2785,20.2722 -10.5437,9.043 -20.4449,18.7808 -29.3502,29.4423 -3.6138,4.2118 -6.3462,8.8112 -8.3605,13.9418 0,0 -41.6899,-1.6535 -41.6899,-1.6535 l 0,0 c 0.8081,-1.8146 1.3239,-3.7566 2.2113,-5.5338 1.8409,-3.6869 5.2315,-6.35 7.6344,-9.615 9.3323,-10.5569 19.2145,-20.6754 29.8343,-29.943 2.5584,-2.3419 15.875,-13.6665 17.0655,-16.4308 0.1314,-0.305 -0.038,-0.6632 -0.057,-0.9948 -6.6399,-7.9527 -16.3924,-12.8477 -24.3116,-19.3386 -5.9904,-4.1112 -12.0064,-8.1772 -17.9302,-12.3843 -0.8878,-0.6305 -8.4512,-5.9823 -9.6366,-7.017 -1.0158,-0.8866 -1.8377,-1.9734 -2.7566,-2.9601 13.9786,-1.3122 27.9264,-3.0083 41.9357,-3.9367 0.5274,-0.035 0.7459,0.7528 1.1606,1.0806 1.0504,0.8301 2.1461,1.6014 3.229,2.3887 6.2379,4.5352 12.4213,9.1379 18.5775,13.7848 3.2414,2.3123 9.7269,6.9664 13.1201,9.2844 4.2362,2.894 9.9307,5.5288 13.457,9.3873 0.7059,0.7723 1.0997,1.7804 1.6496,2.6705 0.1106,1.055 0.443,2.1099 0.3317,3.1648 -1.5253,14.4657 -37.301,1.5819 -53.3036,2.9889 -15.6299,-0.092 -5.2857,-0.024 32.5897,-0.027 1.4648,-1e-4 -2.9296,-0 -4.3944,0 -2.6039,0.01 -5.2077,0.018 -7.8116,0.031 -1.181,0.01 -2.362,0.017 -3.543,0.026 -5.8925,0.064 -11.8042,0.095 -17.661,0.8217 -2.4745,0.3625 -5.3583,1.3855 -7.827,1.4481 -16.6421,0.4216 -33.2334,0.6374 -49.8567,0.5891 -8.6759,-0.05 -17.3519,-0.074 -26.0277,-0.1241 -18.5739,-0.098 -37.1481,-0.1659 -55.7222,-0.1816 -21.66,0.01 -43.3204,0.026 -64.9797,0.2354 -1.9237,0.025 -3.8475,0.047 -5.7712,0.076 -1.128,0.017 -2.7471,0.9943 -3.3839,0.063 -6.6264,-9.6909 4.4492,-6.1539 8.6178,-6.4456 21.4772,0.1415 42.9547,0.2275 64.4322,0.3026 35.8241,0.1168 71.6484,0.1419 107.4726,0.022 19.5373,-0.068 39.077,-0.1261 58.6113,-0.5021 0,0 41.758,6.6138 41.758,6.6138 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6125.7144"
+       y="5138.0767"
+       id="text9007"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan9009"
+         x="6125.7144"
+         y="5138.0767">Click to</tspan><tspan
+         sodipodi:role="line"
+         x="6125.7144"
+         y="5188.0767"
+         id="tspan9011">upvote </tspan><tspan
+         sodipodi:role="line"
+         x="6125.7144"
+         y="5238.0767"
+         id="tspan9013">the post</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="5057.1431"
+       y="5118.0762"
+       id="text9015"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan9017"
+         x="5057.1431"
+         y="5118.0762">Click to add </tspan><tspan
+         sodipodi:role="line"
+         x="5057.1431"
+         y="5168.0762"
+         id="tspan9019">to your </tspan><tspan
+         sodipodi:role="line"
+         x="5057.1431"
+         y="5218.0762"
+         id="tspan9021">favourites</tspan></text>
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path9023"
+       d="m 5908.2307,4734.7809 c 18.1136,0.3507 36.2314,0.3734 54.3477,0.4037 27.223,0.095 54.4461,-0.027 81.669,-0.074 16.7763,-0.041 33.5524,-0.1295 50.3286,-0.1847 8.4279,-0.036 16.8557,-0.075 25.2836,-0.095 0.9349,-0.01 1.8697,-0.011 2.8046,-0.016 0,0 -41.2005,6.5255 -41.2005,6.5255 l 0,0 c -0.8655,-0.01 -1.731,-0.011 -2.5965,-0.016 -8.0268,-0.019 -16.0536,-0.059 -24.0804,-0.095 -15.9988,-0.055 -31.9975,-0.1442 -47.9964,-0.1847 -26.9098,-0.048 -53.8197,-0.1703 -80.7296,-0.074 -19.8155,0.032 -39.6318,0.081 -59.4452,0.4037 0,0 41.6151,-6.5912 41.6151,-6.5912 z"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#060808;fill-opacity:1;stroke:#090b0b;stroke-width:5;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="path9025"
+       d="m 5857.5651,4729.2272 c 9.3897,-2.3223 18.5246,-5.6424 27.642,-8.8583 6.8337,-1.8761 13.1169,-4.9086 19.0985,-8.641 2.9476,-1.8689 5.8452,-3.8213 8.8185,-5.6499 0.2073,-0.1274 0.6222,-0.6016 0.6359,-0.3587 0.085,1.5121 -0.2674,3.0171 -0.4011,4.5257 51.884,-0.8445 48.6751,-4.1134 25.864,7.9016 -8.2412,4.1454 -16.3636,8.584 -24.1283,13.5725 -1.0585,-0.14 -8.9387,7.4994 -7.3535,4.7339 5.8041,0.7783 11.7128,3.9567 16.7877,6.8452 9.4725,6.5871 18.2638,14.0297 27.3669,21.0971 3.7117,2.6225 6.8481,5.8913 9.9813,9.149 0,0 -41.0583,3.1573 -41.0583,3.1573 l 0,0 c -2.9581,-3.0563 -5.9373,-6.098 -9.3266,-8.6906 -8.7305,-7.3105 -17.6681,-14.466 -27.5158,-20.2327 -3.8361,-1.7315 -14.6178,-5.0721 -17.2938,-7.6038 -0.557,-0.5269 -0.865,-1.2661 -1.2975,-1.8992 -0.1618,-0.9078 -0.5031,-1.8013 -0.4855,-2.7232 0.075,-3.9319 6.5861,-5.853 8.9833,-7.9208 7.7776,-5.2285 16.4867,-9.0878 24.5601,-13.8459 3.2882,-1.91 6.6264,-3.7005 9.9544,-5.538 0.734,-0.4053 1.5027,-0.7549 2.1973,-1.2245 0.6158,-0.4164 0.9751,-1.3861 1.7175,-1.4223 14.4547,-0.7054 28.9391,-0.5199 43.4086,-0.7799 0.092,1.5776 0.4828,3.1662 0.2744,4.7326 -0.1596,1.2 -9.3891,5.0056 -10.4695,6.2265 -6.1124,4.3952 -12.559,7.9872 -20.0108,9.6156 -8.7647,2.9185 -17.5292,5.8655 -26.0599,9.4184 0,0 -41.8898,-5.5866 -41.8898,-5.5866 z"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="6162.8574"
+       y="4746.6479"
+       id="text9027"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan9029"
+         x="6162.8574"
+         y="4746.6479">The will only appear</tspan><tspan
+         sodipodi:role="line"
+         x="6162.8574"
+         y="4796.6479"
+         id="tspan9031">if there is a </tspan><tspan
+         sodipodi:role="line"
+         x="6162.8574"
+         y="4846.6479"
+         id="tspan9033">picture attached,</tspan><tspan
+         sodipodi:role="line"
+         x="6162.8574"
+         y="4896.6479"
+         id="tspan9035">you can click to </tspan><tspan
+         sodipodi:role="line"
+         x="6162.8574"
+         y="4946.6479"
+         id="tspan9037">view the picture if </tspan><tspan
+         sodipodi:role="line"
+         x="6162.8574"
+         y="4996.6479"
+         id="tspan9039">there is one</tspan></text>
   </g>
 </svg>
