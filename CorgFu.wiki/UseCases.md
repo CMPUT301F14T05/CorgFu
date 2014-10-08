@@ -88,7 +88,7 @@ Use Cases
 ####	Case Number: 	12
 	Use Case Name: 	UpVote
 	Participants:	AppUser
-	Goal:			To upvote other users questions (not thier own)
+	Goal:			To upvote other users questions
 	Precondition:	AppUser must have selected the question and be currently viewing it
 	Postcondition:	AppUsers and Authors can see how many upvotes the question has recieved 
 					when they are viewing it
