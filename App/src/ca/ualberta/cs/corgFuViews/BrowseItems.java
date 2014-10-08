@@ -34,7 +34,7 @@ public class BrowseItems extends Activity {
 	}
 	
 	public void viewMostUpvotedQuestions(){
-		
+		//Test string
 	}
 	
 	public void viewMostUpvotedAnswers(){
