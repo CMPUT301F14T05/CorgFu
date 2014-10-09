@@ -110,12 +110,30 @@ Use Cases
 	Postcondition:	AppUsers and Authors can see how many upvotes the question has recieved 
 					when they are viewing it
 					
-####	Case Number: 	13
-	Use Case Name: 	ViewMostUpvotedQuestion
-	Participants:	AppUser
-	Goal:			To view most upvoted question when browsing questions, if desired
-	Precondition:	AppUser must be currently able to browse questions (internet connection)
-	Postcondition:	AppUser views questions in descending order of number of upvotes
+####	Use Case Number: 13
+	ID:					UC-13
+	Title: 				ViewMostUpvotedQuestion
+	Description:		AppUser accesses the app and selects the option to view questions. 
+						He or she then clicks on the sortby dropdown and 
+						selects the sort by upvotes option. The user then views the questions 
+						in the order of most upvotes to least upvotes.
+	Primary Actor:		AppUser
+	Precondition:		AppUser must be currently able to browse questions (internet 
+						connection)
+	Postcondition:		AppUser views questions in descending order of number of upvotes
+	Main Success 
+	Scenario:
+						1. AppUser selects the upvote option from the sortby menu.
+						2. App displays the list of Questions with the most upvoted at the top.
+						3. AppUser can browse questions in decreasing number of upvotes.
+	Extensions:			2a. No questions are currently available
+							2a1. App displays error message saying no questions are currently
+								available, try connecting to the internet.
+	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
+						questions
+	Status:				Testcases in production
+	Owner:				Wyatt Fleming
+	Priority:			P3 - Low
 	
 ####	Case Number: 	14
 	Use Case Name: 	ViewMostUpvotedAnswer
