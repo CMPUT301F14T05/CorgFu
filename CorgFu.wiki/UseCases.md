@@ -90,7 +90,7 @@ Use Cases
 							2a1. Picture added exceeds the speficifcations; >64kB. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
 	Status:				Testcases in production
-	Responsibility:		Anthony for test cases
+	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
 
@@ -110,7 +110,7 @@ Use Cases
 							2a1. Picture added is >64kB. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
 	Status:				Testcases in production
-	Responsibility:		Anthony for test cases
+	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
 ####	Case Number: 	10
