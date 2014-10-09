@@ -3,7 +3,9 @@ Use Cases
 ####	Use Case Number: 1
 	ID: UC-1
 	Title:   BrowseQuestions
-	Description: 		The user will be able to browse questions. the veiw will consist of just the question string, (likely) the number of answers, upvotes, date made. exact view determined by the questionBrowse Item. The browse should be sorted in a manner tested below. I will just test if all the items are added.
+	Description: 		The user will be able to browse questions. the veiw will consist of just the question string, (likely) the number of answers,
+ 						upvotes, date made. exact view determined by the questionBrowse Item. The browse should be sorted in a manner tested below. 
+						I will just test if all the items are added.
 	Primary Actor:   	AppUser
 	Precondition:	 	AppUser has network connection to view non-favorite/saved questions if not display nothing in list
 	Postcondition:	 	On success, AppUser views questions made by Authors
