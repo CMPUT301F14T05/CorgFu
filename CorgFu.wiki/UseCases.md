@@ -1,11 +1,24 @@
 Use Cases
 =========
 ####	Use Case Number: 1
-	Use Case Name:   BrowseQuestions
-	Participants:    AppUser
-	Goal:            To browse questions
-	Precondition:	 AppUser has network connection to view non-favorite questions
-	Postcondition:	 On success, AppUser views questions made by Authors
+	ID: UC-1
+	Title:   BrowseQuestions
+	Description: 		The user will be able to browse questions. the veiw will consist of just the question string, (likely) the number of answers, upvotes, date made. exact view determined by the questionBrowse Item. The browse should be sorted in a manner tested below. I will just test if all the items are added.
+	Primary Actor:   	AppUser
+	Precondition:	 	AppUser has network connection to view non-favorite/saved questions if not display nothing in list
+	Postcondition:	 	On success, AppUser views questions made by Authors
+	Main Success Scenario: 
+						1. 	The user clicks on the Questions or returns to the Question screen. 
+						2. 	The list view displays all of the questions, each having their stats and options
+	Extensions: 			2a. displays questions but does not have correct stats(number of votes, number of answerse, and if it has a photo).
+								-2a1. displays or has the incorrect values for stats
+								-2a2. displays 0 or null for all stats
+							2b. displays no questions.
+	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
+	Status: 			pending testcase, and implementation
+	Responsibility:		Devon for test case
+	Prioirty: 			P1- very Important
+
 	
 ####	Use Case Number: 2
 	Use Case Name: 	 ViewQuestionAndAnswers
