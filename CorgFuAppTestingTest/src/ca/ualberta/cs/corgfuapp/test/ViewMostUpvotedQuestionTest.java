@@ -1,25 +1,31 @@
 package ca.ualberta.cs.corgfuapp.test;
 
-import android.test.ActivityInstrumentationTestCase2;
-import ca.ualberta.cs.corgFuControllers.BrowseQuestionsSorter;
+import java.util.ArrayList;
+
+import junit.framework.TestCase;
+import ca.ualberta.cs.corgFuControllers.QuestionController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
-import ca.ualberta.cs.corgFuViews.BrowseItems;
 
 public class ViewMostUpvotedQuestionTest 
-	extends ActivityInstrumentationTestCase2<BrowseItems>{
+	extends TestCase{
 	
 	public ViewMostUpvotedQuestionTest() {
-		super(BrowseItems.class);
+		super();
 	}
 	
 	public void testViewHasCorrectOrder(){
-		BrowseQuestionsSorter mBQS = new BrowseQuestionsSorter();
-		Question mQ = new Question();
+		Question mQ1 = new Question();//add question text
+		Question mQ2 = new Question();//add question text
+		//upvote one of the questions
 		AllQuestions mAQ = new AllQuestions();
-		assertEquals("Testing if BrowseItems is displaying the list of " +
-				"items in descending number of upvotes",BrowseItems.getCurrentDisplayCollection(),
-				BrowseQuestionsSorter.sortByUpvotes());
+		//add questions
+		QuestionController mQC = new QuestionController(mAQ);
+		ArrayList<Question> expected = new ArrayList<Question>();
+		expected.add(mQ1);
+		expected.add(mQ2);
+		assertEquals("Testing if QuestionController returns list in correct order", mQC.sortByUpvote()
+				,expected);
 	}
 	
 
