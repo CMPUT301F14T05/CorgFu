@@ -22,10 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers"
-            android:label="@string/title_activity_view_question_and_answers" >
-        </activity>
     </application>
 
 </manifest>
