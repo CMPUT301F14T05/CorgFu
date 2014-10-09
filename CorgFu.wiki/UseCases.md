@@ -136,7 +136,7 @@ Use Cases
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
 						questions
 	Status:				Testcases in production
-	Owner:				Wyatt Fleming
+	Responsibility:		Wyatt for test cases
 	Priority:			P3 - Low
 	
 ####	Case Number: 	14
