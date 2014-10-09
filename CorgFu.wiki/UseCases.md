@@ -80,17 +80,18 @@ Use Cases
 	Precondition:	Author must be in the process of making an answer
 	Postcondition:	Authors and AppUsers can view the picture that is attached to the 
 					the answer
-  Main Success 
-	Scenario:
-						1. AppUser selects the "yes" option when prompted "Do you want to add picture".
-						2. App displays a list of image options either from the gallery/camera.
-						3. AppUser adds a picture <64kB. 
-	Extensions:			2a. Image directory is empty; AppUser selects a void picture option
-							2a1. Picture added >32kB. 
-	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
-	Status:				Testcases in production
-	Responsibility:		Anthony for test cases
-	Priority:			P3 - Low
+    Main Success 
+    Scenario:
+                    1. AppUser selects the "yes" option when prompted "Do you want to add picture".
+                    2. App displays a list of image options either from the gallery/camera.
+                    3. AppUser adds a picture <64kB. 
+    Extensions:			
+                    2a. Image directory is empty; AppUser selects a void picture option
+                    2a1. Picture added > 32kB. 
+    Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
+    Status:				Testcases in production
+    Responsibility:		Anthony for test cases
+    Priority:			P3 - Low
 
 ####	Case Number: 	9
 	Use Case Name: 	SmallPicturesOnly
@@ -100,17 +101,18 @@ Use Cases
 	Precondition:	Author must submit question or answer
 	Postcondition:	The question or answer is accepted if the photo is <65kb and 
 					rejected if it is >64kb
-  Main Success 
-  Scenario:
-						1. AppUser selects the "yes" option when prompted "Do you want to add picture".
-						2. App displays a list of image options either from the gallery/camera.
-						3. AppUser adds a picture <64kB. 
-	Extensions:			2a. Image directory is empty; AppUser selects a void picture option
-							2a1. Picture added is >32kB. 
-	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
-	Status:				Testcases in production
-	Responsibility:		Anthony for test cases
-	Priority:			P3 - Low
+    Main Success 
+    Scenario:       
+                    1. AppUser selects the "yes" option when prompted "Do you want to add picture".
+                    2. App displays a list of image options either from the gallery/camera.
+                    3. AppUser adds a picture <64kB. 
+    Extensions:			
+                    2a. Image directory is empty; AppUser selects a void picture option
+                    2a1. Picture added is >32kB. 
+    Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
+    Status:	Testcases in production
+    Responsibility:		Anthony for test cases
+    Priority:			P3 - Low
 
 ####	Case Number: 	10
 	Use Case Name: 	SortQuestionsByPicture
