@@ -93,7 +93,6 @@ Use Cases
 	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
-
 ####	Use Case Number: 9
 	ID:					UC-09
 	Title: 				SmallPicturesOnly
@@ -113,22 +112,44 @@ Use Cases
 	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
-####	Case Number: 	10
-	Use Case Name: 	SortQuestionsByPicture
-	Participants:	AppUser
-	Goal:			For AppUser to view Questions sorted based on whether 
-					they have pictures or not
-	Precondition:	AppUser must be have a network connection
-	Postcondition:	AppUser views questions grouped by whether or not they have a 
-					picture attached to them
-	
-####	Case Number: 	11
-	Use Case Name: 	SortQuestionsDate
-	Participants:	AppUser
-	Goal:			For AppUser to view Questions based on date
-	Precondition:	AppUser must have internet connection and be able to browse questions
-	Postcondition:	AppUser views questions in decending order of recency
-	
+
+####  Use Case Number: 10
+	ID:					UC-10
+	Title: 				SortQuestionsByPicture
+	Description:		For AppUser to view Questions sorted based on whether they have pictures or not
+	Primary Actor:		AppUser
+	Precondition:		AppUser must be have a network connection
+	Postcondition:	    AppUser views questions grouped by whether or not they have a picture attached to them
+	Scenario:
+						1. AppUser selects on the "sort by: tab "Questions with Pictures" option in the questions menu
+						2. App displays a list of questions reflecting the question with the most pictures followed by the least. 
+	Extensions:			2a. No questions are currently available
+							2a1. App displays error message saying no questions are currently
+                                 available, try connecting to the internet. 
+	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse questions with pictures
+	Status:				Testcases in production
+	Responsibility:		(Need some clarification)Test cases
+	Priority:			P3 - Low
+
+####  Use Case Number: 11
+	ID:					UC-11
+	Title: 				SortQuestionsDate
+	Description:		For AppUser to view Questions based on date
+	Primary Actor:		AppUser
+	Precondition:		AppUser must be currently able to browse questions (internet connection)
+	Postcondition:		AppUser views questions in decending order of recency
+	Main Success 
+	Scenario:
+						1. AppUser selects on the "sort by: tab "Most Recent Question" option in the questions menu
+						2. App displays a list of questions reflecting the most recent question followed by the oldest. 
+	Extensions:			2a. No questions are currently available
+							2a1. App displays error message saying no questions are currently
+								available, try connecting to the internet.
+	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse the most recent/oldest questions
+	Status:				Testcases in production
+	Responsibility:		Anthony for test cases
+	Priority:			P3 - Low
+
 ####	Case Number: 	12
 	Use Case Name: 	UpVote
 	Participants:	AppUser
@@ -157,7 +178,7 @@ Use Cases
 							2a1. App displays error message saying no questions are currently
 								available, try connecting to the internet.
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
-						questions
+  					questions
 	Status:				Testcases in production
 	Responsibility:		Wyatt for test cases
 	Priority:			P3 - Low
