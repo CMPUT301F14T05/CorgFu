@@ -162,9 +162,8 @@ Use Cases
 	ID:					UC-13
 	Title: 				ViewMostUpvotedQuestion
 	Description:		AppUser accesses the app and selects the option to view questions. 
-						He or she then clicks on the sortby dropdown and 
-						selects the sort by upvotes option. The user then views the questions 
-						in the order of most upvotes to least upvotes.
+						He or she then selects the sort by upvotes option and the use then
+						views the questions in the order of most upvotes to least upvotes.
 	Primary Actor:		AppUser
 	Precondition:		AppUser must be currently able to browse questions (internet 
 						connection)
@@ -178,14 +177,18 @@ Use Cases
 							2a1. App displays error message saying no questions are currently
 								available, try connecting to the internet.
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
-  					questions
+  						questions
 	Status:				Testcases in production
 	Responsibility:		Wyatt for test cases
 	Priority:			P3 - Low
 	
-####	Case Number: 	14
-	Use Case Name: 	ViewMostUpvotedAnswer
-	Participants:	AppUser
+####	Case Number: 14
+	ID:					UC-14	
+	Title: 				ViewMostUpvotedAnswer
+	Description:		When the App user is viewing a question he or she can select the
+						option to view the answers to a question in order of number of upvotes 
+						on the answers.
+	Primary Actor:		AppUser
 	Goal:			To view most upvoted answer when viewing a questions
 	Precondition:	AppUser must have already selected a question of interest
 	Postcondition:	AppUser views answers in descending order of number of upvotes
