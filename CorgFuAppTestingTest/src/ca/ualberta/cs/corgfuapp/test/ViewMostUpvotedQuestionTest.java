@@ -15,15 +15,20 @@ public class ViewMostUpvotedQuestionTest
 	}
 	
 	public void testViewHasCorrectOrder(){
-		Question mQ1 = new Question();//add question text
-		Question mQ2 = new Question();//add question text
-		//upvote one of the questions
+		Question mQ1 = new Question("Question 1");//add question text
+		Question mQ2 = new Question("Question 2");//add question text
+		mQ2.upvote();
+		
 		AllQuestions mAQ = new AllQuestions();
-		//add questions
+		mAQ.addQuestion(mQ1);
+		mAQ.addQuestion(mQ2);
+		
 		QuestionController mQC = new QuestionController(mAQ);
+		
 		ArrayList<Question> expected = new ArrayList<Question>();
-		expected.add(mQ1);
 		expected.add(mQ2);
+		expected.add(mQ1);
+		
 		assertEquals("Testing if QuestionController returns list in correct order", mQC.sortByUpvote()
 				,expected);
 	}
