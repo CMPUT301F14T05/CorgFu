@@ -22,4 +22,10 @@ public class Question
 	public void upvote(){
 		upvotes += 1;
 	}
+
+	public void addAnswer(String string) {
+		/* TODO create a new answer object with the text string and append it
+		to the answers list*/
+		
+	}
 }

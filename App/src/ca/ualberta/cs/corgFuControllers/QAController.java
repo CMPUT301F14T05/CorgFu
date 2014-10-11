@@ -7,15 +7,15 @@ import ca.ualberta.cs.corgFuModels.Question;
 
 public class QAController {
 	
-	private AllQuestions allQuestions = null;
-	
-	public QAController(AllQuestions aQ) {
-		allQuestions = aQ;
+	Question question;
+		
+	public QAController(Question q) {
+		question = q;
 	}
 
-	public ArrayList<Question> sortByUpvote() {
+	public int getAnswerCount() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 }
