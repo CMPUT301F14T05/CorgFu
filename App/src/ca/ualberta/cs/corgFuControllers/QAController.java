@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
-public class QuestionController {
+public class QAController {
 	
 	private AllQuestions allQuestions = null;
 	
-	public QuestionController(AllQuestions aQ) {
+	public QAController(AllQuestions aQ) {
 		allQuestions = aQ;
 	}
 

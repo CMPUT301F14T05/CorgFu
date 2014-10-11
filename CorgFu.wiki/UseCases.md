@@ -158,74 +158,123 @@ Use Cases
 	Postcondition:	AppUsers and Authors can see how many upvotes the question has recieved 
 					when they are viewing it
 					
-####	Use Case Number: 13
-	ID:					UC-13
-	Title: 				ViewMostUpvotedQuestion
-	Description:		AppUser accesses the app and selects the option to view questions. 
-						He or she then selects the sort by upvotes option and the use then
-						views the questions in the order of most upvotes to least upvotes.
+####	ID: UC-13
+	Title: 				ViewMostUpvotedQA
+	Description:		AppUser accesses the app and selects the option to browse questions. 
+						He or she then selects the sort by upvotes option and the AppUser then
+						views the questions and answers in the order of most upvotes to least 
+						upvotes.
 	Primary Actor:		AppUser
 	Precondition:		AppUser must be currently able to browse questions (internet 
 						connection)
 	Postcondition:		AppUser views questions in descending order of number of upvotes
 	Main Success 
-	Scenario:
-						1. AppUser selects the upvote option from the sortby menu.
-						2. App displays the list of Questions with the most upvoted at the top.
-						3. AppUser can browse questions in decreasing number of upvotes.
-	Extensions:			2a. No questions are currently available
+	Scenario:			1. AppUser selects the upvote option from the sortby menu.
+						2. System displays the list of Questions with the most upvoted at the top.
+						3. AppUser can browse questions and answers in decreasing number of upvotes.
+	Extensions:			2a. No questions are currently available:
 							2a1. App displays error message saying no questions are currently
 								available, try connecting to the internet.
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
-  						questions
+	                    questions
 	Status:				Testcases in production
 	Responsibility:		Wyatt for test cases
 	Priority:			P3 - Low
+
+####	ID: UC-14
+	Title: 	            ViewNumberOfAnswers
+	Description:        AppUser wants to view the number of answers to questions while they are.
+						browsing questions
+	Primary Actor:		AppUser	
+	Precondition:		AppUser must be currently browsing questions.
+	Postcondition:		AppUser views number of answers to questions while browsing questions.
+	Main Success
+	Scenario:			1. AppUser chooses to browse questions.
+						2. System displays questions in the default order of freshest first with
+						the number of answers shown by each question.
+						3. The AppUser can continue as desired.
+	Extensions:			2a. No Questions are available:
+							2a1. System displays error message indicating no questions are
+							currently available.
+	Frequency of Use:	Very frequent, every time an AppUser browses questions.
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priotity:			P2 - Medium
 	
-####	Case Number: 14
-	ID:					UC-14	
-	Title: 				ViewMostUpvotedAnswer
-	Description:		When the App user is viewing a question he or she can select the
-						option to view the answers to a question in order of number of upvotes 
-						on the answers.
-	Primary Actor:		AppUser
-	Goal:			To view most upvoted answer when viewing a questions
-	Precondition:	AppUser must have already selected a question of interest
-	Postcondition:	AppUser views answers in descending order of number of upvotes
-	
-####	Case Number: 	15
-	Use Case Name: 	ViewNumberOfAnswers
-	Participants:	AppUser
-	Goal:			To view number of answers to a question while browsing questions
-	Precondition:	AppUser must be currently browsing questions (internet connection)
-	Postcondition:	AppUser views number of answers to questions while browsing questions
-	
-####	Case Number: 	16
-	Use Case Name: 	SearchQuestionsAndAnswers
-	Participants:	AppUser, Elastisearch
-	Goal:			To find specific questions or answers using keywords
-	Precondition:	AppUser must have keyword(s) for question or answers of interest and internet connection
-	Postcondition:	AppUser views questions and answers in descending relevency to the keyword returned by
-					Elastisearch
+####	ID: UC-15
+	Title: 				SearchQuestionsAndAnswers
+	Description:		AppUser wants to search questions and answers using keywords to find 
+						questions and answers of interest.
+	Primary Actor:		AppUser, Elasticsearch
+	Precondition:		AppUser must have keyword(s) for questions or answers of interest and internet 						connection.
+	Postcondition:		AppUser views questions and answers returned by Elastisearch in descending 
+						relevency to the keyword.
+	Main Success
+	Scenario:			1. AppUser accesses the system and chooses to browse questions.
+						2. System displays all the questions that have been asked with the freshest
+						first.
+						3. AppUser chooses to search quesstions and answers using a keyword.
+						4. System sends keyword to Elastisearch.
+						5. Elasticsearch returns relevant results to system.
+						6. System displays the relevant results to the user.
+	Extensions:			2a. No Questions are available:
+							2a1. System will display error message indication no questions are 
+							currently available.
+							2a2. User can still enter a keyword, but system will display error
+							indicating that no results were found.
+						5a. Elasticsearch returns no results:
+							5a1. System displays error message indicating that no results were 
+							found.
+	Frequency of Use:	Very frequent, AppUsers will often find questions this way.
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P2 - Medium
 					
-####	Case Number: 	17
-	Use Case Name: 	RememberQuestionsAsked
-	Participants:	Author
-	Goal:			To have device remember which questions were asked by the Author
-	Precondition:	Author must have asked a question
-	Postcondition:	Author can browse and view all questions she/he has asked and any 
-					corresponding answers
+####	ID: UC-16
+	Title: 				RememberQuestionsAsked
+	Desciption:			Author wants the device to remember the questions were asked by the Author
+	Primary Actor:		Author
+	Precondition:		Author must be able to make a question
+	Postcondition:		Author can browse and view all questions she/he has asked and any 
+						corresponding answers
+	Main Success
+	Scenario:			1. Author makes a questions.
+						2. System stores the question on the Authors device.
+						3. System adds the question to the available questions so other 
+						AppUsers can browse, answer, and reply to the question.
+	Extenstions:		3a. System is not connected to the internet.
+							3a1. System will display message that the message will be uploaded
+							when the device has internet access again.
+							3a2. System pushes question once it gains internet acess
+	Frequency of Use:	Very frequent. Whenever an author makes a question.
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P3-Low
+	
+
+####	ID: UC-17
+	Title: 				ViewOffline
+	Description:		AppUser wants to view questions and corresponding answers offline
+	Primary Actor:		AppUser
+	Precondition:		AppUser must have viewed a question and any of its answers or indicated
+						it should be viewable offline
+	Postcondition:		AppUser can view previously viewed questions and answers or selected 
+						questions and answers offline
+	Main Succuss
+	Scenario:			1. AppUser selects a question for viewing from any of the available
+						methods (browse, search, etc.).
+						2. System displays the question with the corresponding answers and
+						replies to the question.
+						3. System stores the question and corresponding answers and replies
+						on the AppUser's device.
+						4. AppUser can view this question and its answers offline.
+	Extenstions:		None so far
+	Frequency of Use:	Very frequent. Used whenever an AppUser views a question.
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P3-Low
 
 ####	Case Number: 	18
-	Use Case Name: 	ViewOffline
-	Participants:	AppUser
-	Goal:			To be able to view questions and corresponding answers offline
-	Precondition:	AppUser must have viewed a question and any of its answers or indicated
-					it should be viewable offline
-	Postcondition:	AppUser can view previously viewed questions and answers or selected 
-					questions and answers offline
-
-####	Case Number: 	19
 	Use Case Name: 	SetFavorites
 	Participants:	AppUser
 	Goal:			To indicate a specific question as a favorite and view it offline
@@ -233,7 +282,7 @@ Use Cases
 	Postcondition:	AppUser can browse and select favorited questions on and offline via
 					ViewOffline
 	
-####	Case Number: 	20
+####	Case Number: 	19
 	Use Case Name: 	AuthorOffline
 	Participants:	Author
 	Goal:			For author to write replies, questions, and answers offline
@@ -243,7 +292,7 @@ Use Cases
 					corresponding answers offline
 	
 	
-####	Case Number: 	21
+####	Case Number: 	20
 	Use Case Name: 	PushOfflineContent
 	Participants:	Author
 	Goal:			For author to push content created in use case AuthorOffline
@@ -252,7 +301,7 @@ Use Cases
 	Postcondition:	Other AppUsers and Authors can view the questions, answers, and replies
 					and interact with them accordingly
 	
-####	Case Number: 	22
+####	Case Number: 	21
 	Use Case Name: 	ViewMostFresh
 	Participants:	AppUser
 	Goal:			For AppUser to view the most recent comments first when viewing
@@ -260,7 +309,7 @@ Use Cases
 	Precondition:	AppUser must have selected a question for viewing
 	Postcondition:	AppUser can views comments in descending order of date and time published
 	
-####	Case Number: 	23
+####	Case Number: 	22
 	Use Case Name: 	SetUsername
 	Participants:	Author
 	Goal:			For author to have choice of available usernames

@@ -3,7 +3,7 @@ package ca.ualberta.cs.corgfuapp.test;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import ca.ualberta.cs.corgFuControllers.QuestionController;
+import ca.ualberta.cs.corgFuControllers.QAController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
@@ -23,7 +23,7 @@ public class ViewMostUpvotedQuestionTest
 		mAQ.addQuestion(mQ1);
 		mAQ.addQuestion(mQ2);
 		
-		QuestionController mQC = new QuestionController(mAQ);
+		QAController mQC = new QAController(mAQ);
 		
 		ArrayList<Question> expected = new ArrayList<Question>();
 		expected.add(mQ2);
