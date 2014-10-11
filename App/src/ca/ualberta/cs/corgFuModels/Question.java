@@ -7,7 +7,6 @@ import ca.ualberta.cs.corgFu.Reply;
 
 public class Question
 {
-	private int questionId;
 	private int upvotes;
 	private String questionText;
 	private ArrayList<Answer> answers;
