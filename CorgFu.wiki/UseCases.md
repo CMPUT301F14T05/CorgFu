@@ -6,35 +6,50 @@ Use Cases
 	Description: 		The user will be able to browse questions. the veiw will consist of 
 						just the question string, (likely) the number of answers, upvotes, 
 						date made. exact view determined by the questionBrowse Item. The 
-						browse should be sorted in a manner tested below. I will just test 
-						if all the items are added.
+						browse should be sorted by date, relavancy, and pictures . I will just test 
+						if all the items are added. and once that passes move on to testing if the 
+            are sorted properly.
 	Primary Actor:   	AppUser
 	Precondition:	 	AppUser has network connection to view non-favorite/saved questions 
 						if not display nothing in list
 	Postcondition:	 	On success, AppUser views questions made by Authors
 	Main Success 
 	Scenario: 
-						1. 	The user clicks on the Questions or returns to the Question screen. 
+						1. 	The user clicks on the Questions button or returns to the Question screen. 
 						2. 	The list view displays all of the questions, each having their stats 
 						and options
-	Extensions: 		2a. displays questions but does not have correct stats(number of votes, 
-							number of answerse, and if it has a photo).
-								-2a1. displays or has the incorrect values for stats
-								-2a2. displays 0 or null for all stats
-						2b. displays no questions.
-	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
+	Extensions: 		
+            2a.0 There is no question to display.
+            2a.1 Prompotes user to ask a question
+  Frequency of Use: 	likely used everytime app runs, and multiple cycles.
 	Status: 			pending testcase, and implementation
 	Responsibility:		Devon for test case
 	Prioirty: 			P1- very Important
 
 	
 ####	Use Case Number: 2
-	Use Case Name: 	 ViewQuestionAndAnswers
-	Participants:	 AppUser
-	Goal:			 To view a single question and its corresponding answers
+	ID: UC-2
+  Title: 	 ViewQuestionAndAnswers
+  Description: The user has selected a question. The screen will display the question at
+              the top with a list of ansers below. The veiw will be a expanding list view.
+              the drop down will show replies and pictures. Votes should also be displayed.
+              
+	Primary Actor:	 AppUser
 	Precondition:	 AppUser has found question of interest and selected it
-	Postcondition:	 AppUser can view the question and corresponding answers
-	
+	Postcondition:	 AppUser can view the question and corresponding answers. note- should be
+              added to offline list but this is tested below.
+	MainSuccess
+  Scenario: 
+            1. The user clicks a question.
+            2. Information about that question is displayed. 
+            3. user clicks on an answer.
+            4. answer information is displayed.
+  Extensions: 
+            3a.1 no answers exsists for the question
+  Frequency of Use: very often, close to every use.
+  Status: 			pending testcase, and implementation
+  Responsibility:		Devon for test case
+	Prioirty: 			P2- Medium
 ####	Case Number: 	3
 	Use Case Name: 	ViewReplies
 	Participants:	AppUser
