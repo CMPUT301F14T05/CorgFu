@@ -1,7 +1,6 @@
 Glossary
 ========
-AppUser - the user who using a perticular phone. There may be many 
-        AppUser at a time on seperate phones.
+AppUser - the user who using a perticular phone. There may be many	  AppUser at a time on seperate phones.
         
 BrowseQuestion - A screen to display all questions that are displayed 
         or returned from a search result.

@@ -1,55 +1,40 @@
 Use Cases
 =========
-####	Use Case Number: 1
-	ID: 				UC-1
+
+####	ID: 				UC-1
 	Title:   			BrowseQuestions
 	Description: 		The user will be able to browse questions. the veiw will consist of 
 						just the question string, (likely) the number of answers, upvotes, 
 						date made. exact view determined by the questionBrowse Item. The 
-						browse should be sorted by date, relavancy, and pictures . I will just test 
-						if all the items are added. and once that passes move on to testing if the 
-            are sorted properly.
+						browse should be sorted in a manner tested below. I will just test 
+						if all the items are added.
 	Primary Actor:   	AppUser
 	Precondition:	 	AppUser has network connection to view non-favorite/saved questions 
 						if not display nothing in list
 	Postcondition:	 	On success, AppUser views questions made by Authors
 	Main Success 
 	Scenario: 
-						1. 	The user clicks on the Questions button or returns to the Question screen. 
+						1. 	The user clicks on the Questions or returns to the Question screen. 
 						2. 	The list view displays all of the questions, each having their stats 
 						and options
-	Extensions: 		
-            2a.0 There is no question to display.
-            2a.1 Prompotes user to ask a question
-  Frequency of Use: 	likely used everytime app runs, and multiple cycles.
+	Extensions: 		2a. displays questions but does not have correct stats(number of votes, 
+							number of answerse, and if it has a photo).
+								-2a1. displays or has the incorrect values for stats
+								-2a2. displays 0 or null for all stats
+						2b. displays no questions.
+	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
 	Status: 			pending testcase, and implementation
 	Responsibility:		Devon for test case
-	Prioirty: 			P1- very Important
+	Prioirty: 			P1-High
 
 	
 ####	Use Case Number: 2
-	ID: UC-2
-  Title: 	 ViewQuestionAndAnswers
-  Description: The user has selected a question. The screen will display the question at
-              the top with a list of ansers below. The veiw will be a expanding list view.
-              the drop down will show replies and pictures. Votes should also be displayed.
-              
-	Primary Actor:	 AppUser
+	Use Case Name: 	 ViewQuestionAndAnswers
+	Participants:	 AppUser
+	Goal:			 To view a single question and its corresponding answers
 	Precondition:	 AppUser has found question of interest and selected it
-	Postcondition:	 AppUser can view the question and corresponding answers. note- should be
-              added to offline list but this is tested below.
-	MainSuccess
-  Scenario: 
-            1. The user clicks a question.
-            2. Information about that question is displayed. 
-            3. user clicks on an answer.
-            4. answer information is displayed.
-  Extensions: 
-            3a.1 no answers exsists for the question
-  Frequency of Use: very often, close to every use.
-  Status: 			pending testcase, and implementation
-  Responsibility:		Devon for test case
-	Prioirty: 			P2- Medium
+	Postcondition:	 AppUser can view the question and corresponding answers
+	
 ####	Case Number: 	3
 	Use Case Name: 	ViewReplies
 	Participants:	AppUser
@@ -88,8 +73,7 @@ Use Cases
 	Precondition:	Author must be in the process of making a question
 	Postcondition:	Authors and AppUsers can view the picture attached to the question
 
-####  Use Case Number: 8
-	ID:					UC-08
+####	ID:					UC-08
 	Title: 				AttachPictureAnswer
 	Description:		Author to attach a photo to an answer
 	Primary Actor:		Author
@@ -108,8 +92,7 @@ Use Cases
 	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
-####	Use Case Number: 9
-	ID:					UC-09
+####	ID:					UC-09
 	Title: 				SmallPicturesOnly
 	Description:		Have any picture attached to question or answer be no larger than 64kb.
 	Primary Actor:		SysAdmin
@@ -128,8 +111,7 @@ Use Cases
 	Priority:			P3 - Low
 
 
-####  Use Case Number: 10
-	ID:					UC-10
+####	ID:					UC-10
 	Title: 				SortQuestionsByPicture
 	Description:		For AppUser to view Questions sorted based on whether they have pictures or not
 	Primary Actor:		AppUser
@@ -146,8 +128,7 @@ Use Cases
 	Responsibility:		(Need some clarification)Test cases
 	Priority:			P3 - Low
 
-####  Use Case Number: 11
-	ID:					UC-11
+####	ID:					UC-11
 	Title: 				SortQuestionsDate
 	Description:		For AppUser to view Questions based on date
 	Primary Actor:		AppUser
@@ -192,7 +173,7 @@ Use Cases
 								available, try connecting to the internet.
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
 	                    questions
-	Status:				Testcases in production
+	Status:				Testcase complete
 	Responsibility:		Wyatt for test cases
 	Priority:			P3 - Low
 
@@ -212,7 +193,7 @@ Use Cases
 							2a1. System displays error message indicating no questions are
 							currently available.
 	Frequency of Use:	Very frequent, every time an AppUser browses questions.
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priotity:			P2 - Medium
 	
@@ -241,7 +222,7 @@ Use Cases
 							5a1. System displays error message indicating that no results were 
 							found.
 	Frequency of Use:	Very frequent, AppUsers will often find questions this way.
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P2 - Medium
 					
@@ -257,12 +238,12 @@ Use Cases
 						2. System stores the question on the Authors device.
 						3. System adds the question to the available questions so other 
 						AppUsers can browse, answer, and reply to the question.
-	Extenstions:		3a. System is not connected to the internet.
+	Extensions:		3a. System is not connected to the internet.
 							3a1. System will display message that the message will be uploaded
 							when the device has internet access again.
 							3a2. System pushes question once it gains internet acess
 	Frequency of Use:	Very frequent. Whenever an author makes a question.
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 	
@@ -283,51 +264,113 @@ Use Cases
 						3. System stores the question and corresponding answers and replies
 						on the AppUser's device.
 						4. AppUser can view this question and its answers offline.
-	Extenstions:		None so far
+	Extensions:		None so far
 	Frequency of Use:	Very frequent. Used whenever an AppUser views a question.
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 
-####	Case Number: 	18
-	Use Case Name: 	SetFavorites
-	Participants:	AppUser
-	Goal:			To indicate a specific question as a favorite and view it offline
-	Precondition:	AppUser be currently viewing the desired question in order to favorite it
-	Postcondition:	AppUser can browse and select favorited questions on and offline via
-					ViewOffline
+####	ID: UC-18
+	Title: 				SetFavorites
+	Description:		AppUser wants to indicate a specific question as a favorite and view it 						offline.
+	Primary Actor:		AppUser		
+	Precondition:		AppUser be currently viewing the desired question in order to favorite it
+	Postcondition:		AppUser can browse and select favorited questions on and offline via
+						ViewOffline
+	Main Success
+	Scenario:			1. AppUser selects a question for viewing from any of the available
+						methods.
+						2. System displays the question along with its corresponding answers and
+						replies to the questions and answers.
+						3. AppUser adds the question to their favorites.
+						4. System adds the question to the AppUser's favorites and makes it
+						available offline.
+	Frequency of Use:	Infrequent to medium frequency depending on the AppUser
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P3-Low
 	
-####	Case Number: 	19
-	Use Case Name: 	AuthorOffline
-	Participants:	Author
-	Goal:			For author to write replies, questions, and answers offline
-	Precondition:	Author must be viewing a question that can be viewed offline via
-					ViewOffline
-	Postcondition:	Author can write replies, questions, and answers to questions and 
-					corresponding answers offline
+####	ID: UC-19
+	Title: 				AuthorOffline
+	Description:		Author wants to write replies, questions, and answers offline
+	Primary Actor:		Author
+	Precondition:		Author must be viewing a question that can be viewed offline via
+						ViewOffline
+	Postcondition:		Author can write replies, questions, and answers to questions and 
+						corresponding answers offline
+	Main Success
+	Scenario:			1. Author starts the system without internet connection and enters
+						username and question to be asked.
+						2. System notifies the Author that the question will not be posted until
+						internet is available.
+						3. System stores the question to be posted when internet is available
+	Extensions:			1a. Author is viewing a question available offline
+							1a1. Author answers the question or replies to the question or answer
+							1a2. System notifies the Author that the answer or reply will not be 
+							posted until internet is available.
+							1a3. System stores answer or reply and posts it when internet is
+							available.
+	Frequency of Use:	Medium frequency
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P3-Low
+							
 	
 	
-####	Case Number: 	20
-	Use Case Name: 	PushOfflineContent
-	Participants:	Author
-	Goal:			For author to push content created in use case AuthorOffline
-	Precondition:	Author must be connected to the internet and already done an 
-					AuthorOffline
-	Postcondition:	Other AppUsers and Authors can view the questions, answers, and replies
-					and interact with them accordingly
+####	ID: UC-20
+	Title: 				PushOfflineContent
+	Description:		Author wants to push content created in use case AuthorOffline
+	Primary Actor:		Author	
+	Precondition:		Author must be connected to the internet and already done an 
+						AuthorOffline
+	Postcondition:		Other AppUsers and Authors can view the questions, answers, and replies
+						and interact with them accordingly
+	Main Success
+	Scenario:			1. Author has already authored a question and gone throught the steps in 
+						UC-19.
+						2. Author starts the system with an internet connection
+						3. System pushes offline content so it can be viewed by other AppUsers
+						and Authors.
+	Frequency of Use:	Medium frequency
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P3-Low
+	Extends:			UC-19
 	
-####	Case Number: 	21
-	Use Case Name: 	ViewMostFresh
-	Participants:	AppUser
-	Goal:			For AppUser to view the most recent comments first when viewing
-					a selected question
-	Precondition:	AppUser must have selected a question for viewing
-	Postcondition:	AppUser can views comments in descending order of date and time published
+####	ID: UC-21
+	Title: 				ViewMostFresh
+	Description:		AppUser wants to view the most recent comment first when viewing
+						a selected question
+	Primary Actor:		AppUser
+	Precondition:		AppUser must have selected a question for viewing
+	Postcondition:		AppUser can view comments in descending order of date and time published
+	Main Success
+	Scenario:			1. AppUser selects a question through any available method.
+						2. System displays the question and corresponding answers with the most
+						recent answers visable to the AppUser
+						3. AppUser chooses to view replies to a question or answer
+						4. System displays replies with the most recent replies visable to the 
+						AppUser
+	Frequency of Use:	High frequency
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P2-Medium 
 	
-####	Case Number: 	22
-	Use Case Name: 	SetUsername
-	Participants:	Author
-	Goal:			For author to have choice of available usernames
-	Precondition:	Author must be connected to the internet
-	Postcondition:	Author can create questions, answers, and replies using the specified
-					username
+####	ID: UC-22
+	Title: 				SetUsername
+	Description:		For author to have choice of a username
+	Primary Actor:		Author
+	Precondition:		Author must be able to open the system
+	Postcondition:		Author can create questions, answers, and replies using the specified
+						username
+	Main Success
+	Scenario:			1. Author starts the system.
+						2. System starts.
+						3. Author enters username and confirms the username.
+						4. System uses the username to show other users who created the question,
+						answer, or reply
+	Frequency of Use: 	High frequency
+	Status:				Empty testcase
+	Responsibility:		Wyatt
+	Priority:			P1-High
+	
