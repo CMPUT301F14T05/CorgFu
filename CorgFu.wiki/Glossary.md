@@ -46,7 +46,7 @@ Piece of content submitted by Author who is looking for a solution to his questi
 
 A view that displays a question and all the replies linked to that question as well as options for that question.
     
-### Votes ###
+### Upvote ###
 
-A user selected up or down vote. Shows what app users think of a question or an answer.
+Positive vote made by AppUser to a Question or Answer. 
         
