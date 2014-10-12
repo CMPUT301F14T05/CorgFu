@@ -3,7 +3,7 @@ Glossary
 
 ### Answer
 
-Piece of content submitted by Author in order to provide solution to a specific Question.
+Piece of content submitted by Author in order to provide solution to a specific [Question](#Question).
 
 ### AppUser 
 
@@ -11,7 +11,7 @@ The user who is using a particular phone. There may be many AppUser at a time on
 
 ### Author
 
-AppUser who posted at least one Question, Answer, or Comment.
+[AppUser](#AppUser) who posted at least one Question, Answer, or Comment.
        
 ### BrowseQuestion
 
@@ -23,7 +23,7 @@ Piece of content submitted by Author. Each comment is associated with Question o
 
 Sometimes Comment is also referred to as Reply.
 
-### Content ###
+### Content
 
 Textual data that is encountered as part of the user experience. Typically, content is created by an Author.
 
@@ -46,7 +46,7 @@ Piece of content submitted by Author who is looking for a solution to his questi
 
 A view that displays a question and all the replies linked to that question as well as options for that question.
 
-### Upvote ###
+### Upvote
 
 Positive vote made by AppUser to a Question or Answer. Shows that an app user likes the question or answer.
         
