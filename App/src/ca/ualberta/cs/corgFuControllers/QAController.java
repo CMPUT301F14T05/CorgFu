@@ -32,4 +32,9 @@ public class QAController {
 		
 	}
 
+	public void setFav() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
