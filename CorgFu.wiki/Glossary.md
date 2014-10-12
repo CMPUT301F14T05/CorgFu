@@ -3,7 +3,7 @@ Glossary
 
 ### Answer
 
-Piece of content submitted by [Author](#Author) in order to provide solution to a specific [Question](#Question).
+Piece of content submitted by [Author](# Author) in order to provide solution to a specific [Question](### Question).
 
 ### AppUser 
 
