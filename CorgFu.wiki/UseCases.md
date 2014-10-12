@@ -6,8 +6,9 @@ Use Cases
 	Description: 		The user will be able to browse questions. the veiw will consist of 
 						just the question string, (likely) the number of answers, upvotes, 
 						date made. exact view determined by the questionBrowse Item. The 
-						browse should be sorted in a manner tested below. I will just test 
-						if all the items are added.
+						browse should be sorted by date, relavancy, and pictures . I will just test 
+						if all the items are added. and once that passes move on to testing if the 
+            			are sorted properly.
 	Primary Actor:   	AppUser
 	Precondition:	 	AppUser has network connection to view non-favorite/saved questions 
 						if not display nothing in list
@@ -17,48 +18,86 @@ Use Cases
 						1. 	The user clicks on the Questions or returns to the Question screen. 
 						2. 	The list view displays all of the questions, each having their stats 
 						and options
-	Extensions: 		2a. displays questions but does not have correct stats(number of votes, 
-							number of answerse, and if it has a photo).
-								-2a1. displays or has the incorrect values for stats
-								-2a2. displays 0 or null for all stats
-						2b. displays no questions.
-	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
+	Extensions: 		
+            2a.0 There is no question to display.
+            2a.1 Prompotes user to ask a question
+  	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
 	Status: 			pending testcase, and implementation
 	Responsibility:		Devon for test case
 	Prioirty: 			P1-High
 
-	
-####	Use Case Number: 2
-	Use Case Name: 	 ViewQuestionAndAnswers
-	Participants:	 AppUser
-	Goal:			 To view a single question and its corresponding answers
+####	ID: UC-2
+	Title: 	 ViewQuestionAndAnswers
+	Description: The user has selected a question. The screen will display the question at
+              the top with a list of ansers below. The veiw will be a expanding list view.
+              the drop down will show replies and pictures. Votes should also be displayed.
+              
+	Primary Actor:	 AppUser
 	Precondition:	 AppUser has found question of interest and selected it
-	Postcondition:	 AppUser can view the question and corresponding answers
-	
+	Postcondition:	 AppUser can view the question and corresponding answers. note- should be
+              added to offline list but this is tested below.
+	MainSuccess
+	Scenario: 
+            1. The user clicks a question.
+            2. Information about that question is displayed. 
+            3. user clicks on an answer.
+            4. answer information is displayed.
+    Extensions:
+			3a.1 no answers exsists for the question
+  
+	Frequency of Use: very often, close to every use.
+	Status: 			pending testcase, and implementation
+	Responsibility:		Devon for test case
+	Prioirty: 			P2- Medium
+
 ####	Case Number: 	3
-	Use Case Name: 	ViewReplies
-	Participants:	AppUser
-	Goal:		 	To view replies to a question or answer
+	ID: UC-3	
+	Title: 	ViewReplies
+	Primary Actor:	AppUser
+	Description:	AppUser users selects a question or answer he wishes to view the repies for
 	Precondition:	AppUser has selected a specific question or answer and is currently viewing it
 	Postcondition:	AppUser can view replies to selected question or answer
-	
+	MainSuccess
+	Scenario:
+			1. user selects a question or answer view reply drop down
+			2. shows replies
+	Frequency of Use: somewhat often
+	Status: 			pending testcase, and implementation
+	Responsibility:		Devon for test case
+	Priority: 			P3 - low 		
 ####	Case Number: 	4
-	Use Case Name: 	MakeQuestion
-	Participants:	Author 
-	Goal:			For Author to create a question that other users can reply to 
-					and answer 
+	ID: UC-4
+	Title: 	MakeQuestion
+	Primary Actor:	Author 
+	Description:	The user enters a question they wish to ask
 	Precondition:	Author must have a login (Could allow for Anon posting?)
 	Postcondition:	AppUsers can view the question and Authors can view, reply, and answer 
 					the question when viewing it
 	
+	MainSuccess
+	Scenario: 
+			1. The user enter their question 
+			2. selects to not to  add photo not(if no stop)
+	Extenions: 
+	Frequency of Use: somewhat often
+	Responsibility: Devon 
+	Priority:	P1-high
 ####	Case Number: 	5
-	Use Case Name: 	MakeAnswer
-	Participants:	Author
-	Goal:			For Author to create an answer to an existing question
+	ID: UC-5
+	Title: 	MakeAnswer
+	Primary Actor:	Author
+	Description:	For Author to create an answer to an existing question
 	Precondition:	Author must have selected the question for viewing
 	Postcondition:	AppUsers can view the answer and Authors can view, and reply to the 
 					answer when viewing the question
-	
+	MainSuccess
+	Scenario: 
+			1. The user enter their answer 
+			2. selects to not to  add photo not(if no stop)
+	Extenions:
+	Frequency of Use: somewhat often
+	Responsibility: Devon 
+	Priority:	P2-medium
 ####	Case Number: 	6
 	Use Case Name: 	ReplyToQuestionAndAnswer
 	Participants:	Author
