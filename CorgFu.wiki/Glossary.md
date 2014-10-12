@@ -3,7 +3,7 @@ Glossary
 
 ### Answer
 
-Piece of content submitted by [Author](# Author) in order to provide solution to a specific [Question](### Question).
+Piece of [content](#Content) submitted by [Author](#Author) in order to provide solution to a specific [Question](#Question).
 
 ### AppUser 
 
@@ -11,7 +11,7 @@ The user who is using a particular phone. There may be many AppUser at a time on
 
 ### Author
 
-[AppUser](#AppUser) who posted at least one [Question](#Question), [Answer](#Answer), or Comment.
+[AppUser](#AppUser) who posted at least one [Question](#Question), [Answer](#Answer), or [Comment](#Comment).
        
 ### BrowseQuestion
 
@@ -19,7 +19,7 @@ A screen to display all questions that are displayed or returned from a search r
 
 ### Comment
 
-Piece of content submitted by [Author](#Author). Each comment is associated with [Question](#Question) or [Answer](#Answer), and provides additional details or explanation to the related Question or [Answer](#Answer).
+Piece of [content](#Content) submitted by [Author](#Author). Each comment is associated with [Question](#Question) or [Answer](#Answer), and provides additional details or explanation to the related Question or [Answer](#Answer).
 
 Sometimes Comment is also referred to as Reply.
 
@@ -40,7 +40,7 @@ All [Questions](#Question) that user hasnt favourited. (I don't think we need th
 
 ### Question
 
-Piece of content submitted by [Author](#Author) who is looking for a solution to his question.
+Piece of [content](#Content) submitted by [Author](#Author) who is looking for a solution to his question.
 
 ### VeiwQuestionAndAnswer
 
