@@ -1,7 +1,7 @@
 Use Cases
 =========
 
-####	ID: 				UC-1
+####	ID:	UC-01
 	Title:   			BrowseQuestions
 	Description: 		The user will be able to browse questions. the veiw will consist of 
 						just the question string, (likely) the number of answers, upvotes, 
@@ -19,100 +19,118 @@ Use Cases
 						2. 	The list view displays all of the questions, each having their stats 
 						and options
 	Extensions: 		
-            2a.0 There is no question to display.
-            2a.1 Prompotes user to ask a question
+            			2a.0 There is no question to display.
+            			2a.1 Prompotes user to ask a question
   	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
 	Status: 			pending testcase, and implementation
 	Responsibility:		Devon for test case
 	Prioirty: 			P1-High
 
-####	ID: UC-2
-	Title: 	 ViewQuestionAndAnswers
-	Description: The user has selected a question. The screen will display the question at
-              the top with a list of ansers below. The veiw will be a expanding list view.
-              the drop down will show replies and pictures. Votes should also be displayed.
+####	ID: UC-02
+	Title:			  	ViewQuestionAndAnswers
+	Description: 	  	The user has selected a question. The screen will display the question at
+        		      	the top with a list of ansers below. The veiw will be a expanding list view.
+		        		the drop down will show replies and pictures. Votes should also be displayed.
               
-	Primary Actor:	 AppUser
-	Precondition:	 AppUser has found question of interest and selected it
-	Postcondition:	 AppUser can view the question and corresponding answers. note- should be
-              added to offline list but this is tested below.
+	Primary Actor:	 	AppUser
+	Precondition:	 	AppUser has found question of interest and selected it
+	Postcondition:	 	AppUser can view the question and corresponding answers. note- should be
+			            added to offline list but this is tested below.
 	MainSuccess
 	Scenario: 
-            1. The user clicks a question.
-            2. Information about that question is displayed. 
-            3. user clicks on an answer.
-            4. answer information is displayed.
+			            1. The user clicks a question.
+			            2. Information about that question is displayed. 
+            			3. user clicks on an answer.
+          				4. answer information is displayed.
     Extensions:
-			3a.1 no answers exsists for the question
+						3a.1 no answers exsists for the question
   
-	Frequency of Use: very often, close to every use.
+	Frequency of Use: 	very often, close to every use.
 	Status: 			pending testcase, and implementation
 	Responsibility:		Devon for test case
 	Prioirty: 			P2- Medium
 
-####	Case Number: 	3
-	ID: UC-3	
-	Title: 	ViewReplies
-	Primary Actor:	AppUser
-	Description:	AppUser users selects a question or answer he wishes to view the repies for
-	Precondition:	AppUser has selected a specific question or answer and is currently viewing it
-	Postcondition:	AppUser can view replies to selected question or answer
+####	ID: UC-03
+	Title: 				ViewReplies
+	Primary Actor:		AppUser
+	Description:		AppUser users selects a question or answer he wishes to view the repies for
+	Precondition:		AppUser has selected a specific question or answer and is currently viewing it
+	Postcondition:		AppUser can view replies to selected question or answer
 	MainSuccess
 	Scenario:
-			1. user selects a question or answer view reply drop down
-			2. shows replies
-	Frequency of Use: somewhat often
+						1. user selects a question or answer view reply drop down
+						2. shows replies
+	
+	Frequency of Use:	somewhat often
 	Status: 			pending testcase, and implementation
 	Responsibility:		Devon for test case
 	Priority: 			P3 - low 		
-####	Case Number: 	4
-	ID: UC-4
-	Title: 	MakeQuestion
-	Primary Actor:	Author 
-	Description:	The user enters a question they wish to ask
-	Precondition:	Author must have a login (Could allow for Anon posting?)
-	Postcondition:	AppUsers can view the question and Authors can view, reply, and answer 
-					the question when viewing it
+####	ID:	UC-04
+	Title: 				MakeQuestion
+	Primary Actor:		Author 
+	Description:		The user enters a question they wish to ask
+	Precondition:		Author must have a login (Could allow for Anon posting?)
+	Postcondition:		AppUsers can view the question and Authors can view, reply, and answer 
+						the question when viewing it
 	
 	MainSuccess
 	Scenario: 
-			1. The user enter their question 
-			2. selects to not to  add photo not(if no stop)
+						1. The user enter their question 
+						2. selects to not to  add photo not(if no stop)
 	Extenions: 
-	Frequency of Use: somewhat often
-	Responsibility: Devon 
-	Priority:	P1-high
-####	Case Number: 	5
-	ID: UC-5
-	Title: 	MakeAnswer
-	Primary Actor:	Author
-	Description:	For Author to create an answer to an existing question
-	Precondition:	Author must have selected the question for viewing
-	Postcondition:	AppUsers can view the answer and Authors can view, and reply to the 
-					answer when viewing the question
+	Frequency of Use: 	somewhat often
+	Status: 			Testcase to be implemented
+	Responsibility: 	Devon 
+	Priority:			P1-high
+####	ID: UC-05
+	Title: 				MakeAnswer
+	Primary Actor:		Author
+	Description:		For Author to create an answer to an existing question
+	Precondition:		Author must have selected the question for viewing
+	Postcondition:		AppUsers can view the answer and Authors can view, and reply to the 
+						answer when viewing the question
 	MainSuccess
 	Scenario: 
-			1. The user enter their answer 
-			2. selects to not to  add photo not(if no stop)
+						1. The user enter their answer 
+						2. selects to not to  add photo not(if no stop)
 	Extenions:
-	Frequency of Use: somewhat often
-	Responsibility: Devon 
-	Priority:	P2-medium
-####	Case Number: 	6
-	Use Case Name: 	ReplyToQuestionAndAnswer
-	Participants:	Author
-	Goal:			For Author to reply to question or answer to clarify meaning
-	Precondition:	Author must have selected question for viewing
-	Postcondition:	Authors and AppUsers can view the reply to the question or answer
-	
-####	Case Number: 	7
-	Use Case Name: 	AttachPictureQuestion
-	Participants:	Author
-	Goal:			To attach a picture to a question.
-	Precondition:	Author must be in the process of making a question
-	Postcondition:	Authors and AppUsers can view the picture attached to the question
-
-####	ID:					UC-08
+	Frequency of Use: 	somewhat often
+	Status: 			Testcase to be implemented
+	Responsibility: 	Devon 
+	Priority:			P2-medium
+####	ID: UC-06
+	Title: 				ReplyToQuestionAndAnswer
+	Primary Actor:		Author/app user
+	Description:		The app user selects a question or answer view reply. Than enters
+						thier reply.
+	Precondition:		App user must have selected question for viewing
+	Postcondition:		Authors and AppUsers can view the reply to the question or answer
+	MainSuccess
+	Scenario:
+						1. user selects a question/answer view reply button
+						2. user submits a reply
+						3. their reply appears at the top as the most recent
+	Frequency of Use: 	infrequent
+	Status: 			Testcase to be implemented
+	Resposibility:		Devon
+	Priority: 			P3-low
+####	ID: UC-07
+	Title: 				AttachPictureQuestion
+	Primary Actor:		Author
+	Description:		Author selects to attach a picture to their question.
+	Precondition:		Author must be in the process of making a question
+	Postcondition:		Authors and AppUsers can view the picture attached to the question
+	MainSuccess
+	Scenario:
+						1. AppUser selects to attach a picture
+						2. Displays choice of taking a photo or selecting from gallery
+						3. user adds a photo <=64kB
+	Extensions:			2a. Image directory is empty; AppUser selects a void picture
+							2a1. Picture is larger than 64Kb.
+	Frequency of Use: 	Somewhat often
+	Status: 			Testcase to be implemented
+	Priority: 			p3-Low
+####	ID:	UC-08
 	Title: 				AttachPictureAnswer
 	Description:		Author to attach a photo to an answer
 	Primary Actor:		Author
@@ -131,7 +149,7 @@ Use Cases
 	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
-####	ID:					UC-09
+####	ID:	UC-09
 	Title: 				SmallPicturesOnly
 	Description:		Have any picture attached to question or answer be no larger than 64kb.
 	Primary Actor:		SysAdmin
@@ -150,7 +168,7 @@ Use Cases
 	Priority:			P3 - Low
 
 
-####	ID:					UC-10
+####	ID:	UC-10
 	Title: 				SortQuestionsByPicture
 	Description:		For AppUser to view Questions sorted based on whether they have pictures or not
 	Primary Actor:		AppUser
@@ -167,7 +185,7 @@ Use Cases
 	Responsibility:		(Need some clarification)Test cases
 	Priority:			P3 - Low
 
-####	ID:					UC-11
+####	ID:	UC-11
 	Title: 				SortQuestionsDate
 	Description:		For AppUser to view Questions based on date
 	Primary Actor:		AppUser
@@ -185,13 +203,22 @@ Use Cases
 	Responsibility:		Anthony for test cases
 	Priority:			P3 - Low
 
-####	Case Number: 	12
-	Use Case Name: 	UpVote
-	Participants:	AppUser
-	Goal:			To upvote other users questions
-	Precondition:	AppUser must have selected the question and be currently viewing it
-	Postcondition:	AppUsers and Authors can see how many upvotes the question has recieved 
-					when they are viewing it
+####	ID:	UC-12
+	Title:		 		UpVote
+	Primary Actor:		AppUser
+	Description:		User indicates that they wish to up vote a question or answer. Can vote more than once 
+	Precondition:		AppUser must have selected the question and be currently viewing it
+	Postcondition:		Question or answers upvote count has up dated after being clicked.
+	MainSuccess
+	Scenario:
+						1. User Selects a question to view
+						2. displays the question
+						3. User selects to upvote a question or answer
+						4. upvote count displays new upvote amount
+	Frequency of Use:	likely used often by most users
+	Status:				TestCases in production
+	Responsibility: 	Devon
+	Priority: 			P3-Low
 					
 ####	ID: UC-13
 	Title: 				ViewMostUpvotedQA
