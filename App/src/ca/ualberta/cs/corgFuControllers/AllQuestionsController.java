@@ -24,4 +24,8 @@ public class AllQuestionsController {
 		return null;
 	}
 	
+	public ArrayList<Question> getAllQuestions(){
+		return null;
+	}
+	
 }

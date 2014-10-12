@@ -21,7 +21,7 @@ public class ViewOfflineTest extends TestCase {
 			OfflineDataController controller = new OfflineDataController(model);
 			
 			QAController mQAC = new QAController(mQ1);
-			mQAC.makeAvailOffline();
+			mQAC.makeAvailOffline(controller);
 			
 			ArrayList<Question> expected = new ArrayList<Question>();
 			expected.add(mQ1);

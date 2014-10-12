@@ -22,12 +22,13 @@ public class SetFavoritesTest extends TestCase {
 		Favorites favModel = new Favorites();
 		FavoritesController favController = new FavoritesController(favModel);
 		
-		mQAC.setFav();
+		mQAC.setFav(favController);
 		
 		ArrayList<Question> expected = new ArrayList<Question>();
 		expected.add(mQ1);
 		
 		assertEquals("Testing favorites",expected,favController.getFavs());
+
 	}
 	
 }

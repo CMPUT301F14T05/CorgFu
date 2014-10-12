@@ -18,10 +18,11 @@ public class RememberQuestionsAskedTest extends TestCase {
 		Question mQ1 = new Question("Question to remember");
 		
 		QAController mQAC = new QAController(mQ1);
-		mQAC.makeAuthoredQAvailOffline();
 		
 		OfflineData model = new OfflineData();
 		OfflineDataController controller = new OfflineDataController(model);
+		
+		mQAC.makeAuthoredQAvailOffline(controller);
 		
 		ArrayList<Question> expected = new ArrayList<Question>();
 		expected.add(mQ1);

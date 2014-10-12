@@ -15,26 +15,33 @@ public class QAController {
 
 	public int getAnswerCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return -1;
 	}
 	
 	public void upvoteQ(){
 		question.upvote();
 	}
 
-	public void makeAvailOffline() {
+	public void makeAvailOffline(OfflineDataController controller) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void makeAuthoredQAvailOffline() {
+	public void makeAuthoredQAvailOffline(OfflineDataController controller) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void setFav() {
+	public void setFav(FavoritesController favController) {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void addToAuthoredOffline(AuthoredOfflineController AOC) {
+		
+	}
 
+	public ArrayList<Question> getAuthoredOffline(){
+		return null;
+	}
 }
