@@ -1,6 +1,6 @@
 package ca.ualberta.cs.corgFuViews;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class BrowseItems extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,10 +44,11 @@ public class BrowseItems extends Activity {
 		
 	}
 
-	public static Collection<Question> getCurrentDisplayCollection()
+	public static ArrayList<Question> getCurrentDisplayCollection()
 	{
-
+		
 		// TODO Auto-generated method stub
 		return null;
+		
 	}
 }

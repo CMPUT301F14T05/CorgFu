@@ -1,9 +1,14 @@
 package ca.ualberta.cs.corgFu;
 
 public class Reply {
+	private String replyString;
+	
+	public Reply(String reply){
+		this.replyString = reply;
+	}
 
-	public Reply() {
-		// TODO Auto-generated constructor stub
+	public String getReplyString() {
+		return replyString;
 	}
 
 }

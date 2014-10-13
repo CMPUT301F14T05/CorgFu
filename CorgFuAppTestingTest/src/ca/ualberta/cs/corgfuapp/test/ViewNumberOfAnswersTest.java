@@ -2,7 +2,7 @@ package ca.ualberta.cs.corgfuapp.test;
 
 import junit.framework.TestCase;
 import ca.ualberta.cs.corgFuControllers.QAController;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class ViewNumberOfAnswersTest extends TestCase {
@@ -13,8 +13,10 @@ public class ViewNumberOfAnswersTest extends TestCase {
 	
 	public void testNumberOfAnswers(){
 		Question mQ1 = new Question("Question with answers");
-		mQ1.addAnswer("First answer");
-		mQ1.addAnswer("Second answer");
+		Answer A1 = new Answer("First answer");
+		Answer A2 = new Answer("Second answer");
+		mQ1.addAnswer(A1);
+		mQ1.addAnswer(A2);
 		
 		QAController mQC = new QAController(mQ1);
 		

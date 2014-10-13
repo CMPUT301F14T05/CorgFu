@@ -41,7 +41,9 @@ All [Questions](#Question) that user hasnt favourited. (I don't think we need th
 ### Question
 
 Piece of [content](#Content) submitted by [Author](#Author) who is looking for a solution to his question.
+### Reply
 
+See [Comment](#Comment)
 ### VeiwQuestionAndAnswer
 
 A view that displays a [Question](#Question) and all the replies linked to that question as well as options for that question.
