@@ -1,13 +1,16 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFuModels.Question;
 
 public class BrowseItems extends Activity {
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,6 +41,14 @@ public class BrowseItems extends Activity {
 	}
 	
 	public void viewMostUpvotedAnswers(){
+		
+	}
+
+	public static ArrayList<Question> getCurrentDisplayCollection()
+	{
+		
+		// TODO Auto-generated method stub
+		return null;
 		
 	}
 }

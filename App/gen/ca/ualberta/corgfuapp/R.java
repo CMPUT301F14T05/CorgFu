@@ -35,11 +35,21 @@ public final class R {
         public static final int activity_browse_items=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_search_results=0x7f030002;
+<<<<<<< HEAD
+=======
+        public static final int activity_view_question_and_answers=0x7f030003;
+>>>>>>> 1bc1a194167a8334af7e16f94dc045e3b90148cd
     }
     public static final class menu {
         public static final int browse_items=0x7f070000;
         public static final int main=0x7f070001;
+<<<<<<< HEAD
         public static final int search_results=0x7f070002;
+=======
+        public static final int question_attach_pic=0x7f070002;
+        public static final int search_results=0x7f070003;
+        public static final int view_question_and_answers=0x7f070004;
+>>>>>>> 1bc1a194167a8334af7e16f94dc045e3b90148cd
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -47,6 +57,10 @@ public final class R {
         public static final int hello_world=0x7f050002;
         public static final int title_activity_browse_items=0x7f050003;
         public static final int title_activity_search_results=0x7f050004;
+<<<<<<< HEAD
+=======
+        public static final int title_activity_view_question_and_answers=0x7f050005;
+>>>>>>> 1bc1a194167a8334af7e16f94dc045e3b90148cd
     }
     public static final class style {
         /** 

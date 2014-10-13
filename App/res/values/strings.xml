@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_browse_items">BrowseItems</string>
     <string name="title_activity_search_results">SearchResults</string>
+    <string name="title_activity_view_question_and_answers">ViewQuestionAndAnswers</string>
 
 </resources>
