@@ -41,7 +41,4 @@ public class QAController {
 		
 	}
 
-	public ArrayList<Question> getAuthoredOffline(){
-		return null;
-	}
 }

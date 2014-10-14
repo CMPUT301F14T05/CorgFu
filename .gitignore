@@ -47,3 +47,9 @@ CorgFuAppTestingTest/proguard/
 
 # Log Files
 *.log
+
+# Files created by OSX
+.DS_Store
+
+# Temp files
+*~

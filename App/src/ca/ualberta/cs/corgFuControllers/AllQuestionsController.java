@@ -27,5 +27,8 @@ public class AllQuestionsController {
 	public ArrayList<Question> getAllQuestions(){
 		return null;
 	}
+	public ArrayList<Question> sortByDate(){
+		return null;
+	}
 	
 }

@@ -23,5 +23,9 @@ public class AllQuestions
 	public void addQuestion(Question Q){
 		allQuestions.add(Q);
 	}
+	
+	public ArrayList<Question> getAllQuestions(){
+		return allQuestions;
+	}
 
 }
