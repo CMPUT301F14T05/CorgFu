@@ -3,6 +3,7 @@ package ca.ualberta.cs.corgFuModels;
 import java.util.ArrayList;
 import java.util.Date;
 
+import ca.ualberta.cs.corgFu.AttachPicture;
 import ca.ualberta.cs.corgFu.Reply;
 
 
@@ -14,6 +15,7 @@ public class Question
 	private ArrayList<Answer> answers;
 	private ArrayList<Reply> replies;
 	private Date date;
+	private Boolean hasPic; 
 	
 	public Question(String Text){
 		upvotes = 0;
@@ -21,6 +23,7 @@ public class Question
 		answers = new ArrayList<Answer>();
 		replies = new ArrayList<Reply>();
 		date = new Date();
+		hasPic = false;
 	}
 	
 	public void upvote(){
@@ -44,7 +47,6 @@ public class Question
 
 	public void setVotes(int i) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public int getVotes() {
@@ -56,11 +58,14 @@ public class Question
 	public Date getDate() {
 		return date;
 		// TODO Auto-generated method stub
-		
 	}
 
 	public ArrayList<Reply> getReplies() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public void addPic(){
+		AttachPicture.fetchImage();
 	}
 }
