@@ -1,24 +1,33 @@
 ##2014/10/15
+####ToDo
+	- update the readme to be prettier
+	- take out garbage files from the root file.
+	- only upload things that Diego can open (.pdf, etc.)
+	- update the status of the UseCase
 ####Alex O.
-	Did 		-
-	Doing		-
-	Blocking	-
+	Did 		- Working on the UML
+	Doing		- Making the UML more MVC 
+	Blocking	- Not sure about how to show MVC in the UML diagram.
 ####Alex M.
-	Did 		-
-	Doing		-
-	Blocking	-
+	Did 		- Tweaked the storyboard
+	Doing		- Working on implementing use cases
+	Blocking	- Nothing
 ####Ahmed
-	Did 		-
-	Doing		-
-	Blocking	-
+	Did 		- Release planning. 5 page document.
+	Doing		- Update the title of the app. Help with anything that we are stuck on.
+				release planning and implementing use cases next week.
+	Blocking	- Midterms 
 ####Devon
-	Did 		-
-	Doing		-
-	Blocking	-
+	Did 		- Finished used cases and implemented most of the testcases. One
+				currently passes, but that will be changed.
+	Doing		- Finishing the last testcase and editing the passing test.
+				Test empty question.
+	Blocking	- Everyone working at once and some uncertainty with decisions.
+				Also many midterms this week.
 ####Wyatt	
-	Did 		-
-	Doing		-
-	Blocking	-
+	Did 		- Finished the use cases and related test cases.
+	Doing		- Working on implementing the use cases 
+	Blocking	- Midterms and other assignments
 ##2014/10/8
 ####Alex O.
 	Did 		- Added the main classes that were obvious to the UML. 
