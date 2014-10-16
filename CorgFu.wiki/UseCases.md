@@ -117,9 +117,9 @@ Use Cases
 ####	ID: UC-07
 	Title: 				AttachPictureQuestion
 	Primary Actor:		Author
-	Description:		Author selects to attach a picture to their question.
-	Precondition:		Author must be in the process of making a question
-	Postcondition:		Authors and AppUsers can view the picture attached to the question
+	Description:		Author selects to attach a picture to Question.
+	Precondition:		Author must be in the process of making a Question.
+	Postcondition:		Authors and AppUsers can view the picture attached to the Question
 	MainSuccess
 	Scenario:
 						1. User selects to attach a picture
