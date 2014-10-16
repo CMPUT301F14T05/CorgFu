@@ -8,16 +8,14 @@ References
 =======
 
 In our testcases (UC: 07-09) we used an automated class BogoPicGen.java to 
-help generate mock pictures to test how we handled images. 
+generate mock pictures to help test how we handled images. 
 BogoPicGen.java is directly imported in our code and can be found at:  
 
     CorgFuAppTesting/srv/ca.ualberta.cs.corgfuapp.test/BogoPicGen.java 
 
-It was directly copied from BogoPicGen/src/es/softwareprocess/BogoPicGen/BogoPicGen.java authored by Abram Hindle found on
-the following site: 
+The code was directly taken from the following site:    
    
-    https://github.com/abramhindle/BogoPicGen   
-
+    https://github.com/abramhindle/BogoPicGen/blob/master/src/es/softwareprocess/bogopicgen/BogoPicGen.java 
 
 Licence
 =======
