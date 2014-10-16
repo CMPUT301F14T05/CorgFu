@@ -11,17 +11,11 @@ The user who is using a particular phone. There may be many AppUser at a time on
 
 ### Author
 
-[AppUser](#AppUser) who posted at least one [Question](#Question), [Answer](#Answer), or [Comment](#Comment).
+[AppUser](#AppUser) who posted at least one [Question](#Question), [Answer](#Answer), or [Reply](#Reply).
        
 ### BrowseQuestion
 
 A screen to display all questions that are displayed or returned from a search result.
-
-### Comment
-
-Piece of [content](#Content) submitted by [Author](#Author). Each comment is associated with [Question](#Question) or [Answer](#Answer), and provides additional details or explanation to the related Question or [Answer](#Answer).
-
-Sometimes Comment is also referred to as Reply.
 
 ### Content
 
@@ -41,9 +35,13 @@ All [Questions](#Question) that user hasnt favourited. (I don't think we need th
 ### Question
 
 Piece of [content](#Content) submitted by [Author](#Author) who is looking for a solution to his question.
+
 ### Reply
 
-See [Comment](#Comment)
+Piece of [content](#Content) submitted by [Author](#Author). Each reply is associated with [Question](#Question) or [Answer](#Answer), and provides additional details or explanation to the related Question or Answer.
+
+Sometimes Reply is also referred to as Comment.
+
 ### VeiwQuestionAndAnswer
 
 A view that displays a [Question](#Question) and all the replies linked to that question as well as options for that question.
