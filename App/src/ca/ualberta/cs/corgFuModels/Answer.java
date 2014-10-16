@@ -3,6 +3,8 @@ package ca.ualberta.cs.corgFuModels;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.graphics.Bitmap;
+
 import ca.ualberta.cs.corgFu.Reply;
 
 
@@ -12,6 +14,8 @@ public class Answer
 	private String answerText;
 	private Date date;
 	private ArrayList<Reply> replies;
+	private Bitmap genericPic;
+
 
 	public Answer(String Text){
 		upvotes = 0;
@@ -50,5 +54,11 @@ public class Answer
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public Bitmap getImage(){
+		return genericPic;
+	}
 	
+	public void setImage(Bitmap Image){
+		genericPic = Image;
+	}
 }
