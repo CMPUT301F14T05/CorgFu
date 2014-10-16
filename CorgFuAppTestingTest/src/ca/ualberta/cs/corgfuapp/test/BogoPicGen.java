@@ -1,3 +1,9 @@
+/* This class.java code is directly copied from BogoPicGen/src/es/softwareprocess/BogoPicGen/BogoPicGen.java
+   Site: https://github.com/abramhindle/BogoPicGen authored by Abram Hindle 
+   We do not claim any credit, just used implementation to generate Pictures 
+   used to implement Pictures used for UC 07-09 testCases.
+*/ 
+
 package ca.ualberta.cs.corgfuapp.test;
 
 import android.graphics.Bitmap;
