@@ -23,14 +23,14 @@ public class SortQuestionsByPictureTest extends TestCase {
 		
 		AllQuestionsController mQC = new AllQuestionsController(mAQ);
 		
-		// expected should arrange questions with an attached Picture followed by dates  
+		// expected output should arrange questions first by Picture followed by date  
 		ArrayList<Question> expected = new ArrayList<Question>();
 		expected.add(mQ1);
 		expected.add(mQ2);
 		expected.add(mQ3);
 		expected.add(mQ4);
 		
-		assertEquals("Testing if QuestionController returns list in correct Picture order", mQC.sortByUpvote()
+		assertEquals("Testing if QuestionController returns list in correct order based on Picture", mQC.sortByDate()
 				,expected);
 	}
 }
