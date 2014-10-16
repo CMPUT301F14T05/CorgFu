@@ -353,7 +353,7 @@ Use Cases
 						4. System adds the question to the AppUser's favorites and makes it
 						available offline.
 	Frequency of Use:	Infrequent to medium frequency depending on the AppUser
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 	
@@ -378,7 +378,7 @@ Use Cases
 							1a3. System stores answer or reply and posts it when internet is
 							available.
 	Frequency of Use:	Medium frequency
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 							
@@ -399,7 +399,7 @@ Use Cases
 						3. System pushes offline content so it can be viewed by other AppUsers
 						and Authors.
 	Frequency of Use:	Medium frequency
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 	Extends:			UC-19
@@ -419,7 +419,7 @@ Use Cases
 						4. System displays replies with the most recent replies visable to the 
 						AppUser
 	Frequency of Use:	High frequency
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P2-Medium 
 	
@@ -437,7 +437,7 @@ Use Cases
 						4. System uses the username to show other users who created the question,
 						answer, or reply
 	Frequency of Use: 	High frequency
-	Status:				Empty testcase
+	Status:				Testcase complete
 	Responsibility:		Wyatt
 	Priority:			P1-High
 	

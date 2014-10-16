@@ -52,4 +52,4 @@ CorgFuAppTestingTest/proguard/
 .DS_Store
 
 # Temp files
-*~
+.*~
