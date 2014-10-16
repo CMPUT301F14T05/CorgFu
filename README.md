@@ -4,6 +4,21 @@ CorgFu
 CMPUT 301 Team Project
 ----------------------
 
+References
+=======
+
+In our testcases (UC: 07-09) we used an automated class BogoPicGen.java to 
+help generate mock pictures to test how we handled images. 
+BogoPicGen.java is directly imported in our code and can be found at:  
+
+    CorgFuAppTesting/srv/ca.ualberta.cs.corgfuapp.test/BogoPicGen.java 
+
+It was directly copied from BogoPicGen/src/es/softwareprocess/BogoPicGen/BogoPicGen.java authored by Abram Hindle found on
+the following site: 
+   
+    https://github.com/abramhindle/BogoPicGen   
+
+
 Licence
 =======
 
