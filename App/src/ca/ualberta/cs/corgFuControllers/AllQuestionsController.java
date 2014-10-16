@@ -31,4 +31,8 @@ public class AllQuestionsController {
 		return null;
 	}
 	
+	public ArrayList<Question> sortByPicture(){
+		return null;
+	}
+	
 }
