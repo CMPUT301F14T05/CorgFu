@@ -112,7 +112,7 @@ Use Cases
 						3. their reply appears at the top as the most recent
 	Frequency of Use: 	infrequent
 	Status: 			Testcase to be implemented
-	Resposibility:		Devon
+	Resposibility:		Devon 
 	Priority: 			P3-low
 ####	ID: UC-07
 	Title: 				AttachPictureQuestion
@@ -122,14 +122,15 @@ Use Cases
 	Postcondition:		Authors and AppUsers can view the picture attached to the question
 	MainSuccess
 	Scenario:
-						1. AppUser selects to attach a picture
+						1. User selects to attach a picture
 						2. Displays choice of taking a photo or selecting from gallery
-						3. user adds a photo <=64kB
+						3. AppUser adds a photo <=64kB
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture
 							2a1. Picture is larger than 64Kb.
 	Frequency of Use: 	Somewhat often
 	Status: 			Testcase to be implemented
-	Priority: 			p3-Low
+    Responsibility:     Anthony
+	Priority: 			p2-Medium
 ####	ID:	UC-08
 	Title: 				AttachPictureAnswer
 	Description:		Author to attach a photo to an answer
@@ -139,7 +140,7 @@ Use Cases
   			          	the answer
     Main Sucess
 	Scenario:
-						1. AppUser selects the "yes" option when prompted "Do you want to add picture".
+						1. User selects to attach a picture for Question.
 						2. App displays a list of image options either from the gallery/camera.
 						3. AppUser adds a picture <65kB. 
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture 
@@ -157,15 +158,15 @@ Use Cases
 	Postcondition:		The question or answer is accepted if the photo is <65kb and rejected if it is >64kb
 	Main Success 
 	Scenario:
-						1. AppUser selects the "yes" option when prompted "Do you want to add picture".
+						1. User selects to add a picture for Question/Answer.
 						2. App displays a list of image options either from the gallery/camera.
-						3. AppUser adds a picture <65kB. 
+						3. User adds a picture <65kB. 
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture option
 							2a1. Picture added is >64kB. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
 	Status:				Testcases in production
 	Responsibility:		Anthony for Test cases
-	Priority:			P3 - Low
+	Priority:			P2 - Medium
 
 
 ####	ID:	UC-10
@@ -175,31 +176,31 @@ Use Cases
 	Precondition:		AppUser must be have a network connection
 	Postcondition:	    AppUser views questions grouped by whether or not they have a picture attached to them
 	Scenario:
-						1. AppUser selects on the "sort by: tab "Questions with Pictures" option in the questions menu
-						2. App displays a list of questions reflecting the question with the most pictures followed by the least. 
+						1. User selects to sort Questions based on Pictures. 
+						2. App displays a list of questions sorted by Questions with Pictures followed by Date. 
 	Extensions:			2a. No questions are currently available
 							2a1. App displays error message saying no questions are currently
                                  available, try connecting to the internet. 
-	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse questions with pictures
+	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse questions with pictures.
 	Status:				Testcases in production
-	Responsibility:		(Need some clarification)Test cases
-	Priority:			P3 - Low
+	Responsibility:		Anthony
+	Priority:			P2 - Medium
 
 ####	ID:	UC-11
 	Title: 				SortQuestionsDate
 	Description:		For AppUser to view Questions based on date
 	Primary Actor:		AppUser
-	Precondition:		AppUser must be currently able to browse questions (internet connection)
-	Postcondition:		AppUser views questions in decending order of recency
+	Precondition:		AppUser must be currently able to browse questions (internet connection).
+	Postcondition:		AppUser views questions in decending order of recency.
 	Main Success 
 	Scenario:
-						1. AppUser selects on the "sort by: tab "Most Recent Question" option in the questions menu
+						1. AppUser selects to sort Questions by Pictures option
 						2. App displays a list of questions reflecting the most recent question followed by the oldest. 
 	Extensions:			2a. No questions are currently available
 							2a1. App displays error message saying no questions are currently
 								available, try connecting to the internet.
-	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse the most recent/oldest questions
-	Status:				Testcases in production
+	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse the most recent/oldest questions.
+	Status:				Testcases completed
 	Responsibility:		Anthony for test cases
 	Priority:			P3 - Low
 
