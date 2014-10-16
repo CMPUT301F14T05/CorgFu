@@ -128,7 +128,7 @@ Use Cases
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture
 							2a1. Picture is larger than 64Kb.
 	Frequency of Use: 	Somewhat often
-	Status: 			Testcase to be implemented
+	Status: 			Testcase completed.
     Responsibility:     Anthony
 	Priority: 			p2-Medium
 ####	ID:	UC-08
@@ -146,7 +146,7 @@ Use Cases
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture 
 							2a1. Picture added exceeds the speficifcations; >64kB. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
-	Status:				Testcases in production
+	Status:				Testcases completed.
 	Responsibility:		Anthony for Test cases
 	Priority:			P3 - Low
 
@@ -164,7 +164,7 @@ Use Cases
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture option
 							2a1. Picture added is >64kB. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
-	Status:				Testcases in production
+	Status:				Testcases completed.
 	Responsibility:		Anthony for Test cases
 	Priority:			P2 - Medium
 
