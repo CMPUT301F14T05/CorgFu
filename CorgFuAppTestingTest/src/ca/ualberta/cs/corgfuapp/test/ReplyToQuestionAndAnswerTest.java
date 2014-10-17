@@ -19,8 +19,8 @@ public class ReplyToQuestionAndAnswerTest extends TestCase {
 	Reply Q1Reply2 = new Reply("this is the second reply");
 	ArrayList<Reply> expectedAL= new ArrayList<Reply>();
 	Reply A1Reply = new Reply("this is an answerReply");
-	
-	public void testAddCommentToQuestion(){
+	//tests UC-o6
+	public void testAddReplyToQuestion(){
 		Q1.addReply(Q1Reply);
 		Q1.addReply(Q1Reply2);
 		expectedAL.add(Q1Reply);
@@ -30,7 +30,7 @@ public class ReplyToQuestionAndAnswerTest extends TestCase {
 		assertEquals("they arent equal", expectedAL,returnList);
 		
 	}
-	public void testAddCommentToAnswer(){
+	public void testAddReplyToAnswer(){
 		
 		Answer Q1A = new Answer("this is an answer for Q1"); 
 		Q1.addAnswer(Q1A);

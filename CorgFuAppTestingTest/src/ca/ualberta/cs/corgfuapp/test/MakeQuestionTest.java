@@ -4,7 +4,7 @@ import java.util.Date;
 
 import junit.framework.TestCase;
 import ca.ualberta.cs.corgFuModels.Question;
-// this will test the 
+// this will test making a question UC-04
 public class MakeQuestionTest extends TestCase {
 	public MakeQuestionTest() {
 		super();
@@ -21,6 +21,7 @@ public class MakeQuestionTest extends TestCase {
 				"Testing if QuestionController returns list in correct order",
 				Q1String, Q1.getQuestionString());
 	}	
+	// tests UC-12
 	public void testMakeQuestionVotes() {
 		int voteTest = 12;
 		Q1.setVotes(12);

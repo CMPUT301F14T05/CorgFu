@@ -4,7 +4,7 @@ import java.util.Date;
 
 import junit.framework.TestCase;
 import ca.ualberta.cs.corgFuModels.Answer;
-
+//testing UC-05
 public class MakeAnswerTest extends TestCase {
 	public MakeAnswerTest(){
 		
@@ -21,6 +21,7 @@ public class MakeAnswerTest extends TestCase {
 				"Testing if QuestionController returns list in correct order",
 				A1String, A1.getAnswerString());
 	}	
+	//tests uc-12
 	public void testMakeQuestionVotes() {
 		int voteTest = 12;
 		A1.setVotes(12);

@@ -11,6 +11,7 @@ public class BrowseQuestionsTest extends TestCase {
 	public BrowseQuestionsTest(){
 		super();
 		}
+	// test for UC-01
 		public void testBrowseQuestionView(){
 			Question Q1 = new Question("Question to view");
 			Question Q2 = new Question("second question in view");
