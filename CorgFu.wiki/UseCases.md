@@ -22,7 +22,7 @@ Use Cases
             			2a.0 There is no question to display.
             			2a.1 Prompotes user to ask a question
   	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
-	Status: 			pending testcase, and implementation
+	Status: 			pending implementation, test case complete
 	Responsibility:		Devon for test case
 	Prioirty: 			P1-High
 
@@ -46,8 +46,8 @@ Use Cases
 						3a.1 no answers exsists for the question
   
 	Frequency of Use: 	very often, close to every use.
-	Status: 			pending testcase, and implementation
-	Responsibility:		Devon for test case
+	Status: 			pending implementation
+	Responsibility:		pending implementation, test case complete
 	Prioirty: 			P2- Medium
 
 ####	ID: UC-03
@@ -63,7 +63,7 @@ Use Cases
 	
 	Frequency of Use:	somewhat often
 	Status: 			pending testcase, and implementation
-	Responsibility:		Devon for test case
+	Responsibility:		pending implementation, test case complete
 	Priority: 			P3 - low 		
 ####	ID:	UC-04
 	Title: 				MakeQuestion
@@ -79,7 +79,7 @@ Use Cases
 						2. selects to not to  add photo not(if no stop)
 	Extenions: 
 	Frequency of Use: 	somewhat often
-	Status: 			Testcase to be implemented
+	Status: 			pending implementation, test case complete
 	Responsibility: 	Devon 
 	Priority:			P1-high
 ####	ID: UC-05
@@ -95,7 +95,7 @@ Use Cases
 						2. selects to not to  add photo not(if no stop)
 	Extenions:
 	Frequency of Use: 	somewhat often
-	Status: 			Testcase to be implemented
+	Status: 			pending implementation, test case complete
 	Responsibility: 	Devon 
 	Priority:			P2-medium
 ####	ID: UC-06
@@ -111,7 +111,7 @@ Use Cases
 						2. user submits a reply
 						3. their reply appears at the top as the most recent
 	Frequency of Use: 	infrequent
-	Status: 			Testcase to be implemented
+	Status: 			pending implementation, test case complete
 	Resposibility:		Devon 
 	Priority: 			P3-low
 ####	ID: UC-07
@@ -217,7 +217,7 @@ Use Cases
 						3. User selects to upvote a question or answer
 						4. upvote count displays new upvote amount
 	Frequency of Use:	likely used often by most users
-	Status:				TestCases in production
+	Status:				pending implementation, test case complete
 	Responsibility: 	Devon
 	Priority: 			P3-Low
 					

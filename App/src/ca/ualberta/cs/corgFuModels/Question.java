@@ -71,4 +71,9 @@ public class Question
 	public void setImage(Bitmap Image){
 		genericPic = Image;
 	}
+
+	public Answer getAnswer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
