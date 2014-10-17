@@ -41,4 +41,9 @@ public class QAController {
 		
 	}
 
+	public String getQuestionString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
