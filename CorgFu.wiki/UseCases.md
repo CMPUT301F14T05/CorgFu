@@ -219,7 +219,7 @@ Use Cases
 	Frequency of Use:	likely used often by most users
 	Status:				pending implementation, test case complete
 	Responsibility: 	Devon
-	Priority: 			P3-Low
+	Priority: 			P2-Medium
 					
 ####	ID: UC-13
 	Title: 				ViewMostUpvotedQA
