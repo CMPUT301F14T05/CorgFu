@@ -48,7 +48,7 @@ Use Cases
 	Frequency of Use: 	very often, close to every use.
 	Status: 			pending implementation
 	Responsibility:		pending implementation, test case complete
-	Prioirty: 			P2- Medium
+	Prioirty: 			P1-High
 
 ####	ID: UC-03
 	Title: 				ViewReplies
@@ -331,7 +331,7 @@ Use Cases
 						3. System stores the question and corresponding answers and replies
 						on the AppUser's device.
 						4. AppUser can view this question and its answers offline.
-	Extensions:		None so far
+	Extensions:			None so far
 	Frequency of Use:	Very frequent. Used whenever an AppUser views a question.
 	Status:				Testcase complete
 	Responsibility:		Wyatt
