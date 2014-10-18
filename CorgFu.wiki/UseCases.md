@@ -64,7 +64,7 @@ Use Cases
 	Frequency of Use:	somewhat often
 	Status: 			pending testcase, and implementation
 	Responsibility:		pending implementation, test case complete
-	Priority: 			P3 - low 		
+	Priority: 			P3-Low 		
 ####	ID:	UC-04
 	Title: 				MakeQuestion
 	Primary Actor:		Author 
@@ -81,7 +81,7 @@ Use Cases
 	Frequency of Use: 	somewhat often
 	Status: 			pending implementation, test case complete
 	Responsibility: 	Devon 
-	Priority:			P1-high
+	Priority:			P1-High
 ####	ID: UC-05
 	Title: 				MakeAnswer
 	Primary Actor:		Author
@@ -97,7 +97,7 @@ Use Cases
 	Frequency of Use: 	somewhat often
 	Status: 			pending implementation, test case complete
 	Responsibility: 	Devon 
-	Priority:			P2-medium
+	Priority:			P1-High
 ####	ID: UC-06
 	Title: 				ReplyToQuestionAndAnswer
 	Primary Actor:		Author/app user
@@ -113,7 +113,7 @@ Use Cases
 	Frequency of Use: 	infrequent
 	Status: 			pending implementation, test case complete
 	Resposibility:		Devon 
-	Priority: 			P3-low
+	Priority: 			P3-Low
 ####	ID: UC-07
 	Title: 				AttachPictureQuestion
 	Primary Actor:		Author
@@ -148,7 +148,7 @@ Use Cases
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
 	Status:				Testcases completed.
 	Responsibility:		Anthony for Test cases
-	Priority:			P3 - Low
+	Priority:			P3-Low
 
 ####	ID:	UC-09
 	Title: 				SmallPicturesOnly
@@ -242,7 +242,7 @@ Use Cases
 	                    questions
 	Status:				Testcase complete
 	Responsibility:		Wyatt for test cases
-	Priority:			P3 - Low
+	Priority:			P3-Low
 
 ####	ID: UC-14
 	Title: 	            ViewNumberOfAnswers
@@ -262,7 +262,7 @@ Use Cases
 	Frequency of Use:	Very frequent, every time an AppUser browses questions.
 	Status:				Testcase complete
 	Responsibility:		Wyatt
-	Priotity:			P2 - Medium
+	Priotity:			P2-Medium
 	
 ####	ID: UC-15
 	Title: 				SearchQuestionsAndAnswers
