@@ -1,3 +1,40 @@
+##2014/10/22
+####Part2 Comments
+	- General everything was ok
+	- what happens if when you make a question, you lose connection?
+		- make an extension to for the make question use case
+	- hard to differentiate between buttons and text views in the storyboard
+	- MVC - there were some problems with one of the controllers
+	- Release plan was good
+	- Glossary - needs to mention all of the terms in the application and all
+	related services
+	- Keep updating the UML
+####Alex O.
+	- Finished the UML and added some things to the glossary (links and external
+	sources). Links in the readme
+	- Will be working with Anthony on the answer group to begin implementing 
+	use cases.
+####Alex M.
+	- Offered help and helped divide use case with Wyatt
+	- will be working on questions this week
+####Ahmed
+	- Added the title to the release plan.
+	- Partnered with Devon and will be working on the User Profile for next week.
+	- Midterms were blocking him
+####Devon
+	- Finished up use cases 
+	- will be working on implementing the setting of username
+####Anthony
+	- Finished working on the picture related test cases and used bogopic gen to 
+	have fake pics for the test cases
+	- This week he will be working on Answers with Alex O.
+####Wyatt
+	- Finished last test case for UC-22 and worked with Alex M to split the
+	implementation of use cases
+	- Working on getting the make question use case operational for next weeks 
+	meeting
+
+
 ##2014/10/15
 ####ToDo
 	- update the readme to be prettier
