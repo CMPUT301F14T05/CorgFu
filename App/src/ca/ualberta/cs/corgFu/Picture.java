@@ -45,7 +45,7 @@ public class Picture {
 	}
 	
 	public int byteSizeOf(Bitmap bitmap) {
-		// default 
-		return 0;
+		int imageSize = bitmap.getByteCount(); 
+		return imageSize;
 	}
 }

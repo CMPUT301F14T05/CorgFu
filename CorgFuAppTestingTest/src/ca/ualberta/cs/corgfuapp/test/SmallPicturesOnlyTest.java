@@ -6,12 +6,19 @@ import android.graphics.Bitmap;
 
 public class SmallPicturesOnlyTest extends TestCase {
 	
-	public void testSmallPicturesOnly(){
+	public void testTooBigPicture(){
 		Bitmap bigBMP = BogoPicGen.generateBitmap(400, 400);
-		Bitmap smallBMP = BogoPicGen.generateBitmap(200, 200);
+		
 		Picture testPic = new Picture(); 	
 		
-		assertTrue("Testing if attached picture requirements; bigBMP returns False", testPic.smallPicture(bigBMP));
+		assertFalse("Testing if attached picture requirements; bigBMP returns False", testPic.smallPicture(bigBMP));
+	}
+	
+	public void testSmallPicturesOnly(){
+		Bitmap smallBMP = BogoPicGen.generateBitmap(1, 1);
+		
+		Picture testPic = new Picture(); 	
+		
 		assertTrue("Testing if attached picture requirements; smallBMP returns False", testPic.smallPicture(smallBMP));
 	}
 }
