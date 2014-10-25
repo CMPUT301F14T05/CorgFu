@@ -26,7 +26,7 @@ public class Question
 	}
 	
 	public void upvote(){
-		upvotes += 1;
+		upvotes += 1; // increments the current amount of upvotes
 	}
 	
 	public void addAnswer(Answer answer) {
@@ -41,17 +41,17 @@ public class Question
 
 	public String getQuestionString() {
 		// TODO Auto-generated method stub
-		return null;
+		return questionText; // return the string that has been passed as a question text
 	}
 
 	public void setVotes(int i) {
 		// TODO Auto-generated method stub
+		upvotes = i;//sets the current number of upvotes to the passed int i
 	}
 
 	public int getVotes() {
-		int x=0;
 		// TODO Auto-generated method stub
-		return x;
+		return upvotes;//returns the current number of upvotes logged for this question
 	}
 
 	public Date getDate() {
