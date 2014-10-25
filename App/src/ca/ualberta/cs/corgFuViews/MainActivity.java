@@ -18,6 +18,7 @@ public class MainActivity extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface

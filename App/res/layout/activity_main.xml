@@ -7,12 +7,21 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
+    
+    <EditText
+        android:id="@+id/EnterQuestionBox"
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:hint="@string/QuestionHint"
+        />
 
     <TextView
         android:id="@+id/MainQuestionText"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:gravity="center"
-        android:text="@string/hello_world" />
+		android:layout_alignBaseline="@id/EnterQuestionBox"
+        android:text="@string/Wondering" />
+
 
 </RelativeLayout>
