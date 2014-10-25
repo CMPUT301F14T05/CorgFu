@@ -9,5 +9,7 @@
     <string name="title_activity_browse_items">BrowseItems</string>
     <string name="title_activity_search_results">SearchResults</string>
     <string name="title_activity_view_question_and_answers">ViewQuestionAndAnswers</string>
+    <string name="title_activity_attach_picture">AttachPicture</string>
+    <string name="attach_picture_string">attach Picture</string>
 
 </resources>

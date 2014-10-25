@@ -53,3 +53,6 @@ CorgFuAppTestingTest/proguard/
 
 # Temp files
 *.*~
+
+# History files
+.Rhistory
