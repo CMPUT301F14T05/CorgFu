@@ -10,21 +10,23 @@ Use Cases
 						if all the items are added. and once that passes move on to testing if the 
             			are sorted properly.
 	Primary Actor:   	AppUser
-	Precondition:	 	AppUser has network connection to view non-favorite/saved questions 
-						if not display nothing in list
+	Precondition:	 	AppUser either has internet access to view other Authors' Questions or has
+						Questions available offline through UC-16, UC-17, or UC-18
 	Postcondition:	 	On success, AppUser views questions made by Authors
 	Main Success 
 	Scenario: 
-						1. 	The user clicks on the Questions or returns to the Question screen. 
-						2. 	The list view displays all of the questions, each having their stats 
-						and options
+						1. The user clicks on the Questions option or returns to the Question screen.
+						2. System displays the list of all available questions sorted by date 
+						2. User can navigate through all questions and select desired question for 
+						viewing
 	Extensions: 		
             			2a.0 There is no question to display.
-            			2a.1 Prompotes user to ask a question
-  	Frequency of Use: 	likely used everytime app runs, and multiple cycles.
+            			2a.1 Prompts user to ask a question
+    Frequency of Use: 	likely used everytime app runs, and multiple cycles.
 	Status: 			pending implementation, test case complete
-	Responsibility:		Devon for test case
+	Responsibility:		Devon for test case, Wyatt for implementation
 	Prioirty: 			P1-High
+	Includes:			UC-16,UC-17,UC-18
 
 ####	ID: UC-02
 	Title:			  	ViewQuestionAndAnswers
