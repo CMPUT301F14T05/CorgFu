@@ -3,9 +3,13 @@
 
     <string name="app_name">CorgFuApp</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="Wondering">I was wondering</string>
+    <string name="QuestionHint">Enter your question here.</string>
+    <string name="hello_world">Enter your question here.</string>
     <string name="title_activity_browse_items">BrowseItems</string>
     <string name="title_activity_search_results">SearchResults</string>
     <string name="title_activity_view_question_and_answers">ViewQuestionAndAnswers</string>
+    <string name="title_activity_attach_picture">AttachPicture</string>
+    <string name="attach_picture_string">attach Picture</string>
 
 </resources>
