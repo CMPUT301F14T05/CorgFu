@@ -3,12 +3,9 @@ package ca.ualberta.cs.corgFuViews;
 import ca.ualberta.corgfuapp.R;
 import android.os.Bundle;
 import android.app.Activity;
-<<<<<<< HEAD
 import android.content.Intent;
-=======
 import android.graphics.Color;
 import android.graphics.Typeface;
->>>>>>> 2487c53c15ce10588c69833c841e983f4252060b
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;

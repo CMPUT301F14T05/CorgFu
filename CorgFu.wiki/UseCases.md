@@ -154,8 +154,8 @@ Use Cases
 	Title: 				SmallPicturesOnly
 	Description:		Have any picture attached to question or answer be no larger than 64kb.
 	Primary Actor:		SysAdmin
-	Precondition:		Author must submit question or answer
-	Postcondition:		The question or answer is accepted if the photo is <65kb and rejected if it is >64kb
+	Precondition:		Author must submit question or answer, and choose to add a picture
+	Postcondition:		The question or answer is accepted if the photo is <=64kb and rejected otherwise
 	Main Success 
 	Scenario:
 						1. User selects to add a picture for Question/Answer.
