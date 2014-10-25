@@ -31,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/picQuestion_txt"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/picQuestion_txt"
+        android:layout_marginTop="64dp"
         android:text="YES"
         android:textSize="40dp" />
 
@@ -39,9 +40,8 @@
         android:id="@+id/no_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/yes_button"
+        android:layout_alignLeft="@+id/picQuestion_txt"
         android:layout_below="@+id/yes_button"
-        android:layout_marginTop="21dp"
         android:text="NO"
         android:textSize="40dp" />
 

@@ -23,17 +23,10 @@ public class Picture {
 	}
 
 	public void attachImageAns(Answer Ans, Bitmap Image){
-		  /* 1. fetches picture from camera directory 
-		
-			 2. fetches picture from another directory
-			
-			 3. prescribe a default image if no images are supplied/option aborted */
-			
-			// Finally, attach Image meets requirements 
-			if (smallPicture(Image)){
-				Ans.setImage(Image);
-			}
+		if (smallPicture(Image)){
+			Ans.setImage(Image);
 		}
+	}
 	
 	public Boolean smallPicture(Bitmap Image){
 		// attached picture meets requirements
