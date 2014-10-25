@@ -72,7 +72,9 @@ public class AttachPicture extends Activity {
             
             // 3. Attach the Picture and see if it meets requirements 
             Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
-        	genericPic.attachImageAns(answerTest, attachedPic);
+        	
+            // need to implement 
+            //genericPic.attachImageAns(answerTest, attachedPic);
         }
     }
 
