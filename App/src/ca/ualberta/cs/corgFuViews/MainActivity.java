@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity
@@ -18,11 +19,14 @@ public class MainActivity extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
+		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);
+		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
+		//myProfileButton.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard, RBGA code: 04c2d2ff, #4c1d2
+		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
+		
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
+		//TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 		
 	}
 
