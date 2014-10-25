@@ -9,8 +9,40 @@
     tools:context=".AttachPicture" >
 
     <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </TextView>
+
+    <TextView
+        android:id="@+id/picQuestion_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="37dp"
+        android:text="Do you want to add a picture?"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/yes_button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/picQuestion_txt"
+        android:layout_centerVertical="true"
+        android:text="YES"
+        android:textSize="40dp" />
+
+    <Button
+        android:id="@+id/no_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/yes_button"
+        android:layout_below="@+id/yes_button"
+        android:layout_marginTop="21dp"
+        android:text="NO"
+        android:textSize="40dp" />
 
 </RelativeLayout>
