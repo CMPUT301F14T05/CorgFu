@@ -3,8 +3,11 @@ package ca.ualberta.cs.corgFuViews;
 import ca.ualberta.corgfuapp.R;
 import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends Activity
 {
@@ -15,6 +18,11 @@ public class MainActivity extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
+		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
+		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
+		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
+		
 	}
 
 	@Override
