@@ -16,5 +16,8 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    <style name="x" parent="@android:style/TextAppearance.Small">
+    <item name="android:textColor">#04c2d2ff</item>
+</style>
 
 </resources>

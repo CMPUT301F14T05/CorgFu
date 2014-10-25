@@ -21,7 +21,22 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
 		android:layout_alignBaseline="@id/EnterQuestionBox"
-        android:text="@string/Wondering" />
+        android:text="@string/Wondering" 
+        android:textSize="20sp"
+        />
+    <Button 
+        android:id = "@+id/AskQuestionButton"
+        android:layout_below="@id/MainQuestionText"
+        android:layout_width = "wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AskQuestion"/>
+    <Button 
+        android:id = "@+id/MyProfileButton"
+        android:layout_alignBottom="@id/MainQuestionText"
+        android:layout_width = "wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/MyProfile"
+        android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
