@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- This code was generated and modified courtesy of http://angrytools.com/android/button/ on 10/25/14 -->
+
 <shape xmlns:android="http://schemas.android.com/apk/res/android" 
     android:shape="rectangle" >
 	<corners
 	android:radius="14dp"
 	/>
 	<solid
-	android:color="#FFFFF"
+	android:color="#FFFFFF"
 	/>
 	<padding
 	android:left="0dp"
@@ -14,8 +16,8 @@
 	android:bottom="0dp"
 	/>
 	<size
-	android:width="270dp"
-	android:height="60dp"
+	android:width="100dp"
+	android:height="40dp"
 	/>
 	<stroke
 	android:width="3dp"

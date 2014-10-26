@@ -13,5 +13,7 @@
     <string name="attach_picture_string">attach Picture</string>
     <string name="AskQuestion">Ask</string>
     <string name="MyProfile">MyProfile</string>
+    <string name="GoToQuestion">QUESTIONS</string>
+    <string name="GoToAnswer">ANSWERS</string>
 
 </resources>

@@ -18,6 +18,8 @@
 
     <TextView
         android:id="@+id/MainQuestionText"
+        android:width="100dp"
+		android:height="40dp"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
 		android:layout_alignBaseline="@id/EnterQuestionBox"
@@ -25,23 +27,44 @@
         android:textSize="20sp"
         android:textColor="#04C1D2"
         />
-    <Button 
+ <!--     <Button 
         android:id = "@+id/AskQuestionButton"
         android:layout_below="@id/MainQuestionText"
         android:layout_width = "wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#04C1D2"
-        android:text="@string/AskQuestion"/>
+        android:text="@string/AskQuestion"/> -->
     <Button 
         android:id = "@+id/MyProfileButton"
 		android:text="@string/MyProfile"
 		android:textColor="#04C1D2"
-		android:textSize="30sp"
+		android:textSize="20sp"
 		android:layout_width="270dp"
 		android:layout_height="60dp"
 		android:background="@drawable/buttonshape"
         android:layout_alignBottom="@id/MainQuestionText"
-        android:layout_centerHorizontal="true"/>
+        />
+      <Button 
+        android:id = "@+id/GoToAnswer"
+		android:text="@string/GoToAnswer"
+		android:textColor="#04C1D2"
+		android:textSize="20sp"
+		android:layout_width="270dp"
+		android:layout_height="60dp"
+		android:background="@drawable/buttonshape"
+        android:layout_alignTop="@id/MainQuestionText"
+        />
+      <Button 
+        android:id = "@+id/GoToQuestion"
+		android:text="@string/GoToQuestion"
+		android:textColor="#04C1D2"
+		android:textSize="20sp"
+		android:layout_width="270dp"
+		android:layout_height="60dp"
+		android:background="@drawable/buttonshape"
+        android:layout_alignTop="@id/MainQuestionText"
+        android:layout_alignBaseline="@id/GoToAnswer"
+        />
 
 
 </RelativeLayout>
