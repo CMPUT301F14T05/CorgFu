@@ -24,7 +24,7 @@ public class SortQuestionsDateTest extends TestCase {
 		expected.add(mQ1);
 		expected.add(mQ2);
 		
-		assertEquals("Testing if QuestionController returns list in correct date order", mQC.sortByPicture()
+		assertEquals("Testing if QuestionController returns list in correct date order", mQC.sortByDate()
 				,expected);
 	}
 }

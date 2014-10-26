@@ -2,22 +2,16 @@ package ca.ualberta.cs.corgFuModels;
 
 import java.util.ArrayList;
 
-import android.view.View;
+import ca.ualberta.cs.corgFu.View;
+import ca.ualberta.cs.corgFu.Model;
 
 //This is the collection of all questions that have been asked/created
-public class AllQuestions
+public class AllQuestions extends Model<View>
 {
 	private ArrayList<Question> allQuestions;
 	
 	public AllQuestions(){
 		allQuestions = new ArrayList<Question>();
-	}
-	
-	public static void addView(View v)
-	{
-
-		// TODO Auto-generated method stub
-		
 	}
 	
 	public void addQuestion(Question Q){

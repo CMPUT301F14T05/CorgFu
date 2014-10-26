@@ -37,7 +37,7 @@ public class SortQuestionsByPictureTest extends TestCase {
 		expected.add(mQ3);
 		expected.add(mQ4);
 		
-		assertEquals("Testing if QuestionController returns list in correct order based on Picture", mQC.sortByDate()
+		assertEquals("Testing if QuestionController returns list in correct order based on Picture", mQC.sortByPicture()
 				,expected);
 	}
 }
