@@ -19,5 +19,8 @@
         <item>Questions With Pictures</item>
         <item>Most Relevent</item>
     </string-array>
-
+    <string name="AskQuestion">Ask</string>
+    <string name="MyProfile">MyProfile</string>
+    <string name="GoToQuestion">QUESTIONS</string>
+    <string name="GoToAnswer">ANSWERS</string>
 </resources>
