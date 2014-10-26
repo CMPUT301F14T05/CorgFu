@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -14,16 +15,15 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.View;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class BrowseItems extends Activity implements View {
 	
-	private EditText searchText;
-	private ListView bQListView;
 	private ArrayAdapter<Question> listAdapter;
-	private AllQuestionsController AQController;
 
 	
 	@Override
@@ -31,11 +31,16 @@ public class BrowseItems extends Activity implements View {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_browse_items);
 		
-		searchText = (EditText) findViewById(R.id.searchEditText);
-		bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
+		AllQuestions AQ = AllQuestionsApplication.getAllQuestions();
+		AQ.addView(this);
 		
-		//listAdapter = new ArrayAdapter<Question>(this, R.layout.question_item_layout, );
-		//bQListView.setAdapter(listAdapter);
+		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();
+		//sets up arrayAdapter for the listview.
+		//Not sure if This format should be used, because questions might not update.
+		listAdapter = new ArrayAdapter<Question>(this, 
+				R.layout.question_item_layout, AQController.sortByDate());
+		ListView bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
+		bQListView.setAdapter(listAdapter);
 		
 		TextView TV = (TextView) findViewById(R.id.searchLabel);
 		//Make text desired font and colour for labels.
@@ -54,8 +59,17 @@ public class BrowseItems extends Activity implements View {
 				R.array.sortOptions, android.R.layout.simple_spinner_item);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		sortOptions.setAdapter(spinnerAdapter);
+		
 	}
-
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		AllQuestions aQ = AllQuestionsApplication.getAllQuestions();
+		aQ.deleteView(this);
+	}
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -93,7 +107,7 @@ public class BrowseItems extends Activity implements View {
 
 	@Override
 	public void update(Object model) {
-		// TODO Auto-generated method stub
+		//Notify list adapter that it has changed
 		
 	}
 }

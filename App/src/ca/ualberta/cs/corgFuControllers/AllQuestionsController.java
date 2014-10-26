@@ -36,7 +36,7 @@ public class AllQuestionsController {
 	}
 	
 	public ArrayList<Question> getAllQuestions(){
-		return null;
+		return allQuestions.getAllQuestions();
 	}
 	public ArrayList<Question> sortByDate(){
 		Collections.sort(allQuestions.getAllQuestions(), dateSorter);
