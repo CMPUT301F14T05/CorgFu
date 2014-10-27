@@ -107,7 +107,6 @@ public class BrowseItems extends Activity implements View {
 
 	@Override
 	public void update(Object model) {
-		//Notify list adapter that it has changed
-		
+		listAdapter.notifyDataSetChanged();
 	}
 }

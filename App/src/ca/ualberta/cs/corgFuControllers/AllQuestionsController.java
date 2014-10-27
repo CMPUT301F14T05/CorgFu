@@ -47,4 +47,8 @@ public class AllQuestionsController {
 		return null;
 	}
 	
+	public void addQuestion(Question Q){
+		allQuestions.addQuestion(Q);
+	}
+	
 }
