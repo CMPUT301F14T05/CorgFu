@@ -17,6 +17,7 @@
         android:hint="@string/QuestionHint"
         android:inputType="textCapSentences|textMultiLine"
         android:scrollHorizontally="false"
+        android:layout_below="@+id/MainQuestionText"
         />
 
     <TextView
@@ -24,14 +25,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-		android:layout_toStartOf="@id/EnterQuestionBox"
 		android:layout_centerVertical="true"
         android:text="@string/Wondering" 
         android:textColor="#04C1D2"
         />
      <Button 
         android:id = "@+id/AskQuestionButton"
-        android:layout_below="@id/MainQuestionText"
+        android:layout_below="@id/EnterQuestionBox"
         android:layout_width = "wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
