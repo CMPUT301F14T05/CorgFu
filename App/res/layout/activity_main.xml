@@ -47,21 +47,25 @@
 		android:text="@string/GoToAnswer"
 		android:textColor="#04C1D2"
 		android:textSize="20sp"
-		android:layout_width="270dp"
-		android:layout_height="60dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		android:background="@drawable/buttonshape"
-        android:layout_alignParentTop="@id/MainQuestionText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20sp"
+        android:padding="12sp"
         />
       <Button 
         android:id = "@+id/MyProfileButton"
 		android:text="@string/MyProfile"
 		android:textColor="#04C1D2"
 		android:textSize="20sp"
-		android:layout_width="270dp"
-		android:layout_height="60dp"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
 		android:background="@drawable/buttonshape"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
+        android:padding="12sp"
         />
 
 
