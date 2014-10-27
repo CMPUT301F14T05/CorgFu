@@ -54,6 +54,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginRight="20sp"
         android:padding="12sp"
+        android:onClick="toBrowseItems"
         />
       <Button 
         android:id = "@+id/MyProfileButton"
