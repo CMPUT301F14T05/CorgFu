@@ -43,6 +43,11 @@ public class Question
 		// TODO Auto-generated method stub
 		return questionText; // return the string that has been passed as a question text
 	}
+	
+	@Override
+	public String toString(){
+		return questionText;
+	}
 
 	public void setVotes(int i) {
 		// TODO Auto-generated method stub
@@ -76,4 +81,8 @@ public class Question
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public int getAnswerCount(){
+		return answers.size();
+	}
+	
 }

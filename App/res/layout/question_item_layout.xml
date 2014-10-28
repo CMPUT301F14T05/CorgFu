@@ -1,8 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" 
-  	android:fontFamily="fonts/26783.ttf"
-    android:textColor="#ff04c1d2">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
-</TextView>
+     <TextView 
+    	android:id="@+id/QuestionTextTextView"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:fontFamily="fonts/26783.ttf"
+    	android:textColor="#ff04c1d2"
+    	>  
+	</TextView>
+	<TextView
+    	android:id="@+id/AnswerCount"
+    	android:layout_width= "wrap_content"
+    	android:layout_height="wrap_content"
+    	android:fontFamily="fonts/26783.ttf"
+    	android:textColor="#ff04c1d2"
+    	android:layout_toStartOf="@id/QuestionTextTextView"      
+	/>
+</RelativeLayout>

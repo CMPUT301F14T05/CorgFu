@@ -4,7 +4,9 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.BrowseItems;
 
@@ -37,5 +39,5 @@ public class BrowseItemsActivityTest extends
 		AQController.addQuestion(Q3);
 		assertEquals("Testing browseItems updates when Question Added",3,adapter.getCount());
 	}
-	
+
 }

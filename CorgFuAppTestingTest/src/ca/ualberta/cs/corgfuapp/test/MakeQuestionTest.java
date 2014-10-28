@@ -3,6 +3,9 @@ package ca.ualberta.cs.corgfuapp.test;
 import java.util.Date;
 
 import junit.framework.TestCase;
+import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 // this will test making a question UC-04
 public class MakeQuestionTest extends TestCase {
@@ -35,6 +38,20 @@ public class MakeQuestionTest extends TestCase {
 	}
 	public void testSetDate(){
 		assertEquals("dates aren't equal", Q1.getDate(),D1);	
+	}
+	
+	public void testGetAnswerCount(){
+		Question mQ1 = new Question("Question 1");//add question text
+		Answer a1 = new Answer("Answer 1");
+		mQ1.addAnswer(a1);
+		
+		assertEquals("Testing answer count",1,mQ1.getAnswerCount());
+		
+		Answer a2 = new Answer("Answer 2");
+		mQ1.addAnswer(a2);
+		
+		assertEquals("Testing answer count",2,mQ1.getAnswerCount());
+
 	}
 	
 	

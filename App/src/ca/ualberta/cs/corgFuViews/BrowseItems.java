@@ -1,6 +1,5 @@
 package ca.ualberta.cs.corgFuViews;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -10,12 +9,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFu.View;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
@@ -23,7 +22,7 @@ import ca.ualberta.cs.corgFuModels.Question;
 
 public class BrowseItems extends Activity implements View {
 	
-	private ArrayAdapter<Question> listAdapter;
+	private InsertQuestionAdapter listAdapter;
 
 	
 	@Override
@@ -37,8 +36,7 @@ public class BrowseItems extends Activity implements View {
 		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();
 		//sets up arrayAdapter for the listview.
 		//Not sure if This format should be used, because questions might not update.
-		listAdapter = new ArrayAdapter<Question>(this, 
-				R.layout.question_item_layout, AQController.sortByDate());
+		listAdapter = new InsertQuestionAdapter(this, AQController.sortByDate());
 		ListView bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
 		bQListView.setAdapter(listAdapter);
 		

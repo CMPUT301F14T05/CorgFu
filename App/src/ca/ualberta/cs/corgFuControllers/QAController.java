@@ -14,8 +14,7 @@ public class QAController {
 	}
 
 	public int getAnswerCount() {
-		// TODO Auto-generated method stub
-		return -1;
+		return question.getAnswerCount();
 	}
 	
 	public void upvoteQ(){
