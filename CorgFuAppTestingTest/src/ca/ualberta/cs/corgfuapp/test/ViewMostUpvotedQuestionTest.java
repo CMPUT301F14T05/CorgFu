@@ -30,8 +30,8 @@ public class ViewMostUpvotedQuestionTest
 		expected.add(mQ2);
 		expected.add(mQ1);
 		
-		assertEquals("Testing if QuestionController returns list in correct order", mQC.sortByUpvote()
-				,expected);
+		assertEquals("Testing if QuestionController returns list in correct order", expected
+				,mQC.sortByUpvote());
 	}
 	
 

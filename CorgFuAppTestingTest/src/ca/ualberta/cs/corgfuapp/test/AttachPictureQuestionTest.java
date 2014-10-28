@@ -1,6 +1,7 @@
 package ca.ualberta.cs.corgfuapp.test;
 
 import android.graphics.Bitmap;
+import ca.ualberta.cs.corfuapp.Util.BogoPicGen;
 import ca.ualberta.cs.corgFuModels.Question;
 import junit.framework.TestCase;
 

@@ -3,6 +3,7 @@ package ca.ualberta.cs.corgfuapp.test;
 import java.util.ArrayList;
 
 import android.graphics.Bitmap;
+import ca.ualberta.cs.corfuapp.Util.BogoPicGen;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;

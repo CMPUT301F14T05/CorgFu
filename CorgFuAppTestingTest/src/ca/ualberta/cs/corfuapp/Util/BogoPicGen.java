@@ -3,7 +3,7 @@
    Used implementation to testcases (UC 07-09) to generate Pictures 
 */ 
 
-package ca.ualberta.cs.corgfuapp.test;
+package ca.ualberta.cs.corfuapp.Util;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
