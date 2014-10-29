@@ -11,7 +11,7 @@ public class AttachPictureAnswerTest extends TestCase {
 	
 	public void testAttachPicAns(){
 		Answer mA1 = new Answer("Answer 1");
-		mA1.setImage(testImage);
-		assertNotNull("Testing to see if the image is attached",mA1.getImage());
+		mA1.setPicture(testImage);
+		assertNotNull("Testing to see if the image is attached",mA1.getPicture());
 	}
 }

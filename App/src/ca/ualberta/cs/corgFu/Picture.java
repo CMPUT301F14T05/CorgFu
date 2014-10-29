@@ -26,7 +26,7 @@ public class Picture {
 
 	public void attachImageAns(Answer Ans, Bitmap Image){
 		if (smallPicture(Image)){
-			Ans.setImage(Image);
+			Ans.setPicture(Image);
 		}
 	}
 	
