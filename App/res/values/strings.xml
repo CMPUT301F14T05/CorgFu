@@ -26,9 +26,13 @@
     </string-array>
 
     <string name="AskQuestion">Ask</string>
-    <string name="MyProfile">MY PROFILE</string>
+    <string name="MyProfile">MY \n PROFILE</string>
     <string name="GoToQuestion">QUESTIONS</string>
-    <string name="GoToAnswer">ANSWERS</string>
+
+   
     <string name="title_activity_login">LoginActivity</string>
+
+
+    <string name="GoToAnswer">BROWSE \n QUESTIONS</string>
 
 </resources>
