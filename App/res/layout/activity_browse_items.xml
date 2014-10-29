@@ -32,7 +32,8 @@
         android:layout_toLeftOf="@+id/searchEditText"
         android:layout_toStartOf="@+id/searchEditText"
         android:gravity = "center_vertical"
-        android:text="@string/search" />
+        android:text="@string/search" 
+        android:textSize="20dp"/>
 
     <Spinner
         android:id="@+id/sortSpinner"
@@ -53,7 +54,8 @@
         android:layout_alignEnd="@+id/searchLabel"
         android:layout_alignTop="@+id/sortSpinner"
         android:gravity = "center_vertical"
-        android:text="@string/sort" />
+        android:text="@string/sort" 
+        android:textSize="20dp"/>
 
     <ListView
         android:id="@+id/browseQuestionsListView"
@@ -61,7 +63,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/sortLabel"
         android:layout_alignStart="@+id/sortLabel"
-        android:layout_below="@+id/sortSpinner" >
+        android:layout_below="@+id/sortSpinner"
+        android:layout_marginTop="@dimen/activity_horizontal_margin" >
+
     </ListView>
     
 </RelativeLayout>

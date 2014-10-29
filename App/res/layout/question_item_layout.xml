@@ -8,7 +8,7 @@
     	android:layout_height="wrap_content"
     	android:fontFamily="fonts/26783.ttf"
     	android:textColor="#ff04c1d2"
-    	android:textSize="20sp"
+    	android:textSize="15sp"
     	>  
 	</TextView>
 	<TextView
@@ -17,6 +17,6 @@
     	android:layout_height="wrap_content"
     	android:fontFamily="fonts/26783.ttf"
     	android:textColor="#ff04c1d2"
-    	android:layout_toStartOf="@id/QuestionTextTextView"      
+		android:layout_alignParentRight="true"
 	/>
 </RelativeLayout>
