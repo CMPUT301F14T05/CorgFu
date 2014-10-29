@@ -21,21 +21,28 @@ public class MainActivity extends Activity
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
+		
 		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);
-		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
-		//myProfileButton.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard, RBGA code: 04c2d2ff, #4c1d2
-		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
 		Button answersButton = (Button)findViewById(R.id.GoToAnswer);
+		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
+		
+		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
+		
+		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		//TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
+		
 		
 	}
 	
 	public void toBrowseItems(View view){
     	Intent intent = new Intent(this,BrowseItems.class);
     	startActivity(intent);
+	}
+	
+	public void addQuestion(){
+		Button askButton = (Button) findViewById(R.id.AskQuestionButton);
+		
 	}
 
 	@Override
