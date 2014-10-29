@@ -40,6 +40,7 @@
         android:background="#04C1D2"
         android:text="@string/AskQuestion"
         android:layout_marginTop="20sp"
+        android:onClick="addQuestion"
 />
 
       <Button 
