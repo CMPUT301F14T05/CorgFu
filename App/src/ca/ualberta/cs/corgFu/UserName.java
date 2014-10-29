@@ -4,8 +4,10 @@ public class UserName {
 
 	private String currUserName;
 	
-	public UserName() {
-
+	public UserName(String currUserName) {
+		super();
+		this.currUserName=currUserName;
+		
 	}
 	
 	public void saveUserName(){
@@ -17,11 +19,11 @@ public class UserName {
 	}
 	
 	public String getUserName(){
-			return "";
+			return this.currUserName;
 	}
 	
 	public void setUserName(String username){
-		
+		this.currUserName=currUserName;
 	}
 	
 }
