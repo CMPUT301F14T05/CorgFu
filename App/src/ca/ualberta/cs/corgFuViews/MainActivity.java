@@ -1,6 +1,9 @@
 package ca.ualberta.cs.corgFuViews;
 
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
+import ca.ualberta.cs.corgFuModels.Question;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -10,11 +13,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity
 {
-
+	AllQuestionsApplication aQ;//singleton for our questions
+	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -32,7 +38,7 @@ public class MainActivity extends Activity
 		answersButton.setTypeface(customTypeFace);
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		
-		
+		allQuestions = aQ.getAllQuestions();
 	}
 	
 	public void toBrowseItems(View view){
@@ -40,15 +46,23 @@ public class MainActivity extends Activity
     	startActivity(intent);
 	}
 	
-	public void addQuestion(){
-		Button askButton = (Button) findViewById(R.id.AskQuestionButton);
+	public void addQuestion(View view){
+		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
+		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
+		
+		String question = questionText.getText().toString();//this is the text pulled from our edittext box
+		
+		questionText.setText("");//sets the edit text box to blank after entering a question
+		
+		Question q = new Question(question); // creates a new question object
+		
+		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
