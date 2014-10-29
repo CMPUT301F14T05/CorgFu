@@ -23,42 +23,54 @@ public class Answer
 		replies = new ArrayList<Reply>();
 		date = new Date();
 	}
+	
+	// Adds reply to the answer
 	public void addReply(Reply reply){
 		replies.add(reply);
 	}
+	
+	// Increments vote counter
 	public void upvote(){
 		upvotes += 1;
 	}
+	
+	// getReplyString method exists in Reply class
+	// can we remove this?
 	public String getReplyString() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	// Do we need to set votes? I don't think so
 	public void setVotes(int i) {
-		// TODO Auto-generated method stub
-		
+		upvotes = i;
 	}
+	
+	// Returns current number of votes for the answer
 	public int getVotes() {
-		int x=0;
-		// TODO Auto-generated method stub
-		return x;
+		return upvotes;
 	}
+	
 	public Date getDate() {
 		return date;
-		// TODO Auto-generated method stub
 	}
+	
+	
 	public ArrayList<Reply> getReplies() {
-		// TODO Auto-generated method stub
-		return null;
+		return replies;
 	}
+	
 	public String getAnswerString() {
-		// TODO Auto-generated method stub
-		return null;
+		return answerText;
+		
 	}
-	public Bitmap getImage(){
+	
+	// Returns Picture associated with the answer
+	public Bitmap getPicture(){
 		return genericPic;
 	}
 	
-	public void setImage(Bitmap Image){
-		genericPic = Image;
+	public void setPicture(Bitmap picture){
+		genericPic = picture;
 	}
 }
