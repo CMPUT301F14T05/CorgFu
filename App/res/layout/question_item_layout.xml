@@ -8,6 +8,7 @@
     	android:layout_height="wrap_content"
     	android:fontFamily="fonts/26783.ttf"
     	android:textColor="#ff04c1d2"
+    	android:textSize="20sp"
     	>  
 	</TextView>
 	<TextView
