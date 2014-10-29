@@ -22,12 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ca.ualberta.cs.corgFuViews.BrowseItems"></activity>
-        <activity android:name="ca.ualberta.cs.corgFuViews.SearchResults"></activity>
-        <activity android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers"></activity>
+        <activity android:name="ca.ualberta.cs.corgFuViews.BrowseItems" >
+        </activity>
+        <activity android:name="ca.ualberta.cs.corgFuViews.SearchResults" >
+        </activity>
+        <activity android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers" >
+        </activity>
         <activity
             android:name="ca.ualberta.cs.corgFuViews.AttachPicture"
             android:label="@string/title_activity_attach_picture" >
+        </activity>
+        <activity
+            android:name="ca.ualberta.cs.corgFuViews.LoginActivity"
+            android:label="@string/title_activity_login" >
         </activity>
     </application>
 

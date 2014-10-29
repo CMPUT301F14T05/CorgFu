@@ -14,13 +14,21 @@
     <string name="search">Search:</string>
     <string name="sort">Sort By:</string>
     <string name="keyword">Keyword</string>
+    <string name="UIDHint">Enter username</string>
+    <string name="Login">Login</string>
+    <string name="initPrompt">Enter a username to begin asking questions</string>
+    
+
     <string-array name="sortOptions">
         <item>Date Posted</item>
         <item>Questions With Pictures</item>
         <item>Most Relevent</item>
     </string-array>
+
     <string name="AskQuestion">Ask</string>
     <string name="MyProfile">MY PROFILE</string>
     <string name="GoToQuestion">QUESTIONS</string>
     <string name="GoToAnswer">ANSWERS</string>
+    <string name="title_activity_login">LoginActivity</string>
+
 </resources>
