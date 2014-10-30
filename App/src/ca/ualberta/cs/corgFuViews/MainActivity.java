@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -47,6 +48,10 @@ public class MainActivity extends Activity
 	}
 	
 	public void addQuestion(View view){
+		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
+		addPictureDialog.show(getFragmentManager(), null);
+		
+		
 		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
