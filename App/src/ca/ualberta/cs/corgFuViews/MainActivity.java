@@ -37,8 +37,7 @@ public class MainActivity extends Activity
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-        Toast.makeText(this, "Pause", Toast.LENGTH_SHORT).show();
-
+		
 		allQuestions = aQ.getAllQuestions();
 	}
 	
@@ -49,6 +48,7 @@ public class MainActivity extends Activity
 	
 	public void addQuestion(View view){
 		
+		// Offers user to add a picture to the Question
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
 		
