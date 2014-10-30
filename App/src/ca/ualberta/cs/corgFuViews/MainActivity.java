@@ -4,10 +4,16 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Picture;
 import android.graphics.Typeface;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
@@ -16,12 +22,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity
 {
 	AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -42,15 +49,26 @@ public class MainActivity extends Activity
 		allQuestions = aQ.getAllQuestions();
 	}
 	
+	protected void onPause() {
+		super.onPause();
+	}
+	
+	protected void onResume() {
+		super.onResume();
+	}
+	
 	public void toBrowseItems(View view){
     	Intent intent = new Intent(this,BrowseItems.class);
     	startActivity(intent);
 	}
 	
 	public void addQuestion(View view){
+		onPause();
+		
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
 		
+		onResume();
 		
 		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
@@ -63,6 +81,9 @@ public class MainActivity extends Activity
 		Question q = new Question(question); // creates a new question object
 		
 		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
+
+        Toast.makeText(this, "Your question is created", Toast.LENGTH_SHORT).show();
+
 	}
 
 	@Override
