@@ -1,3 +1,28 @@
+##2014/10/29
+#####To Do
+	
+####Anthony
+	- Worked on the attach picture and made a mock view to test methods and such
+	- Will be finishing the implementations this week with Alex O.
+	- No blockers
+#####Devon & Ahmed
+	- Implemented the username page. 
+	- Keep going through the user profiles use cases.
+	- Git hub issues, and android experience.
+####Alex M.
+	- Worked on adding questions and the UI and they will show up in the browse 
+	questions view
+	- Will continue working on question use cases
+####Alex O.
+	- Same as Anthony. Finished use case with small pictures only and upvotes
+	- Same as Anthony. Finish the make answer use case and view replies as well
+	- Not much blocking, waited on Wyatt and Alex to finish the questions part.
+####Wyatt
+	- Worked on implementing the Browse Questions use case and made the view for 
+	this use case
+	- Will continue working on implementing the question model
+	- No blockers
+	
 ##2014/10/22
 ####Part2 Comments
 	- General everything was ok
