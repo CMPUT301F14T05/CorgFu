@@ -8,10 +8,6 @@ public class Picture {
 	// max size of the picture in bytes
 	private static int MAX_PICTURE_SIZE = 65536;
 	
-	private int pictureSize;
-	
-	//private Bitmap image;
-	
 	// via an intent in VIEW 
 	// attachImage method modifies Model attributes "hasPic" 
 	// hasPic = True means Image successfully attached; vice versa if otherwise
@@ -41,10 +37,6 @@ public class Picture {
 		}
 		// attached picture fails requirements 
 		return false;
-	}
-	
-	public int getPictureSize(Picture picture) {
-		return picture.pictureSize;
 	}
 	
 	public int byteSizeOf(Bitmap bitmap) {
