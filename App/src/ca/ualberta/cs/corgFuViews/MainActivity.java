@@ -4,18 +4,10 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Picture;
 import android.graphics.Typeface;
-import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,16 +37,9 @@ public class MainActivity extends Activity
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		
+        Toast.makeText(this, "Pause", Toast.LENGTH_SHORT).show();
+
 		allQuestions = aQ.getAllQuestions();
-	}
-	
-	protected void onPause() {
-		super.onPause();
-	}
-	
-	protected void onResume() {
-		super.onResume();
 	}
 	
 	public void toBrowseItems(View view){
@@ -63,12 +48,9 @@ public class MainActivity extends Activity
 	}
 	
 	public void addQuestion(View view){
-		onPause();
 		
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
-		
-		onResume();
 		
 		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
@@ -81,8 +63,6 @@ public class MainActivity extends Activity
 		Question q = new Question(question); // creates a new question object
 		
 		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
-
-        Toast.makeText(this, "Your question is created", Toast.LENGTH_SHORT).show();
 
 	}
 
