@@ -57,13 +57,18 @@ public class LoginActivity extends Activity {
 				Toast.makeText(getApplicationContext(), "User Name Cant be empty", Toast.LENGTH_LONG).show();
 			}else{
 				UserName NameOfUser = new UserName(UserNameString);
-				Toast.makeText(getApplicationContext(), NameOfUser.getUserName(), Toast.LENGTH_LONG).show();
-				//Intent mainIntent = new Intent(this, MainActivity.class);
-				//startActivity(mainIntent);
+				Toast.makeText(getApplicationContext(), NameOfUser.getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
+				toMain();
+				
 			}
 			
 			
 		}
 		
+		
+	}
+	private void toMain (){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 }

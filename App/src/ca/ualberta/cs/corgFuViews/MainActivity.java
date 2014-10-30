@@ -7,7 +7,6 @@ import ca.ualberta.cs.corgFuModels.Question;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,12 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity
 {
 	AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -47,6 +47,11 @@ public class MainActivity extends Activity
 	}
 	
 	public void addQuestion(View view){
+		
+		// Offers user to add a picture to the Question
+		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
+		addPictureDialog.show(getFragmentManager(), null);
+		
 		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
@@ -58,6 +63,7 @@ public class MainActivity extends Activity
 		Question q = new Question(question); // creates a new question object
 		
 		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
+
 	}
 
 	@Override
