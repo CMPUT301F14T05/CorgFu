@@ -23,7 +23,7 @@ public class UserName {
 	}
 	
 	public void setUserName(String username){
-		this.currUserName=currUserName;
+		this.currUserName=username;
 	}
 	
 }
