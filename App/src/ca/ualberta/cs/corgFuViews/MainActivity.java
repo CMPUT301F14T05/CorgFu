@@ -9,14 +9,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity
 {
@@ -49,20 +47,18 @@ public class MainActivity extends Activity
     	Intent intent = new Intent(this,BrowseItems.class);
     	startActivity(intent);
 	}
-	
+
 	public void addQuestion(View view){
 
 		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
-		
+
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
-		
+
 		String question = questionText.getText().toString();//this is the text pulled from our edittext box
-		
+
 		questionText.setText("");//sets the edit text box to blank after entering a question
-		
+
 		q = new Question(question); // creates a new question object
-		
-		Toast.makeText(this, "image was added", Toast.LENGTH_SHORT).show();
 		
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
