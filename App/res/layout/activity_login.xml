@@ -18,6 +18,14 @@
         android:text="@string/initPrompt"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/LoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/Login" />
+
     <EditText
         android:id="@+id/UIDEditText"
         android:layout_width="wrap_content"
@@ -30,13 +38,5 @@
 
         <requestFocus />
     </EditText>
-
-    <Button
-        android:id="@+id/LoginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/UIDEditText"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Login" />
 
 </RelativeLayout>
