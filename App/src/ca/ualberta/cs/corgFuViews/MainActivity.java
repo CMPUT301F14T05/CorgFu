@@ -22,7 +22,8 @@ public class MainActivity extends Activity
 {
 	AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
-	Drawable image; //image sent from AddPictureDialogFragment
+	private Question q; //most recent Question added by the user
+	protected Bitmap image; //image sent from AddPictureDialogFragment
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -50,11 +51,7 @@ public class MainActivity extends Activity
 	}
 	
 	public void addQuestion(View view){
-		
-		// Offers user to add a picture to the Question
-		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
-		addPictureDialog.show(getFragmentManager(), null);
-		
+
 		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
@@ -63,7 +60,14 @@ public class MainActivity extends Activity
 		
 		questionText.setText("");//sets the edit text box to blank after entering a question
 		
-		Question q = new Question(question); // creates a new question object
+		q = new Question(question); // creates a new question object
+		
+		Toast.makeText(this, "image was added", Toast.LENGTH_SHORT).show();
+		
+		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
+		addPictureDialog.show(getFragmentManager(), null);
+		
+		q.setImage(image);
 		
 		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
 
