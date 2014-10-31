@@ -13,11 +13,16 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Picture;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 public class AddPictureDialogFragment extends DialogFragment {
@@ -26,11 +31,13 @@ public class AddPictureDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        //builder.setView(view);
         
-        builder.setMessage(R.string.add_picture_option)
-               .setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        final View v = inflater.inflate(R.layout.dialog_add_picture, null);
+        
+        builder.setView(v);
+        
+        builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // User wants to add a picture, fetch it from Image Gallery                	   
                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
@@ -38,12 +45,14 @@ public class AddPictureDialogFragment extends DialogFragment {
                 	   startActivityForResult(i, RESULT_LOAD_IMAGE);
                    }
 
-               })
-               .setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
+               });
+        
+        builder.setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // User refused to add a picture
                    }
                });
+        
         // Create the AlertDialog object and return it
         return builder.create();
     }
@@ -52,7 +61,7 @@ public class AddPictureDialogFragment extends DialogFragment {
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     
-    // 1. fetches picture from image directory  
+    //fetches picture from image directory  
     if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
         Uri selectedImage = data.getData();
         String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -68,9 +77,7 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
         Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
         
         ((MainActivity)(AddPictureDialogFragment.this.getActivity())).image = attachedPic;
-    	
-        // need to implement 
-        //genericPic.attachImageAns(answerTest, attachedPic);
+
     }
 }
 
