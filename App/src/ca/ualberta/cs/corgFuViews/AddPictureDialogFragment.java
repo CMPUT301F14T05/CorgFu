@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
 
@@ -21,8 +22,9 @@ public class AddPictureDialogFragment extends DialogFragment {
                    public void onClick(DialogInterface dialog, int id) {
                        // User wants to add a picture, fetch it from Image Gallery                	   
                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
-       				
-                	   startActivityForResult(i, RESULT_LOAD_IMAGE);  
+                	   startActivityForResult(i, RESULT_LOAD_IMAGE);
+                	    ((MainActivity)(AddPictureDialogFragment.this.getActivity())).image = Drawable.createFromPath(Media.EXTERNAL_CONTENT_URI.getPath());
+                	    dismiss();
 
                    }
 

@@ -7,7 +7,9 @@ import ca.ualberta.cs.corgFuModels.Question;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +22,7 @@ public class MainActivity extends Activity
 {
 	AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
+	Drawable image; //image sent from AddPictureDialogFragment
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
