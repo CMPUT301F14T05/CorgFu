@@ -2,11 +2,11 @@ package ca.ualberta.cs.corgFuModels;
 
 import java.util.ArrayList;
 
-import ca.ualberta.cs.corgFu.View;
+import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.Model;
 
 //This is the collection of all questions that have been asked/created
-public class AllQuestions extends Model<View>
+public class AllQuestions extends Model<IView>
 {
 	private ArrayList<Question> allQuestions;
 	

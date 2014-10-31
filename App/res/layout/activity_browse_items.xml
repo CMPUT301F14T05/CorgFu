@@ -8,8 +8,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.corgFuViews.BrowseItems" >
 	 <Button 
-        android:id = "@+id/GoToAnswer"
-		android:text="@string/GoToAnswer"
+        android:id = "@+id/GoToAsk"
+		android:text="@string/GoToAsk"
 		android:textColor="#04C1D2"
 		android:textSize="20sp"
 		android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginRight="20sp"
         android:padding="12sp"
-        android:onClick="toBrowseItems"
+        android:onClick="toAskQuestion"
       />
      <Button 
         android:id = "@+id/MyProfileButton"
@@ -38,9 +38,8 @@
         android:hint = "@string/keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/GoToAsk"
         android:ems="10" >
 		
         <requestFocus />
@@ -57,7 +56,9 @@
         android:layout_toLeftOf="@+id/searchEditText"
         android:layout_toStartOf="@+id/searchEditText"
         android:gravity = "center_vertical"
-        android:text="@string/search" 
+        android:text="@string/search"
+        android:fontFamily="fonts/26783.ttf"
+    	android:textColor="#ff04c1d2" 
         android:textSize="20dp"/>
 
     <Spinner
@@ -79,7 +80,9 @@
         android:layout_alignEnd="@+id/searchLabel"
         android:layout_alignTop="@+id/sortSpinner"
         android:gravity = "center_vertical"
-        android:text="@string/sort" 
+        android:text="@string/sort"
+        android:fontFamily="fonts/26783.ttf"
+    	android:textColor="#ff04c1d2" 
         android:textSize="20dp"/>
 
     <ListView

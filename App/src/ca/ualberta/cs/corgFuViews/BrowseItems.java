@@ -3,24 +3,27 @@ package ca.ualberta.cs.corgFuViews;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
-import ca.ualberta.cs.corgFu.View;
+import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
-public class BrowseItems extends Activity implements View {
+public class BrowseItems extends Activity implements IView {
 	
 	private InsertQuestionAdapter listAdapter;
 
@@ -40,16 +43,6 @@ public class BrowseItems extends Activity implements View {
 		ListView bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
 		bQListView.setAdapter(listAdapter);
 		
-		TextView TV = (TextView) findViewById(R.id.searchLabel);
-		//Make text desired font and colour for labels.
-		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		TV.setTypeface(customTypeFace);
-		TV.setTextColor(Color.argb(255,4,193,210));
-		
-		TextView TV2 = (TextView) findViewById(R.id.sortLabel);
-		TV2.setTypeface(customTypeFace);
-		TV2.setTextColor(Color.argb(255,4,193,210));
-		
 		//Taken from http://developer.android.com/guide/topics/ui/controls/spinner.html
 		//Populates spinner (dropdown menu)
 		Spinner sortOptions = (Spinner) findViewById(R.id.sortSpinner);
@@ -57,6 +50,9 @@ public class BrowseItems extends Activity implements View {
 				R.array.sortOptions, android.R.layout.simple_spinner_item);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		sortOptions.setAdapter(spinnerAdapter);
+		
+		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);
+		Button askButton = (Button)findViewById(R.id.GoToAsk);
 		
 	}
 	
@@ -86,6 +82,15 @@ public class BrowseItems extends Activity implements View {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	public void toAskQuestion(View view){
+		Intent intent = new Intent(this,MainActivity.class);
+    	startActivity(intent);
+	}
+	
+	public void toUserProfile(View view){
+		
+	}
 	
 	public void viewMostUpvotedQuestions(){
 		//Test string
@@ -97,10 +102,7 @@ public class BrowseItems extends Activity implements View {
 
 	public static ArrayList<Question> getCurrentDisplayCollection()
 	{
-		
-		// TODO Auto-generated method stub
-		return null;
-		
+		return null;	
 	}
 
 	@Override

@@ -1,5 +1,5 @@
 package ca.ualberta.cs.corgFu;
 
-public interface View<M> {
+public interface IView<M> {
 	public void update(M model);
 }

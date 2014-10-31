@@ -17,6 +17,7 @@
     <string name="UIDHint">Enter username</string>
     <string name="Login">Login</string>
     <string name="initPrompt">Enter a username to begin asking questions</string>
+    <string name="GoToAsk">ASK\n QUESTION</string>
     
 
     <string-array name="sortOptions">

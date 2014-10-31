@@ -1,9 +1,9 @@
 package ca.ualberta.cs.corgFu;
 
 import java.util.ArrayList;
-import ca.ualberta.cs.corgFu.View;
+import ca.ualberta.cs.corgFu.IView;
 
-public class Model<V extends View> {
+public class Model<V extends IView> {
 	private ArrayList<V> views;
 	
 	public Model(){
