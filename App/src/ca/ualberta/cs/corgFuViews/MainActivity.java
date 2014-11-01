@@ -7,7 +7,6 @@ import ca.ualberta.cs.corgFuModels.Question;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,8 +19,7 @@ public class MainActivity extends Activity
 {
 	AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
-	private Question q; //most recent Question added by the user
-	protected Bitmap image; //image sent from AddPictureDialogFragment
+	protected Question q; //most recent Question added by the user
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -62,8 +60,6 @@ public class MainActivity extends Activity
 		
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
-		
-		q.setImage(image);
 		
 		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
 

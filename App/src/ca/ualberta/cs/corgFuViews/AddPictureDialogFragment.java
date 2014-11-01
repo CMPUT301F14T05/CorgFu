@@ -1,7 +1,7 @@
 package ca.ualberta.cs.corgFuViews;
 
 import ca.ualberta.corgfuapp.R;
-import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFu.Picture;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -11,18 +11,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Picture;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 
 public class AddPictureDialogFragment extends DialogFragment {
@@ -76,7 +70,14 @@ public void onActivityResult(int requestCode, int resultCode, Intent data) {
         
         Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
         
-        ((MainActivity)(AddPictureDialogFragment.this.getActivity())).image = attachedPic;
+
+        if (Picture.smallPicture(attachedPic)) {
+        	// Add image to the question
+            ((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
+        }
+        else {
+        	// Image is too large. Invoke another dialog asking to add another image
+        }
 
     }
 }

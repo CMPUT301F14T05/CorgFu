@@ -30,7 +30,7 @@ public class Picture {
 		}
 	}
 	
-	public Boolean smallPicture(Bitmap Image) {
+	public static Boolean smallPicture(Bitmap Image) {
 		// attached picture meets requirements
 		if (byteSizeOf(Image) <= MAX_PICTURE_SIZE) {
 			return true;
@@ -39,7 +39,7 @@ public class Picture {
 		return false;
 	}
 	
-	public int byteSizeOf(Bitmap bitmap) {
+	public static int byteSizeOf(Bitmap bitmap) {
 		int imageSize = bitmap.getByteCount(); 
 		return imageSize;
 	}
