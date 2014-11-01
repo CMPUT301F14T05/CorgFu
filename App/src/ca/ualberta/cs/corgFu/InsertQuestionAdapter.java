@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -17,6 +18,8 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 	private static int myResource = R.layout.question_item_layout;
 	private static int questionTVId = R.id.QuestionTextTextView;
 	private static int answerCountTVId = R.id.AnswerCount;
+	private static int questionImageIVId = R.id.QuestionImagePreview;
+	
 	private ArrayList<Question> myObjects;
 	
 	public InsertQuestionAdapter(Context context, ArrayList<Question> objects) {
@@ -36,6 +39,10 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 		questionTV.setText(myObjects.get(position).toString());
 		TextView answerCountTV = (TextView) convertView.findViewById(answerCountTVId);
 		answerCountTV.setText(String.valueOf(myObjects.get(position).getAnswerCount()));
+		ImageView questionImageTV = (ImageView) convertView.findViewById(questionImageIVId);
+		questionImageTV.setImageBitmap(myObjects.get(position).getImage());
+		
+		
 		return convertView;
 	}
 	

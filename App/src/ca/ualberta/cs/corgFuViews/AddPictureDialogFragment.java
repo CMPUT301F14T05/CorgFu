@@ -55,7 +55,7 @@ public class AddPictureDialogFragment extends DialogFragment {
 public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     
-    //fetches picture from image directory  
+    //fetches picture from image directory
     if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
         Uri selectedImage = data.getData();
         String[] filePathColumn = { MediaStore.Images.Media.DATA };
