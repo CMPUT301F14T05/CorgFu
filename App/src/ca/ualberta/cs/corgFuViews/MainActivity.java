@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity
 {
@@ -67,6 +68,7 @@ public class MainActivity extends Activity
 		
 		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
 
+		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 	}
 
 	@Override
