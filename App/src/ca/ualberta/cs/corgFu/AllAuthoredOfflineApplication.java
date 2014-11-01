@@ -1,9 +1,7 @@
 package ca.ualberta.cs.corgFu;
 
 import android.app.Application;
-import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.AuthoredOfflineController;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.AuthoredOffline;
 
 public class AllAuthoredOfflineApplication extends Application{
