@@ -16,6 +16,7 @@ public class Question
 	private ArrayList<Answer> answers;
 	private ArrayList<Reply> replies;
 	private Date date;
+	private Boolean hasAPicture;
 
 	public Question(String Text){
 		upvotes = 0;
@@ -23,8 +24,11 @@ public class Question
 		answers = new ArrayList<Answer>();
 		replies = new ArrayList<Reply>();
 		date = new Date();
+		hasAPicture = false;
 	}
-	
+	public boolean hasPicture(){
+		return hasAPicture;
+	}
 	public void upvote(){
 		upvotes += 1; // increments the current amount of upvotes
 	}
@@ -75,6 +79,7 @@ public class Question
 	
 	public void setImage(Bitmap Image){
 		genericPic = Image;
+		hasAPicture = true;
 	}
 
 	public Answer getAnswer() {
