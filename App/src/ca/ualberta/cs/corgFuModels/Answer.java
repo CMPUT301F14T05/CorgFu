@@ -1,6 +1,8 @@
 package ca.ualberta.cs.corgFuModels;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 import android.graphics.Bitmap;
@@ -57,7 +59,17 @@ public class Answer
 	
 	
 	public ArrayList<Reply> getReplies() {
+
+		Collections.sort(replies, new Comparator<Reply>() {
+
+						public int compare(Reply R1, Reply R2) {
+							return R1.getDate().compareTo(R2.getDate());
+						}
+					});
+
+		
 		return replies;
+		
 	}
 	
 	public String getAnswerString() {
