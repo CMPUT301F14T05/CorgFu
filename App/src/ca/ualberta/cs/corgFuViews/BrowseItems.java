@@ -10,11 +10,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
@@ -23,10 +26,10 @@ import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
-public class BrowseItems extends Activity implements IView {
+public class BrowseItems extends Activity implements IView, OnItemSelectedListener {
 	
 	private InsertQuestionAdapter listAdapter;
-
+	Spinner sortOptions;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +53,51 @@ public class BrowseItems extends Activity implements IView {
 				R.array.sortOptions, android.R.layout.simple_spinner_item);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		sortOptions.setAdapter(spinnerAdapter);
+		sortOptions.setOnItemSelectedListener(this);
+		
 		
 		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);
 		Button askButton = (Button)findViewById(R.id.GoToAsk);
 		
+	}
+	@Override
+	public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
+			long arg3)
+	{
+		int position = sortOptions.getSelectedItemPosition();
+		switch(position){
+			case 0:
+				Toast.makeText(this,"chose sort date", Toast.LENGTH_SHORT).show();
+				break;
+			case 1:
+				Toast.makeText(this,"chose sort date", Toast.LENGTH_SHORT).show();
+				break;
+			case 2:
+				Toast.makeText(this,"chose sort date", Toast.LENGTH_SHORT).show();
+				break;
+				
+		}
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0)
+	{
+
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 	@Override
@@ -71,17 +115,7 @@ public class BrowseItems extends Activity implements IView {
 		return true;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+	
 
 	public void toAskQuestion(View view){
 		Intent intent = new Intent(this,MainActivity.class);
@@ -109,4 +143,6 @@ public class BrowseItems extends Activity implements IView {
 	public void update(Object model) {
 		listAdapter.notifyDataSetChanged();
 	}
+
+	
 }
