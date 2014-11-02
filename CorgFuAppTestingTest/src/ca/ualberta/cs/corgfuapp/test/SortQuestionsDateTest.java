@@ -10,7 +10,6 @@ import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class SortQuestionsDateTest extends TestCase {
-	ArrayList<Question> allQuestionsArray;
 	
 	public void testController(){
 		Question mQ1 = new Question("Question 1");//add question text
