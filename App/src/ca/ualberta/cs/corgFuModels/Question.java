@@ -3,6 +3,7 @@ package ca.ualberta.cs.corgFuModels;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.R.integer;
 import android.graphics.Bitmap;
 import ca.ualberta.cs.corgFu.Reply;
 
@@ -101,5 +102,7 @@ public class Question implements Comparable<Question> {
 	public int compareTo(Question q) {
 		return this.date.compareTo(q.getDate());
 	}
+	
+	
 
 }
