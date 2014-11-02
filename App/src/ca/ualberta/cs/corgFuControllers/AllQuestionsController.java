@@ -15,7 +15,7 @@ public class AllQuestionsController {
 	
 	public AllQuestionsController(AllQuestions aQ) {
 		allQuestions = aQ;
-		ArrayList<Question> allQuestionsArray = allQuestions.getAllQuestions();
+		
 		
 		}
 
@@ -37,13 +37,22 @@ public class AllQuestionsController {
 	
 	
 	public ArrayList<Question> sortByPicture(){
-		/*
-		 * sort date
-		 * then sort if has picture
-		 * 
-		 * if the question in array has a picture
-		 */
-		return null;
+		this.sortByDate();
+		Collections.sort(allQuestions.getAllQuestions(), new Comparator<Question>(){
+			public int compare(Question q1, Question q2)
+			{
+				if (q1.hasPicture()==true  && q2.hasPicture()==false){
+					return -1;
+				}else if (q1.hasPicture()==false  && q2.hasPicture()==true){
+					return 1;
+				}
+				else{
+					return 0;
+				}
+			}
+		});
+		
+		return allQuestions.getAllQuestions();
 	}
 
 	public ArrayList<Question> sortByUpvote() {
