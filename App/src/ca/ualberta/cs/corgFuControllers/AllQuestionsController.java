@@ -17,26 +17,24 @@ public class AllQuestionsController {
 		allQuestions = aQ;
 		ArrayList<Question> allQuestionsArray = allQuestions.getAllQuestions();
 		
-	}
+		}
 
-	public class DateComparator implements Comparator<Question>{
-		@Override
-		public int compare(Question lhs, Question rhs) {
-			return lhs.getDate().compareTo(rhs.getDate());
-		}
+	
 		
-	}
+	
 	public ArrayList<Question> sortByDate(){
-		for (Question question:allQuestionsArray){
-			System.out.println(question.getQuestionString());
-		}
 		
-		Collections.sort(allQuestionsArray, new DateComparator());
-		for (Question question:allQuestionsArray){
-			System.out.println(question.getQuestionString());
-		}
-		return allQuestionsArray;
+		Collections.sort(allQuestions.getAllQuestions(), new Comparator<Question>(){
+			
+			public int compare(Question q1, Question q2)
+			{
+				return q1.getDate().compareTo(q2.getDate());
+			}
+		});
+		return allQuestions.getAllQuestions();
+	
 	}
+	
 	
 	public ArrayList<Question> sortByPicture(){
 		/*
