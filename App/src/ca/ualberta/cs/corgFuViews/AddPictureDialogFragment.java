@@ -70,13 +70,13 @@ public class AddPictureDialogFragment extends DialogFragment {
 
     		Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
 
-    		
+
     		if (Picture.smallPicture(attachedPic)) {
     			// Add image to the question
     			((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
     		}
     		else {
-    			// Image is too large or if a void picture has been supplied, invoke another dialog asking to add another image
+    			// Image is too large. Invoke another dialog asking to add another image
     		}
 
     	}
