@@ -51,36 +51,36 @@ public class AddPictureDialogFragment extends DialogFragment {
         return builder.create();
     }
 
-@Override
-public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    
-    //fetches picture from image directory  
-    if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-        Uri selectedImage = data.getData();
-        String[] filePathColumn = { MediaStore.Images.Media.DATA };
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
 
-        Cursor cursor =  ((MainActivity)(AddPictureDialogFragment.this.getActivity())).getContentResolver().query(selectedImage,
-                filePathColumn, null, null, null);
-        cursor.moveToFirst();
+    	//fetches picture from image directory  
+    	if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
+    		Uri selectedImage = data.getData();
+    		String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-        String picturePath = cursor.getString(columnIndex);
-        cursor.close();
-        
-        Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
-        
+    		Cursor cursor =  ((MainActivity)(AddPictureDialogFragment.this.getActivity())).getContentResolver().query(selectedImage,
+    				filePathColumn, null, null, null);
+    		cursor.moveToFirst();
 
-        if (Picture.smallPicture(attachedPic)) {
-        	// Add image to the question
-            ((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
-        }
-        else {
-        	// Image is too large. Invoke another dialog asking to add another image
-        }
+    		int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+    		String picturePath = cursor.getString(columnIndex);
+    		cursor.close();
 
+    		Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
+
+    		
+    		if (Picture.smallPicture(attachedPic)) {
+    			// Add image to the question
+    			((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
+    		}
+    		else {
+    			// Image is too large or if a void picture has been supplied, invoke another dialog asking to add another image
+    		}
+
+    	}
     }
-}
 
 }
 
