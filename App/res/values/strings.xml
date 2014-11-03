@@ -23,7 +23,7 @@
     <string-array name="sortOptions">
         <item>Date Posted</item>
         <item>Questions With Pictures</item>
-        <item>Most Relevent</item>
+        <item>Most Usadfpvotes</item>
     </string-array>
 
     <string name="AskQuestion">Ask</string>
