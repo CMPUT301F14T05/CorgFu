@@ -51,9 +51,6 @@ public class BrowseItems extends Activity implements IView {
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		sortOptions.setAdapter(spinnerAdapter);
 		
-		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);
-		Button askButton = (Button)findViewById(R.id.GoToAsk);
-		
 	}
 	
 	@Override

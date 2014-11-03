@@ -38,5 +38,12 @@
     <string name="add_picture_option">Do you want to add a picture?</string>
     <string name="yes_button_text">Yes</string>
     <string name="no_button_text">No</string>
-
+    <string name="questionHeaderText">QUESTION</string>
+    <string name = "favoriteButtonText">Favorite</string>
+    <string name = "upvoteButtonText">Upvote</string>
+    <string name = "topAnswerLabelText">Top Answer</string>
+	<string name = "writeAnswerHint">Answer this question . . .</string>
+	<string name = "answerButtonText">Submit</string>
+	<string name = "readLaterButtonText">Read Later</string>
+    
 </resources>
