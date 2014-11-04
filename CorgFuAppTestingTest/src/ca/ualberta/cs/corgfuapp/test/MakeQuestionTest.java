@@ -56,5 +56,12 @@ public class MakeQuestionTest extends TestCase {
 
 	}
 	
+	public void testgetId(){
+		Question mQ1 = new Question("Question 1");//add question text
+		int id;
+		id = mQ1.getId();//grabs id of created question
+		assertTrue("Id is an integer",id == (int)id);//makes sure id is a valid integer
+	}
+	
 	
 }

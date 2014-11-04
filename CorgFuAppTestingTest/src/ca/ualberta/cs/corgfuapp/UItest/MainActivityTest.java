@@ -32,9 +32,9 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		EditText et = (EditText)activity.findViewById(ca.ualberta.corgfuapp.R.id. EnterQuestionBox);
 		Button AskButton = (Button)activity.findViewById(ca.ualberta.corgfuapp.R.id.AskQuestionButton);
 		et.setText("Test one");
-		AskButton.performClick();
+		AskButton.performClick();//clicks the ask button adding question to AQ controller
 		ArrayList<Question> first = aq.getAllQuestions();
 		ArrayList<Question> second = AQController.getAllQuestions();
-		assertEquals(first.get(0).toString(), second.get(0).toString());
+		assertEquals(first.get(0).toString(), second.get(0).toString());//makes sure the added question text is equal to the expected question text 
 	}
 }
