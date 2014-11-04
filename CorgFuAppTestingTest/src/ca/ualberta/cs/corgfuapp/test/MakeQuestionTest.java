@@ -36,6 +36,10 @@ public class MakeQuestionTest extends TestCase {
 		assertEquals("testing for direct vote set",voteTest, Q1.getVotes());
 		assertEquals("testing for indirect upvoting",cnt, Q2.getVotes());
 	}
+	public void testGetId(){
+		
+	}
+	
 	public void testSetDate(){
 		assertEquals("dates aren't equal", Q1.getDate(),D1);	
 	}
