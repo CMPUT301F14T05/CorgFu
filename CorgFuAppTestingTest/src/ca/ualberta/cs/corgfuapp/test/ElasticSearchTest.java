@@ -31,6 +31,15 @@ public class ElasticSearchTest extends TestCase {
 		ES = new ElasticSearch();
 	}
 	
+	public void testgetQuestion(){
+		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();//the app allQuestion singleton
+		Question Q = new Question("Test one");
+		AQController.addQuestion(Q);
+		Question Recieved;
+		Recieved = ES.getQuestion(Q);
+		assertEquals("Sent question is equal to recieved question", Q,Recieved);
+	}
+	
 	public void testaddQuestion() throws ClientProtocolException, IOException{
 		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();//the app allQuestion singleton
 		Question Q = new Question("Test one");
@@ -48,10 +57,8 @@ public class ElasticSearchTest extends TestCase {
 		response = httpClient.execute(httpGet);
 		SearchHit<Question> sr = ES.parseQuestionHit(response);
 		Question found = sr.getSource();
-		assertEquals(found,Q);
-		
-		
-		
+		assertEquals("The retrieved question vs the expected question.", found,Q);
 	}
+	
 
 }
