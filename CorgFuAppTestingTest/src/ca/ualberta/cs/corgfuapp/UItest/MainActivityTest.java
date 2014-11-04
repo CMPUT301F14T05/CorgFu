@@ -1,5 +1,7 @@
 package ca.ualberta.cs.corgfuapp.UItest;
 
+import java.util.ArrayList;
+
 import android.R;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
@@ -31,6 +33,8 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		Button AskButton = (Button)activity.findViewById(ca.ualberta.corgfuapp.R.id.AskQuestionButton);
 		et.setText("Test one");
 		AskButton.performClick();
-		assertEquals("Testing ask question button",aq.getAllQuestions(),AQController.getAllQuestions());
+		ArrayList<Question> first = aq.getAllQuestions();
+		ArrayList<Question> second = AQController.getAllQuestions();
+		assertEquals(first.get(0).toString(), second.get(0).toString());
 	}
 }
