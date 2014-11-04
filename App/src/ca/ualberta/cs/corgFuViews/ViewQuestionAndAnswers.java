@@ -74,7 +74,21 @@ public class ViewQuestionAndAnswers extends Activity
 	}
 	
 	public void upvote(View v){
+		int qId = 0;
+		Bundle extra = getIntent().getExtras();
+		if (extra != null){
+			qId = extra.getInt("@string/idExtraTag");
+		}
 		
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		Question myQuestion = AQC.getQuestionById(qId);
+		
+		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
+
+		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
+		upvoteCount.setTypeface(customTF);
+		myQuestion.upvote();
+		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
 	}
 	
 	public void submitAnswer(View v){
