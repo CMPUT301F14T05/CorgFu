@@ -22,7 +22,7 @@ public class SetUsernameTest extends TestCase {
 		myUserName.setUserName(secondUsername);
 		assertEquals("Testing setting another username", secondUsername, myUserName.getUserName());
 	}
-	public void testLoadSaveUsername(){
+	/*public void testLoadSaveUsername(){
 		String testUsername = "testUser";
 		UserName myUserName = new UserName(testUsername);
 		myUserName.setUserName(testUsername);
@@ -30,5 +30,5 @@ public class SetUsernameTest extends TestCase {
 		myUserName.saveUserName();
 		
 		assertEquals("Testing load/save username", testUsername, myUserName.loadUserName().getUserName());
-	}
+	}*/
 }
