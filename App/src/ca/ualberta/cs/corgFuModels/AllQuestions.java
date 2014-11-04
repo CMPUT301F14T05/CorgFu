@@ -44,7 +44,7 @@ public class AllQuestions extends Model<IView>
 			String status = response.getStatusLine().toString();
 			Log.i(TAG, status);
 
-		} catch (Exception e) {
+		} catch (Exception e) { // this is where you will add question to authoured offline if no connection is found
 			e.printStackTrace();
 		}
 	}
