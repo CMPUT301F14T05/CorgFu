@@ -89,6 +89,9 @@ public class ViewQuestionAndAnswers extends Activity
 		upvoteCount.setTypeface(customTF);
 		myQuestion.upvote();
 		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
+		
+		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
+		upvoteButton.setClickable(false);
 	}
 	
 	public void submitAnswer(View v){
