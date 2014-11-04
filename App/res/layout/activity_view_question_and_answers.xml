@@ -1,16 +1,132 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ViewQuestionAndAnswers" >
-
-    <TextView
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ViewQuestionAndAnswers" 
+    >
+	<Button 
+        android:id = "@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentStart="true"
+        android:fontFamily="fonts/26783.ttf"
+        android:textColor="#ff04c1d2"
+        android:text="@string/readLaterButtonText"
+        android:background="@drawable/buttonshape"
+        android:padding="5sp"
+        android:onClick="readLater"
+    />
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/readLaterButton"
+        android:fontFamily="fonts/26783.ttf"
+        android:textColor="#ff04c1d2"
+        android:textSize="15sp" >    
+    </TextView>
+
+    <Button
+        android:id="@+id/upvoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/favoriteButton"
+        android:layout_below="@+id/questionText"
+        android:text="@string/upvoteButtonText"
+        android:textSize="15sp" 
+        android:onClick="upvote"/>
+    <TextView 
+        android:id = "@+id/upvoteCount"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/questionText"
+        android:textColor="#ff04c1d2"
+        android:textSize = "30sp"
+        />
+    <ExpandableListView
+        android:id="@+id/questionRepliesExpandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/favoriteButton" 
+        />
+        
+    <TextView 
+        android:id = "@+id/topAnswerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:text = "@string/topAnswerLabelText"
+        android:layout_below="@+id/questionRepliesExpandable"
+        
+        />
+    
+    <TextView
+        android:id="@+id/topAnswerText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topAnswerLabel" />
+    
+    <ExpandableListView
+        android:id="@+id/topAnswerReplies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/topAnswerText" />
+    <ListView 
+        android:id="@+id/answersListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below = "@+id/topAnswerReplies"
+        />
+    <EditText 
+        android:id="@+id/answerQuestionEditText"
+        android:layout_width = "fill_parent"
+		android:layout_height = "wrap_content"
+		android:layout_toStartOf="@+id/submitAnswerButton"
+		android:hint="@string/writeAnswerHint"
+		android:layout_below = "@+id/answersListView"
+	/>
+    <Button 
+        android:id = "@+id/submitAnswerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="fonts/26783.ttf"
+        android:textColor="#ff04c1d2"
+        android:layout_below = "@+id/answersListView"
+        android:layout_alignParentEnd="true"
+        android:text="@string/answerButtonText"
+        android:background="@drawable/buttonshape"
+        android:onClick="submitAnswer"/>
+
+    <Button
+        android:id="@+id/favoriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/upvoteButton"
+        android:layout_alignBottom="@+id/upvoteButton"
+        android:layout_alignLeft="@+id/questionRepliesExpandable"
+        android:layout_alignParentStart="true"
+        android:onClick="addToFavorite"
+        android:text="@string/favoriteButtonText"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/questionPicture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/readLaterButton"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/upvoteButton"
+        android:src="@drawable/buttonshape" />
 
 </RelativeLayout>

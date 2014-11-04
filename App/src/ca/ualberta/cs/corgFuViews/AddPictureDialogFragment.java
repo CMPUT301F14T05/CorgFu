@@ -1,7 +1,13 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFuModels.Question;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,8 +21,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class AddPictureDialogFragment extends DialogFragment {
@@ -51,36 +59,44 @@ public class AddPictureDialogFragment extends DialogFragment {
         return builder.create();
     }
 
-@Override
-public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    
-    //fetches picture from image directory
-    if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-        Uri selectedImage = data.getData();
-        String[] filePathColumn = { MediaStore.Images.Media.DATA };
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
 
-        Cursor cursor =  ((MainActivity)(AddPictureDialogFragment.this.getActivity())).getContentResolver().query(selectedImage,
-                filePathColumn, null, null, null);
-        cursor.moveToFirst();
+    	//fetches picture from image directory  
+    	if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
+    		Uri selectedImage = data.getData();
+    		String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
-        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-        String picturePath = cursor.getString(columnIndex);
-        cursor.close();
-        
-        Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
-        
+    		Cursor cursor =  ((MainActivity)(AddPictureDialogFragment.this.getActivity())).getContentResolver().query(selectedImage,
+    				filePathColumn, null, null, null);
+    		cursor.moveToFirst();
 
-        if (Picture.smallPicture(attachedPic)) {
-        	// Add image to the question
-            ((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
-        }
-        else {
-        	// Image is too large. Invoke another dialog asking to add another image
-        }
+    		int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+    		String picturePath = cursor.getString(columnIndex);
+    		cursor.close();
 
+    		Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
+			OutputStream out;
+			try {
+				out = new FileOutputStream(new File(selectedImage.getPath()));
+				attachedPic.compress(Bitmap.CompressFormat.JPEG, 75, out);
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+    		if (Picture.smallPicture(attachedPic)) {
+    			// Add image to the question
+    			((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
+
+    		}
+    		else {
+    			// Picture is too big
+    		}
+
+    	}
     }
-}
 
 }
 

@@ -6,7 +6,7 @@ import android.graphics.Bitmap;
 
 public class Picture {
 	// max size of the picture in bytes
-	private static int MAX_PICTURE_SIZE = 65536;
+	private static int MAX_PICTURE_SIZE = 999965536;
 	
 	// via an intent in VIEW 
 	// attachImage method modifies Model attributes "hasPic" 
@@ -30,9 +30,9 @@ public class Picture {
 		}
 	}
 	
-	public static Boolean smallPicture(Bitmap Image) {
+	public static Boolean smallPicture(Bitmap image) {
 		// attached picture meets requirements
-		if (byteSizeOf(Image) <= MAX_PICTURE_SIZE) {
+		if ((byteSizeOf(image) > 0) && (byteSizeOf(image) <= MAX_PICTURE_SIZE)) {
 			return true;
 		}
 		// attached picture fails requirements 

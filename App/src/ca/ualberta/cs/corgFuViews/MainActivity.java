@@ -1,25 +1,27 @@
 package ca.ualberta.cs.corgFuViews;
 
-import ca.ualberta.corgfuapp.R;
-import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
-import ca.ualberta.cs.corgFuModels.Question;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
+import ca.ualberta.cs.corgFuModels.Question;
 
 public class MainActivity extends Activity
 {
-	AllQuestionsApplication aQ;//singleton for our questions
+	//AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
-	protected Question q; //most recent Question added by the user
+	Question q; //most recent Question added by the user
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -38,7 +40,7 @@ public class MainActivity extends Activity
 		answersButton.setTypeface(customTypeFace);
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		
-		allQuestions = aQ.getAllQuestions();
+		//allQuestions = aQ.getAllQuestions();
 	}
 	
 	public void toBrowseItems(View view){
@@ -48,8 +50,8 @@ public class MainActivity extends Activity
 
 	public void addQuestion(View view){
 
-		allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
-
+		//allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
+		
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
 
 		String question = questionText.getText().toString();//this is the text pulled from our edittext box
@@ -61,8 +63,11 @@ public class MainActivity extends Activity
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
 		
-		allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		AQC.addQuestion(q);
+		//allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
 
+		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 	}
 
 	@Override

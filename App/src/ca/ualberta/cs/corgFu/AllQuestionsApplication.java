@@ -40,5 +40,10 @@ public class AllQuestionsApplication extends Application {
 		}
 		return allQuestionsController;
 	}
+	
+	public static void destroy(){
+		allQuestions = null;
+		allQuestionsController = null;
+	}
 
 }

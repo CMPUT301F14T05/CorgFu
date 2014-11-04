@@ -5,7 +5,7 @@
 	- Worked on the attach picture and made a mock view to test methods and such
 	- Will be finishing the implementations this week with Alex O.
 	- No blockers
-#####Devon & Ahmed
+####Devon & Ahmed
 	- Implemented the username page. 
 	- Keep going through the user profiles use cases.
 	- Git hub issues, and android experience.

@@ -18,4 +18,5 @@ public class SmallPicturesOnlyTest extends TestCase {
 		
 		assertTrue("Testing if attached picture requirements; smallBMP returns True", Picture.smallPicture(smallBMP));
 	}
+	
 }
