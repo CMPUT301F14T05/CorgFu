@@ -23,6 +23,10 @@ public class ElasticSearch {
 		gson = new Gson();
 	}
 	
+	public Question getQuestion(Question Q){
+		return null;
+	}
+	
 	public void addQuestion(Question Q){
 		HttpClient httpClient = new DefaultHttpClient();
 
