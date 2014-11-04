@@ -32,7 +32,7 @@ public class Picture {
 	
 	public static Boolean smallPicture(Bitmap Image) {
 		// attached picture meets requirements
-		if (byteSizeOf(Image) <= MAX_PICTURE_SIZE) {
+		if ((byteSizeOf(Image) >0) && (byteSizeOf(Image) <= MAX_PICTURE_SIZE)) {
 			return true;
 		}
 		// attached picture fails requirements 

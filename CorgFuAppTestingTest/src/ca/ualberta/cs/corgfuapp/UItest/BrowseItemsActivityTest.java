@@ -27,6 +27,7 @@ public class BrowseItemsActivityTest extends
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
 		assertEquals("Testing browseItems initializes with correct questions",2,adapter.getCount());
+		cleanup();
 	}
 	
 	public void testUpdate(){
@@ -35,9 +36,14 @@ public class BrowseItemsActivityTest extends
 		BrowseItems activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-		assertEquals("Testing browseItems initializes with correct questions",2,adapter.getCount());
+		assertEquals("Testing browseItems initializes with correct questions",0,adapter.getCount());
 		AQController.addQuestion(Q3);
-		assertEquals("Testing browseItems updates when Question Added",3,adapter.getCount());
+		assertEquals("Testing browseItems updates when Question Added",1,adapter.getCount());
+		cleanup();
+	}
+	
+	private void cleanup(){
+		AllQuestionsApplication.destroy();
 	}
 
 }
