@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Random;
 
 import android.graphics.Bitmap;
 import ca.ualberta.cs.corgFu.Reply;
@@ -16,6 +17,7 @@ public class Question implements Comparable<Question> {
 	private ArrayList<Reply> replies;
 	private Date date;
 	private Boolean hasAPicture;
+	private int id;
 
 	public Question(String Text) {
 		upvotes = 0;
@@ -24,6 +26,8 @@ public class Question implements Comparable<Question> {
 		replies = new ArrayList<Reply>();
 		date = new Date();
 		hasAPicture = false;
+		Random rand = new Random();
+		id = rand.nextInt(100000);
 	}
 
 	public boolean hasPicture() {
@@ -48,7 +52,6 @@ public class Question implements Comparable<Question> {
 	}
 
 	public String getQuestionString() {
-		// TODO Auto-generated method stub
 		return questionText; // return the string that has been passed as a
 								// question text
 	}
@@ -59,27 +62,22 @@ public class Question implements Comparable<Question> {
 	}
 
 	public void setVotes(int i) {
-		// TODO Auto-generated method stub
 		upvotes = i;// sets the current number of upvotes to the passed int i
 	}
 
 	public int getVotes() {
-		// TODO Auto-generated method stub
 		return upvotes;// returns the current number of upvotes logged for this
 						// question
 	}
 
 	public Date getDate() {
 		return date;
-		// TODO Auto-generated method stub
 	}
 	public void setDate(Date d) {
 		date = d;
 	}
 
 	public ArrayList<Reply> getReplies() {
-		// TODO Auto-generated method stub
-		
 
 		Collections.sort(replies, new Comparator<Reply>() {
 
@@ -102,7 +100,6 @@ public class Question implements Comparable<Question> {
 	}
 
 	public Answer getAnswer() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -114,6 +111,9 @@ public class Question implements Comparable<Question> {
 		return this.date.compareTo(q.getDate());
 	}
 	
+	public int getId(){
+		return id;
+	}
 	
 
 }

@@ -79,5 +79,15 @@ public class AllQuestionsController {
 	public void addQuestion(Question Q) {
 		allQuestions.addQuestion(Q);
 	}
+	
+	public Question getQuestionById(int id){
+		ArrayList<Question> questions = allQuestions.getAllQuestions();
+		for (Question q:questions){
+			if (q.getId() == id){
+				return q;
+			}
+		}
+		return null;
+	}
 
 }

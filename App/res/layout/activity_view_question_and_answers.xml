@@ -9,31 +9,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ViewQuestionAndAnswers" 
     >
-
-    <TextView
-        android:id="@+id/questionHeader"
-        android:layout_width="fill_parent"
+	<Button 
+        android:id = "@+id/readLaterButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#04C1D2"
         android:fontFamily="fonts/26783.ttf"
-        android:gravity="center"
-        android:text="@string/questionHeaderText"
-        android:textColor="#fff"
-        android:textSize="40sp" />
-
+        android:textColor="#ff04c1d2"
+        android:text="@string/readLaterButtonText"
+        android:background="@drawable/buttonshape"
+        android:padding="5sp"
+        android:onClick="readLater"
+    />
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/questionHeader"
+        android:layout_below="@+id/readLaterButton"
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
-        android:textSize="15sp" >
+        android:textSize="15sp" >    
     </TextView>
 
     <Button
@@ -43,17 +40,27 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/questionText"
         android:text="@string/favoriteButtonText"
-        android:textSize="15sp" />
+        android:textSize="15sp" 
+        android:onClick="addToFavorite"/>
 
     <Button
         android:id="@+id/upvoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/favoriteButton"
         android:layout_below="@+id/questionText"
         android:text="@string/upvoteButtonText"
-        android:textSize="15sp" />
-
+        android:textSize="15sp" 
+        android:onClick="upvote"/>
+    <TextView 
+        android:id = "@+id/upvoteCount"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/questionText"
+        android:textColor="#ff04c1d2"
+        android:textSize = "30sp"
+        />
     <ExpandableListView
         android:id="@+id/questionRepliesExpandable"
         android:layout_width="match_parent"
@@ -108,17 +115,6 @@
         android:layout_alignParentEnd="true"
         android:text="@string/answerButtonText"
         android:background="@drawable/buttonshape"
-        />
-    <Button 
-        android:id = "@+id/readLaterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="fonts/26783.ttf"
-        android:textColor="#ff04c1d2"
-        android:layout_below = "@+id/answerQuestionEditText"
-        android:layout_centerHorizontal="true"
-        android:text="@string/readLaterButtonText"
-        android:background="@drawable/buttonshape"
-        android:padding="12sp"
-        />
+        android:onClick="submitAnswer"/>
+
 </RelativeLayout>

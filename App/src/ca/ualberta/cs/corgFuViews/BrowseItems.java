@@ -4,17 +4,19 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
@@ -38,7 +40,8 @@ public class BrowseItems extends Activity implements IView
 		super.onCreate(savedInstanceState);
 		//calls function to populate list
 		populateListView();
-
+		setListViewListener();
+		setFont();
 	}
 
 	// Taken from
@@ -121,8 +124,6 @@ public class BrowseItems extends Activity implements IView
 
 			}
 		});
-		Button myProfileButton = (Button) findViewById(R.id.MyProfileButton);
-		Button askButton = (Button) findViewById(R.id.GoToAsk);
 	}
 	
 	@Override
@@ -181,17 +182,52 @@ public class BrowseItems extends Activity implements IView
 
 	}
 
+	private void setListViewListener(){
+		final OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
+		    public void onItemClick(AdapterView parent, View v, int position, long id) {
+		    	Question question = (Question) parent.getItemAtPosition(position);
+		    	int qId = question.getId();
+		    	goToQuestion(qId);
+		    }
+		};
+		
+		ListView listView = (ListView) findViewById(R.id.browseQuestionsListView);
+		listView.setOnItemClickListener(mMessageClickedHandler);
+	}
+	
 	public static ArrayList<Question> getCurrentDisplayCollection()
 	{
 
 		return null;
 	}
-
+	
 	@Override
 	public void update(Object model)
 	{
 
 		listAdapter.notifyDataSetChanged();
+	}
+	
+	private void setFont(){
+		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
+		
+		Button goToAsk = (Button) findViewById(R.id.GoToAsk);
+		goToAsk.setTypeface(customTF);
+		
+		Button myProfile = (Button) findViewById(R.id.MyProfileButton);
+		myProfile.setTypeface(customTF);
+		
+		TextView searchLabel = (TextView) findViewById(R.id.searchLabel);
+		searchLabel.setTypeface(customTF);
+		
+		TextView sortLabel = (TextView) findViewById(R.id.sortLabel);
+		sortLabel.setTypeface(customTF);
+	}
+	
+	private void goToQuestion(int qId){
+		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
+    	intent.putExtra("@string/idExtraTag", qId);
+    	startActivity(intent);
 	}
 
 }

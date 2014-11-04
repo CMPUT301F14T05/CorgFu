@@ -42,8 +42,8 @@
     <string name = "favoriteButtonText">Favorite</string>
     <string name = "upvoteButtonText">Upvote</string>
     <string name = "topAnswerLabelText">Top Answer</string>
-	<string name = "writeAnswerHint">Answer this question . . .</string>
+	<string name = "writeAnswerHint">Answer this question</string>
 	<string name = "answerButtonText">Submit</string>
 	<string name = "readLaterButtonText">Read Later</string>
-    
+    <string name = "idExtraTag">QuestionIdExtraTag</string>
 </resources>
