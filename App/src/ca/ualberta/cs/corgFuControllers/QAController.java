@@ -22,18 +22,15 @@ public class QAController {
 	}
 
 	public void makeAvailOffline(OfflineDataController controller) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void makeAuthoredQAvailOffline(OfflineDataController controller) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void setFav(FavouritesController favController) {
 		// TODO Auto-generated method stub
-		
 	}
 	
 	public void addToAuthoredOffline(AuthoredOfflineController AOC) {
@@ -41,7 +38,6 @@ public class QAController {
 	}
 
 	public String getQuestionString() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

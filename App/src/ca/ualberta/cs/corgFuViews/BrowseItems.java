@@ -43,6 +43,16 @@ public class BrowseItems extends Activity implements IView
 		setListViewListener();
 		setFont();
 	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		ListView listView = (ListView) findViewById(R.id.browseQuestionsListView);
+		InsertQuestionAdapter listAdapter = (InsertQuestionAdapter) listView.getAdapter();
+		if (listAdapter != null){
+			listAdapter.notifyDataSetChanged();
+		}
+	}
 
 	// Taken from
 	// http://developer.android.com/guide/topics/ui/controls/spinner.html
@@ -204,7 +214,6 @@ public class BrowseItems extends Activity implements IView
 	@Override
 	public void update(Object model)
 	{
-
 		listAdapter.notifyDataSetChanged();
 	}
 	
