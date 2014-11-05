@@ -1,9 +1,12 @@
 package ca.ualberta.cs.corgFu;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -26,7 +29,26 @@ public class ElasticSearch {
 	}
 	
 	public Question getQuestion(Question Q){
-		return null;
+		// The following code is taken from the Lab 7 on Elastic Search on 11/04/2014
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpGet httpGet = new HttpGet(RESOURCE_URL + Q.getId());
+	
+		HttpResponse response;
+	
+		try {
+			response = httpClient.execute(httpGet);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		SearchHit<Question> sr = parseQuestionHit(response);
+		Question found = sr.getSource();
+		return found;
 	}
 	
 	public void addQuestion(Question Q){
@@ -47,7 +69,7 @@ public class ElasticSearch {
 			e.printStackTrace();
 		}
 	}
-	public SearchHit<Question> parseQuestionHit(HttpResponse response){
+	private SearchHit<Question> parseQuestionHit(HttpResponse response){
 		SearchHit<Question> sr = new SearchHit<Question>();
 		return sr;
 	}

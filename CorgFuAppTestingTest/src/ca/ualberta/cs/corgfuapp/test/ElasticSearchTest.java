@@ -51,16 +51,8 @@ public class ElasticSearchTest extends TestCase {
 		
 		int id;
 		id = Q.getId();
-		
-		// The following code is taken from the Lab 7 on Elastic Search on 11/04/2014
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(RESOURCE_URL + id);
-
-		HttpResponse response;
-
-		response = httpClient.execute(httpGet);
-		SearchHit<Question> sr = ES.parseQuestionHit(response);
-		Question found = sr.getSource();
+		Question found;
+		found = ES.getQuestion(Q);
 		assertEquals("The retrieved question vs the expected question.", found,Q);
 		cleanup();
 	}
@@ -72,23 +64,14 @@ public class ElasticSearchTest extends TestCase {
 		
 		int id = Q.getId();
 		
-		// The following code is taken from the Lab 7 on Elastic Search on 11/04/2014
-		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(RESOURCE_URL + id);
-
-		HttpResponse response;
-
-		response = httpClient.execute(httpGet);
-		SearchHit<Question> sr = ES.parseQuestionHit(response);
-		Question found = sr.getSource();
+		Question found;
+		found = ES.getQuestion(Q);
 		
 		assertEquals("Tests that question was added", Q, found);
 		
 		ES.deleteQuestion(id); //deletes question
 		
-		response = httpClient.execute(httpGet);
-		sr = ES.parseQuestionHit(response);
-		found = sr.getSource();
+		found = ES.getQuestion(Q);
 		
 		assertEquals("Tests the question is not there anymore",null,found);
 		
