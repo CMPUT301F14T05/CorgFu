@@ -14,7 +14,8 @@ import ca.ualberta.cs.corgFuModels.Question;
 
 public class ViewQuestionAndAnswers extends Activity
 {
-
+	private int qId = 0;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -33,7 +34,6 @@ public class ViewQuestionAndAnswers extends Activity
 	}
 	
 	private void getQuestion(){
-		int qId = 0;
 		Bundle extra = getIntent().getExtras();
 		if (extra != null){
 			qId = extra.getInt("@string/idExtraTag");
@@ -74,11 +74,6 @@ public class ViewQuestionAndAnswers extends Activity
 	}
 	
 	public void upvote(View v){
-		int qId = 0;
-		Bundle extra = getIntent().getExtras();
-		if (extra != null){
-			qId = extra.getInt("@string/idExtraTag");
-		}
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		Question myQuestion = AQC.getQuestionById(qId);
