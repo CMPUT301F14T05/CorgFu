@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class ViewQuestionAndAnswers extends Activity
@@ -19,6 +22,7 @@ public class ViewQuestionAndAnswers extends Activity
 
 	Question myQuestion;
 	private int qId = 0;
+	Answer answer;
 	
 
 	@Override
@@ -105,7 +109,17 @@ public class ViewQuestionAndAnswers extends Activity
 	}
 	
 	public void submitAnswer(View v){
+		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
+		String answerText = answerEditText.getText().toString();
 		
+		answer = new Answer(answerText);
+		
+		//throws addAnswer method exception
+		//myQuestion.addAnswer(answer);
+		
+		answerEditText.setText("");
+
+		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 	}
 
 }

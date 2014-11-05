@@ -39,11 +39,12 @@ public class Question implements Comparable<Question> {
 	}
 
 	public void addAnswer(Answer answer) {
-		answers.add(answer);
 		/*
 		 * TODO create a new answer object with the text string and append it to
 		 * the answers list
 		 */
+
+		answers.add(answer);
 
 	}
 
