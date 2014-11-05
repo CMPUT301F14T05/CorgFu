@@ -10,17 +10,19 @@ import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuControllers.FavouritesController;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class ViewQuestionAndAnswers extends Activity
 {
-
+	Question myQuestion;
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_answers);
 		getQuestion();
 		setFont();
+		
 	}
 
 	@Override
@@ -70,7 +72,8 @@ public class ViewQuestionAndAnswers extends Activity
 	}
 	
 	public void addToFavorite(View v){
-		
+		FavouritesController fc = new FavouritesController();
+		fc.addFavourites(myQuestion);
 	}
 	
 	public void upvote(View v){
