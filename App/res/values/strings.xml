@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">CorgFuApp</string>
@@ -47,5 +46,6 @@
     <string name="Cached">My Cached</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_favourite">Favourite</string>
+    <string name="fav_button_description">Favorites Button Description</string>
 
 </resources>

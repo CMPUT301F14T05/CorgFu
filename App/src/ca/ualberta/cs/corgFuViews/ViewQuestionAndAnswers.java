@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
@@ -77,6 +78,12 @@ public class ViewQuestionAndAnswers extends Activity
 	public void addToFavorite(View v){
 		FavouritesController fc = new FavouritesController();
 		fc.addFavourites(myQuestion);
+		
+		// Change button image after question has been added to favorites
+		ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
+		favButton.setImageResource(android.R.drawable.btn_star_big_on);
+		favButton.setClickable(false);
+		favButton.setEnabled(false);
 	}
 	
 	public void upvote(View v){
@@ -93,6 +100,8 @@ public class ViewQuestionAndAnswers extends Activity
 		
 		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
 		upvoteButton.setClickable(false);
+		upvoteButton.setEnabled(false);
+		
 	}
 	
 	public void submitAnswer(View v){
