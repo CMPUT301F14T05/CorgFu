@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import ca.ualberta.corgfuapp.Favourite;
 import ca.ualberta.corgfuapp.R;
 
 public class MyProfile extends Activity {
@@ -21,7 +20,7 @@ public class MyProfile extends Activity {
 		
 	}
 	public void toFav(View v){
-		Intent intent = new Intent(this, Favourite.class);
+		Intent intent = new Intent(this, FavouriteView.class);
 		startActivity(intent);
 	}
 	public void toReadLater(View v){

@@ -53,5 +53,6 @@ public class FavouritesController {
 	public void addFavourites(Question q) {
 		getFavouriteList().addFavourite(q);
 	}
+	
 
 }

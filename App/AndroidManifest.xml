@@ -47,7 +47,7 @@
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
-            android:name=".Favourite"
+            android:name="ca.ualberta.cs.corgFuViews.FavouriteView"
             android:label="@string/title_activity_favourite" >
         </activity>
     </application>
