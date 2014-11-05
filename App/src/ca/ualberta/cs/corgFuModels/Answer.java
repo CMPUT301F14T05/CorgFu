@@ -19,9 +19,9 @@ public class Answer
 	private Bitmap genericPic;
 
 
-	public Answer(String Text){
+	public Answer(String text){
 		upvotes = 0;
-		answerText = Text;
+		answerText = text;
 		replies = new ArrayList<Reply>();
 		date = new Date();
 	}

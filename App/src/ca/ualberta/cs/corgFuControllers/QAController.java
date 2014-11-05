@@ -29,8 +29,8 @@ public class QAController {
 		
 	}
 
-	public void setFav(FavoritesController favController) {
-		
+	public void setFav(FavouritesController favController) {
+		// TODO Auto-generated method stub
 	}
 	
 	public void addToAuthoredOffline(AuthoredOfflineController AOC) {
