@@ -1,13 +1,11 @@
 package ca.ualberta.cs.corgFuViews;
 
-import ca.ualberta.corgfuapp.R;
-import ca.ualberta.corgfuapp.R.id;
-import ca.ualberta.corgfuapp.R.layout;
-import ca.ualberta.corgfuapp.R.menu;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import ca.ualberta.corgfuapp.R;
 
 public class MyProfile extends Activity {
 
@@ -15,6 +13,16 @@ public class MyProfile extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_profile);
+	}
+	
+	public void toCached(View v){
+		
+	}
+	public void toFav(View v){
+		
+	}
+	public void toReadLater(View v){
+		
 	}
 
 	@Override
