@@ -46,6 +46,10 @@
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
+        <activity
+            android:name=".Favourite"
+            android:label="@string/title_activity_favourite" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,37 +1,22 @@
-package ca.ualberta.cs.corgFuViews;
+package ca.ualberta.corgfuapp;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import ca.ualberta.corgfuapp.Favourite;
-import ca.ualberta.corgfuapp.R;
 
-public class MyProfile extends Activity {
+public class Favourite extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_my_profile);
-	}
-	
-	public void toCached(View v){
-		
-	}
-	public void toFav(View v){
-		Intent intent = new Intent(this, Favourite.class);
-		startActivity(intent);
-	}
-	public void toReadLater(View v){
-		
+		setContentView(R.layout.activity_favourite);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.my_profile, menu);
+		getMenuInflater().inflate(R.menu.favourite, menu);
 		return true;
 	}
 

@@ -46,5 +46,6 @@
     <string name="ReadLater">My Read Later</string>
     <string name="Cached">My Cached</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_favourite">Favourite</string>
 
 </resources>
