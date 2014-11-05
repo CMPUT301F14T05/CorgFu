@@ -1,5 +1,7 @@
 package ca.ualberta.cs.corgFu;
 
+import java.util.ArrayList;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -48,6 +50,15 @@ public class ElasticSearch {
 	public SearchHit<Question> parseQuestionHit(HttpResponse response){
 		SearchHit<Question> sr = new SearchHit<Question>();
 		return sr;
+	}
+
+	public void deleteQuestion(int id) {
+		
+	}
+
+	public ArrayList<Question> searchQuestion(String searchString, String field) {
+		return null;
+		
 	}
 
 }
