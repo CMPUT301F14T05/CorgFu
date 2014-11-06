@@ -34,7 +34,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  * connectivity) and can also choose how to sort the questions (regardless of 
  * network connectivity).
  * @author wrflemin
- *
+ * @see ca.ualberta.cs.corgFuModels.AllQuestions
  */
 public class BrowseItems extends Activity implements IView
 {
