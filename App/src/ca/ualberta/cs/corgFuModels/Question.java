@@ -100,7 +100,7 @@ public class Question implements Comparable<Question> {
 		hasAPicture = true;
 	}
 
-	public Answer getAnswer() {
+	public ArrayList<Answer> getAnswers() {
 		return null;
 	}
 
