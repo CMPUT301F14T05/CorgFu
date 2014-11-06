@@ -28,6 +28,11 @@ import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
 /**
+ * The activity that Allows users to browse through the currently available
+ * questions that are present in the AllQuestions model. The activity has a
+ * search bar where the user can search all questions (if they have internet
+ * connectivity) and can also choose how to sort the questions (regardless of 
+ * network connectivity).
  * @author wrflemin
  *
  */

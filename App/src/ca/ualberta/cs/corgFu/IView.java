@@ -1,9 +1,12 @@
 package ca.ualberta.cs.corgFu;
 
+
 /**
+ * Interface that allows for an MVC design. This class allows for the 
+ * view portion of MVC and requires that implementing classes implement
+ * the update function.
  * @author wrflemin
- *
- * @param <M> A model that extends the Model class.
+ * @param <M>
  */
 public interface IView<M> {
 	/**

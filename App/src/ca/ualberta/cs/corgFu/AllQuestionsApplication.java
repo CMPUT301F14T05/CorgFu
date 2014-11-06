@@ -23,6 +23,8 @@ import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 
 /**
+ * The singleton class that allows for a singular allQuestions model to be
+ * accessed and updated by a singular controller.
  * @author wrflemin
  */
 public class AllQuestionsApplication extends Application {
