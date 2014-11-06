@@ -29,7 +29,7 @@ public class ViewQuestionsAndAnswersTest extends TestCase {
 		a1.addReply(a1r1);
 		QAController QAC = new QAController(q1);
 		assertEquals("test if right question", q1.getQuestionString(),QAC.getQuestionString()); // test if controller passes the right question
-		assertEquals("test if right answer", q1.getAnswer(),a1);
+		assertEquals("test if right answer", q1.getAnswers(),a1);
 		assertEquals("test if right reply answer", a1.getReplies(),ARA);
 		assertEquals("test if right reply answer", q1.getReplies(),ARA);
 		
