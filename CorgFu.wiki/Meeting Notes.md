@@ -1,3 +1,26 @@
+##2014/11/05
+####Comments
+	- Seems to be about 50% complete. 
+	- Make sure you do JavaDoc for your code!!!
+
+####Anthony & Alex O.
+	- Worked on attach picture. Still working on attach picture
+	- Blockers: Issues with testing on emulator because it does not have all the
+	gallery options. Not able to catch the right path for the picture right now.
+	Using 
+####Devon & Ahmed
+	- Got sorting done, fixed user profile bugs, and working on favorite stuff.
+	- finished test cases
+	- Blocker: Favorites are tough
+	- Finish release planning
+####Wyatt & Alex M.
+	- Finished making the make question using the singleton so that questions 
+	are persistent across the app
+	- UI test cases for asking a question
+	- Made the UI for browsing questions and has been tested
+	- Made UI for opening a question. Currently upvotes, and question text can
+	be viewed
+
 ##2014/10/29
 #####To Do
 	
