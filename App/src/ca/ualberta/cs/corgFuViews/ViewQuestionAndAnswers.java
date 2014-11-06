@@ -16,7 +16,18 @@ import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
-
+/**
+ * Activity that is responsible for showing a Question. A question
+ * can be composed of the question text, a picture related to the question
+ * number of upvotes, replies to the question, and all of the answers to 
+ * the questions which can have answer text, a picture relating to the answer,
+ * upvotes, and replies.
+ * @see ca.ualberta.cs.corgFuModels.Question
+ * @see ca.ualberta.cs.corgFuModels.Answer
+ * @see ca.ualberta.cs.corgFu.Picture
+ * @author wrflemin
+ *
+ */
 public class ViewQuestionAndAnswers extends Activity
 {
 
@@ -24,7 +35,6 @@ public class ViewQuestionAndAnswers extends Activity
 	private int qId = 0;
 	Answer answer;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -43,6 +53,11 @@ public class ViewQuestionAndAnswers extends Activity
 		return true;
 	}
 	
+	/**
+	 * Gets the question id that was sent through the intent using the tag
+	 * of @string/idExtraTag. From their the question object is retrieved
+	 * and its contents are populated into their respective views.
+	 */
 	private void getQuestion(){
 		Bundle extra = getIntent().getExtras();
 		if (extra != null){
@@ -63,7 +78,9 @@ public class ViewQuestionAndAnswers extends Activity
 		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
 		
 	}
-	
+	/**
+	 * Sets the font of the buttons to the "fonts/26783.ttf" font
+	 */
 	private void setFont(){
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
@@ -74,11 +91,19 @@ public class ViewQuestionAndAnswers extends Activity
 		submit.setTypeface(customTF);
 		
 	}
-	
+	/**
+	 * Add the question being viewed to the read later list which makes the
+	 * question available for reading offline. 
+	 * @param v The view that was clicked on
+	 */
 	public void readLater(View v){
 		
 	}
-	
+	/**
+	 * Add the question being viewed to the favorite list which makes the
+	 * question available for reading offline. 
+	 * @param v The view being clicked on
+	 */
 	public void addToFavorite(View v){
 		FavouritesController fc = new FavouritesController();
 		fc.addFavourites(myQuestion);
@@ -89,7 +114,11 @@ public class ViewQuestionAndAnswers extends Activity
 		favButton.setClickable(false);
 		favButton.setEnabled(false);
 	}
-	
+	/**
+	 * Upvotes the question. First the question is retreived through the id, then
+	 * it is upvoted.
+	 * @param v The view that is being clicked on.
+	 */
 	public void upvote(View v){
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
@@ -107,7 +136,10 @@ public class ViewQuestionAndAnswers extends Activity
 		upvoteButton.setEnabled(false);
 		
 	}
-	
+	/**
+	 * Adds an answer to the question when the user clicks the submit answer button
+	 * @param v The view that was clicked on
+	 */
 	public void submitAnswer(View v){
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
