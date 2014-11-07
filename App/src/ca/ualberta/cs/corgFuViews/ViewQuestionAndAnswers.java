@@ -25,6 +25,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture
+ * @see ca.ualberta.cs.corgFu.Reply
  * @author wrflemin
  *
  */
