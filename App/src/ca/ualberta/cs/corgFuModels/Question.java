@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.Random;
 
 import android.graphics.Bitmap;
+import ca.ualberta.cs.corgFu.IView;
+import ca.ualberta.cs.corgFu.Model;
 import ca.ualberta.cs.corgFu.Reply;
 /**
  * The object that represents a question that has been asked
@@ -20,7 +22,7 @@ import ca.ualberta.cs.corgFu.Reply;
  * @author wrflemin
  *
  */
-public class Question implements Comparable<Question> {
+public class Question extends Model<IView> implements Comparable<Question> {
 	private int upvotes;
 	private String questionText;
 	private Bitmap genericPic;

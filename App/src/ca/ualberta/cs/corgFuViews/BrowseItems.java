@@ -222,7 +222,7 @@ public class BrowseItems extends Activity implements IView
 	}
 	
 	@Override
-	public void update(Object model)
+	public void update()
 	{
 		listAdapter.notifyDataSetChanged();
 	}

@@ -47,7 +47,7 @@ public class Model<V extends IView> {
 	 */
 	public void notifyViews(){
 		for (V view : views) {
-			view.update(this);
+			view.update();
 		}
 	}
 }
