@@ -1,17 +1,5 @@
 package ca.ualberta.cs.corgFuViews;
 
-/**
- * This is the MainActivity Activity. It is in charge of our screen for asking questions. 
- * It is on this screen that you can enter a question into our edittext box and post it to the app.
- * From this page you can go to your personal profile or go to browse questions posed by others.
- * 
- * @author Alex Makepeace
- * @author Wyatt Fleming
- * 
- * @version 2.0 Nov.6/2014
- * 
- */
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -28,7 +16,17 @@ import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
-
+/**
+ * This is the MainActivity Activity. It is in charge of our screen for asking questions. 
+ * It is on this screen that you can enter a question into our edittext box and post it to the app.
+ * From this page you can go to your personal profile or go to browse questions posed by others.
+ * 
+ * @author Alex Makepeace
+ * @author Wyatt Fleming
+ * 
+ * @version 2.0 Nov.6/2014
+ * 
+ */
 public class MainActivity extends Activity
 {
 	

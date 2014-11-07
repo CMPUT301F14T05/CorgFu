@@ -6,14 +6,11 @@ package ca.ualberta.cs.corgFu;
  * view portion of MVC and requires that implementing classes implement
  * the update function.
  * @author wrflemin
- * @param <M>
  */
-public interface IView<M> {
+public interface IView {
 	/**
 	 * A function that will be called by the model on 
 	 * the view when the model's data changes. 
-	 * @param model The model that extends the Model class
-	 * that is calling update on the view.
 	 */
-	public void update(M model);
+	public void update();
 }

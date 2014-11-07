@@ -1,15 +1,5 @@
 package ca.ualberta.cs.corgFu;
 
-/**This class ElasticSearch deals with all elements of implementing Elastic Search.
- * There are methods contained here for adding new Questions to the server, 
- * retrieving Questions from the server, and deleting questions from the server.
- * 
- * @author Alex Makepeace
- * @author Wyatt Fleming
- * 
- * @version 1.0 Nov.6/2014
- */
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,7 +16,15 @@ import ca.ualberta.cs.corgFuModels.Question;
 import com.google.gson.Gson;
 
 import android.util.Log;
-
+/**This class ElasticSearch deals with all elements of implementing Elastic Search.
+ * There are methods contained here for adding new Questions to the server, 
+ * retrieving Questions from the server, and deleting questions from the server.
+ * 
+ * @author Alex Makepeace
+ * @author Wyatt Fleming
+ * 
+ * @version 1.0 Nov.6/2014
+ */
 public class ElasticSearch {
 	
 	/**RESOURCE_URL is the location of the server in which Questions will be stored in*/

@@ -18,7 +18,6 @@ public class ViewOfflineTest extends TestCase {
 			Question mQ1 = new Question("Question to view offline");
 			
 //			OfflineData model = new OfflineData();
-//			//OfflineDataController controller = new OfflineDataController(model);
 //			
 //			QAController mQAC = new QAController(mQ1);
 //			mQAC.makeAvailOffline(controller);

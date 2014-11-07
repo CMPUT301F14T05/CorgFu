@@ -6,7 +6,7 @@ import ca.ualberta.cs.corgFu.Listener;
 
 public class Favourites {
 	//private static final long serialVersionUID = 6673446047991058932L; // look up																	// what
-																		
+	//looked up																	
 	protected ArrayList<Question> favouriteList = null;
 	protected transient ArrayList<Listener> listeners = null;
 
