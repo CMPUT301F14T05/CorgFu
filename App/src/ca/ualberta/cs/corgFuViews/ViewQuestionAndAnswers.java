@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
 import ca.ualberta.cs.corgFuModels.Answer;
@@ -30,7 +31,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  * @author wrflemin
  *
  */
-public class ViewQuestionAndAnswers extends Activity
+public class ViewQuestionAndAnswers extends Activity implements IView
 {
 
 	Question myQuestion;
@@ -171,6 +172,11 @@ public class ViewQuestionAndAnswers extends Activity
 		answerEditText.setText("");
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void update() {
+		
 	}
 
 }
