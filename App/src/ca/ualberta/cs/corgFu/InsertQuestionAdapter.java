@@ -13,6 +13,10 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFuModels.Question;
 
 /**
+ * The custom ArrayAdapter that allows a custom view to be inserted
+ * in an android ListView. The custom view used in this case displays
+ * the question text, number of answers to the question, and the
+ * number of upvotes the question has.
  * @author wrflemin
  */
 public class InsertQuestionAdapter extends ArrayAdapter<Question> {
@@ -37,8 +41,6 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 	}
 
 	/**
-	 * {@inheritDoc}
-	 *<p>
 	 * Inserts specific elements from objects into their respective views
 	 * to create a custom row in a listview.
 	 * @param position Indicates the position of the item being inserted
