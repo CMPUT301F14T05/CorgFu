@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
@@ -33,8 +34,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
-
-	Question myQuestion;
+    Question myQuestion;
 	private int qId = 0;
 	Answer answer;
 	
@@ -44,6 +44,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		setContentView(R.layout.activity_view_question_and_answers);
 		getQuestion();
 		setFont();
+		setPicture();
 		
 	}
 
@@ -70,9 +71,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		Question myQuestion = AQC.getQuestionById(qId);
+
+		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
-		
+		myQuestion = AQC.getQuestionById(qId);
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
 		questionText.setText(QAC.getQuestionString());
@@ -82,6 +84,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
 	}
+	
 	/**
 	 * Sets the font of the buttons to the "fonts/26783.ttf" font
 	 */
@@ -95,6 +98,21 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		submit.setTypeface(customTF);
 		
 	}
+	
+	/**
+	 * Updates imageView with a question picture if this question has a picture
+	 */
+	private void setPicture() {
+		if (myQuestion.hasPicture()) {
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
+			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView);
+			qPictureView.setImageBitmap(myQuestion.getImage());
+		}
+		else {
+			//Toast.makeText(this, "no picture :(", Toast.LENGTH_LONG).show();
+		}
+			}
+	
 	/**
 	 * Add the question being viewed to the read later list which makes the
 	 * question available for reading offline. 

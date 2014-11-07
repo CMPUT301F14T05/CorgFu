@@ -9,7 +9,19 @@ import android.graphics.Bitmap;
 
 import ca.ualberta.cs.corgFu.Reply;
 
-
+/**
+ * This is an object that represents an answer that has been
+ * submitted by the user in response to a question. This may 
+ * include answer text, a picture, the upvotes that the answer
+ * has recieved and if the answer has been favourited/cached  
+ * by other users which may include upvotes, a picture, and replies.
+ * 
+ * @author Anthony Wu
+ * @author Oleksii Shevchenko
+ * @see ca.ualberta.cs.corgFuModels.Question
+ * @see ca.ualberta.cs.corgFu.Reply
+ * @see ca.ualberta.cs.corgFu.Picture
+ */
 public class Answer
 {
 	private int upvotes;
@@ -17,8 +29,13 @@ public class Answer
 	private Date date;
 	private ArrayList<Reply> replies;
 	private Bitmap genericPic;
+	private Boolean hasAPicture;
 
-
+	/**
+	 * Builds an Answer based on the question text
+	 * provided.
+	 * @param Text The text that makes up the Answer.
+	 */
 	public Answer(String text){
 		upvotes = 0;
 		answerText = text;
@@ -26,38 +43,65 @@ public class Answer
 		date = new Date();
 	}
 	
-	// Adds reply to the answer
+	/**
+	 * A method that returns whether there is a picture 
+	 * attached to the Answer or not
+	 * @return A boolean indicating whether or not a picture is attached.
+	 */
+	public boolean hasPicture() {
+		return hasAPicture;
+	}
+
+	/**
+	 * A function that increments the number of upvotes a Answer has.
+	 */
+	public void upvote(){
+		upvotes += 1; 	// Increments vote counter
+	}
+	
+	/**
+	 * Adds a reply object to Answer
+	 * @param reply The reply object containing the reply text to 
+	 * the Answer
+	 */
 	public void addReply(Reply reply){
 		replies.add(reply);
 	}
-	
-	// Increments vote counter
-	public void upvote(){
-		upvotes += 1;
-	}
-	
-	// getReplyString method exists in Reply class
-	// can we remove this?
+
+	/**
+	 * Gets the question text held by the Answer object.
+	 * @return The string that is the Answer text
+	 */
 	public String getReplyString() {
+		// getReplyString method exists in Reply class
+		// can we remove this?
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
-	// Do we need to set votes? I don't think so
-	public void setVotes(int i) {
-		upvotes = i;
-	}
-	
-	// Returns current number of votes for the answer
+	/**
+	 * Gets the number of upvotes that the Answer currently
+	 * has.
+	 * @return The total number of upvotes the Answer has.
+	 */
 	public int getVotes() {
 		return upvotes;
 	}
 	
+	/**
+	 * Gets the date the Answer was authored on. More specifically the
+	 * date/time the user submitted their answer, regardless of internet
+	 * connectivity.
+	 * @return The date of the Answer 
+	 */
 	public Date getDate() {
 		return date;
 	}
 	
-	
+	/**
+	 * Returns all the replies to the question in an ArrayList.
+	 * @return The ArrayList of replies to the Answer.
+	 */
 	public ArrayList<Reply> getReplies() {
 
 		Collections.sort(replies, new Comparator<Reply>() {
@@ -72,16 +116,28 @@ public class Answer
 		
 	}
 	
+	/**
+	 * Returns the Answer.
+	 * @return The Answer text.
+	 */
 	public String getAnswerString() {
 		return answerText;
 		
 	}
 	
-	// Returns Picture associated with the answer
+	/**
+	 * Returns the image that is attached to the Answer.
+	 * @return The bitmap of the picture attached to the Answer.
+	 */
 	public Bitmap getPicture(){
 		return genericPic;
 	}
 	
+	/**
+	 * Allows for setting of the picture attached to the Answer.
+	 * @param Image The bitmap of the picture to be attached to the
+	 * Answer.
+	 */
 	public void setPicture(Bitmap picture){
 		genericPic = picture;
 	}

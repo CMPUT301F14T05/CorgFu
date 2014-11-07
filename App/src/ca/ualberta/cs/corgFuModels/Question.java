@@ -78,6 +78,7 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	public void addReply(Reply reply) {
 		replies.add(reply);
 	}
+	
 	/**
 	 * Gets the question text held by the Question object.
 	 * @return The string that is the question text
@@ -93,7 +94,7 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	}
 	/**
 	 * Allows for setting up upvotes when either testing or 
-	 * building a question from an elasticsearch response.
+	 * building a question from an elastic search response.
 	 * @param i
 	 */
 	public void setVotes(int i) {
@@ -154,8 +155,8 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 * @param Image The bitmap of the picture to be attached to the
 	 * question.
 	 */
-	public void setImage(Bitmap Image) {
-		genericPic = Image;
+	public void setImage(Bitmap image) {
+		genericPic = image;
 		hasAPicture = true;
 	}
 	/**
