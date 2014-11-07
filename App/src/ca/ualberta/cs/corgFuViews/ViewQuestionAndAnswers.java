@@ -15,6 +15,7 @@ import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
+import ca.ualberta.cs.corgFuControllers.QAController;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
@@ -70,14 +71,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		Question myQuestion = AQC.getQuestionById(qId);
+		QAController QAC = new QAController(myQuestion);
 		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
-		questionText.setText(myQuestion.getQuestionString());
+		questionText.setText(QAC.getQuestionString());
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
+		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
 	}
 	/**
@@ -125,13 +127,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		Question myQuestion = AQC.getQuestionById(qId);
+		QAController QAC = new QAController(myQuestion);
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		myQuestion.upvote();
-		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
+		QAC.upvote();
+		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
 		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
 		upvoteButton.setClickable(false);
