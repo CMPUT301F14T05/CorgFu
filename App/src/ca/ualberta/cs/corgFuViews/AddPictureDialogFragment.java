@@ -1,19 +1,22 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.Picture;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +24,8 @@ import android.view.View;
 
 public class AddPictureDialogFragment extends DialogFragment {
 	private static int RESULT_LOAD_IMAGE = 1;
-    @Override
+    @SuppressLint("InflateParams")
+	@Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -57,19 +61,25 @@ public class AddPictureDialogFragment extends DialogFragment {
 
     	//fetches picture from image directory  
     	if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
+    		
     		Uri selectedImage = data.getData();
-    		String[] filePathColumn = { MediaStore.Images.Media.DATA };
+    		InputStream is = null;
+    		Bitmap attachedPic = null;
+			try {
+				is = getActivity().getContentResolver().openInputStream(selectedImage);
+				attachedPic = BitmapFactory.decodeStream(is);
+	    		
+			} catch (FileNotFoundException e) {
+				// Invalid URI exception
+				e.printStackTrace();
+			}
 
-    		Cursor cursor =  ((MainActivity)(AddPictureDialogFragment.this.getActivity())).getContentResolver().query(selectedImage,
-    				filePathColumn, null, null, null);
-    		cursor.moveToFirst();
-
-    		int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-    		String picturePath = cursor.getString(columnIndex);
-    		cursor.close();
-
-    		Bitmap attachedPic = BitmapFactory.decodeFile(picturePath);
-
+			try {
+				is.close();
+			} catch (IOException e) {
+				// Attempt to close non-existing InputStream
+				e.printStackTrace();
+			}
 
     		if (Picture.smallPicture(attachedPic)) {
     			// Add image to the question
