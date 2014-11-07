@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class SearchQuestionsAndAnswersTest extends TestCase {
@@ -18,14 +19,22 @@ public class SearchQuestionsAndAnswersTest extends TestCase {
 		Question mQ2 = new Question("Another question");
 		
 		AllQuestions aQ = new AllQuestions();
-		aQ.addQuestion(mQ1);
 		aQ.addQuestion(mQ2);
+		aQ.addQuestion(mQ1);
+		
+		Answer A1 = new Answer("Answer 1");
+		Answer A2 = new Answer("Another Answer");
+		
+		mQ1.addAnswer(A1);
+		mQ2.addAnswer(A2);
 		
 		AllQuestionsController aQC = new AllQuestionsController(aQ);
 		
-		ArrayList<Question> expected = new ArrayList<Question>();
-		expected.add(mQ1);
+		Question expected = mQ1;
+		Answer expectedAnswer = A1;
 		
-		assertEquals("Testing search of Q and A",expected,aQC.search("Searchable"));
+		assertEquals("Testing search of a Question",expected,aQC.search("Searchable"));
+		assertEquals("Testing search of an Answer",expectedAnswer,aQC.search("Answer 1"));
+		
 	}
 }
