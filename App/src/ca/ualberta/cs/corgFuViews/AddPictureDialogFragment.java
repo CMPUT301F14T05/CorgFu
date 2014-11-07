@@ -20,11 +20,12 @@ import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class AddPictureDialogFragment extends DialogFragment {
 	private static int RESULT_LOAD_IMAGE = 1;
-    @SuppressLint("InflateParams")
+    //@SuppressLint("InflateParams")
 	@Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
@@ -51,6 +52,10 @@ public class AddPictureDialogFragment extends DialogFragment {
                    }
                });
         
+    	//Bitmap attachedPic = null;
+    	//attachedPic = Bitmap.createScaledBitmap(attachedPic, 50, 50, false);
+		//((MainActivity)getActivity()).q.setImage(attachedPic);
+        
         // Create the AlertDialog object and return it
         return builder.create();
     }
@@ -59,9 +64,12 @@ public class AddPictureDialogFragment extends DialogFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
     	super.onActivityResult(requestCode, resultCode, data);
 
+    	
+    	
+
     	//fetches picture from image directory  
     	if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-    		
+
     		Uri selectedImage = data.getData();
     		InputStream is = null;
     		Bitmap attachedPic = null;
@@ -83,10 +91,12 @@ public class AddPictureDialogFragment extends DialogFragment {
 
     		if (Picture.smallPicture(attachedPic)) {
     			// Add image to the question
-    			((MainActivity)(AddPictureDialogFragment.this.getActivity())).q.setImage(attachedPic);
+    			Toast.makeText(getActivity(), "image has proper size", Toast.LENGTH_SHORT).show();
+    			((MainActivity)getActivity()).q.setImage(attachedPic);
     		}
     		else {
     			// Image is too large. Invoke another dialog asking to add another image
+    			Toast.makeText(getActivity(), "image is too large", Toast.LENGTH_SHORT).show();
     		}
 
     	}

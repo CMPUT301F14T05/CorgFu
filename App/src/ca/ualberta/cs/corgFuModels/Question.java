@@ -152,8 +152,8 @@ public class Question implements Comparable<Question> {
 	 * @param Image The bitmap of the picture to be attached to the
 	 * question.
 	 */
-	public void setImage(Bitmap Image) {
-		genericPic = Image;
+	public void setImage(Bitmap image) {
+		genericPic = image;
 		hasAPicture = true;
 	}
 	/**

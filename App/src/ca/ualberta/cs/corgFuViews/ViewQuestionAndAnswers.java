@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
@@ -42,6 +43,7 @@ public class ViewQuestionAndAnswers extends Activity
 		setContentView(R.layout.activity_view_question_and_answers);
 		getQuestion();
 		setFont();
+		setPicture();
 		
 	}
 
@@ -68,7 +70,7 @@ public class ViewQuestionAndAnswers extends Activity
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		Question myQuestion = AQC.getQuestionById(qId);
+		myQuestion = AQC.getQuestionById(qId);
 		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
@@ -79,6 +81,7 @@ public class ViewQuestionAndAnswers extends Activity
 		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
 		
 	}
+	
 	/**
 	 * Sets the font of the buttons to the "fonts/26783.ttf" font
 	 */
@@ -92,6 +95,21 @@ public class ViewQuestionAndAnswers extends Activity
 		submit.setTypeface(customTF);
 		
 	}
+	
+	/**
+	 * Updates imageView with a question picture if this question has a picture
+	 */
+	private void setPicture() {
+		if (myQuestion.hasPicture()) {
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
+			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView);
+			qPictureView.setImageBitmap(myQuestion.getImage());
+		}
+		else {
+			//Toast.makeText(this, "no picture :(", Toast.LENGTH_LONG).show();
+		}
+			}
+	
 	/**
 	 * Add the question being viewed to the read later list which makes the
 	 * question available for reading offline. 
