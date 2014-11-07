@@ -27,7 +27,7 @@ public class PushOfflineContentTest extends TestCase {
 		AllQuestionsController AQC = new AllQuestionsController(AQ);
 		
 		mQAC.addToAuthoredOffline(AOC);
-		
+		//push checks for connection and pushes question
 		AOC.pushContent(AQC);
 		
 		assertNull("Testing authored offline was emptied",AOC.getAuthoredOffline());
@@ -36,7 +36,8 @@ public class PushOfflineContentTest extends TestCase {
 		expected.add(mQ1);
 		
 		assertEquals("Testing the question got added to all questions", expected, AQC.getAllQuestions());
-		
+		// if we have connection than the offline data goes through the same proccess 
+		//as make question to be pushed and tested
 				
 	}
 	

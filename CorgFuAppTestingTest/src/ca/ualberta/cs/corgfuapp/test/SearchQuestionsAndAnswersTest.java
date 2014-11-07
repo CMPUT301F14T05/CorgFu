@@ -30,11 +30,15 @@ public class SearchQuestionsAndAnswersTest extends TestCase {
 		
 		AllQuestionsController aQC = new AllQuestionsController(aQ);
 		
-		Question expected = mQ1;
-		Answer expectedAnswer = A1;
+		ArrayList<Question> expected = new ArrayList<Question>();
+		expected.add(mQ1);
+		
+		
 		
 		assertEquals("Testing search of a Question",expected,aQC.search("Searchable"));
-		assertEquals("Testing search of an Answer",expectedAnswer,aQC.search("Answer 1"));
+		assertEquals("Testing search of a Question",expected,aQC.search("Answer"));
+
+		assertFalse("Testing search of an Answer",(expected==aQC.search("random")));
 		
 	}
 }

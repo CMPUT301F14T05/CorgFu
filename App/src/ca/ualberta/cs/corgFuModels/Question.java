@@ -103,6 +103,9 @@ public class Question implements Comparable<Question> {
 	public ArrayList<Answer> getAnswers() {
 		return null;
 	}
+	public ArrayList<Answer> getAnswerByVotes() {
+		return null;
+	}
 
 	public int getAnswerCount() {
 		return answers.size();
