@@ -40,7 +40,6 @@ public class AllQuestions extends Model<IView>
 	 */
 	public AllQuestions(){
 		allQuestions = new ArrayList<Question>();
-		ES = new ElasticSearch();
 		
 	}
 	/**
@@ -50,7 +49,6 @@ public class AllQuestions extends Model<IView>
 	 */
 	public void addQuestion(Question Q){
 		allQuestions.add(Q);
-		ES.addQuestion(Q);
 	}
 	/**
 	 * Returns all of the currently available questions in an ArrayList.

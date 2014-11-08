@@ -165,7 +165,7 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 * @return The ArrayList of Answer objects (answers to the question)
 	 */
 	public ArrayList<Answer> getAnswers() {
-		return null;
+		return answers;
 	}
 
 	public ArrayList<Answer> getAnswerByVotes() {
