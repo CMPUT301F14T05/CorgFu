@@ -20,8 +20,8 @@ public class AllQuestionTest extends TestCase {
 		assertEquals("Testing if we get the same object to modify",q1,q2);
 		
 		q2.upvote();
-		assertEquals("Modify object from getQuestionById should be same as actual object",q2.getVotes(),
-				AQC.getQuestionById(q1.getId()).getVotes());
+		assertEquals("Modify object from getQuestionById should be same as actual object",q2.getUpvotes(),
+				AQC.getQuestionById(q1.getId()).getUpvotes());
 		cleanup();
 	}
 	public void testAddQuestion(){

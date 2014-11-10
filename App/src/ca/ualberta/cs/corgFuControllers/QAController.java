@@ -79,10 +79,10 @@ public class QAController {
 	 * @return A String of the question text.
 	 */
 	public String getQuestionString() {
-		return question.getQuestionString();
+		return question.getQuestionText();
 	}
 	public int getVotes() {
-		return question.getVotes();
+		return question.getUpvotes();
 	}
 
 }

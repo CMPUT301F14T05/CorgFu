@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
@@ -17,6 +18,7 @@ public class AllQuestionsController {
 
 	AllQuestions allQuestions;
 	ArrayList<Question> allQuestionsArray;
+	ElasticSearch ES = new ElasticSearch();
 	
 	/**
 	 * Initializes the controller with the model that it will be updating
@@ -82,8 +84,8 @@ public class AllQuestionsController {
 				new Comparator<Question>() {
 
 					public int compare(Question q1, Question q2) {
-						Integer v1 = q1.getVotes();
-						Integer v2 = q2.getVotes();
+						Integer v1 = q1.getUpvotes();
+						Integer v2 = q2.getUpvotes();
 						return v2.compareTo(v1);
 			
 					}
@@ -120,6 +122,7 @@ public class AllQuestionsController {
 	 */
 	public void addQuestion(Question Q) {
 		allQuestions.addQuestion(Q);
+		ES.addQuestion(Q);
 	}
 	/**
 	 * Gets the question from the AllQuestions model that has the specified

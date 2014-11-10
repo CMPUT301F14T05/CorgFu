@@ -19,7 +19,7 @@ public class UpVoteTest extends TestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mQ1.setVotes(10);
+		mQ1.setUpvotes(10);
 		Question mQ2 = new Question("Question 2"); //Q2 with Image
 		try {
 			Thread.sleep(5*60);
@@ -27,7 +27,7 @@ public class UpVoteTest extends TestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mQ2.setVotes(5);
+		mQ2.setUpvotes(5);
 		Question mQ3 = new Question("Question 3"); //Q3
 		try {
 			Thread.sleep(5*60);
@@ -35,7 +35,7 @@ public class UpVoteTest extends TestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mQ3.setVotes(5);
+		mQ3.setUpvotes(5);
 		Question mQ4 = new Question("Question 4"); //Q4  
 		try {
 			Thread.sleep(5*60);
