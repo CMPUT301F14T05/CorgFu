@@ -1,3 +1,20 @@
+##2014/11/12
+####Comments
+    - Add link to Wiki to the UML
+    - No links between the views and controllers
+    - Working consistingly during all weeks
+    - Use milestones in the issue tracker!
+    - 
+####Anthony & Alex O.
+    - Working on pictures
+    - Still a problem with going from the external photo app back to the activity
+    - Answers are done, just working on displaying the answer in the view question and answer.
+    - Finish answers this week and the connected stuff (upvote, add picture, and reply)
+####Devon & Ahmed
+    - Had to restart the saving stuff.
+    - Hoping to have saving done by next week
+####Wyatt & Alex M.
+    -
 ##2014/11/05
 ####Comments
 	- Seems to be about 50% complete. 
