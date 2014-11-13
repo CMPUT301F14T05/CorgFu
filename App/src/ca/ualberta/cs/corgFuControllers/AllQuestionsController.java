@@ -122,7 +122,7 @@ public class AllQuestionsController {
 	 */
 	public void addQuestion(Question Q) {
 		allQuestions.addQuestion(Q);
-		ES.addQuestion(Q);
+		//ES.addQuestion(Q);
 	}
 	/**
 	 * Gets the question from the AllQuestions model that has the specified

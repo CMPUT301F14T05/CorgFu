@@ -34,9 +34,9 @@ import android.util.Log;
  */
 public class ElasticSearch {
 	
-	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/_search";
+	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/question/_search";
 	/**RESOURCE_URL is the location of the server in which Questions will be stored in*/
-	private static final String RESOURCE_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/";
+	private static final String RESOURCE_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/question/";
 	/**TAG is the tag used to identify what items should be included in a QuestionSearch*/
 	private static final String TAG = "QuestionSearch";
 	
@@ -54,10 +54,10 @@ public class ElasticSearch {
 	 * @param Q takes in the Question object that we are hoping to retrieve
 	 * @return a Question object retrieved by your method
 	 */
-	public Question getQuestion(Question Q){
+	public Question getQuestion(int id){
 		// The following code is taken from the Lab 7 on Elastic Search on 11/04/2014
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpGet httpGet = new HttpGet(RESOURCE_URL + Q.getId());
+		HttpGet httpGet = new HttpGet(RESOURCE_URL + id);
 	
 		HttpResponse response;
 	
