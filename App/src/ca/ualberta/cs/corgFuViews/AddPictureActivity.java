@@ -91,9 +91,7 @@ public class AddPictureActivity extends Activity {
     			//((MainActivity)getActivity()).q.setImage(attachedPic);
     			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			// Pick the latest added question
-    			//Question q = AQC.sortByDate().get(0);
-    			
-    			Question q = AQC.getAllQuestions().get(0);
+    			Question q = AQC.sortByDate().get(AQC.sortByDate().size()-1);
     			q.setImage(attachedPic);
     			
     			// After picture is added go back to MainActivity
@@ -102,9 +100,9 @@ public class AddPictureActivity extends Activity {
     		}
     		else {
     			// Image is too large. Invoke another dialog asking to add another image
-    			Toast.makeText(this, "image is too large", Toast.LENGTH_SHORT).show();
-
     			setContentView(R.layout.activity_add_picture);
+    			//Toast.makeText(this, "image is too large", Toast.LENGTH_SHORT).show();
+
     		}
 
     	}

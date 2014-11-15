@@ -12,10 +12,10 @@
         android:id="@+id/pictureDialogText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:padding="10dp"
-        android:text="@string/add_picture_option"
+        android:text="Your picture is too large"
         android:textColor="#04C1D2"
         android:textSize="20sp" />
 

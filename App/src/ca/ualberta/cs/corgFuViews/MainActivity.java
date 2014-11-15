@@ -14,7 +14,6 @@ import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
  * This is the MainActivity Activity. It is in charge of our screen for asking questions. 
