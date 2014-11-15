@@ -1,3 +1,43 @@
+##2014/11/12
+####Comments
+    - Add link to Wiki to the UML
+    - No links between the views and controllers
+    - Working consistingly during all weeks
+    - Use milestones in the issue tracker!
+    - 
+####Anthony & Alex O.
+    - Working on pictures
+    - Still a problem with going from the external photo app back to the activity
+    - Answers are done, just working on displaying the answer in the view question and answer.
+    - Finish answers this week and the connected stuff (upvote, add picture, and reply)
+####Devon & Ahmed
+    - Had to restart the saving stuff.
+    - Hoping to have saving done by next week
+####Wyatt & Alex M.
+    -
+##2014/11/05
+####Comments
+	- Seems to be about 50% complete. 
+	- Make sure you do JavaDoc for your code!!!
+
+####Anthony & Alex O.
+	- Worked on attach picture. Still working on attach picture
+	- Blockers: Issues with testing on emulator because it does not have all the
+	gallery options. Not able to catch the right path for the picture right now.
+	Using 
+####Devon & Ahmed
+	- Got sorting done, fixed user profile bugs, and working on favorite stuff.
+	- finished test cases
+	- Blocker: Favorites are tough
+	- Finish release planning
+####Wyatt & Alex M.
+	- Finished making the make question using the singleton so that questions 
+	are persistent across the app
+	- UI test cases for asking a question
+	- Made the UI for browsing questions and has been tested
+	- Made UI for opening a question. Currently upvotes, and question text can
+	be viewed
+
 ##2014/10/29
 #####To Do
 	

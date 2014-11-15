@@ -20,19 +20,19 @@ public class MakeQuestionTest extends TestCase {
 		
 		assertEquals(
 				"Testing if QuestionController returns list in correct order",
-				Q1String, Q1.getQuestionString());
+				Q1String, Q1.getQuestionText());
 	}	
 	// tests UC-12
 	public void testMakeQuestionVotes() {
 		int voteTest = 12;
-		Q1.setVotes(12);
+		Q1.setUpvotes(12);
 		int cnt = 0;
 		for(int i =0; i<12;i++){
 			Q2.upvote();
 			cnt++;
 		}
-		assertEquals("testing for direct vote set",voteTest, Q1.getVotes());
-		assertEquals("testing for indirect upvoting",cnt, Q2.getVotes());
+		assertEquals("testing for direct vote set",voteTest, Q1.getUpvotes());
+		assertEquals("testing for indirect upvoting",cnt, Q2.getUpvotes());
 	}
 	public void testGetId(){
 		

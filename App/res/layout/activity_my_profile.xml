@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ca.ualberta.cs.corgFuViews.MyProfile" >
+
+	<Button
+	    android:id="@+id/GoToReadLater"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	     android:layout_alignStart="@+id/GoToFav"
+	    android:layout_alignEnd="@+id/GoToFav"
+	    android:layout_alignRight="@+id/GoToFav"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/GoToFav"
+	    android:layout_marginTop="30dp"
+	    android:background="@drawable/buttonshape"
+	    android:fontFamily="fonts/26783.ttf"
+	    android:onClick="toReadLater"
+	    android:padding="12sp"
+	    android:text="@string/ReadLater"
+	    android:textColor="#04C1D2"
+	    android:textSize="20sp" />
+	
+	<Button
+	    android:id="@+id/GoToCached"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignStart="@+id/GoToFav"
+	    android:layout_alignEnd="@+id/GoToFav"
+	    android:layout_alignRight="@+id/GoToFav"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/GoToReadLater"
+	    android:layout_marginTop="30dp"
+	    android:background="@drawable/buttonshape"
+	    android:fontFamily="fonts/26783.ttf"
+	    android:onClick="toCached"
+	    android:padding="12sp"
+	    android:text="@string/Cached"
+	    android:textColor="#04C1D2"
+	    android:textSize="20sp" />
+
+	<Button
+	    android:id="@+id/GoToFav"
+	    android:layout_width="540dp"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:background="@drawable/buttonshape"
+	    android:fontFamily="fonts/26783.ttf"
+	    android:onClick="toFav"
+	    android:padding="12sp"
+	    android:text="@string/GoToFav"
+	    android:textColor="#04C1D2"
+	    android:textSize="20sp" />
+
+</RelativeLayout>

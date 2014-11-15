@@ -86,7 +86,7 @@ public class SortQuestionsDateTest extends TestCase {
 		expected.add(mQ3);
 		
 		for (Question question:sortQList){
-			System.out.println(question.getQuestionString());
+			System.out.println(question.getQuestionText());
 		}
 		// sorts list
 		Collections.sort(sortQList, new Comparator<Question>(){
@@ -101,7 +101,7 @@ public class SortQuestionsDateTest extends TestCase {
 		
 		
 		for (Question l2:sortQList){
-			System.out.println(l2.getQuestionString());
+			System.out.println(l2.getQuestionText());
 		}
 		/*sortQList = mQC.sortByDate();
 		for (Question question:sortQList){

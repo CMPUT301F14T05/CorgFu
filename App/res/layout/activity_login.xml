@@ -12,9 +12,8 @@
         android:id="@+id/initPrompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/UIDEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
         android:text="@string/initPrompt"
         android:textSize="20sp" />
 
@@ -22,6 +21,10 @@
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:background="#04C1D2"
+        android:layout_marginTop="20sp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/UIDEditText"
         android:text="@string/Login" />
@@ -30,9 +33,9 @@
         android:id="@+id/UIDEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/initPrompt"
+        android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="20sp"
         android:ems="10"
         android:hint="@string/UIDHint" >
 

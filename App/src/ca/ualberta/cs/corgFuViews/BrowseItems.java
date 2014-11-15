@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView.FindListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,6 +27,15 @@ import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
+/**
+ * The activity that Allows users to browse through the currently available
+ * questions that are present in the AllQuestions model. The activity has a
+ * search bar where the user can search all questions (if they have internet
+ * connectivity) and can also choose how to sort the questions (regardless of 
+ * network connectivity).
+ * @author wrflemin
+ * @see ca.ualberta.cs.corgFuModels.AllQuestions
+ */
 public class BrowseItems extends Activity implements IView
 {
 	
@@ -32,7 +43,7 @@ public class BrowseItems extends Activity implements IView
 	Spinner sortOptions;
 	AllQuestions AQ;
 	AllQuestionsController AQController;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -43,11 +54,25 @@ public class BrowseItems extends Activity implements IView
 		setListViewListener();
 		setFont();
 	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		ListView listView = (ListView) findViewById(R.id.browseQuestionsListView);
+		InsertQuestionAdapter listAdapter = (InsertQuestionAdapter) listView.getAdapter();
+		if (listAdapter != null){
+			listAdapter.notifyDataSetChanged();
+		}
+	}
 
 	// Taken from
 	// http://developer.android.com/guide/topics/ui/controls/spinner.html
 
 	// populates list view using adapter class
+	/**
+	 * Populates the ListView of questions with questions in the order 
+	 * specified by the user (Sorted by date on default)
+	 */
 	public void populateListView()
 	{
 
@@ -69,7 +94,7 @@ public class BrowseItems extends Activity implements IView
 		// creates a listener to determine sort order
 		sortOptions.setOnItemSelectedListener(new OnItemSelectedListener()
 		{
-
+			
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int arg2, long arg3)
 			{
@@ -158,30 +183,31 @@ public class BrowseItems extends Activity implements IView
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
-	public void toAskQuestion(View view)
-	{
-
+	/**
+	 *  Method that is called when the user clicks on the Ask Question
+	 *  button. Starts the activity so that the user can then ask a question.
+	 *  <p>
+	 * @param view The view that was clicked by the user.
+	 */
+	public void toAskQuestion(View view){
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
 	}
-
-	public void toUserProfile(View view)
-	{
-
+	/**
+	 * Method that is called when the user clicks on User Profile button.
+	 * Starts the user profile activity for the user.
+	 * <p>
+	 * @param view The view that was clicked by the user.
+	 */
+	public void toUserProfile(View view){
+		Intent intent = new Intent(this, MyProfile.class);
+		startActivity(intent);
 	}
-
-	public void viewMostUpvotedQuestions()
-	{
-
-		// Test string
-	}
-
-	public void viewMostUpvotedAnswers()
-	{
-
-	}
-
+	
+	/**
+	 * Sets up the click listener for the ListView that will allow for 
+	 * clicking on specific questions in the listview.
+	 */
 	private void setListViewListener(){
 		final OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
 		    public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -195,19 +221,16 @@ public class BrowseItems extends Activity implements IView
 		listView.setOnItemClickListener(mMessageClickedHandler);
 	}
 	
-	public static ArrayList<Question> getCurrentDisplayCollection()
-	{
-
-		return null;
-	}
-	
 	@Override
-	public void update(Object model)
+	public void update()
 	{
-
 		listAdapter.notifyDataSetChanged();
 	}
 	
+	/**
+	 * Sets the custom font for the text in the view using the font:
+	 * fonts/26783.ttf
+	 */
 	private void setFont(){
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
@@ -223,7 +246,14 @@ public class BrowseItems extends Activity implements IView
 		TextView sortLabel = (TextView) findViewById(R.id.sortLabel);
 		sortLabel.setTypeface(customTF);
 	}
-	
+	/**
+	 * Opens the question that was clicked by the user and puts the question
+	 * id in an extra so that the view question view can populate itself 
+	 * based on the id of the question.
+	 * @param qId The id of the question that is most likely unique 
+	 * (uses a random number which should be unique enough for our
+	 * purposes.
+	 */
 	private void goToQuestion(int qId){
 		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
     	intent.putExtra("@string/idExtraTag", qId);

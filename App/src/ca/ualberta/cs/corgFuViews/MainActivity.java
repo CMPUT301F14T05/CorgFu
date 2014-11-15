@@ -16,13 +16,31 @@ import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
-
+/**
+ * This is the MainActivity Activity. It is in charge of our screen for asking questions. 
+ * It is on this screen that you can enter a question into our edittext box and post it to the app.
+ * From this page you can go to your personal profile or go to browse questions posed by others.
+ * 
+ * @author Alex Makepeace
+ * @author Wyatt Fleming
+ * 
+ * @version 2.0 Nov.6/2014
+ * 
+ */
 public class MainActivity extends Activity
 {
+<<<<<<< HEAD
 	//AllQuestionsApplication aQ;//singleton for our questions
 	AllQuestions allQuestions; //the allQuestions model that updates to hold all questions
 	Question q; //most recent Question added by the user
 
+=======
+	
+	/** This is the question that is being added by the user*/
+	protected Question q; //most recent Question added by the user
+	
+	/**onCreate() sets up the display of the Activity, it makes sure that all of the desired text is set to the correct typeface.*/
+>>>>>>> 174090f39d1ec469670fe35fa2c4b9866e8b1320
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -30,27 +48,35 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);
-		Button answersButton = (Button)findViewById(R.id.GoToAnswer);
+		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);//button to click to go to your user profile
+		Button answersButton = (Button)findViewById(R.id.GoToAnswer);//button to click to go to the list of previously asked questions
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
 		
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
-		answersButton.setTypeface(customTypeFace);
+		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		
-		//allQuestions = aQ.getAllQuestions();
+	}
+	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.
+	 * Clicking on a button starts the Activity of BrowseItems
+	 * 
+	 * @param view takes in the current view
+	 */
+	public void toBrowseItems(View view){
+    	Intent intent = new Intent(this,BrowseItems.class);//creates a new intent for the BrowseItems activity
+    	startActivity(intent);//starts the new activity
 	}
 	
-	public void toBrowseItems(View view){
-    	Intent intent = new Intent(this,BrowseItems.class);
-    	startActivity(intent);
-	}
-
+	/**addQuestion() method handles what happens when the add question button is clicked.
+	 * Takes what is entered in an edittext box and creates a question out of the text.
+	 * This method also handles whether or not the user wants to attach a picture to their question through fragment menus.
+	 * The created question will then be added to the Question singleton.
+	 * A toast will appear if the question has been added successfully.
+	 * 
+	 * @param view takes in the view of the current activity
+	 */
 	public void addQuestion(View view){
-
-		//allQuestions = aQ.getAllQuestions(); // grabs the most recent allQuestions from the singleton class
 		
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
 
@@ -65,11 +91,10 @@ public class MainActivity extends Activity
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-		//allQuestions.addQuestion(q); // adds the newly made question to our allQuestions
 
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 	}
-
+	/**onCreateOptionsMenu() is an auto-generated method */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
@@ -77,6 +102,16 @@ public class MainActivity extends Activity
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	/**goToProfile() creates a new intent for the desired activity we wanted to move to.
+	 * Taking this intent we start the MyProfile activity.
+	 * 
+	 * @param v takes in the view of the activity
+	 */
+	public void goToProfile(View v){
+		Intent intent = new Intent(this, MyProfile.class);
+		startActivity(intent);
+	}
+	/**onOptionsItemSelected() is an auto-generated method*/
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will

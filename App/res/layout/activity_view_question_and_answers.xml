@@ -13,12 +13,11 @@
         android:id = "@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
         android:text="@string/readLaterButtonText"
         android:background="@drawable/buttonshape"
-        android:padding="5sp"
         android:onClick="readLater"
     />
     <TextView
@@ -107,26 +106,5 @@
         android:background="@drawable/buttonshape"
         android:onClick="submitAnswer"/>
 
-    <Button
-        android:id="@+id/favoriteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/upvoteButton"
-        android:layout_alignBottom="@+id/upvoteButton"
-        android:layout_alignLeft="@+id/questionRepliesExpandable"
-        android:layout_alignParentStart="true"
-        android:onClick="addToFavorite"
-        android:text="@string/favoriteButtonText"
-        android:textSize="15sp" />
-
-    <ImageView
-        android:id="@+id/questionPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/readLaterButton"
-        android:layout_marginLeft="38dp"
-        android:layout_marginTop="14dp"
-        android:layout_toRightOf="@+id/upvoteButton"
-        android:src="@drawable/buttonshape" />
 
 </RelativeLayout>
