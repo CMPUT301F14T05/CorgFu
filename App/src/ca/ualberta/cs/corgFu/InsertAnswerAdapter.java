@@ -27,7 +27,7 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 	
 	/**
 	 * Builds the custom adapter that is used to insert a custom layout
-	 * into the listview that shows the list of current questions.
+	 * into the listview that shows the list of current answers.
 	 * @param context Information on the global application environment
 	 * @param objects The items that are going to be parsed into the custom
 	 * view and displayed in a listview.
@@ -54,6 +54,9 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(myResource, parent, false);
 		}
+		
+		
+		
 		return convertView;
 	}
 }

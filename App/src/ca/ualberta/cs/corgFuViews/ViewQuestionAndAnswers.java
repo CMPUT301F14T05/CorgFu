@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
@@ -21,6 +22,8 @@ import ca.ualberta.cs.corgFuControllers.AllAnswersController;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
 import ca.ualberta.cs.corgFuControllers.QAController;
+import ca.ualberta.cs.corgFuModels.AllAnswers;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
@@ -39,31 +42,65 @@ import ca.ualberta.cs.corgFuModels.Question;
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
 	private InsertAnswerAdapter listAdapter;
-	AllAnswersController AAController;
-    
 	Question myQuestion;
 	private int qId = 0;
 
 	/** This is the answer that is being added by the user*/
-	protected Answer a; //most recent Question added by the user
+	protected Answer a; //most recent Answer added by the user
+	AllAnswers AA; 
+	AllAnswersController AAController;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_answers);
 		getQuestion();
+		// populateListView();
 		setFont();
 		setPicture();
-		
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		ListView listView = (ListView) findViewById(R.id.questionRepliesExpandable);
+		InsertAnswerAdapter listAdapter = (InsertAnswerAdapter) listView.getAdapter();
+		if (listAdapter != null){
+			listAdapter.notifyDataSetChanged();
+		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)
 	{
-
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.view_question_and_answers, menu);
 		return true;
+	}
+	
+	@Override
+	public void update()
+	{
+		listAdapter.notifyDataSetChanged();
+	}
+	
+	// Taken from
+	// http://developer.android.com/guide/topics/ui/controls/spinner.html
+	// populates list view using adapter class
+	/**
+	 * Populates the ListView of answers with answers in the order 
+	 * specified by the user (Sorted by date on default)
+	 */
+	public void populateListView()
+	{		
+		setContentView(R.layout.activity_view_question_and_answers);
+		AllAnswers AA = AllAnswersApplication.getAllAnswers();
+		AA.addView(this);
+		final AllAnswersController AAController = AllAnswersApplication
+			.getAllAnswersController();
+		ListView QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
+//		QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
+		QAListView.setAdapter(listAdapter);
 	}
 	
 	/**
@@ -105,7 +142,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		Button submit = (Button) findViewById(R.id.submitAnswerButton);
 		submit.setTypeface(customTF);
-		
 	}
 	
 	/**
@@ -130,6 +166,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void readLater(View v){
 		
 	}
+	
 	/**
 	 * Add the question being viewed to the favorite list which makes the
 	 * question available for reading offline. 
@@ -145,8 +182,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		favButton.setClickable(false);
 		favButton.setEnabled(false);
 	}
+	
 	/**
-	 * Upvotes the question. First the question is retreived through the id, then
+	 * Upvotes the question. First the question is retrieved through the id, then
 	 * it is upvoted.
 	 * @param v The view that is being clicked on.
 	 */
@@ -165,9 +203,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
 		upvoteButton.setClickable(false);
-		upvoteButton.setEnabled(false);
-		
+		upvoteButton.setEnabled(false);	
 	}
+	
 	/**
 	 * Adds an answer to the question when the user clicks the submit answer button
 	 * @param v The view that was clicked on
@@ -180,20 +218,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		AllAnswersController AAC = AllAnswersApplication.getAllAnswersController();
 		AAC.addAnswer(a);
-		
-		
-		
-		//throws addAnswer method exception
-		//myQuestion.addAnswer(answer);
+		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 		
 		answerEditText.setText("");
-
-		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
+		// update();
 	}
-
-	@Override
-	public void update() {
-		
-	}
-
 }
