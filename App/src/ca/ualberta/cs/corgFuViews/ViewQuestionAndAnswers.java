@@ -104,12 +104,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	private void setPicture() {
 		if (myQuestion.hasPicture()) {
-			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
 			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView);
 			qPictureView.setImageBitmap(myQuestion.getImage());
 		}
 		else {
-			//Toast.makeText(this, "no picture :(", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "no picture :(", Toast.LENGTH_LONG).show();
 		}
 			}
 	

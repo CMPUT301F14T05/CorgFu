@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuModels.Question;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -27,7 +30,6 @@ public class AddPictureActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_picture);
 		
         // User wants to add a picture, fetch it from Image Gallery
  	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
@@ -85,12 +87,24 @@ public class AddPictureActivity extends Activity {
 
     		if (Picture.smallPicture(attachedPic)) {
     			// Add image to the question
-    			Toast.makeText(this, "image has been added", Toast.LENGTH_SHORT).show();
+    			Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show();
     			//((MainActivity)getActivity()).q.setImage(attachedPic);
+    			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			// Pick the latest added question
+    			//Question q = AQC.sortByDate().get(0);
+    			
+    			Question q = AQC.getAllQuestions().get(0);
+    			q.setImage(attachedPic);
+    			
+    			// After picture is added go back to MainActivity
+    			Intent i = new Intent(this, MainActivity.class);
+    			startActivity(i);
     		}
     		else {
     			// Image is too large. Invoke another dialog asking to add another image
     			Toast.makeText(this, "image is too large", Toast.LENGTH_SHORT).show();
+
+    			setContentView(R.layout.activity_add_picture);
     		}
 
     	}

@@ -1,11 +1,6 @@
 package ca.ualberta.cs.corgFuViews;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
 import ca.ualberta.corgfuapp.R;
-import ca.ualberta.cs.corgFu.Picture;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -13,11 +8,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore.Images.Media;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -68,10 +59,6 @@ public class AddPictureDialogFragment extends DialogFragment {
                    }
                });
         
-    	//Bitmap attachedPic = null;
-    	//attachedPic = Bitmap.createScaledBitmap(attachedPic, 50, 50, false);
-		//((MainActivity)getActivity()).q.setImage(attachedPic);
-        
         // Create the AlertDialog object and return it
         return builder.create();
     }
@@ -81,7 +68,7 @@ public class AddPictureDialogFragment extends DialogFragment {
 	 * Taking this intent we start the AddPicture activity.
 	 */
 	public void goToAddPicture(){
-		Intent intent = new Intent(getActivity(), MainActivity.class);
+		Intent intent = new Intent(getActivity(), AddPictureActivity.class);
 		startActivity(intent);
 	}
 
