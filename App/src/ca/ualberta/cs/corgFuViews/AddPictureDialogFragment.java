@@ -39,9 +39,7 @@ import android.widget.Toast;
  * @see ca.ualberta.cs.corgFuViews.ViewQusetionAndAnswers
  */
 public class AddPictureDialogFragment extends DialogFragment {
-	/**RESULT_LOAD_IMAGE indicates whether an Image has been successfully loaded*/
-	private static int RESULT_LOAD_IMAGE = 111;
-    //@SuppressLint("InflateParams")
+    @SuppressLint("InflateParams")
 	
 	@Override
 	/**
@@ -58,11 +56,6 @@ public class AddPictureDialogFragment extends DialogFragment {
         
         builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                       // User wants to add a picture, fetch it from Image Gallery
-                	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
-
-                	   startActivityForResult(i, RESULT_LOAD_IMAGE);
-                	   
                 	   // Go to another activity that fetches pictures from Android Media
                 	   goToAddPicture();
                    }
@@ -81,49 +74,6 @@ public class AddPictureDialogFragment extends DialogFragment {
         
         // Create the AlertDialog object and return it
         return builder.create();
-    }
-	
-
-    @Override
-    /**
-     * 
-     */
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    	super.onActivityResult(requestCode, resultCode, data);
-
-    	//fetches picture from image directory  
-    	if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
-
-    		Uri selectedImage = data.getData();
-    		InputStream is = null;
-    		Bitmap attachedPic = null;
-			try {
-				is = getActivity().getContentResolver().openInputStream(selectedImage);
-				attachedPic = BitmapFactory.decodeStream(is);
-	    		
-			} catch (FileNotFoundException e) {
-				// Invalid URI exception
-				e.printStackTrace();
-			}
-
-			try {
-				is.close();
-			} catch (IOException e) {
-				// Attempt to close non-existing InputStream
-				e.printStackTrace();
-			}
-
-    		if (Picture.smallPicture(attachedPic)) {
-    			// Add image to the question
-    			Toast.makeText(getActivity(), "image has proper size", Toast.LENGTH_SHORT).show();
-    			((MainActivity)getActivity()).q.setImage(attachedPic);
-    		}
-    		else {
-    			// Image is too large. Invoke another dialog asking to add another image
-    			Toast.makeText(getActivity(), "image is too large", Toast.LENGTH_SHORT).show();
-    		}
-
-    	}
     }
     
 	/**
