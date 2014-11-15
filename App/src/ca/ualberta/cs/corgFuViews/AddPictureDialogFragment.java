@@ -40,7 +40,7 @@ import android.widget.Toast;
  */
 public class AddPictureDialogFragment extends DialogFragment {
 	/**RESULT_LOAD_IMAGE indicates whether an Image has been successfully loaded*/
-	private static int RESULT_LOAD_IMAGE = 1;
+	private static int RESULT_LOAD_IMAGE = 111;
     //@SuppressLint("InflateParams")
 	
 	@Override
@@ -58,10 +58,13 @@ public class AddPictureDialogFragment extends DialogFragment {
         
         builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                       // User wants to add a picture, fetch it from Image Gallery                	   
+                       // User wants to add a picture, fetch it from Image Gallery
                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
 
                 	   startActivityForResult(i, RESULT_LOAD_IMAGE);
+                	   
+                	   // Go to another activity that fetches pictures from Android Media
+                	   goToAddPicture();
                    }
 
                });
@@ -122,6 +125,15 @@ public class AddPictureDialogFragment extends DialogFragment {
 
     	}
     }
+    
+	/**
+	 * goToAddPicture() creates a new intent for the desired activity we wanted to move to.
+	 * Taking this intent we start the AddPicture activity.
+	 */
+	public void goToAddPicture(){
+		Intent intent = new Intent(getActivity(), MainActivity.class);
+		startActivity(intent);
+	}
 
 }
 
