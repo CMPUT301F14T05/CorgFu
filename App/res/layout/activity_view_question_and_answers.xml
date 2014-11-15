@@ -120,7 +120,7 @@
 
     <ImageView
         android:id="@+id/qPictureView"
-        android:contentDescription="@string/getRecentQuestion"
+        android:contentDescription="@string/pictureDescriptionQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/questionText"

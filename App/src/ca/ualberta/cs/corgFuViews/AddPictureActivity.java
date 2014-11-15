@@ -99,9 +99,12 @@ public class AddPictureActivity extends Activity {
     			startActivity(i);
     		}
     		else {
+    			Toast.makeText(this, "image is too large", Toast.LENGTH_SHORT).show();
     			// Image is too large. Invoke another dialog asking to add another image
+    			AddSmallerPictureDialog addPictureDialog = new AddSmallerPictureDialog();
+    			addPictureDialog.show(getFragmentManager(), null);
+    			
     			setContentView(R.layout.activity_add_picture);
-    			//Toast.makeText(this, "image is too large", Toast.LENGTH_SHORT).show();
 
     		}
 
