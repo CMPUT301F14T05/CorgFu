@@ -142,5 +142,24 @@ public class AllQuestionsController {
 		}
 		return null;
 	}
+	
+	/**
+	 * Gets the most recent question from the AllQuestions model
+	 * 
+	 * @return The question that has the latest specified date
+	 *  null if no question is found
+	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
+	 */
+	public Question getRecentQuestion() {
+		ArrayList<Question> questions = allQuestions.getAllQuestions();
+		// Pick the latest added question
+		int lastIndex = questions.size() - 1; 
+		Question q = sortByDate().get(lastIndex);
+		if (questions.isEmpty()) {
+			return null;
+		}
+		return q;
+	}
+	
 
 }

@@ -49,5 +49,6 @@
     <string name="title_activity_favourite">Favourite</string>
     <string name="fav_button_description">Favorites Button Description</string>
     <string name="title_activity_add_picture">Adding a picture</string>
+    <string name="pictureDescriptionQuestion">Question Picture</string>
 
 </resources>
