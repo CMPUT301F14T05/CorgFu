@@ -30,6 +30,7 @@ public class Answer
 	private ArrayList<Reply> replies;
 	private Bitmap genericPic;
 	private Boolean hasAPicture;
+	private int id;
 
 	/**
 	 * Builds an Answer based on the question text
@@ -149,5 +150,17 @@ public class Answer
 	 */
 	public void setVotes(int i) {
 		upvotes = i;
+	}
+	
+	/**
+	 * Returns the id that is assigned to the answer that helps
+	 * uniquely identify it.
+	 * @return The id of the answer which is 0<= id <= 100000
+	 */
+	public int getId(){
+		return id;
+	}
+	public void setId(int newId){
+		id = newId;
 	}
 }
