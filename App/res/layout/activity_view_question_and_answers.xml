@@ -13,12 +13,11 @@
         android:id = "@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
         android:text="@string/readLaterButtonText"
         android:background="@drawable/buttonshape"
-        android:padding="5sp"
         android:onClick="readLater"
     />
     <TextView
@@ -121,10 +120,10 @@
 
     <ImageView
         android:id="@+id/qPictureView"
+        android:contentDescription="@string/pictureDescriptionQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/readLaterButton"
-        android:layout_marginLeft="30dp"
-        android:layout_toRightOf="@+id/upvoteButton" />
+        android:layout_alignLeft="@+id/questionText"
+        android:layout_alignTop="@+id/readLaterButton" />
 
 </RelativeLayout>

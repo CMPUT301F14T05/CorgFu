@@ -50,6 +50,10 @@
             android:name="ca.ualberta.cs.corgFuViews.FavouriteView"
             android:label="@string/title_activity_favourite" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.corgFuViews.AddPictureActivity"
+            android:label="@string/title_activity_add_picture" >
+        </activity>
     </application>
 
 </manifest>

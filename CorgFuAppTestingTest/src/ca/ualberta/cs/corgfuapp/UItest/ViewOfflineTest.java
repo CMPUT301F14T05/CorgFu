@@ -14,6 +14,7 @@ public class ViewOfflineTest extends ActivityInstrumentationTestCase2<FavouriteV
 	public ViewOfflineTest(){
 		super(FavouriteView.class);
 	}
+	/*
 	public void testDefaultOfflineItems(){
 		// testing if this can be made using favourites
 		// and if view displays favourites
@@ -48,5 +49,5 @@ public class ViewOfflineTest extends ActivityInstrumentationTestCase2<FavouriteV
 	}
 	private void cleanup(){
 		AllQuestionsApplication.destroy();
-	}
+	}*/
 }

@@ -14,7 +14,6 @@ import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
  * This is the MainActivity Activity. It is in charge of our screen for asking questions. 
@@ -81,11 +80,12 @@ public class MainActivity extends Activity
 		
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
-		
+			
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-
+		
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
+
 	}
 	/**onCreateOptionsMenu() is an auto-generated method */
 	@Override
@@ -116,5 +116,6 @@ public class MainActivity extends Activity
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 
 }

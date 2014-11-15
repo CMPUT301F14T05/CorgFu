@@ -1,5 +1,9 @@
-package ca.ualberta.corgfuapp;
+package ca.ualberta.cs.corgFuViews;
 
+import ca.ualberta.corgfuapp.R;
+import ca.ualberta.corgfuapp.R.id;
+import ca.ualberta.corgfuapp.R.layout;
+import ca.ualberta.corgfuapp.R.menu;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;

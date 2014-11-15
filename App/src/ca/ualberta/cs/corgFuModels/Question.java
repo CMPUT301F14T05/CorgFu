@@ -83,7 +83,7 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 * Gets the question text held by the Question object.
 	 * @return The string that is the question text
 	 */
-	public String getQuestionString() {
+	public String getQuestionText() {
 		return questionText; // return the string that has been passed as a
 								// question text
 	}
@@ -97,7 +97,7 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 * building a question from an elastic search response.
 	 * @param i
 	 */
-	public void setVotes(int i) {
+	public void setUpvotes(int i) {
 		upvotes = i;// sets the current number of upvotes to the passed int i
 	}
 	/**
@@ -105,7 +105,7 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 * has.
 	 * @return The total number of upvotes the question has.
 	 */
-	public int getVotes() {
+	public int getUpvotes() {
 		return upvotes;// returns the current number of upvotes logged for this
 						// question
 	}
@@ -165,7 +165,10 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 * @return The ArrayList of Answer objects (answers to the question)
 	 */
 	public ArrayList<Answer> getAnswers() {
-		return null;
+		return answers;
+	}
+	public void setAnswers(ArrayList<Answer> newAnswers){
+		answers = newAnswers;
 	}
 
 	public ArrayList<Answer> getAnswerByVotes() {
@@ -196,6 +199,9 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	 */
 	public int getId(){
 		return id;
+	}
+	public void setId(int newId){
+		id = newId;
 	}
 	
 

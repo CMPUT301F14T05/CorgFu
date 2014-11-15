@@ -12,14 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 /**
- * Activity (Dialog Fragment) that is responsible for prompting the user the 
- * choice whether of attaching an image to their answer/question and if yes,
- * redirect them to their android picture gallery to select and image. It
- * fetches the image path from the gallery and links it to an image view 
- * supplied in ViewQuestionAndAnswer Activity. A small message "Your Picture
- * is attached" will indicate the image chosen by the user has been successfully
- * loaded to the question/answer. Else, this indicates an image size error and a message
- * displaying "too large" or "too small" will be displayed. 
+ * Dialog Fragment responsible for asking a user if he/she wants to add
+ * smaller picture. Appears only after adding too large picture
+ * through the AddPictureDialogFragment
  * @author Anthony Wu
  * @author Oleksii Shevchenko
  * @see ca.ualberta.cs.corgFuModels.Question
@@ -27,7 +22,7 @@ import android.view.View;
  * @see ca.ualberta.cs.corgFu.Picture
  * @see ca.ualberta.cs.corgFuViews.ViewQusetionAndAnswers
  */
-public class AddPictureDialogFragment extends DialogFragment {
+public class AddSmallerPictureDialog extends DialogFragment {
     @SuppressLint("InflateParams")
 	
 	@Override
@@ -39,9 +34,13 @@ public class AddPictureDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         
         LayoutInflater inflater = LayoutInflater.from(getActivity());
-        final View v = inflater.inflate(R.layout.dialog_add_picture, null);
+        final View v = inflater.inflate(R.layout.dialog_add_smaller_picture, null);
         
         builder.setView(v);
+        
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+        
+        builder.setTitle("Your image exceeds 64KB");
         
         builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
@@ -53,7 +52,9 @@ public class AddPictureDialogFragment extends DialogFragment {
         
         builder.setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
-                       // User refused to add a picture
+                       // User refused to add smaller picture, go back to MainActivity
+                	   Intent intent = new Intent(getActivity(), MainActivity.class);
+                	   startActivity(intent);
                    }
                });
         

@@ -12,10 +12,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllAnswersApplication;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
+import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
+import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
+import ca.ualberta.cs.corgFuControllers.AllAnswersController;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
+import ca.ualberta.cs.corgFuControllers.QAController;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
@@ -33,10 +38,14 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
-
+	private InsertAnswerAdapter listAdapter;
+	AllAnswersController AAController;
+    
 	Question myQuestion;
 	private int qId = 0;
-	Answer answer;
+
+	/** This is the answer that is being added by the user*/
+	protected Answer a; //most recent Question added by the user
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -71,15 +80,17 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+
 		myQuestion = AQC.getQuestionById(qId);
-		
+		QAController QAC = new QAController(myQuestion);
+		myQuestion = AQC.getQuestionById(qId);
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
-		questionText.setText(myQuestion.getQuestionString());
+		questionText.setText(QAC.getQuestionString());
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
+		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
 	}
 	
@@ -143,13 +154,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		Question myQuestion = AQC.getQuestionById(qId);
+		QAController QAC = new QAController(myQuestion);
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		myQuestion.upvote();
-		upvoteCount.setText(Integer.toString(myQuestion.getVotes()));
+		QAC.upvote();
+		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
 		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
 		upvoteButton.setClickable(false);
@@ -164,7 +176,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
 		
-		answer = new Answer(answerText);
+		a = new Answer(answerText);
+		
+		AllAnswersController AAC = AllAnswersApplication.getAllAnswersController();
+		AAC.addAnswer(a);
+		
+		
 		
 		//throws addAnswer method exception
 		//myQuestion.addAnswer(answer);

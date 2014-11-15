@@ -28,11 +28,12 @@ public class ViewQuestionsAndAnswersTest extends TestCase {
 		QRA.add(q1r1);
 		a1.addReply(a1r1);
 		QAController QAC = new QAController(q1);
-		assertEquals("test if right question", q1.getQuestionString(),QAC.getQuestionString()); // test if controller passes the right question
-		assertEquals("test if right answer", q1.getAnswers(),a1);
-		assertEquals("test if right reply answer", a1.getReplies(),ARA);
-		assertEquals("test if right reply answer", q1.getReplies(),ARA);
+		assertEquals("test if right question", q1.getQuestionText(),QAC.getQuestionString()); // test if controller passes the right question
+		assertEquals("test if right answer", a1, q1.getAnswers().get(0));
+		assertEquals("test if right reply answer", ARA,a1.getReplies());
+		assertEquals("test if right reply answer",ARA,q1.getReplies());
 		
 		
 	}
+
 }	

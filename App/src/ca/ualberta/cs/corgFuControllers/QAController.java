@@ -36,7 +36,7 @@ public class QAController {
 	/**
 	 * Increments the number of upvotes the question has.
 	 */
-	public void upvoteQ(){
+	public void upvote(){
 		question.upvote();
 	}
 	/**
@@ -79,7 +79,10 @@ public class QAController {
 	 * @return A String of the question text.
 	 */
 	public String getQuestionString() {
-		return question.getQuestionString();
+		return question.getQuestionText();
+	}
+	public int getVotes() {
+		return question.getUpvotes();
 	}
 
 }
