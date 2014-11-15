@@ -12,8 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllAnswersApplication;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
+import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
+import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
+import ca.ualberta.cs.corgFuControllers.AllAnswersController;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.FavouritesController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -34,9 +38,14 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
-    Question myQuestion;
+	private InsertAnswerAdapter listAdapter;
+	AllAnswersController AAController;
+    
+	Question myQuestion;
 	private int qId = 0;
-	Answer answer;
+
+	/** This is the answer that is being added by the user*/
+	protected Answer a; //most recent Question added by the user
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -167,7 +176,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
 		
-		answer = new Answer(answerText);
+		a = new Answer(answerText);
+		
+		AllAnswersController AAC = AllAnswersApplication.getAllAnswersController();
+		AAC.addAnswer(a);
+		
+		
 		
 		//throws addAnswer method exception
 		//myQuestion.addAnswer(answer);

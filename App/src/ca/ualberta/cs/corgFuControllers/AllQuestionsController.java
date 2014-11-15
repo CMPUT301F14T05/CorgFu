@@ -134,7 +134,7 @@ public class AllQuestionsController {
 	 * available
 	 * @param Q A Question object that the user wants to add
 	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
-	 */
+	 */ 
 	public void addQuestion(Question Q) {
 		Thread thread = new AddThread(Q);
 		thread.start();
