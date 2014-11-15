@@ -1,3 +1,7 @@
+/*
+ * Retrieved from Victor Guana's github 
+ * (https://github.com/guana/elasticsearch) on November 10th, 2014
+ */
 package ca.ualberta.cs.corgFu;
 
 import java.io.BufferedReader;

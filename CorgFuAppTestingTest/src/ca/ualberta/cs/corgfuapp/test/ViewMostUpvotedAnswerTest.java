@@ -33,8 +33,6 @@ public void testAnswerViewHasCorrectOrder(){
 	AllQuestions mAQ = new AllQuestions();
 	mAQ.addQuestion(mQ1);
 	
-	AllQuestionsController mQC = new AllQuestionsController(mAQ);
-	
 	ArrayList<Answer> expected = new ArrayList<Answer>();
 	expected.add(a1);
 	expected.add(a2);

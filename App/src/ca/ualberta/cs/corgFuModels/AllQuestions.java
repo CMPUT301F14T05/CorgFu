@@ -40,7 +40,6 @@ public class AllQuestions extends Model<IView>
 	 */
 	public AllQuestions(){
 		allQuestions = new ArrayList<Question>();
-		
 	}
 	/**
 	 * Adds a question to the collection of current questions that 
@@ -56,6 +55,10 @@ public class AllQuestions extends Model<IView>
 	 */
 	public ArrayList<Question> getAllQuestions(){
 		return allQuestions;
+	}
+	
+	public void setAllQuestions(ArrayList<Question> newAQ){
+		allQuestions = newAQ;
 	}
 
 }
