@@ -27,7 +27,7 @@ public class ElasticSearchTest extends TestCase {
 	private static final String TAG = "QuestionSearch";
 	private Gson gson;
 	private ArrayList<Integer> qAdded;
-	ElasticSearch ES;
+	private ElasticSearch ES;
 			
 			
 	public ElasticSearchTest(){
@@ -141,8 +141,13 @@ public class ElasticSearchTest extends TestCase {
 		qAdded.add(Q4.getId());
 		//Add a waiting method
 		ArrayList<Question> result = ES.searchQuestion("duck","questionText");
-		
+
 		assertEquals("Testing search for multiple questions",3, result.size());
+		
+		result = ES.searchQuestion("", null);
+		
+		assertEquals("Testing the search method with no arguments (get all questions)",
+				4, result.size());
 	}
 	@Override
 	public void tearDown(){

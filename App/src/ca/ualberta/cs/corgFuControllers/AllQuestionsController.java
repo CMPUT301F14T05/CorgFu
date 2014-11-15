@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import android.app.Activity;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -16,9 +18,14 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class AllQuestionsController {
 
-	AllQuestions allQuestions;
-	ArrayList<Question> allQuestionsArray;
-	ElasticSearch ES = new ElasticSearch();
+	private AllQuestions allQuestions;
+	private ArrayList<Question> results;
+	private ElasticSearch ES;
+	// Thread to update adapter after an operation
+	private Runnable doReturnResults = new Runnable() {
+		public void run() {
+		}
+	};
 	
 	/**
 	 * Initializes the controller with the model that it will be updating
@@ -27,6 +34,8 @@ public class AllQuestionsController {
 	 */
 	public AllQuestionsController(AllQuestions aQ) {
 		allQuestions = aQ;
+		ES = new ElasticSearch();
+		results = new ArrayList<Question>();
 
 	}
 
@@ -38,7 +47,7 @@ public class AllQuestionsController {
 	 */
 	public ArrayList<Question> sortByDate() {
 
-		Collections.sort(allQuestions.getAllQuestions(),
+		Collections.sort(getAllQuestions(),
 				new Comparator<Question>() {
 
 					public int compare(Question q1, Question q2) {
@@ -56,7 +65,7 @@ public class AllQuestionsController {
 	 */
 	public ArrayList<Question> sortByPicture() {
 		this.sortByDate();
-		Collections.sort(allQuestions.getAllQuestions(),
+		Collections.sort(getAllQuestions(),
 				new Comparator<Question>() {
 					public int compare(Question q1, Question q2) {
 						if (q1.hasPicture() == true && q2.hasPicture() == false) {
@@ -80,7 +89,7 @@ public class AllQuestionsController {
 	 */
 	public ArrayList<Question> sortByUpvote() {
 		// TODO Auto-generated method stub
-		Collections.sort(allQuestions.getAllQuestions(),
+		Collections.sort(getAllQuestions(),
 				new Comparator<Question>() {
 
 					public int compare(Question q1, Question q2) {
@@ -101,8 +110,10 @@ public class AllQuestionsController {
 	 * @return
 	 */
 	public ArrayList<Question> search(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		results.clear();
+		Thread thread = new SearchThread(string);
+		thread.start();
+		return results;
 	}
 	/**
 	 * Returns all of the questions that are currently available in the
@@ -112,6 +123,10 @@ public class AllQuestionsController {
 	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
 	 */
 	public ArrayList<Question> getAllQuestions() {
+		results.clear();
+		Thread thread = new SearchThread("");
+		thread.start();
+		//allQuestions.setAllQuestions(results);
 		return allQuestions.getAllQuestions();
 	}
 	/**
@@ -121,8 +136,9 @@ public class AllQuestionsController {
 	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
 	 */ 
 	public void addQuestion(Question Q) {
+		Thread thread = new AddThread(Q);
+		thread.start();
 		allQuestions.addQuestion(Q);
-		//ES.addQuestion(Q);
 	}
 	/**
 	 * Gets the question from the AllQuestions model that has the specified
@@ -162,4 +178,53 @@ public class AllQuestionsController {
 	}
 	
 
+	/*
+	 * Retrieved from Victor Guana's github 
+	 * (https://github.com/guana/elasticsearch) on November 10th, 2014
+	 */
+	/**
+	 * A class that gives elastic search time to add the question before the activity is 
+	 * paused by moving to the next intent.
+	 * @author wrflemin
+	 *
+	 */
+	class AddThread extends Thread {
+		private Question Q;
+
+		public AddThread(Question Q) {
+			this.Q = Q;
+		}
+
+		@Override
+		public void run() {
+			ES.addQuestion(Q);
+			
+			// Give some time to get updated info
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	class SearchThread extends Thread {
+		private String search;
+		
+		public SearchThread(String s) {
+			search = s;
+		}
+
+		@Override
+		public void run() {
+			results.clear();
+			results.addAll(ES.searchQuestion(search, null));
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
 }

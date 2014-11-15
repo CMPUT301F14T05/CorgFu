@@ -80,11 +80,12 @@ public class MainActivity extends Activity
 		
 		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		addPictureDialog.show(getFragmentManager(), null);
-		
+			
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-
+		
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
+
 	}
 	/**onCreateOptionsMenu() is an auto-generated method */
 	@Override
@@ -115,5 +116,6 @@ public class MainActivity extends Activity
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
 
 }

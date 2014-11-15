@@ -5,11 +5,22 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import junit.framework.TestCase;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class SortQuestionsDateTest extends TestCase {
+	
+	private ArrayList<Integer> qAdded;
+	private ElasticSearch ES;
+	
+	public SortQuestionsDateTest(){
+		super();
+		ES = new ElasticSearch();
+		qAdded = new ArrayList<Integer>();
+	}
 	
 	public void testController(){
 		Question mQ1 = new Question("Question 1");//add question text
@@ -50,8 +61,7 @@ public class SortQuestionsDateTest extends TestCase {
 		expected.add(mQ4);
 
 		
-		assertEquals("Testing if QuestionController returns list in correct date order", mQC.sortByDate()
-				,expected);
+		assertEquals("Testing if QuestionController returns list in correct date order",expected, mQC.sortByDate());
 	}
 	
 	
@@ -111,4 +121,13 @@ public class SortQuestionsDateTest extends TestCase {
 				expected,sortQList);
 		
 	}
+	@Override
+	public void tearDown(){
+		AllQuestionsApplication.destroy();
+		for (int id : qAdded){
+			ES.deleteQuestion(id);
+		}
+		qAdded.clear();
+	}
+
 }
