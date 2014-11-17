@@ -92,15 +92,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * specified by the user (Sorted by date on default)
 	 */
 	public void populateListView()
-	{		
+	{	
+		
 		setContentView(R.layout.activity_view_question_and_answers);
 		AllAnswers AA = AllAnswersApplication.getAllAnswers();
 		AA.addView(this);
 		final AllAnswersController AAController = AllAnswersApplication
 			.getAllAnswersController();
 		ListView QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
-//		QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
-		QAListView.setAdapter(listAdapter);
 	}
 	
 	/**
