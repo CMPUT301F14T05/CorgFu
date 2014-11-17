@@ -56,8 +56,9 @@ public class LoginActivity extends Activity {
 			if (ulen <= 0 ){
 				Toast.makeText(getApplicationContext(), "User Name Cant be empty", Toast.LENGTH_LONG).show();
 			}else{
-				UserName NameOfUser = new UserName(UserNameString);
-				Toast.makeText(getApplicationContext(), NameOfUser.getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
+				UserName nameOfUser= UserName.getInstance();
+				nameOfUser.setUserName(UserNameString);
+				
 				toMain();
 				
 			}

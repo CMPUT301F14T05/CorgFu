@@ -1,29 +1,26 @@
 package ca.ualberta.cs.corgFu;
 
+
+
+
 public class UserName {
-
-	private String currUserName;
-	
-	public UserName(String currUserName) {
-		super();
-		this.currUserName=currUserName;
+	private static UserName instance = null;
+	private String uN;
+	protected UserName(){
 		
 	}
-	
-	public void saveUserName(){
-		
+	public static UserName getInstance(){
+		if (instance == null){
+			instance = new UserName();
+		}
+		return instance;
 	}
-
-	public UserName loadUserName(){
-		return null;
+	public void setUserName(String uNameString){
+		instance.uN = uNameString; 
 	}
-	
 	public String getUserName(){
-			return this.currUserName;
+		return uN;
 	}
-	
-	public void setUserName(String username){
-		this.currUserName=username;
-	}
+
 	
 }
