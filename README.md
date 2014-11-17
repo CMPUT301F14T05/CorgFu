@@ -11,6 +11,7 @@ Contents
 * [References](#references)
 * [Licence](#licence)
 * [Glossary](/CorgFu.wiki/Glossary.md)
+* [UML](/App/doc/CorgFu_UML_diagram.png)
 
 Description
 =======
