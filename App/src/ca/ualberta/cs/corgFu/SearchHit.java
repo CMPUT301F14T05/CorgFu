@@ -7,16 +7,10 @@ package ca.ualberta.cs.corgFu;
  * 
  * @author Alex Makepeace
  * 
- * @version 1.0 Nov.6/2014
+ * @version 2.0 Nov.15/2014
  */
 
 public class SearchHit<T> {
-
-	
-	/**Finds out the source question that the search hit has found
-	 * 
-	 * @return the Question that has been attached to the SearchHit
-	 */
 
 
 	private String _index;
@@ -69,6 +63,11 @@ public class SearchHit<T> {
 	public void setFound(boolean found) {
 		this.found = found;
 	}
+	
+	/**Finds out the source question that the search hit has found
+	 * 
+	 * @return the Question that has been attached to the SearchHit
+	 */
 
 	public T getSource() {
 		return _source;
