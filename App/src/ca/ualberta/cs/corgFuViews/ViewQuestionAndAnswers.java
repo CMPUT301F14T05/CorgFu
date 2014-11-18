@@ -246,10 +246,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
         answerHeader.add("Answer");
  
         // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("Reply 1");
-        top250.add("Reply 2");
+        List<String> replies = new ArrayList<String>();
+        replies.add("Reply 1");
+        replies.add("Reply 2");
 
-        replyChild.put(answerHeader.get(0), top250); // Header, Child data
+        replyChild.put(answerHeader.get(0), replies); // Header, Child data
     }
 }
