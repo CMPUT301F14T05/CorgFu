@@ -18,6 +18,7 @@
         android:inputType="textCapSentences|textMultiLine"
         android:scrollHorizontally="false"
         android:layout_below="@+id/MainQuestionText"
+        android:imeOptions="actionNext"
         />
 
     <TextView
