@@ -1,5 +1,10 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -41,7 +47,8 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
-	private InsertAnswerAdapter listAdapter;
+	
+	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
 
@@ -50,56 +57,57 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	AllAnswers AA; 
 	AllAnswersController AAController;
 	
+	/** This is the custom adapter*/
+    InsertAnswerAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> answerHeader;
+    HashMap<String, List<String>> replyChild;
+ 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_answers);
+		
 		getQuestion();
-		// populateListView();
 		setFont();
 		setPicture();
+		populateListView();
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
-		ListView listView = (ListView) findViewById(R.id.questionRepliesExpandable);
-		InsertAnswerAdapter listAdapter = (InsertAnswerAdapter) listView.getAdapter();
+		expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+		listAdapter = (InsertAnswerAdapter) expListView.getExpandableListAdapter();
 		if (listAdapter != null){
 			listAdapter.notifyDataSetChanged();
 		}
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.view_question_and_answers, menu);
-		return true;
-	}
-	
-	@Override
-	public void update()
-	{
-		listAdapter.notifyDataSetChanged();
-	}
-	
-	// Taken from
-	// http://developer.android.com/guide/topics/ui/controls/spinner.html
-	// populates list view using adapter class
 	/**
 	 * Populates the ListView of answers with answers in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
 	public void populateListView()
 	{	
-		
-		setContentView(R.layout.activity_view_question_and_answers);
+		// fetch answers via MVC 
 		AllAnswers AA = AllAnswersApplication.getAllAnswers();
 		AA.addView(this);
 		final AllAnswersController AAController = AllAnswersApplication
-			.getAllAnswersController();
-		ListView QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
+				.getAllAnswersController();
+
+		// populate expandable 
+		try{
+			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+			prepareListData();
+			listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
+			// setting list adapter
+			expListView.setAdapter(listAdapter);
+        }catch(Exception e){
+            System.out.println("Errrr +++ " + e.getMessage());
+        }
+		
 	}
 	
 	/**
@@ -222,4 +230,26 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		answerEditText.setText("");
 		// update();
 	}
+	
+	@Override
+	public void update()
+	{
+		//listAdapter.notifyDataSetChanged();
+	}
+	
+	// testing, will remove later 
+    private void prepareListData() {
+//        answerHeader = new ArrayList<String>();
+//        replyChild = new HashMap<String, List<String>>();
+// 
+//        // Adding child data
+//        answerHeader.add("Top Answer");
+// 
+//        // Adding child data
+//        List<String> top250 = new ArrayList<String>();
+//        top250.add("The Shawshank Redemption");
+//        top250.add("The Godfather");
+//
+//        replyChild.put(answerHeader.get(0), top250); // Header, Child data
+    }
 }
