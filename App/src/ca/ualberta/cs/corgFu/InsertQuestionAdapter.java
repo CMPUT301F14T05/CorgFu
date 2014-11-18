@@ -25,6 +25,7 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 	private static int myResource = R.layout.question_item_layout;
 	private static int questionTVId = R.id.QuestionTextTextView;
 	private static int answerCountTVId = R.id.AnswerCount;
+	private static int upvoteCount = R.id.UpvoteCount;
 	private ArrayList<Question> myObjects;
 	
 	/**
@@ -60,6 +61,8 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 		questionTV.setText(myObjects.get(position).toString());
 		TextView answerCountTV = (TextView) convertView.findViewById(answerCountTVId);
 		answerCountTV.setText(String.valueOf(myObjects.get(position).getAnswerCount()));
+		TextView upvoteCountTV = (TextView) convertView.findViewById(upvoteCount);
+		upvoteCountTV.setText(String.valueOf(myObjects.get(position).getUpvotes()));
 		return convertView;
 	}
 	
