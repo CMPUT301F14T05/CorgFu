@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -54,15 +55,7 @@ public class BrowseItems extends Activity implements IView
 	@Override
 	public void onResume(){
 		super.onResume();
-		ListView listView = (ListView) findViewById(R.id.browseQuestionsListView);
-		InsertQuestionAdapter listAdapter = (InsertQuestionAdapter) listView.getAdapter();
-		AllQuestionsController AQC = AllQuestionsApplication
-				.getAllQuestionsController();
-		AQC.updateAllQuestions();
-		listAdapter = new InsertQuestionAdapter(
-				BrowseItems.this, AQC.sortByDate());
-		listView.setAdapter(listAdapter);
-		listAdapter.notifyDataSetChanged();
+		populateListView();
 	}
 
 	// Taken from
@@ -106,39 +99,24 @@ public class BrowseItems extends Activity implements IView
 				{
 				// will sort by date
 					case 0:
-						System.out.println("chose0");
 						listAdapter = new InsertQuestionAdapter(
 								BrowseItems.this, AQController.sortByDate());
-						bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
-						bQListView.setAdapter(listAdapter);
-
-						// Toast.makeText(this,"chose sort date",
-						// Toast.LENGTH_SHORT).show();
 						break;
 					// will sort by pic
 					case 1:
-						System.out.println("chose1");
 						listAdapter = new InsertQuestionAdapter(
 								BrowseItems.this, AQController.sortByPicture());
-						bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
-						bQListView.setAdapter(listAdapter);
-						// Toast.makeText(this,"chose sort date",
-						// Toast.LENGTH_SHORT).show();
 						break;
 					// will sort by vote
 					case 2:
-						System.out.println("chose2");
-
 						listAdapter = new InsertQuestionAdapter(
 								BrowseItems.this, AQController.sortByUpvote());
-						bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
-						bQListView.setAdapter(listAdapter);
-						// Toast.makeText(this,"chose sort date",
-						// Toast.LENGTH_SHORT).show();
 						break;
 
 				}
 				// TODO Auto-generated method stub
+				bQListView = (ListView) findViewById(R.id.browseQuestionsListView);
+				bQListView.setAdapter(listAdapter);
 
 			}
 
