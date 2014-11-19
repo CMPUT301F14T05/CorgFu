@@ -34,6 +34,7 @@
         android:layout_alignParentEnd="true"
         android:padding="12sp"
         android:fontFamily="fonts/26783.ttf"
+        android:onClick="toUserProfile"
       />
     <EditText
         android:id="@+id/searchEditText"
