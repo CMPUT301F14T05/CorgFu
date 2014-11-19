@@ -12,6 +12,9 @@ import ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers;
 
 public class ViewQuestionAndAnswersTest extends
 		ActivityInstrumentationTestCase2<ViewQuestionAndAnswers> {
+	
+	ViewQuestionAndAnswers activity;
+	
 	public ViewQuestionAndAnswersTest(){
 		super(ViewQuestionAndAnswers.class);
 	}
@@ -24,7 +27,7 @@ public class ViewQuestionAndAnswersTest extends
 		Intent intent = new Intent();
     	intent.putExtra("@string/idExtraTag", Q1.getId());
     	setActivityIntent(intent);
-		ViewQuestionAndAnswers activity = (ViewQuestionAndAnswers) getActivity();
+		activity = (ViewQuestionAndAnswers) getActivity();
 		
 		TextView questionText = (TextView) activity.findViewById(R.id.questionText);
 		assertEquals("Testing question text makes it to view","Test one", questionText.getText());
@@ -40,7 +43,7 @@ public class ViewQuestionAndAnswersTest extends
 		Intent intent = new Intent();
     	intent.putExtra("@string/idExtraTag", Q1.getId());
     	setActivityIntent(intent);
-		ViewQuestionAndAnswers activity = (ViewQuestionAndAnswers) getActivity();
+		activity = (ViewQuestionAndAnswers) getActivity();
 		
 		TextView upvoteCount = (TextView) activity.findViewById(R.id.upvoteCount);
 		assertEquals("Testing question text makes it to view","1", upvoteCount.getText());
@@ -49,6 +52,7 @@ public class ViewQuestionAndAnswersTest extends
 	
 	private void cleanup(){
 		AllQuestionsApplication.destroy();
+		activity.finish();
 	}
 	
 	

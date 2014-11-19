@@ -2,6 +2,7 @@ package ca.ualberta.cs.corgfuapp.UItest;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -85,6 +86,8 @@ public class BrowseItemsActivityTest extends
 		}
 		qAdded.add(Q1.getId());
 		
+		Intent intent = new Intent();
+		setActivityIntent(intent);
 		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
