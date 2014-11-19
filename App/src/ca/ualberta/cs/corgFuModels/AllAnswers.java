@@ -34,6 +34,7 @@ public class AllAnswers extends Model<IView>
 {
 	private ArrayList<Answer> allAnswers;
 	ElasticSearch ES;
+	
 	/**
 	 * Builds the AllAnswers model which will hold the questions
 	 * that are currently available (online or offline)
@@ -57,5 +58,5 @@ public class AllAnswers extends Model<IView>
 	public ArrayList<Answer> getAllAnswers(){
 		return allAnswers;
 	}
-
+	
 }

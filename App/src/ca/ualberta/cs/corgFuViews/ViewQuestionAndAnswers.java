@@ -56,10 +56,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the custom adapter*/
     InsertAnswerAdapter listAdapter;
     ExpandableListView expListView;
-    List<String> answerHeader;
-    HashMap<String, List<String>> replyChild;
+    List<String> answerHeader = new ArrayList<String>();
+    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
+	int headIncrement = 0;
  
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -79,32 +79,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		if (listAdapter != null){
 			listAdapter.notifyDataSetChanged();
 		}
-	}
-	
-
-	/**
-	 * Populates the ListView of answers with answers in the order 
-	 * specified by the user (Sorted by date on default)
-	 */
-	public void populateListView()
-	{	
-		// fetch answers via MVC 
-		AllAnswers AA = AllAnswersApplication.getAllAnswers();
-		AA.addView(this);
-		final AllAnswersController AAController = AllAnswersApplication
-				.getAllAnswersController();
-
-		// populate expandable 
-		try{
-			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
-			prepareListData();
-			listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
-			// setting list adapter
-			expListView.setAdapter(listAdapter);
-        }catch(Exception e){
-            System.out.println("Errrr +++ " + e.getMessage());
-        }
-		
 	}
 	
 	/**
@@ -176,7 +150,30 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		else {
 			//Toast.makeText(this, "no picture :(", Toast.LENGTH_LONG).show();
 		}
-			}
+	}
+
+	/**
+	 * Populates the ListView of answers with answers in the order 
+	 * specified by the user (Sorted by date on default)
+	 */
+	public void populateListView()
+	{	
+		// fetch answers via MVC 
+		AllAnswers AA = AllAnswersApplication.getAllAnswers();
+		AA.addView(this);
+		final AllAnswersController AAController = AllAnswersApplication
+				.getAllAnswersController();
+
+		// populate expandable 
+		try{
+			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+			// setting list adapter
+			expListView.setAdapter(listAdapter);
+        }catch(Exception e){
+            System.out.println("Errrr +++ " + e.getMessage());
+        }
+		
+	}
 	
 	/**
 	 * Add the question being viewed to the read later list which makes the
@@ -192,8 +189,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		}else{
 			Toast.makeText(this, "This has already been added", Toast.LENGTH_SHORT).show();
 		}
-		
-		
 		Log.i("VQAA", "makes it back");
 		// Change button image after question has been added to favorites
 		
@@ -247,16 +242,22 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void submitAnswer(View v){
+		// fetch answer string
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
+		answerEditText.setText("");
 		
+		// MVC to handle singleton answer
 		a = new Answer(answerText);
-		
 		AllAnswersController AAC = AllAnswersApplication.getAllAnswersController();
 		AAC.addAnswer(a);
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 		
-		answerEditText.setText("");
+		// populate explistView
+		prepareListData(answerText);
+		listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
+		populateListView();
+		
 		// update();
 	}
 	
@@ -267,18 +268,17 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	}
 	
 	// testing 
-    private void prepareListData() {
-        answerHeader = new ArrayList<String>();
-        replyChild = new HashMap<String, List<String>>();
- 
-        // Adding child data
-        answerHeader.add("Answer");
+    private void prepareListData(String answerText) {
+        // Adding header data
+    	
+    	
+        answerHeader.add(answerText);
  
         // Adding child data
         List<String> replies = new ArrayList<String>();
         replies.add("Reply 1");
-        replies.add("Reply 2");
 
-        replyChild.put(answerHeader.get(0), replies); // Header, Child data
+        replyChild.put(answerHeader.get(headIncrement), replies); // Header, Child data
+        headIncrement +=1;
     }
 }
