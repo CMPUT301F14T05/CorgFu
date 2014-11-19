@@ -46,7 +46,7 @@ public class AllQuestionsController {
 				new Comparator<Question>() {
 
 					public int compare(Question q1, Question q2) {
-						return q1.getDate().compareTo(q2.getDate());
+						return q2.getDate().compareTo(q1.getDate());
 					}
 				});
 		return allQuestions.getAllQuestions();

@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -38,7 +37,7 @@ public class MainActivity extends Activity
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		Toast.makeText(getApplicationContext(), UserName.getInstance().getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		

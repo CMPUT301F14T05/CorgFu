@@ -18,6 +18,7 @@ import ca.ualberta.cs.corgFu.UserName;
 
 public class LoginActivity extends Activity {
 	public static Context context;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		context = getBaseContext();
@@ -61,7 +62,7 @@ public class LoginActivity extends Activity {
 			}else{
 				UserName nameOfUser= UserName.getInstance();
 				nameOfUser.setUserName(UserNameString);
-				
+				Toast.makeText(getApplicationContext(), UserName.getInstance().getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
 				toMain();
 				
 			}
