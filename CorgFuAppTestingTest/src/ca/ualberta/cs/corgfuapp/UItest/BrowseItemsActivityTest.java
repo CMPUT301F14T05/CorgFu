@@ -95,8 +95,8 @@ public class BrowseItemsActivityTest extends
 		RelativeLayout layout = (RelativeLayout) adapter.getView(0, null, listView);
 		
 		int children = layout.getChildCount();
-		assertEquals("Check that there are 2 children",2,children);
-		TextView tView = (TextView) layout.getChildAt(1);
+		assertEquals("Check that there are 2 children",3,children);
+		TextView tView = (TextView) layout.getChildAt(2);
 				
 		assertEquals("Testing display answers","10",tView.getText());
 		activity.finish();
