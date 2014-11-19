@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFuModels;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,7 +23,11 @@ import ca.ualberta.cs.corgFu.Reply;
  * @author wrflemin
  *
  */
-public class Question extends Model<IView> implements Comparable<Question> {
+public class Question extends Model<IView> implements Comparable<Question>, Serializable  {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5952661765874184488L;
 	private int upvotes;
 	private String questionText;
 	private Bitmap genericPic;
@@ -31,6 +36,9 @@ public class Question extends Model<IView> implements Comparable<Question> {
 	private Date date;
 	private Boolean hasAPicture;
 	private int id;
+	private boolean beenRead;
+	private boolean beenFavourited;
+	private boolean beenReadLater;
 	
 	/**
 	 * Builds a question based on the question text
@@ -46,8 +54,36 @@ public class Question extends Model<IView> implements Comparable<Question> {
 		hasAPicture = false;
 		Random rand = new Random();
 		id = rand.nextInt(100000);
+		beenRead =false;
+		beenFavourited =false;
+		beenReadLater = false;
+	}
+	public void Read(){
+		beenRead = true;
+	}
+	// bool if it has beea read
+	public boolean hasBeenRead(){
+		return beenRead;
+	}
+	
+	// set if favourited
+	public void favourited(){
+		beenFavourited = true;
+	}
+	// returns if favourited
+	public boolean isFavourited(){
+		return beenFavourited;
+	}
+	// sets marked to read later
+	public void addToReadLatered(){
+		beenReadLater = true;
+	}
+	// return bool
+	public boolean isReadLater(){
+		return beenReadLater;
 	}
 	/**
+	 * 
 	 * A method that returns whether there is a picture 
 	 * attached to the question or not
 	 * @return A boolean indicating whether or not a picture is attached.

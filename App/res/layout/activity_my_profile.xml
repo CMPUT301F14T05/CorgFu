@@ -57,5 +57,24 @@
 	    android:text="@string/GoToFav"
 	    android:textColor="#04C1D2"
 	    android:textSize="20sp" />
+	
+	<Button
+	    android:id="@+id/GoToMyQuestions"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignStart="@+id/GoToCached"
+	    android:layout_alignEnd="@+id/GoToCached"
+	    android:layout_alignRight="@+id/GoToCached"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/GoToCached"
+	    android:layout_marginTop="30dp"
+	    android:background="@drawable/buttonshape"
+	    android:fontFamily="fonts/26783.ttf"
+	    android:onClick="toMyQuestions"
+	    android:padding="12sp"
+	    android:text="@string/MyQuestions"
+	    android:textColor="#04C1D2"
+	    android:textSize="20sp" 
+	    />
 
 </RelativeLayout>

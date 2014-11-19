@@ -43,7 +43,7 @@
             android:label="@string/title_activity_my_profile" >
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name="ca.ualberta.corgfuapp.ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
@@ -53,6 +53,10 @@
         <activity
             android:name="ca.ualberta.cs.corgFuViews.AddPictureActivity"
             android:label="@string/title_activity_add_picture" >
+        </activity>
+        <activity
+            android:name="ca.ualberta.cs.corgFuViews.OfflineDataView"
+            android:label="@string/title_activity_offline_data_view" >
         </activity>
     </application>
 

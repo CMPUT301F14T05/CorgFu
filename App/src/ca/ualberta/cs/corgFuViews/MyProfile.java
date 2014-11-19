@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFuViews;
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.view.View;
 import ca.ualberta.corgfuapp.R;
 
 public class MyProfile extends Activity {
-
+	public static final String EXTRA_CHOICE = "the Choice";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -17,14 +18,28 @@ public class MyProfile extends Activity {
 	}
 	
 	public void toCached(View v){
-		
+		Intent intent = new Intent(this, OfflineDataView.class);
+		int choiceClicked = 1;
+		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		startActivity(intent);
 	}
 	public void toFav(View v){
-		Intent intent = new Intent(this, FavouriteView.class);
+		Intent intent = new Intent(this, OfflineDataView.class);
+		int choiceClicked = 0;
+		intent.putExtra(EXTRA_CHOICE, choiceClicked);
 		startActivity(intent);
 	}
 	public void toReadLater(View v){
-		
+		Intent intent = new Intent(this, OfflineDataView.class);
+		int choiceClicked = 2;
+		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		startActivity(intent);
+	}
+	public void toMyQuestions(View v){
+		Intent intent = new Intent(this, OfflineDataView.class);
+		int choiceClicked = 3;
+		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		startActivity(intent);
 	}
 
 	@Override

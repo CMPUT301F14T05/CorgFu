@@ -1,6 +1,7 @@
 package ca.ualberta.cs.corgFuViews;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -16,10 +17,12 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.UserName;
 
 public class LoginActivity extends Activity {
-
+	public static Context context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		context = getBaseContext();
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_login);
 		TextView TV = (TextView)findViewById(R.id.initPrompt);//grabs the text view to be displayed
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview

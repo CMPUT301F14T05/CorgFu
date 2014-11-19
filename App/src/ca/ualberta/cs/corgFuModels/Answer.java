@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFuModels;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,8 +23,9 @@ import ca.ualberta.cs.corgFu.Reply;
  * @see ca.ualberta.cs.corgFu.Reply
  * @see ca.ualberta.cs.corgFu.Picture
  */
-public class Answer
+public class Answer implements Serializable
 {
+	private static final long serialVersionUID = 1109155948964525667L;
 	private int upvotes;
 	private String answerText;
 	private Date date;
