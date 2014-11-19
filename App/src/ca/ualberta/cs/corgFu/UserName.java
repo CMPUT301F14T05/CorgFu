@@ -19,7 +19,7 @@ public class UserName {
 		instance.uN = uNameString; 
 	}
 	public String getUserName(){
-		return uN;
+		return instance.uN;
 	}
 
 	
