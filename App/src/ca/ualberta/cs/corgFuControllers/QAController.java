@@ -1,8 +1,7 @@
 package ca.ualberta.cs.corgFuControllers;
 
-import java.util.ArrayList;
-
-import ca.ualberta.cs.corgFuModels.AllQuestions;
+import ca.ualberta.cs.corgFu.ElasticSearch;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
  * The controller that allows for modification of the question
@@ -18,6 +17,7 @@ import ca.ualberta.cs.corgFuModels.Question;
 public class QAController {
 	
 	Question question;
+	ElasticSearch ES = new ElasticSearch();
 	/**
 	 * Builds the controller with the question model that it will be 
 	 * modifying.	
@@ -38,6 +38,13 @@ public class QAController {
 	 */
 	public void upvote(){
 		question.upvote();
+		ES.deleteQuestion(question.getId());
+		ES.addQuestion(question);
+	}
+	public void addAnswer(Answer answer){
+		question.addAnswer(answer);
+		ES.deleteQuestion(question.getId());
+		ES.addQuestion(question);
 	}
 	/**
 	 * Makes the question available offline so it can be viewed later

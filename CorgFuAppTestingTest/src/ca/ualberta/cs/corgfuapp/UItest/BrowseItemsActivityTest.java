@@ -19,6 +19,7 @@ public class BrowseItemsActivityTest extends
 	
 	private ArrayList<Integer> qAdded;
 	private ElasticSearch ES;
+	private BrowseItems activity;
 	
 	public BrowseItemsActivityTest(){
 		super(BrowseItems.class);
@@ -41,7 +42,7 @@ public class BrowseItemsActivityTest extends
 		
 		AQController.addQuestion(Q1);
 		AQController.addQuestion(Q2);
-		BrowseItems activity = (BrowseItems) getActivity();
+		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
 		assertEquals("Testing browseItems initializes with correct questions",ES.searchQuestion("", null).size(),adapter.getCount());
@@ -54,7 +55,7 @@ public class BrowseItemsActivityTest extends
 		
 		qAdded.add(Q3.getId());
 		
-		BrowseItems activity = (BrowseItems) getActivity();
+		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
 		int count = ES.searchQuestion("", null).size();
@@ -84,7 +85,7 @@ public class BrowseItemsActivityTest extends
 		}
 		qAdded.add(Q1.getId());
 		
-		BrowseItems activity = (BrowseItems) getActivity();
+		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
 		
@@ -105,6 +106,7 @@ public class BrowseItemsActivityTest extends
 			ES.deleteQuestion(id);
 		}
 		qAdded.clear();
+		activity.finish();
 	}
 
 }

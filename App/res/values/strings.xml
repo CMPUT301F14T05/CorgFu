@@ -51,5 +51,6 @@
     <string name="title_activity_add_picture">Adding a picture</string>
     <string name="pictureDescriptionQuestion">Question Picture</string>
     <string name="addSmallerPicture">Do you want to add smaller picture?</string>
+    <string name="idSearchTerm">SearchTermIdExtraTag</string>
 
 </resources>

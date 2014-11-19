@@ -1,17 +1,65 @@
 package ca.ualberta.cs.corgFuViews;
 
-import ca.ualberta.corgfuapp.R;
+import java.util.ArrayList;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
+import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ElasticSearch;
+import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
+import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuModels.Question;
 
 public class SearchResults extends Activity {
 
+	private ElasticSearch ES;
+	private ArrayList<Question> results;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_results);
+		ES = new ElasticSearch();
+		results = null;
+		startSearch();
+		populateListView();
+		setListViewListener();
+	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		startSearch();
+		populateListView();
+		setListViewListener();
+	}
+
+	private void startSearch() {
+		Bundle extra = getIntent().getExtras();
+		String searchTerm = "";
+		if (extra != null){
+			searchTerm = extra.getString("@string/idSearchTerm");
+		}
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		results = AQC.search(searchTerm);
+	}
+	
+
+	private void populateListView() {
+		ArrayAdapter listAdapter = new InsertQuestionAdapter(
+				SearchResults.this, results);
+		ListView resultsList = (ListView) findViewById(R.id.resultsListView);
+		resultsList.setAdapter(listAdapter);
+		listAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -31,5 +79,34 @@ public class SearchResults extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	/**
+	 * Sets up the click listener for the ListView that will allow for 
+	 * clicking on specific questions in the listview.
+	 */
+	private void setListViewListener(){
+		final OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
+		    public void onItemClick(AdapterView parent, View v, int position, long id) {
+		    	Question question = (Question) parent.getItemAtPosition(position);
+		    	int qId = question.getId();
+		    	goToQuestion(qId);
+		    }
+		};
+		
+		ListView listView = (ListView) findViewById(R.id.resultsListView);
+		listView.setOnItemClickListener(mMessageClickedHandler);
+	}
+	/**
+	 * Opens the question that was clicked by the user and puts the question
+	 * id in an extra so that the view question view can populate itself 
+	 * based on the id of the question.
+	 * @param qId The id of the question that is most likely unique 
+	 * (uses a random number which should be unique enough for our
+	 * purposes.
+	 */
+	private void goToQuestion(int qId){
+		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
+    	intent.putExtra("@string/idExtraTag", qId);
+    	startActivity(intent);
 	}
 }

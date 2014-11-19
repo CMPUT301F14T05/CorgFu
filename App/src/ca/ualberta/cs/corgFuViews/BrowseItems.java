@@ -1,7 +1,5 @@
 package ca.ualberta.cs.corgFuViews;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,13 +7,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView.FindListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -204,6 +201,14 @@ public class BrowseItems extends Activity implements IView
 	 */
 	public void toUserProfile(View view){
 		Intent intent = new Intent(this, MyProfile.class);
+		startActivity(intent);
+	}
+	
+	public void toSearchResults(View view){
+		Intent intent = new Intent(this, SearchResults.class);
+		EditText searchBox = (EditText) findViewById(R.id.searchEditText);
+		String searchTerm = searchBox.getText().toString();
+		intent.putExtra("@string/idSearchTerm", searchTerm);
 		startActivity(intent);
 	}
 	
