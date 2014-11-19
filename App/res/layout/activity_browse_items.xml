@@ -57,7 +57,8 @@
         android:text="@string/SearchButton"
         android:textColor="#FFFFFF"
         android:textSize="13sp" 
-        android:padding="2sp"/>
+        android:padding="2sp"
+        android:onClick = "toSearchResults"/>
 
     <TextView
         android:id="@+id/searchLabel"

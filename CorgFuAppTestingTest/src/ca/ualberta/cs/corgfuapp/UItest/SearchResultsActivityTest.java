@@ -1,7 +1,5 @@
 package ca.ualberta.cs.corgfuapp.UItest;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ArrayAdapter;
@@ -11,6 +9,7 @@ import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuViews.BrowseItems;
 import ca.ualberta.cs.corgFuViews.SearchResults;
 
 public class SearchResultsActivityTest extends
@@ -52,8 +51,8 @@ public class SearchResultsActivityTest extends
 		activity = (SearchResults) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.resultsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
+		while(adapter.getCount() == 0){}
 		assertEquals("Testing search shows the right array",1,adapter.getCount());
-		activity.finish();
 	}
 	
 	public void testOpenSearchResult(){
@@ -71,12 +70,13 @@ public class SearchResultsActivityTest extends
 		intent.putExtra("@string/idSearchTerm", searchString);
 		setActivityIntent(intent);
 		activity = (SearchResults) getActivity();
+		
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.resultsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
+		while(adapter.getCount() == 0){}
 		assertEquals("Testing search shows the right array",1,adapter.getCount());
-		TextView tView= (TextView) adapter.getView(0, null, listView);
+		TextView tView= (TextView) adapter.getView(1, null, listView);
 		tView.performClick();
-		activity.finish();
 	}
 	@Override
 	public void tearDown(){

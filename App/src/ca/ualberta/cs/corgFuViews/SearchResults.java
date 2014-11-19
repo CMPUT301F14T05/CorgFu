@@ -9,9 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.ElasticSearch;
@@ -58,7 +59,10 @@ public class SearchResults extends Activity {
 		ArrayAdapter listAdapter = new InsertQuestionAdapter(
 				SearchResults.this, results);
 		ListView resultsList = (ListView) findViewById(R.id.resultsListView);
+		TextView empty = (TextView) findViewById(android.R.id.empty);
+		resultsList.setEmptyView(empty);
 		resultsList.setAdapter(listAdapter);
+		
 		listAdapter.notifyDataSetChanged();
 	}
 

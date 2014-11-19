@@ -38,13 +38,13 @@ public class QAController {
 	 */
 	public void upvote(){
 		question.upvote();
-		ES.deleteQuestion(question.getId());
-		ES.addQuestion(question);
+		Thread thread = new AddThread(question);
+		thread.start();
 	}
 	public void addAnswer(Answer answer){
 		question.addAnswer(answer);
-		ES.deleteQuestion(question.getId());
-		ES.addQuestion(question);
+		Thread thread = new AddThread(question);
+		thread.start();
 	}
 	/**
 	 * Makes the question available offline so it can be viewed later
@@ -61,6 +61,31 @@ public class QAController {
 	}
 	public int getVotes() {
 		return question.getUpvotes();
+	}
+	/**
+	 * A class that gives elastic search time to add the question before the activity is 
+	 * paused by moving to the next intent.
+	 *
+	 */
+	class AddThread extends Thread {
+		private Question Q;
+
+		public AddThread(Question Q) {
+			this.Q = Q;
+		}
+
+		@Override
+		public void run() {
+			ES.addQuestion(Q);
+			
+			// Give some time to get updated info
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
 	}
 
 }
