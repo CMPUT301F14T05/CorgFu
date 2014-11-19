@@ -36,6 +36,10 @@ public class ElasticSearchTest extends TestCase {
 		ES = new ElasticSearch();
 		qAdded = new ArrayList<Integer>();
 	}
+	@Override
+	public void setUp(){
+		ES.clearQuestions();
+	}
 	
 	public void testgetQuestion(){
 		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();//the app allQuestion singleton
@@ -123,13 +127,13 @@ public class ElasticSearchTest extends TestCase {
 		Question Q3 = new Question("Another duck question!");
 		Question Q4 = new Question("All of the duck questions");
 		
+		ES.addQuestion(Q4);
 		ES.addQuestion(Q1);
 		ES.addQuestion(Q2);
 		ES.addQuestion(Q3);
-		ES.addQuestion(Q4);
 		//Waits a bit to make sure the questions make it to the server
 		try {
-			Thread.sleep(5*60);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -140,14 +144,42 @@ public class ElasticSearchTest extends TestCase {
 		qAdded.add(Q3.getId());
 		qAdded.add(Q4.getId());
 		//Add a waiting method
-		ArrayList<Question> result = ES.searchQuestion("duck","questionText");
-
+		ArrayList<Question> result = ES.searchQuestion("duck",null);
 		assertEquals("Testing search for multiple questions",3, result.size());
 		
-		result = ES.searchQuestion("", null);
+	}
+	
+	public void testClearQuestions(){
+		Question Q1 = new Question("This question has the word duck in it");
+		Question Q2 = new Question("This question does not have the d word");
+		Question Q3 = new Question("Another duck question!");
+		Question Q4 = new Question("All of the duck questions");
 		
-		assertEquals("Testing the search method with no arguments (get all questions)",
-				4, result.size());
+		int before = ES.searchQuestion("", "").size();
+		
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		
+		ES.addQuestion(Q4);
+		ES.addQuestion(Q1);
+		ES.addQuestion(Q2);
+		ES.addQuestion(Q3);
+
+		qAdded.add(Q1.getId());
+		qAdded.add(Q2.getId());
+		qAdded.add(Q3.getId());
+		qAdded.add(Q4.getId());
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Question> result = ES.searchQuestion("duck",null);
+		assertTrue("Testing questions made it to server", result.size()>before);
+		
+		ES.clearQuestions();
+		
+		assertEquals("Testing the clear worked",0,ES.searchQuestion("", null).size());
 	}
 	@Override
 	public void tearDown(){

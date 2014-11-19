@@ -21,11 +21,6 @@ public class AllQuestionsController {
 	private AllQuestions allQuestions;
 	private ArrayList<Question> results;
 	private ElasticSearch ES;
-	// Thread to update adapter after an operation
-	private Runnable doReturnResults = new Runnable() {
-		public void run() {
-		}
-	};
 	
 	/**
 	 * Initializes the controller with the model that it will be updating
@@ -110,9 +105,10 @@ public class AllQuestionsController {
 	 * @return
 	 */
 	public ArrayList<Question> search(String string) {
-		results.clear();
+		results = null;
 		Thread thread = new SearchThread(string);
 		thread.start();
+		while (results == null){}
 		return results;
 	}
 	/**
@@ -123,11 +119,14 @@ public class AllQuestionsController {
 	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
 	 */
 	public ArrayList<Question> getAllQuestions() {
-		results.clear();
+		return allQuestions.getAllQuestions();
+	}
+	public void updateAllQuestions(){
+		results = null;
 		Thread thread = new SearchThread("");
 		thread.start();
-		//allQuestions.setAllQuestions(results);
-		return allQuestions.getAllQuestions();
+		while (results == null){}
+		allQuestions.setAllQuestions(results);
 	}
 	/**
 	 * Adds the specified question to the AllQuestions model making it 
@@ -185,7 +184,6 @@ public class AllQuestionsController {
 	/**
 	 * A class that gives elastic search time to add the question before the activity is 
 	 * paused by moving to the next intent.
-	 * @author wrflemin
 	 *
 	 */
 	class AddThread extends Thread {
@@ -208,6 +206,11 @@ public class AllQuestionsController {
 			
 		}
 	}
+	/**
+	 * A class that allows for extra time to complete an elastic search query using
+	 * threads.
+	 *
+	 */
 	class SearchThread extends Thread {
 		private String search;
 		
@@ -217,8 +220,7 @@ public class AllQuestionsController {
 
 		@Override
 		public void run() {
-			results.clear();
-			results.addAll(ES.searchQuestion(search, null));
+			results = ES.searchQuestion(search, null);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {

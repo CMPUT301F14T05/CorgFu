@@ -39,16 +39,28 @@ public class SearchQuestionsAndAnswersTest extends TestCase {
 		qAdded.add(mQ2.getId());
 		qAdded.add(mQ1.getId());
 		
-		ArrayList<Question> expected = new ArrayList<Question>();
-		expected.add(mQ1);
-		
+		Question expected = mQ1;
 		
 		assertEquals("Making sure searchable question made it to the server",
 				mQ1.toString(),ES.getQuestion(mQ1.getId()).toString());
-		assertEquals("Testing search of a Question",expected,aQC.search("Searchable"));
-		assertEquals("Testing search of a Question",expected,aQC.search("Answer"));
-
-		assertFalse("Testing search of an Answer",(expected==aQC.search("random")));
+		ArrayList<Question> actual = null;
+		for (int i = 0;i<5;i++){
+			actual = aQC.search("Searchable");
+			if (actual.size()>0){
+				break;
+			}
+		}
+		assertEquals("Testing only one question was returned for searchable", 1, actual.size());
+		assertEquals("Testing search of a Question",expected.toString(), actual.get(0).toString());
+		for (int i = 0;i<5;i++){
+			actual = aQC.search("Searchable");
+			if (actual.size()>0){
+				break;
+			}
+		}
+		assertEquals("Testing only one question was returned for answer", 1, actual.size());
+		actual = aQC.search("random");
+		assertEquals("Testing search of an Answer",0,actual.size());
 	}
 	@Override
 	public void tearDown(){

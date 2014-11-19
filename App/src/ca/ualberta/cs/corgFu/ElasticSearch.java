@@ -77,7 +77,7 @@ public class ElasticSearch {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return new Question(null);
 	}
 	/**addQuestion() is a method that receives a question and tries to push said question online if there is an internet connection.
 	 * 
@@ -131,6 +131,22 @@ public class ElasticSearch {
 
 		try {
 			HttpDelete deleteRequest = new HttpDelete(RESOURCE_URL + id);
+			deleteRequest.setHeader("Accept", "application/json");
+
+			HttpResponse response = httpClient.execute(deleteRequest);
+			String status = response.getStatusLine().toString();
+			Log.i(TAG, status);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void clearQuestions(){
+		HttpClient httpClient = new DefaultHttpClient();
+
+		try {
+			HttpDelete deleteRequest = new HttpDelete(RESOURCE_URL);
 			deleteRequest.setHeader("Accept", "application/json");
 
 			HttpResponse response = httpClient.execute(deleteRequest);

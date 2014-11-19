@@ -52,7 +52,17 @@ public class AllQuestionTest extends TestCase {
 		qAdded.add(Q1.getId());
 		qAdded.add(Q2.getId());
 		
-		assertEquals("Testing if all questions are got properly", 2, AQC.getAllQuestions().size());
+		try{
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		ArrayList<Question> expected = ES.searchQuestion("", null);
+		AQC.updateAllQuestions();
+		ArrayList<Question> actual = AQC.getAllQuestions();
+		
+		assertEquals("Testing if all questions are got properly", expected.size(), actual.size());
 	}
 	
 	@Override

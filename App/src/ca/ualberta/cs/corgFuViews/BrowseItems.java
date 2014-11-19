@@ -41,8 +41,7 @@ public class BrowseItems extends Activity implements IView
 	
 	private InsertQuestionAdapter listAdapter;
 	Spinner sortOptions;
-	AllQuestions AQ;
-	AllQuestionsController AQController;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -60,9 +59,13 @@ public class BrowseItems extends Activity implements IView
 		super.onResume();
 		ListView listView = (ListView) findViewById(R.id.browseQuestionsListView);
 		InsertQuestionAdapter listAdapter = (InsertQuestionAdapter) listView.getAdapter();
-		if (listAdapter != null){
-			listAdapter.notifyDataSetChanged();
-		}
+		AllQuestionsController AQC = AllQuestionsApplication
+				.getAllQuestionsController();
+		AQC.updateAllQuestions();
+		listAdapter = new InsertQuestionAdapter(
+				BrowseItems.this, AQC.sortByDate());
+		listView.setAdapter(listAdapter);
+		listAdapter.notifyDataSetChanged();
 	}
 
 	// Taken from
@@ -81,6 +84,7 @@ public class BrowseItems extends Activity implements IView
 		AQ.addView(this);
 		final AllQuestionsController AQController = AllQuestionsApplication
 				.getAllQuestionsController();
+		AQController.updateAllQuestions(); //Populates allQuestions with available questions
 
 		// populateSpinner(0);
 		// Toast.makeText(this,"chose sort date", Toast.LENGTH_SHORT).show();
@@ -154,7 +158,6 @@ public class BrowseItems extends Activity implements IView
 	@Override
 	public void onDestroy()
 	{
-
 		super.onDestroy();
 		AllQuestions aQ = AllQuestionsApplication.getAllQuestions();
 		aQ.deleteView(this);

@@ -1,11 +1,14 @@
 package ca.ualberta.cs.corgfuapp.UItest;
 
+import java.util.ArrayList;
+
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -13,34 +16,57 @@ import ca.ualberta.cs.corgFuViews.BrowseItems;
 
 public class BrowseItemsActivityTest extends
 		ActivityInstrumentationTestCase2<BrowseItems> {
-
+	
+	private ArrayList<Integer> qAdded;
+	private ElasticSearch ES;
+	
 	public BrowseItemsActivityTest(){
 		super(BrowseItems.class);
+		qAdded = new ArrayList<Integer>();
+		ES = new ElasticSearch();
+	}
+	
+	@Override 
+	public void setUp(){
+		ES.clearQuestions();
 	}
 	
 	public void testDefaultBrowseItems(){
 		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();
 		Question Q1 = new Question("Test one");
 		Question Q2 = new Question("Test two");
+		
+		qAdded.add(Q1.getId());
+		qAdded.add(Q2.getId());
+		
 		AQController.addQuestion(Q1);
 		AQController.addQuestion(Q2);
 		BrowseItems activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-		assertEquals("Testing browseItems initializes with correct questions",2,adapter.getCount());
-		cleanup();
+		assertEquals("Testing browseItems initializes with correct questions",ES.searchQuestion("", null).size(),adapter.getCount());
+		activity.finish();
 	}
 	
 	public void testUpdate(){
 		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();
 		Question Q3 = new Question("Test three");
+		
+		qAdded.add(Q3.getId());
+		
 		BrowseItems activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-		assertEquals("Testing browseItems initializes with correct questions",0,adapter.getCount());
+		int count = ES.searchQuestion("", null).size();
+		assertEquals("Testing browseItems initializes with correct questions",count,adapter.getCount());
 		AQController.addQuestion(Q3);
-		assertEquals("Testing browseItems updates when Question Added",1,adapter.getCount());
-		cleanup();
+		try{
+			Thread.sleep(500);
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
+		assertEquals("Testing browseItems updates when Question Added",count+1,adapter.getCount());
+		activity.finish();
 	}
 	
 	public void testAnswerCount(){
@@ -51,6 +77,12 @@ public class BrowseItemsActivityTest extends
 			Q1.addAnswer(A1);
 		}
 		AQC.addQuestion(Q1);
+		try{
+			Thread.sleep(500);
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
+		qAdded.add(Q1.getId());
 		
 		BrowseItems activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
@@ -63,12 +95,16 @@ public class BrowseItemsActivityTest extends
 		TextView tView = (TextView) layout.getChildAt(1);
 				
 		assertEquals("Testing display answers","10",tView.getText());
-
-		cleanup();
+		activity.finish();
 	}
 	
-	private void cleanup(){
+	@Override
+	public void tearDown(){
 		AllQuestionsApplication.destroy();
+		for (int id : qAdded){
+			ES.deleteQuestion(id);
+		}
+		qAdded.clear();
 	}
 
 }
