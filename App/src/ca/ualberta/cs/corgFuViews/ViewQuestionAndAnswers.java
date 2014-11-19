@@ -100,6 +100,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
+		QAC.updateQuestion();
 		
 		if(myQuestion.isFavourited()){
 			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
