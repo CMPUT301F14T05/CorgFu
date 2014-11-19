@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFu;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,9 +14,10 @@ import java.util.Date;
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
  */
-public class Reply {
+public class Reply implements Serializable{
 	private String replyString;
 	private Date date;
+	private static final long serialVersionUID = -8270344298863725879L;
 	/**
 	 * Builds an Reply based on the question/answer text
 	 * provided.

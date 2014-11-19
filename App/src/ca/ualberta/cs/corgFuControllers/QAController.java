@@ -51,36 +51,7 @@ public class QAController {
 	 * @param controller The controller that will add the question to the 
 	 * list of available offline answers.
 	 */
-	public void makeAvailOffline(OfflineDataController controller) {
-		
-	}
-	/**
-	 * Makes the question available offline and is added to the Authored 
-	 * questions list
-	 * @param controller The controller that will add the question to the 
-	 * Authored questions list
-	 */
-	public void makeAuthoredQAvailOffline(OfflineDataController controller) {
-		
-	}
-	/**
-	 * Sets the question as a favorite of the current user, and makes it 
-	 * available offline in a favorites list.
-	 * @param favController The controller that will add the question to
-	 * the favorites list.
-	 */
-	public void setFav(FavouritesController favController) {
-		// TODO Auto-generated method stub
-	}
-	/**
-	 * Adds the question to the authored offline list which will
-	 * be pushed to the server when user is online again
-	 * @param AOC The controller that facilitates adding this question
-	 * to the authored offline list of questions
-	 */
-	public void addToAuthoredOffline(AuthoredOfflineController AOC) {
-		
-	}
+	
 	/**
 	 * Returns the text of the question.
 	 * @return A String of the question text.

@@ -1,6 +1,7 @@
 package ca.ualberta.cs.corgFuViews;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -16,10 +17,12 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.UserName;
 
 public class LoginActivity extends Activity {
-
+	public static Context context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		context = getBaseContext();
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_login);
 		TextView TV = (TextView)findViewById(R.id.initPrompt);//grabs the text view to be displayed
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
@@ -56,8 +59,9 @@ public class LoginActivity extends Activity {
 			if (ulen <= 0 ){
 				Toast.makeText(getApplicationContext(), "User Name Cant be empty", Toast.LENGTH_LONG).show();
 			}else{
-				UserName NameOfUser = new UserName(UserNameString);
-				Toast.makeText(getApplicationContext(), NameOfUser.getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
+				UserName nameOfUser= UserName.getInstance();
+				nameOfUser.setUserName(UserNameString);
+				
 				toMain();
 				
 			}

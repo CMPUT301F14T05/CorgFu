@@ -13,7 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
  * This is the MainActivity Activity. It is in charge of our screen for asking questions. 
@@ -31,12 +33,12 @@ public class MainActivity extends Activity
 	
 	/** This is the question that is being added by the user*/
 	protected Question q; //most recent Question added by the user
-	
+	DataController DC;
 	/**onCreate() sets up the display of the Activity, it makes sure that all of the desired text is set to the correct typeface.*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-
+		Toast.makeText(getApplicationContext(), UserName.getInstance().getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
@@ -45,7 +47,7 @@ public class MainActivity extends Activity
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
 		
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
-		
+		DC = new DataController();
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
@@ -83,7 +85,7 @@ public class MainActivity extends Activity
 			
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-		
+		DC.addData(q, 3);
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 
 	}

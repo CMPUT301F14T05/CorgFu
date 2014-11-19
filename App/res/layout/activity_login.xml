@@ -37,7 +37,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20sp"
         android:ems="10"
-        android:hint="@string/UIDHint" >
+        android:hint="@string/UIDHint"
+        android:inputType="text"
+        android:imeOptions="actionDone" >
 
         <requestFocus />
     </EditText>

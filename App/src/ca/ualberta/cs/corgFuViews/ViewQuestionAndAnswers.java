@@ -1,15 +1,19 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Menu;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
@@ -17,13 +21,11 @@ import ca.ualberta.cs.corgFu.AllAnswersApplication;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
-import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllAnswersController;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
-import ca.ualberta.cs.corgFuControllers.FavouritesController;
+import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
 import ca.ualberta.cs.corgFuModels.AllAnswers;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
@@ -41,66 +43,68 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
-	private InsertAnswerAdapter listAdapter;
+	
+	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
-
+	DataController fc;
 	/** This is the answer that is being added by the user*/
 	protected Answer a; //most recent Answer added by the user
 	AllAnswers AA; 
 	AllAnswersController AAController;
 	
+	/** This is the custom adapter*/
+    InsertAnswerAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> answerHeader;
+    HashMap<String, List<String>> replyChild;
+ 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_answers);
+		
 		getQuestion();
-		// populateListView();
 		setFont();
 		setPicture();
+		populateListView();
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
-		ListView listView = (ListView) findViewById(R.id.questionRepliesExpandable);
-		InsertAnswerAdapter listAdapter = (InsertAnswerAdapter) listView.getAdapter();
+		expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+		listAdapter = (InsertAnswerAdapter) expListView.getExpandableListAdapter();
 		if (listAdapter != null){
 			listAdapter.notifyDataSetChanged();
 		}
 	}
+	
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu)
-	{
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.view_question_and_answers, menu);
-		return true;
-	}
-	
-	@Override
-	public void update()
-	{
-		listAdapter.notifyDataSetChanged();
-	}
-	
-	// Taken from
-	// http://developer.android.com/guide/topics/ui/controls/spinner.html
-	// populates list view using adapter class
 	/**
 	 * Populates the ListView of answers with answers in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
 	public void populateListView()
-	{		
-		setContentView(R.layout.activity_view_question_and_answers);
+	{	
+		// fetch answers via MVC 
 		AllAnswers AA = AllAnswersApplication.getAllAnswers();
 		AA.addView(this);
 		final AllAnswersController AAController = AllAnswersApplication
-			.getAllAnswersController();
-		ListView QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
-//		QAListView = (ListView) findViewById(R.id.questionRepliesExpandable);
-		QAListView.setAdapter(listAdapter);
+				.getAllAnswersController();
+
+		// populate expandable 
+		try{
+			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+			prepareListData();
+			listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
+			// setting list adapter
+			expListView.setAdapter(listAdapter);
+        }catch(Exception e){
+            System.out.println("Errrr +++ " + e.getMessage());
+        }
+		
 	}
 	
 	/**
@@ -117,10 +121,26 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-
+		
+		fc = new DataController();
+		
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
-		myQuestion = AQC.getQuestionById(qId);
+		
+		if(myQuestion.isFavourited()){
+			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
+			favButton.setImageResource(android.R.drawable.btn_star_big_on);
+			favButton.setClickable(false);
+			favButton.setEnabled(false);
+		}
+		if (myQuestion.hasBeenRead()==false){
+			myQuestion.Read();
+			
+			
+			Log.i("BeenRead", "adding to read");
+			fc.addData(myQuestion,1);
+		}
+		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
 		questionText.setText(QAC.getQuestionString());
@@ -165,6 +185,18 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void readLater(View v){
 		
+		Log.i("VQAA", "breaks after");
+		if (myQuestion.isReadLater()==false){
+			myQuestion.addToReadLatered();
+			fc.addData(myQuestion,2);
+		}else{
+			Toast.makeText(this, "This has already been added", Toast.LENGTH_SHORT).show();
+		}
+		
+		
+		Log.i("VQAA", "makes it back");
+		// Change button image after question has been added to favorites
+		
 	}
 	
 	/**
@@ -173,14 +205,18 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view being clicked on
 	 */
 	public void addToFavorite(View v){
-		FavouritesController fc = new FavouritesController();
-		fc.addFavourites(myQuestion);
-		
-		// Change button image after question has been added to favorites
-		ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
-		favButton.setImageResource(android.R.drawable.btn_star_big_on);
-		favButton.setClickable(false);
-		favButton.setEnabled(false);
+		Log.i("VQAA", "breaks after");
+		if (myQuestion.isFavourited() ==false){
+			myQuestion.favourited();
+			fc.addData(myQuestion,0);
+			Log.i("VQAA", "makes it back");
+			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
+			favButton.setImageResource(android.R.drawable.btn_star_big_on);
+			favButton.setClickable(false);
+			favButton.setEnabled(false);
+		}else{
+			Toast.makeText(this,"already added!", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	/**
@@ -223,4 +259,26 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		answerEditText.setText("");
 		// update();
 	}
+	
+	@Override
+	public void update()
+	{
+		//listAdapter.notifyDataSetChanged();
+	}
+	
+	// testing 
+    private void prepareListData() {
+        answerHeader = new ArrayList<String>();
+        replyChild = new HashMap<String, List<String>>();
+ 
+        // Adding child data
+        answerHeader.add("Answer");
+ 
+        // Adding child data
+        List<String> replies = new ArrayList<String>();
+        replies.add("Reply 1");
+        replies.add("Reply 2");
+
+        replyChild.put(answerHeader.get(0), replies); // Header, Child data
+    }
 }
