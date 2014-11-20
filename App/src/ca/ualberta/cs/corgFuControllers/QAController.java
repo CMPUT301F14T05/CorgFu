@@ -66,8 +66,6 @@ public class QAController {
 	public int getVotes() {
 		return question.getUpvotes();
 	}
-	public void updateQuestion(){
-		question = ES.getQuestion(question.getId());
-	}
+
 
 }

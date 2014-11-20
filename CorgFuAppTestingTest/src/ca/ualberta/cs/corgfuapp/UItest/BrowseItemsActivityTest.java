@@ -2,6 +2,7 @@ package ca.ualberta.cs.corgfuapp.UItest;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -85,6 +86,8 @@ public class BrowseItemsActivityTest extends
 		}
 		qAdded.add(Q1.getId());
 		
+		Intent intent = new Intent();
+		setActivityIntent(intent);
 		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
@@ -92,8 +95,8 @@ public class BrowseItemsActivityTest extends
 		RelativeLayout layout = (RelativeLayout) adapter.getView(0, null, listView);
 		
 		int children = layout.getChildCount();
-		assertEquals("Check that there are 2 children",2,children);
-		TextView tView = (TextView) layout.getChildAt(1);
+		assertEquals("Check that there are 2 children",3,children);
+		TextView tView = (TextView) layout.getChildAt(2);
 				
 		assertEquals("Testing display answers","10",tView.getText());
 		activity.finish();

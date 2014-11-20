@@ -55,10 +55,10 @@ public class SortQuestionsDateTest extends TestCase {
 		
 		// expected output should arrange questions by most recent to latest according to date  
 		ArrayList<Question> expected = new ArrayList<Question>();
-		expected.add(mQ1);
-		expected.add(mQ2);
-		expected.add(mQ3);
 		expected.add(mQ4);
+		expected.add(mQ3);
+		expected.add(mQ2);
+		expected.add(mQ1);
 
 		
 		assertEquals("Testing if QuestionController returns list in correct date order",expected, mQC.sortByDate());

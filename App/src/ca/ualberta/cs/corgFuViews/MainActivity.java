@@ -1,6 +1,7 @@
 package ca.ualberta.cs.corgFuViews;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class MainActivity extends Activity
 {
-	
+	public static Context context;
 	/** This is the question that is being added by the user*/
 	protected Question q; //most recent Question added by the user
 	DataController DC;
@@ -37,7 +38,7 @@ public class MainActivity extends Activity
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		
+		context = getBaseContext();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		

@@ -18,6 +18,11 @@ public class AllQuestionTest extends TestCase {
 		ES = new ElasticSearch();
 		qAdded = new ArrayList<Integer>();
 	}
+	
+	@Override 
+	public void setUp(){
+		ES.clearQuestions();
+	}
 
 	public void testGetQuestionById(){
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();

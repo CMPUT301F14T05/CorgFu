@@ -15,6 +15,7 @@ import android.util.Log;
 import ca.ualberta.cs.corgFuModels.OfflineData;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.LoginActivity;
+import ca.ualberta.cs.corgFuViews.MainActivity;
 
 public class DataManager {
 	private static final String FavouritesFile = "Favourites.save";
@@ -28,7 +29,7 @@ public class DataManager {
 	public static OfflineData favourites;
 	public DataManager(){
 		
-		this.context = LoginActivity.context;
+		this.context = MainActivity.context;
 		
 	}
 	//data manager singleton
