@@ -23,7 +23,7 @@ public class UsernameTest extends TestCase {
 		assertEquals("User names are:",myUserName.getUserName(), myUserName2.getUserName());
 	}
 	
-	public void testSetLocation(){
+	public void testgetLocation(){
 		
 	}
 	/*public void testLoadSaveUsername(){
