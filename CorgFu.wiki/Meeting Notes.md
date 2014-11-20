@@ -1,10 +1,28 @@
+##2014/11/19
+####Comments
+	- Presentation is next week. We will be trying to sell the app to our audience and convince them to use our app instead of the competitor's.
+####Devon & Ahmed
+	- Did: Saving, cache, and favourites have been implemented and the controllers 
+	that weren't needed have been deleted.
+	- Do: Working on pushing offline content (UC-20) and updating of testcases &
+	 UML
+####Alex O. & Anthony	
+	- Add picture is working now using an underlying blank activity.
+	- Answers appear, but aren't consistent at the moment,
+	- Will be working on some picture bugs and finishing adding answers.
+####Alex M. &  Wyatt
+	- Finished implementing Elastic search. Retrieving questions and updating them
+	seems to be working at the moment.
+	- May be bug with exiting a view before elastic search has finished, causing
+	the question not to be updated. Will look into that this week.
+	- Alex has started and will be working on the new Use Case of Geolocation.
+	- Wyatt will most likely be testing and refactoring where possible.
 ##2014/11/12
 ####Comments
     - Add link to Wiki to the UML
     - No links between the views and controllers
     - Working consistingly during all weeks
     - Use milestones in the issue tracker!
-    - 
 ####Anthony & Alex O.
     - Working on pictures
     - Still a problem with going from the external photo app back to the activity
@@ -14,12 +32,12 @@
     - Had to restart the saving stuff.
     - Hoping to have saving done by next week
 ####Wyatt & Alex M.
-    -
+    - I forgot to add our notes and now I don't remember. Worked on elastic search
+    I believe
 ##2014/11/05
 ####Comments
 	- Seems to be about 50% complete. 
 	- Make sure you do JavaDoc for your code!!!
-
 ####Anthony & Alex O.
 	- Worked on attach picture. Still working on attach picture
 	- Blockers: Issues with testing on emulator because it does not have all the
