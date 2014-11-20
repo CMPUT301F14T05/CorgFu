@@ -6,7 +6,7 @@ package ca.ualberta.cs.corgFu;
 public class UserName {
 	private static UserName instance = null;
 	private String uN;
-	protected UserName(){
+	public UserName(){
 		
 	}
 	public static UserName getInstance(){
@@ -18,6 +18,7 @@ public class UserName {
 	public void setUserName(String uNameString){
 		instance.uN = uNameString; 
 	}
+	
 	public String getUserName(){
 		return instance.uN;
 	}

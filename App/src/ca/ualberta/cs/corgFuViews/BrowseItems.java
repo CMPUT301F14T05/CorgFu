@@ -56,6 +56,8 @@ public class BrowseItems extends Activity implements IView
 	public void onResume(){
 		super.onResume();
 		populateListView();
+		setListViewListener();
+		setFont();
 	}
 
 	// Taken from
