@@ -15,8 +15,11 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
+import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class OfflineDataView extends Activity {
@@ -37,6 +40,16 @@ public class OfflineDataView extends Activity {
 		setListViewListener();
 		
 	}
+	protected void onResume(){
+		super.onResume();
+		Log.i("OFDV","arrived");
+		Intent intentchosen = getIntent();
+		int choice = intentchosen.getIntExtra(MyProfile.EXTRA_CHOICE, 0);
+		Log.i("OFDV",String.valueOf(choice));
+		
+		populateListView(choice );
+		setListViewListener();
+	}
 	
 	//4321 add order
 	// fave 4231
@@ -46,10 +59,33 @@ public class OfflineDataView extends Activity {
 		//Log.i("FVL","befor controller");
 		ArrayList<Question> myData = new ArrayList<Question>();
 		
-		final DataController mfc = new DataController();
+		final DataController myDataController = new DataController();
 		Log.i("OFDV", String.valueOf(choice));
-		myData = mfc.getData(choice);
+		myData = myDataController.getData(choice);
 		Log.i("FVL","before load list view");
+		
+		final AllQuestionsController AQController = AllQuestionsApplication
+				.getAllQuestionsController();
+		AQController.updateAllQuestions();
+		ArrayList<Question> onlineData = AQController.getAllQuestions();
+		int i=0;
+		for (Question q: myData){
+			
+			for(Question onlineQ: onlineData){
+				if(q.getId()== onlineQ.getId()){
+					
+					Log.i("online upvotes", String.valueOf(onlineQ.getUpvotes()));
+					myData.set(i, onlineQ);
+					break;
+				}
+			}
+			i++;
+		}
+		for(Question q: myData){
+			Log.i("online upvotes",q.getQuestionText());
+			Log.i("online upvotes", String.valueOf(q.getUpvotes()));
+		}
+		myDataController.saveData(myData, choice);
 		
 		
 		

@@ -39,6 +39,7 @@ public class DataController {
 	
 	public ArrayList<Question> getData(int choice){
 		dataList = mdm.loadFavouritesFromFile(choice);
+		
 		return dataList;
 	}
 	
@@ -54,12 +55,14 @@ public class DataController {
 		dataList = mdm.loadFavouritesFromFile(choice);
 		Log.i("AF", "before add");
 		boolean addControl =false;
+		int i=0;
 		for(Question o: dataList){
 			if (o.getId() ==q.getId()){
-				o=q;
+				dataList.set(i, q);
 				addControl=true;
 				break;
 			} 
+			i++;
 		}
 		if (!addControl){
 			dataList.add(q);
