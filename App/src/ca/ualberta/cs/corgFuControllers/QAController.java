@@ -1,7 +1,12 @@
 package ca.ualberta.cs.corgFuControllers;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.ElasticSearch;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
@@ -49,6 +54,37 @@ public class QAController {
 		question.addAnswer(answer);
 		AQC.addQuestion(question);
 		
+	}
+	public ArrayList<Answer> getAnswersByDate(){
+		Collections.sort(question.getAnswers(),
+				new Comparator<Answer>() {
+
+			
+					@Override
+					public int compare(Answer lhs, Answer rhs) {
+						// TODO Auto-generated method stub
+						return rhs.getDate().compareTo(lhs.getDate());
+						
+					}
+				});
+
+		return  question.getAnswers(); 
+	}
+	public ArrayList<Answer> getAnswersByUpVotes(){
+		// TODO Auto-generated method stub
+		this.getAnswersByDate();
+		Collections.sort(question.getAnswers(),
+			new Comparator<Answer>() {
+
+				public int compare(Answer A1, Answer A2) {
+					Integer v1 = A1.getVotes();
+					Integer v2 = A2.getVotes();
+					return v2.compareTo(v1);
+					
+				}
+			});
+		return question.getAnswers();
+				
 	}
 	/**
 	 * Makes the question available offline so it can be viewed later

@@ -56,5 +56,6 @@
     <string name="MyQuestions">My Questions</string>
     <string name="title_activity_offline_data_view">OfflineDataView</string>
     <string name="emptyList">No Results found. Make sure you are connected to the Internet and try again.</string>
+    <string name="Questions">Questions</string>
 
 </resources>

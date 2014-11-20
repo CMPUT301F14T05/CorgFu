@@ -47,16 +47,25 @@ public class DataController {
 	// 1 = cache
 	// 2 = read later
 	// 3 = asked
+	// adds data and updates it if it exsits.
 	public void addData( Question q,int choice) {
 		Log.i("apple","got here");
 		Log.i("Question", q.getQuestionText());
 		dataList = mdm.loadFavouritesFromFile(choice);
 		Log.i("AF", "before add");
-		
-		dataList.add(q);
+		boolean addControl =false;
+		for(Question o: dataList){
+			if (o.getId() ==q.getId()){
+				o=q;
+				addControl=true;
+				break;
+			} 
+		}
+		if (!addControl){
+			dataList.add(q);
+		}
 		//changed
 		Log.i("AF", "passed add");
 		mdm.saveFavouritesToFile(dataList,choice);
 	}
-
 }

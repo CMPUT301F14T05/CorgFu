@@ -32,7 +32,7 @@ import ca.ualberta.cs.corgFu.Model;
  */
 public class AllQuestions extends Model<IView>
 {
-	private ArrayList<Question> allQuestions;
+	private static ArrayList<Question> allQuestions;
 	ElasticSearch ES;
 	/**
 	 * Builds the AllQuestions model which will hold the questions
@@ -53,7 +53,7 @@ public class AllQuestions extends Model<IView>
 	 * Returns all of the currently available questions in an ArrayList.
 	 * @return All of the currently available questions.
 	 */
-	public ArrayList<Question> getAllQuestions(){
+	public static ArrayList<Question> getAllQuestions(){
 		return allQuestions;
 	}
 	
