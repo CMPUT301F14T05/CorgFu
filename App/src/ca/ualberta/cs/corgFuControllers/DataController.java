@@ -39,6 +39,7 @@ public class DataController {
 	
 	public ArrayList<Question> getData(int choice){
 		dataList = mdm.loadFavouritesFromFile(choice);
+		
 		return dataList;
 	}
 	
@@ -47,16 +48,27 @@ public class DataController {
 	// 1 = cache
 	// 2 = read later
 	// 3 = asked
+	// adds data and updates it if it exsits.
 	public void addData( Question q,int choice) {
 		Log.i("apple","got here");
 		Log.i("Question", q.getQuestionText());
 		dataList = mdm.loadFavouritesFromFile(choice);
 		Log.i("AF", "before add");
-		
-		dataList.add(q);
+		boolean addControl =false;
+		int i=0;
+		for(Question o: dataList){
+			if (o.getId() ==q.getId()){
+				dataList.set(i, q);
+				addControl=true;
+				break;
+			} 
+			i++;
+		}
+		if (!addControl){
+			dataList.add(q);
+		}
 		//changed
 		Log.i("AF", "passed add");
 		mdm.saveFavouritesToFile(dataList,choice);
 	}
-
 }

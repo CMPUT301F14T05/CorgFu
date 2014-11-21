@@ -47,7 +47,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
-	DataController fc;
+	DataController dc;
 	/** This is the answer that is being added by the user*/
 	protected Answer a; //most recent Answer added by the user
 	AllAnswers AA; 
@@ -70,7 +70,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		setPicture();
 		populateListView();
 	}
-	
+	// 
 	@Override
 	public void onResume(){
 		super.onResume();
@@ -96,7 +96,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		
-		fc = new DataController();
+		dc = new DataController();
 		
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
@@ -107,12 +107,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			favButton.setClickable(false);
 			favButton.setEnabled(false);
 		}
-		if (myQuestion.hasBeenRead()==false){
-			myQuestion.Read();
-			
-			
-			Log.i("BeenRead", "adding to read");
-			fc.addData(myQuestion,1);
+		if(myQuestion.hasBeenRead()==false){
+			dc.addData(myQuestion,1);
 		}
 		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
@@ -185,7 +181,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Log.i("VQAA", "breaks after");
 		if (myQuestion.isReadLater()==false){
 			myQuestion.addToReadLatered();
-			fc.addData(myQuestion,2);
+			dc.addData(myQuestion,2);
+			Toast.makeText(this, "saved for reading later", Toast.LENGTH_SHORT).show();
 		}else{
 			Toast.makeText(this, "This has already been added", Toast.LENGTH_SHORT).show();
 		}
@@ -203,7 +200,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Log.i("VQAA", "breaks after");
 		if (myQuestion.isFavourited() ==false){
 			myQuestion.favourited();
-			fc.addData(myQuestion,0);
+			dc.addData(myQuestion,0);
 			Log.i("VQAA", "makes it back");
 			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
 			favButton.setImageResource(android.R.drawable.btn_star_big_on);
@@ -222,11 +219,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void upvote(View v){
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		Question myQuestion = AQC.getQuestionById(qId);
+		Question myQuestion = AQC.getQuestionById(qId); // if we have this above why is gotten again??
 		QAController QAC = new QAController(myQuestion);
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-
+		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
 		QAC.upvote();
@@ -236,6 +233,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteButton.setClickable(false);
 		upvoteButton.setEnabled(false);	
 	}
+	
 	
 	/**
 	 * Adds an answer to the question when the user clicks the submit answer button

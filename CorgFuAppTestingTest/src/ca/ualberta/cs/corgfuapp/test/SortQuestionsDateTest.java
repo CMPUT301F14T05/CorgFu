@@ -19,54 +19,18 @@ public class SortQuestionsDateTest extends TestCase {
 	public SortQuestionsDateTest(){
 		super();
 		ES = new ElasticSearch();
+		setUp();
 		qAdded = new ArrayList<Integer>();
 	}
-	
-	public void testController(){
-		Question mQ1 = new Question("Question 1");//add question text
-		try {
-			Thread.sleep(5*60);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Question mQ2 = new Question("Question 2");//add question text
-		try {
-			Thread.sleep(5*60);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Question mQ3 = new Question("Question 3");
-		try {
-			Thread.sleep(5*60);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Question mQ4 = new Question("Question 4");
-		AllQuestions mAQ = new AllQuestions();
-		mAQ.addQuestion(mQ4);
-		mAQ.addQuestion(mQ2);
-		mAQ.addQuestion(mQ3);
-		mAQ.addQuestion(mQ1);
-		
-		AllQuestionsController mQC = new AllQuestionsController(mAQ);
-		
-		// expected output should arrange questions by most recent to latest according to date  
-		ArrayList<Question> expected = new ArrayList<Question>();
-		expected.add(mQ4);
-		expected.add(mQ3);
-		expected.add(mQ2);
-		expected.add(mQ1);
-
-		
-		assertEquals("Testing if QuestionController returns list in correct date order",expected, mQC.sortByDate());
+	public void setUp(){
+		ES.clearQuestions();
 	}
+	
 	
 	
 	
 	public void testSortList(){
+		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();
 		Question mQ1 = new Question("Question 1");//add question text
 		try {
 			Thread.sleep(5*60);
@@ -83,43 +47,23 @@ public class SortQuestionsDateTest extends TestCase {
 		}
 		Question mQ3 = new Question("Question 3");//add question text
 		
-		ArrayList<Question> sortQList = new ArrayList<Question>();
-		sortQList.add(mQ1);
-
-		sortQList.add(mQ3);
-		sortQList.add(mQ2);
+		AllQuestions aq = new AllQuestions();
+		aq.addQuestion(mQ2);
+		aq.addQuestion(mQ3);
+		aq.addQuestion(mQ1);
+		
+		ArrayList<Question> sortedQList = AQController.sortByDate();
 		
 		// expected output should arrange questions by most recent to latest according to date  
 		ArrayList<Question> expected = new ArrayList<Question>();
-		expected.add(mQ1);
-		expected.add(mQ2);
 		expected.add(mQ3);
-		
-		for (Question question:sortQList){
-			System.out.println(question.getQuestionText());
-		}
-		// sorts list
-		Collections.sort(sortQList, new Comparator<Question>(){
-			public int compare (Question q1, Question q2)
-			{
-				return q1.getDate().compareTo(q2.getDate());
-			}
-		});
-		
-	
-	
+		expected.add(mQ2);
+		expected.add(mQ1);
 		
 		
-		for (Question l2:sortQList){
-			System.out.println(l2.getQuestionText());
-		}
-		/*sortQList = mQC.sortByDate();
-		for (Question question:sortQList){
-				System.out.println(question.getQuestionString());
-		}*/
 		assertEquals("Testing if QuestionController returns list in correct date order", 
-				expected,sortQList);
-		
+				expected,sortedQList); // if it fails examine junit print out, some time fails but has correct order
+		tearDown();
 	}
 	@Override
 	public void tearDown(){
