@@ -9,7 +9,6 @@ import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgfuapp.Util.BogoPicGen;
-import junit.framework.TestCase;
 
 public class SortQuestionsByPictureTest extends TestCase {
 
