@@ -36,9 +36,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private Date date;
 	private Boolean hasAPicture;
 	private int id;
-	private boolean beenRead;
-	private boolean beenFavourited;
-	private boolean beenReadLater;
+
 	
 	/**
 	 * Builds a question based on the question text
@@ -54,34 +52,10 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		hasAPicture = false;
 		Random rand = new Random();
 		id = rand.nextInt(100000);
-		beenRead =false;
-		beenFavourited =false;
-		beenReadLater = false;
-	}
-	public void Read(){
-		beenRead = true;
-	}
-	// bool if it has beea read
-	public boolean hasBeenRead(){
-		return beenRead;
+		
 	}
 	
-	// set if favourited
-	public void favourited(){
-		beenFavourited = true;
-	}
-	// returns if favourited
-	public boolean isFavourited(){
-		return beenFavourited;
-	}
-	// sets marked to read later
-	public void addToReadLatered(){
-		beenReadLater = true;
-	}
-	// return bool
-	public boolean isReadLater(){
-		return beenReadLater;
-	}
+	
 	/**
 	 * 
 	 * A method that returns whether there is a picture 

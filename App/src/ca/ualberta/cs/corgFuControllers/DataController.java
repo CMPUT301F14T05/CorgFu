@@ -30,6 +30,11 @@ public class DataController {
 		}
 		return null;
 	}
+	
+	public void clearData(int choice){
+		ArrayList<Question> newList = new ArrayList<Question>();
+		mdm.saveFavouritesToFile(newList, choice);
+	}
 
 	// Warning: throws a runTimeException
 

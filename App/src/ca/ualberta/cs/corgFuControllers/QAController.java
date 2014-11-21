@@ -48,6 +48,8 @@ public class QAController {
 		question.upvote();
 		AQC.addQuestion(question);
 	}
+
+
 	public void addAnswer(Answer answer){
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		question = AQC.getQuestionById(question.getId());

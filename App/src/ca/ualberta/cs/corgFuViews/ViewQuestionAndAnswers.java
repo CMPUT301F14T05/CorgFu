@@ -43,11 +43,17 @@ import ca.ualberta.cs.corgFuModels.Question;
  */
 public class ViewQuestionAndAnswers extends Activity implements IView
 {
-	
+	// 0 = favourites file
+	// 1 = cache file
+	// 2 = read later file
+	private final static int favourites = 0;
+	private final static int cache =1;
+	private final static int readlater = 2;
 	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
 	DataController dc;
+	boolean hasBeenRead;
 	/** This is the answer that is being added by the user*/
 	protected Answer a; //most recent Answer added by the user
 	AllAnswers AA; 
@@ -64,7 +70,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_answers);
-		
+		hasBeenRead = false;
 		getQuestion();
 		setFont();
 		setPicture();
@@ -101,15 +107,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
 		
-		if(myQuestion.isFavourited()){
-			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
-			favButton.setImageResource(android.R.drawable.btn_star_big_on);
-			favButton.setClickable(false);
-			favButton.setEnabled(false);
-		}
-		if(myQuestion.hasBeenRead()==false){
-			dc.addData(myQuestion,1);
-		}
+		cache();
+		isFavourited(myQuestion.getId());
 		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
@@ -119,6 +118,50 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteCount.setTypeface(customTF);
 		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
+	}
+	/*
+	 * caches question if it hasnt been cached already
+	 */
+	private void cache(){
+		ArrayList<Question> cacheList = dc.getData(cache);
+		for(Question CacheQ: cacheList){
+			if(CacheQ.getId()==myQuestion.getId()){
+				return;
+			}
+		}
+		dc.addData(myQuestion, cache);
+	}
+	/*
+	 * sets the button for favourite based on if its already saved.
+	 * 
+	 */
+	private void isFavourited(int qID){
+		
+		ArrayList<Question> favList = dc.getData(favourites);
+		boolean favourited = false;
+		for (Question QListId: favList){
+			if (QListId.getId()==qID){
+				Log.i("IsFavID",String.valueOf(QListId.getId()));
+				Log.i("QID", String.valueOf(qID));
+				favourited =true;
+				Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
+				break;
+			}
+		}
+		if(favourited){
+			setButtonToClicked();
+		}
+		
+	}
+	/*
+	 * set button to clicked for favourites
+	 */
+	private void setButtonToClicked(){
+		
+		ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
+		favButton.setImageResource(android.R.drawable.btn_star_big_on);
+		favButton.setClickable(false);
+		favButton.setEnabled(false);
 	}
 	
 	/**
@@ -178,15 +221,21 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void readLater(View v){
 		
-		Log.i("VQAA", "breaks after");
-		if (myQuestion.isReadLater()==false){
-			myQuestion.addToReadLatered();
-			dc.addData(myQuestion,2);
-			Toast.makeText(this, "saved for reading later", Toast.LENGTH_SHORT).show();
-		}else{
+		ArrayList<Question> readList = dc.getData(readlater);
+		if(hasBeenRead){
 			Toast.makeText(this, "This has already been added", Toast.LENGTH_SHORT).show();
+			return;
 		}
-		Log.i("VQAA", "makes it back");
+		for(Question Q:readList){
+			if(Q.getId()==myQuestion.getId()){
+				hasBeenRead=true;
+				Toast.makeText(this, "This has already been added", Toast.LENGTH_SHORT).show();
+				return;
+			}
+		}
+		dc.addData(myQuestion, readlater);
+		return;
+		
 		// Change button image after question has been added to favorites
 		
 	}
@@ -198,17 +247,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void addToFavorite(View v){
 		Log.i("VQAA", "breaks after");
-		if (myQuestion.isFavourited() ==false){
-			myQuestion.favourited();
-			dc.addData(myQuestion,0);
-			Log.i("VQAA", "makes it back");
-			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
-			favButton.setImageResource(android.R.drawable.btn_star_big_on);
-			favButton.setClickable(false);
-			favButton.setEnabled(false);
-		}else{
-			Toast.makeText(this,"already added!", Toast.LENGTH_SHORT).show();
-		}
+		dc.addData(myQuestion,favourites);
+		setButtonToClicked();
+			
+		
 	}
 	
 	/**
