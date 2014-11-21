@@ -180,7 +180,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		Log.i("VQAA", "breaks after");
 		if (myQuestion.isReadLater()==false){
-			myQuestion.addToReadLatered();
+		
 			dc.addData(myQuestion,2);
 			Toast.makeText(this, "saved for reading later", Toast.LENGTH_SHORT).show();
 		}else{
@@ -198,10 +198,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void addToFavorite(View v){
 		Log.i("VQAA", "breaks after");
+		
 		if (myQuestion.isFavourited() ==false){
-			myQuestion.favourited();
+			
+			
 			dc.addData(myQuestion,0);
-			Log.i("VQAA", "makes it back");
+			Log.i("VQAA", String.valueOf(myQuestion.isFavourited()));
 			ImageButton favButton = (ImageButton) findViewById(R.id.favoriteButton);
 			favButton.setImageResource(android.R.drawable.btn_star_big_on);
 			favButton.setClickable(false);
