@@ -38,7 +38,7 @@ import android.util.Log;
  */
 public class ElasticSearch {
 	
-	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/question/_search";
+	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/question/_search?size=100";
 	/**RESOURCE_URL is the location of the server in which Questions will be stored in*/
 	private static final String RESOURCE_URL = "http://cmput301.softwareprocess.es:8080/cmput301f14t05/question/";
 	/**TAG is the tag used to identify what items should be included in a QuestionSearch*/
@@ -177,7 +177,7 @@ public class ElasticSearch {
 		
 		try {
 			HttpPost searchRequest = createSearchRequest(searchString, field);
-			
+			Log.i(TAG,searchRequest.toString());
 			HttpResponse response = httpClient.execute(searchRequest);
 			
 			String status = response.getStatusLine().toString();
