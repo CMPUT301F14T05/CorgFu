@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Location;
@@ -21,12 +20,31 @@ import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.UserName;
 
+/**The LoginActivity Activity handles setting the global username for the session
+ * , it also saves the user preference of whether or not they would like
+ * to attach their location to questions that they post. The location is 
+ * also determined in this activity and is assumed to not change during
+ * the users session.
+ * 
+ * 
+ * @author Alex Makepeace
+ * @author Devon Sigurd
+ * 
+ * @version 2.0 Nov. 22,2014
+ *
+ */
+
 public class LoginActivity extends Activity implements LocationListener{
+	/**The context is used to determine the GPS location of the user.*/
 	public static Context context;
-	private String provider;
+	/**A locationManager object is used to get providers and update the user's current location.*/
 	private LocationManager locationManager;
+	/**The currentLocation is used to hold whatever location is established in the getLocation() method.*/
 	private Location currentLocation;
 	
+	/**The onCreate method is used to grab the username that will be used,
+	 * also it grabs any location information that can be used during the session.
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		context = getBaseContext();
@@ -45,10 +63,19 @@ public class LoginActivity extends Activity implements LocationListener{
 		
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());
-		
-
 	}
 	
+	/**The getLocation method implements grabbing the user's current location
+	 * going through a  list of providers to find the last known GPS location of the 
+	 * user's device in a location manager. It implements a location listener to 
+	 * pull off this process. If the location received is not null, the 
+	 * location will be returned to store in a username object, 
+	 * else it will ask for the user to input a custom location using the 
+	 * custom location activity.
+	 * 
+	 * @param con grabs the Context of the app that will be used to determine location
+	 * @return the location object that the user inputts or the GPS grabs
+	 */
 	public Location getLocation(Context con){
 		String location_context = Context.LOCATION_SERVICE;
 	    locationManager = (LocationManager) con.getSystemService(location_context);
@@ -68,11 +95,6 @@ public class LoginActivity extends Activity implements LocationListener{
 	            });
 	        Location location = locationManager.getLastKnownLocation(provider);
 	        if (location != null) { // used to prevent null pointer exceptions
-	            int latitude = (int)location.getLatitude();
-	            int longitude = (int)location.getLongitude();
-	            String lat = String.valueOf(latitude);
-	            String lng = String.valueOf(longitude);
-	           // Toast.makeText(getApplicationContext(), lat + " " + lng, Toast.LENGTH_LONG).show();
 	            return location;
 	        } else {
 	        	

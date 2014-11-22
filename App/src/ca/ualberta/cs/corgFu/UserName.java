@@ -53,5 +53,10 @@ public class UserName {
 		instance.attachLocation = attach;
 	}
 
+	public Boolean getAttachLocation() {
+		// TODO Auto-generated method stub
+		return instance.attachLocation;
+	}
+
 	
 }
