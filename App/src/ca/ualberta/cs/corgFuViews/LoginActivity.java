@@ -26,6 +26,7 @@ public class LoginActivity extends Activity implements LocationListener{
 	public static Context context;
 	private String provider;
 	private LocationManager locationManager;
+	private Location currentLocation;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +41,12 @@ public class LoginActivity extends Activity implements LocationListener{
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());
 		
-//		locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-//		Criteria criteria = new Criteria();
-//		provider = locationManager.getBestProvider(criteria, true);
-//		Location location = locationManager.getLastKnownLocation(provider);
-		
-		//int lat = (int)(location.getLatitude());
-		
-		String location_context = this.LOCATION_SERVICE;
-	    locationManager = (LocationManager) this.getSystemService(location_context);
+		currentLocation = getLocation(this);
+	}
+	
+	public Location getLocation(Context con){
+		String location_context = con.LOCATION_SERVICE;
+	    locationManager = (LocationManager) con.getSystemService(location_context);
 	    List<String> providers = locationManager.getProviders(true);
 	    for (String provider : providers) {
 	        locationManager.requestLocationUpdates(provider, 1000, 0,
@@ -70,10 +68,10 @@ public class LoginActivity extends Activity implements LocationListener{
 	            String lat = String.valueOf(latitude);
 	            String lng = String.valueOf(longitude);
 	            Toast.makeText(getApplicationContext(), lat + " " + lng, Toast.LENGTH_LONG).show();
+	            return location;
 	        } 
 	    }
-		
-		
+		return null;
 	}
 
 	@Override
@@ -107,14 +105,10 @@ public class LoginActivity extends Activity implements LocationListener{
 				nameOfUser.setUserName(UserNameString);
 				Toast.makeText(getApplicationContext(), UserName.getInstance().getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
 				toMain();
-				
 			}
-			
-			
-		}
-		
-		
+		}	
 	}
+	
 	private void toMain (){
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
