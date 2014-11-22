@@ -11,9 +11,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
+/** This is a custom Dialog Fragment that handles upon login whether or not
+ * a user would like to attach their location to any questions they post. 
+ * It handles both whether they'd like to attach to questions, or not.
+ * 
+ * @author Alex Makepeace
+ *
+ *@version 1.0 Nov. 21/2014
+ */
+
 public class AddLocationToQuestionFragment extends DialogFragment{
 	
-	
+	/**This is a  method that creates the dialog box for choosing
+	 * whether the user is going to attach their location to questions.
+	 * The method creates the appropriate view for the dialog box and 
+	 * the appropriate options that the user may select.It is set to take the user
+	 * to the main ask questions page after they make their choice.
+	 * 
+	 */
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		// Use the Builder class for convenient dialog construction
@@ -43,7 +58,10 @@ public class AddLocationToQuestionFragment extends DialogFragment{
 	    
 	    return builder.create();
 	}
-	
+	/**The toMain() method takes the user to the MainActivity 
+	 * screen after they decide whether they'd like to attach
+	 * their location to questions.
+	 */
 	private void toMain (){
 		Intent intent = new Intent(getActivity(), MainActivity.class);
 		startActivity(intent);
