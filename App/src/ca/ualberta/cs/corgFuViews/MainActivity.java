@@ -25,7 +25,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  * @author Alex Makepeace
  * @author Wyatt Fleming
  * 
- * @version 2.0 Nov.6/2014
+ * @version 3.0 Nov.21/2014
  * 
  */
 public class MainActivity extends Activity

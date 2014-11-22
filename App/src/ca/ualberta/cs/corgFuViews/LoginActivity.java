@@ -37,13 +37,16 @@ public class LoginActivity extends Activity implements LocationListener{
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
-		final Button btn = (Button) findViewById(R.id.LoginButton);
-		btn.setOnClickListener(new UserLoginListner());
 		
 		currentLocation = getLocation(this);
 		
 		UserName user = UserName.getInstance();
 		user.setLocation(currentLocation);
+		
+		final Button btn = (Button) findViewById(R.id.LoginButton);
+		btn.setOnClickListener(new UserLoginListner());
+		
+
 	}
 	
 	public Location getLocation(Context con){
@@ -71,7 +74,9 @@ public class LoginActivity extends Activity implements LocationListener{
 	            String lng = String.valueOf(longitude);
 	           // Toast.makeText(getApplicationContext(), lat + " " + lng, Toast.LENGTH_LONG).show();
 	            return location;
-	        } 
+	        } else {
+	        	
+	        }
 	    }
 		return null;
 	}
@@ -106,14 +111,10 @@ public class LoginActivity extends Activity implements LocationListener{
 				UserName nameOfUser= UserName.getInstance();
 				nameOfUser.setUserName(UserNameString);
 				Toast.makeText(getApplicationContext(), UserName.getInstance().getUserName()  +" logged in!", Toast.LENGTH_LONG).show();
-				toMain();
+				AddLocationToQuestionFragment addLocationFragment = new AddLocationToQuestionFragment();
+				addLocationFragment.show(getFragmentManager(), null);
 			}
 		}	
-	}
-	
-	private void toMain (){
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
 	}
 
 	@Override

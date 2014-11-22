@@ -1,6 +1,7 @@
 package ca.ualberta.cs.corgFu;
 
 import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 
 
@@ -11,10 +12,13 @@ public class UserName {
 	private static UserName instance = null;
 	private String uN;
 	private Location location;
+	private Geocoder geocoder;
+	private Boolean attachLocation;
 	
 	public UserName(){
 		
 	}
+	
 	public static UserName getInstance(){
 		if (instance == null){
 			instance = new UserName();
@@ -31,6 +35,7 @@ public class UserName {
 	public Location getLocation() {
 		// TODO Auto-generated method stub
 		return instance.location;
+
 	}
 	public void setLocation(Location l) {
 		// TODO Auto-generated method stub
@@ -43,6 +48,9 @@ public class UserName {
 	public void makeAddress(String location2) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void attachLocation(Boolean attach){
+		instance.attachLocation = attach;
 	}
 
 	

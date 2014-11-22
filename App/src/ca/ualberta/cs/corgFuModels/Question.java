@@ -17,12 +17,15 @@ import ca.ualberta.cs.corgFu.UserName;
  * The object that represents a question that has been asked
  * by a user. This may include question text, a picture, the 
  * upvotes that the question has recieved, the replies to the 
- * question, and the answers that have been added to the question 
+ * question, the location from which the question was attached 
+ * if desired and the answers that have been added to the question 
  * by other users which may include upvotes, a picture, and replies.
+ * 
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Reply
  * @see ca.ualberta.cs.corgFu.Picture
  * @author wrflemin
+ * @author Alex Makepeace
  *
  */
 public class Question extends Model<IView> implements Comparable<Question>, Serializable  {
