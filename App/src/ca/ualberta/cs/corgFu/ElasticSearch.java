@@ -141,6 +141,9 @@ public class ElasticSearch {
 			e.printStackTrace();
 		}
 	}
+	/**The method ClearQuestions gets rid of all the 
+	 * questions currently saved to Elastic search.
+	 */
 	
 	public void clearQuestions(){
 		HttpClient httpClient = new DefaultHttpClient();

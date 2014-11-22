@@ -8,9 +8,11 @@ import java.util.Date;
 import java.util.Random;
 
 import android.graphics.Bitmap;
+import android.location.Address;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.Model;
 import ca.ualberta.cs.corgFu.Reply;
+import ca.ualberta.cs.corgFu.UserName;
 /**
  * The object that represents a question that has been asked
  * by a user. This may include question text, a picture, the 
@@ -36,6 +38,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private Date date;
 	private Boolean hasAPicture;
 	private int id;
+	private Address address;
 
 	
 	/**
@@ -52,7 +55,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		hasAPicture = false;
 		Random rand = new Random();
 		id = rand.nextInt(100000);
-		
+		address = null;
 	}
 	
 	
@@ -210,8 +213,25 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public int getId(){
 		return id;
 	}
+	/**Sets the Question id to a new integer
+	 * @param newId is the new desired id number
+	 */
 	public void setId(int newId){
 		id = newId;
+	}
+
+
+	public void attachAddress() {
+		// TODO Auto-generated method stub
+		UserName myUserName = UserName.getInstance();
+		Address adr = myUserName.getAddress();
+		this.address = adr;
+	}
+
+
+	public Address getAddress() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

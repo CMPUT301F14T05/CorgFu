@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFu;
 
+import android.location.Address;
 import android.location.Location;
 
 
@@ -35,9 +36,13 @@ public class UserName {
 		// TODO Auto-generated method stub
 		instance.location = l;
 	}
-	public String getAddress() {
+	public Address getAddress() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public void makeAddress(String location2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

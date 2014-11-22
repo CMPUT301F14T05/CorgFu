@@ -2,7 +2,10 @@ package ca.ualberta.cs.corgfuapp.test;
 
 import java.util.Date;
 
+import android.location.Address;
+
 import junit.framework.TestCase;
+import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 // this will test making a question UC-04
@@ -34,9 +37,6 @@ public class MakeQuestionTest extends TestCase {
 		assertEquals("testing for direct vote set",voteTest, Q1.getUpvotes());
 		assertEquals("testing for indirect upvoting",cnt, Q2.getUpvotes());
 	}
-	public void testGetId(){
-		
-	}
 	
 	public void testSetDate(){
 		assertEquals("dates aren't equal", Q1.getDate(),D1);	
@@ -63,6 +63,11 @@ public class MakeQuestionTest extends TestCase {
 		assertTrue("Id is an integer",id == (int)id);//makes sure id is a valid integer
 	}
 	
-	
+	public void testattachAddress(){
+		Question q = new Question("test");
+		q.attachAddress();
+		Address address = q.getAddress();
+		assertNotNull(address);
+	}
 	
 }

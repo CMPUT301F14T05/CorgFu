@@ -2,11 +2,13 @@ package ca.ualberta.cs.corgfuapp.test;
 
 import android.app.Activity;
 import android.content.Context;
+import android.location.Address;
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationProvider;
 import junit.framework.TestCase;
 import ca.ualberta.cs.corgFu.UserName;
+import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.LoginActivity;
 
 public class UsernameTest extends TestCase {
@@ -45,9 +47,17 @@ public class UsernameTest extends TestCase {
 	
 	public void testgetAddress(){
 		UserName myUserName = UserName.getInstance();
-		String address = myUserName.getAddress();
+		Address address = myUserName.getAddress();
 		assertNotNull(address);
 	}
+	public void testmakeAddress(){
+		UserName myUserName = UserName.getInstance();
+		String location = "Edmonton";
+		myUserName.makeAddress(location);
+		Address address = myUserName.getAddress();
+		assertNotNull(address);
+	}
+	
 	/*public void testLoadSaveUsername(){
 		String testUsername = "testUser";
 		UserName myUserName = new UserName(testUsername);
