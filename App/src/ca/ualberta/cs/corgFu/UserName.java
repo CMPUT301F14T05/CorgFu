@@ -1,11 +1,16 @@
 package ca.ualberta.cs.corgFu;
 
+import android.location.Location;
+
 
 
 
 public class UserName {
+	
 	private static UserName instance = null;
 	private String uN;
+	private Location location;
+	
 	public UserName(){
 		
 	}
@@ -21,6 +26,14 @@ public class UserName {
 	
 	public String getUserName(){
 		return instance.uN;
+	}
+	public Location getLocation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setLocation(Location l) {
+		// TODO Auto-generated method stub
+		instance.location = l;
 	}
 
 	

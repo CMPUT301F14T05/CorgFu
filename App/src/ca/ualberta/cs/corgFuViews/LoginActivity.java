@@ -1,10 +1,16 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,8 +22,10 @@ import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.UserName;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity implements LocationListener{
 	public static Context context;
+	private String provider;
+	private LocationManager locationManager;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,41 @@ public class LoginActivity extends Activity {
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());
+		
+//		locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+//		Criteria criteria = new Criteria();
+//		provider = locationManager.getBestProvider(criteria, true);
+//		Location location = locationManager.getLastKnownLocation(provider);
+		
+		//int lat = (int)(location.getLatitude());
+		
+		String location_context = this.LOCATION_SERVICE;
+	    locationManager = (LocationManager) this.getSystemService(location_context);
+	    List<String> providers = locationManager.getProviders(true);
+	    for (String provider : providers) {
+	        locationManager.requestLocationUpdates(provider, 1000, 0,
+	            new LocationListener() {// the location listener code was found on Google Android tutorials http://developer.android.com/guide/topics/location/strategies.html on 11/21/14
+
+	                public void onLocationChanged(Location location) {}
+
+	                public void onProviderDisabled(String provider) {}
+
+	                public void onProviderEnabled(String provider) {}
+
+	                public void onStatusChanged(String provider, int status,
+	                        Bundle extras) {}
+	            });
+	        Location location = locationManager.getLastKnownLocation(provider);
+	        if (location != null) { // used to prevent null pointer exceptions
+	            int latitude = (int)location.getLatitude();
+	            int longitude = (int)location.getLongitude();
+	            String lat = String.valueOf(latitude);
+	            String lng = String.valueOf(longitude);
+	            Toast.makeText(getApplicationContext(), lat + " " + lng, Toast.LENGTH_LONG).show();
+	        } 
+	    }
+		
+		
 	}
 
 	@Override
@@ -75,5 +118,29 @@ public class LoginActivity extends Activity {
 	private void toMain (){
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
+	}
+
+	@Override
+	public void onLocationChanged(Location location) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
 	}
 }
