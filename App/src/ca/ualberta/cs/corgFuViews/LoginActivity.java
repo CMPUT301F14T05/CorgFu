@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.location.Address;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -60,6 +61,13 @@ public class LoginActivity extends Activity implements LocationListener{
 		
 		UserName user = UserName.getInstance();
 		user.setLocation(currentLocation);
+		
+		user.setAddress(this);
+		
+		Address adr = user.getAddress();
+		String address = user.getFormattedAddress();
+		
+		Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
 		
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());

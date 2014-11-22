@@ -1,5 +1,10 @@
 package ca.ualberta.cs.corgFu;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
+import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -14,9 +19,22 @@ public class UserName {
 	private Location location;
 	private Geocoder geocoder;
 	private Boolean attachLocation;
+	private Address adr;
+	private String formattedAddress;
 	
 	public UserName(){
 		
+	}
+	
+	public String getFormattedAddress(){
+		Address address = instance.adr;
+		String str = new String();
+		
+		String city = address.getLocality();
+		String country = address.getCountryName();
+		
+		str = city + ", " + country;
+		return str;
 	}
 	
 	public static UserName getInstance(){
@@ -41,10 +59,26 @@ public class UserName {
 		// TODO Auto-generated method stub
 		instance.location = l;
 	}
-	public Address getAddress() {
+	public void setAddress(Context con) {
 		// TODO Auto-generated method stub
-		return null;
+		Location currentLocation = instance.location;
+		geocoder = new Geocoder(con, Locale.ENGLISH);
+		double latitude = currentLocation.getLatitude();
+		double longitude = currentLocation.getLongitude();
+		try {
+			List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+			Address add = addresses.get(0);
+			instance.adr = add;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+	
+	public Address getAddress(){
+		return instance.adr;
+	}
+	
 	public void makeAddress(String location2) {
 		// TODO Auto-generated method stub
 		
