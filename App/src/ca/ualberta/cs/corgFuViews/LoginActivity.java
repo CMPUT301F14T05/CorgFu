@@ -64,10 +64,7 @@ public class LoginActivity extends Activity implements LocationListener{
 		
 		user.setAddress(this);
 		
-		Address adr = user.getAddress();
-		String address = user.getFormattedAddress();
-		
-		Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
+		//Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
 		
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());
@@ -109,6 +106,10 @@ public class LoginActivity extends Activity implements LocationListener{
 	        }
 	    }
 		return null;
+	}
+	
+	public void goToCreateLocation(){
+		
 	}
 
 	@Override

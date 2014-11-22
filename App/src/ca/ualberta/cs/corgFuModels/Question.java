@@ -16,7 +16,7 @@ import ca.ualberta.cs.corgFu.UserName;
 /**
  * The object that represents a question that has been asked
  * by a user. This may include question text, a picture, the 
- * upvotes that the question has recieved, the replies to the 
+ * upvotes that the question has received, the replies to the 
  * question, the location from which the question was attached 
  * if desired and the answers that have been added to the question 
  * by other users which may include upvotes, a picture, and replies.
@@ -61,7 +61,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		Random rand = new Random();
 		id = rand.nextInt(100000);
 		attachAddress();
-		setReadableAddress();
+		//setReadableAddress();
 	}
 	
 	
@@ -247,12 +247,12 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 * string text that has the city name and country name
 	 * of the place the question has been posted from
 	 */
-	public void setReadableAddress() {
-		// TODO Auto-generated method stub
-		UserName myUserName = UserName.getInstance();
-		String addr = myUserName.getFormattedAddress();
-		this.readableAddress = addr;
-	}
+//	public void setReadableAddress() {
+//		// TODO Auto-generated method stub
+//		UserName myUserName = UserName.getInstance();
+//		String addr = myUserName.getFormattedAddress();
+//		this.readableAddress = addr;
+//	}
 	
 	/**Method that returns the string representation of the address
 	 * 

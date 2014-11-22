@@ -58,12 +58,12 @@ public class UsernameTest extends TestCase {
 		assertNotNull(address);
 	}
 	
-	public void testattachLocation(){
-		UserName myUserName = UserName.getInstance();
-		myUserName.attachLocation(true);
-		Boolean attach = myUserName.getAttachLocation();
-		assertTrue(attach);
-	}
+//	public void testattachLocation(){
+//		UserName myUserName = UserName.getInstance();
+//		myUserName.attachLocation(true);
+//		Boolean attach = myUserName.getAttachLocation();
+//		assertTrue(attach);
+//	}
 	
 	/*public void testLoadSaveUsername(){
 		String testUsername = "testUser";

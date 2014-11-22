@@ -26,16 +26,16 @@ public class UserName {
 		
 	}
 	
-	public String getFormattedAddress(){
-		Address address = instance.adr;
-		String str = new String();
-		
-		String city = address.getLocality();
-		String country = address.getCountryName();
-		
-		str = city + ", " + country;
-		return str;
-	}
+//	public String getFormattedAddress(){
+//		Address address = instance.adr;
+//		String str = new String();
+//		
+//		String city = address.getLocality();
+//		String country = address.getCountryName();
+//		
+//		str = city + ", " + country;
+//		return str;
+//	}
 	
 	public static UserName getInstance(){
 		if (instance == null){
