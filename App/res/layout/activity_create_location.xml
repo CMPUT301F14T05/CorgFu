@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ca.ualberta.corgfuapp.CreateLocationActivity" >
+
+    <TextView
+        android:id = "@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_location" 
+        android:layout_above="@+id/enterLocation"
+        android:ems="10"
+        android:layout_centerHorizontal="true"/>
+    
+    <EditText 
+        android:id = "@+id/enterLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:ems="10"
+        android:hint = "@string/locationHint"
+        android:inputType="text"
+        android:imeOptions="actionDone"
+        />
+    <Button 
+        android:id = "@+id/locationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "@string/Enter"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:background="#04C1D2"
+        android:layout_marginTop="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/enterLocation"
+        android:onClick="addLocation"/>
+
+</RelativeLayout>

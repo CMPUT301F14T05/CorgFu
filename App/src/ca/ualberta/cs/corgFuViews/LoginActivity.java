@@ -1,9 +1,11 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.io.IOError;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Address;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import ca.ualberta.corgfuapp.CreateLocationActivity;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.UserName;
 
@@ -57,12 +60,12 @@ public class LoginActivity extends Activity implements LocationListener{
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 		
-		currentLocation = getLocation(this);
-		
-		UserName user = UserName.getInstance();
-		user.setLocation(currentLocation);
-		
-		user.setAddress(this);
+		try {
+			getLocation(this);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		//Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
 		
@@ -79,37 +82,39 @@ public class LoginActivity extends Activity implements LocationListener{
 	 * custom location activity.
 	 * 
 	 * @param con grabs the Context of the app that will be used to determine location
-	 * @return the location object that the user inputts or the GPS grabs
+	 * @return the location object that the user inputs or the GPS grabs
+	 * @throws Exception if location services aren't working
 	 */
-	public Location getLocation(Context con){
-		String location_context = Context.LOCATION_SERVICE;
-	    locationManager = (LocationManager) con.getSystemService(location_context);
-	    List<String> providers = locationManager.getProviders(true);
-	    for (String provider : providers) {
-	        locationManager.requestLocationUpdates(provider, 1000, 0,
-	            new LocationListener() {// the location listener code was found on Google Android tutorials http://developer.android.com/guide/topics/location/strategies.html on 11/21/14
-
-	                public void onLocationChanged(Location location) {}
-
-	                public void onProviderDisabled(String provider) {}
-
-	                public void onProviderEnabled(String provider) {}
-
-	                public void onStatusChanged(String provider, int status,
-	                        Bundle extras) {}
-	            });
-	        Location location = locationManager.getLastKnownLocation(provider);
-	        if (location != null) { // used to prevent null pointer exceptions
-	            return location;
-	        } else {
-	        	
-	        }
-	    }
-		return null;
+	public void getLocation(Context con){
+			String location_context = Context.LOCATION_SERVICE;
+		    locationManager = (LocationManager) con.getSystemService(location_context);
+		    List<String> providers = locationManager.getProviders(true);
+		    for (String provider : providers) {
+		        locationManager.requestLocationUpdates(provider, 1000, 0,
+		            new LocationListener() {// the location listener code was found on Google Android tutorials http://developer.android.com/guide/topics/location/strategies.html on 11/21/14
+	
+		                public void onLocationChanged(Location location) {}
+	
+		                public void onProviderDisabled(String provider) {}
+	
+		                public void onProviderEnabled(String provider) {}
+	
+		                public void onStatusChanged(String provider, int status,
+		                        Bundle extras) {}
+		            });
+		        Location location = locationManager.getLastKnownLocation(provider);
+		        if (location != null) { // used to prevent null pointer exceptions
+		        	UserName user = UserName.getInstance();
+		    		user.setLocation(location);
+		        } else {
+		        	goToCreateLocation();
+		        }
+		    }
 	}
 	
 	public void goToCreateLocation(){
-		
+		Intent intent = new Intent(this,CreateLocationActivity.class);//creates a new intent for the CreateLocation activity
+    	startActivity(intent);//starts the new activity
 	}
 
 	@Override

@@ -20,16 +20,18 @@
     <string name="GoToAsk">ASK\n QUESTION</string>
     <string name="SearchButton">Search</string>
 
+    <string name = "create_location">Please enter the location \n you would like to use.</string>
+    <string name = "locationHint"> Enter your location here.</string>
+    <string name= "Enter">Enter</string>
     <string-array name="sortOptions">
         <item>Date Posted</item>
         <item>Questions With Pictures</item>
         <item>Most Upvotes</item>
     </string-array>
-    
-    <string name = "attachLocation">Would you like to attach your \n location to questions you post?</string>
-	<string name =  "attach_location_text"> Please attach my location to questions.</string>
-	<string name = "do_not_attach_location"> Do not attach my location to questions.</string>
-    
+
+    <string name="attachLocation">Would you like to attach your \n location to questions you post?</string>
+    <string name="attach_location_text"> Please attach my location to questions.</string>
+    <string name="do_not_attach_location"> Do not attach my location to questions.</string>
     <string name="AskQuestion">Ask</string>
     <string name="MyProfile">MY \n PROFILE</string>
     <string name="GoToQuestion">QUESTIONS</string>
@@ -61,5 +63,6 @@
     <string name="title_activity_offline_data_view">OfflineDataView</string>
     <string name="emptyList">No Results found. Make sure you are connected to the Internet and try again.</string>
     <string name="Questions">Questions</string>
+    <string name="title_activity_create_location">CreateLocationActivity</string>
 
 </resources>
