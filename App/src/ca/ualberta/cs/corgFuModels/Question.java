@@ -27,6 +27,7 @@ import ca.ualberta.cs.corgFu.UserName;
  * @author wrflemin
  * @author Alex Makepeace
  *
+ *@version 2.0 Nov.22,2014
  */
 public class Question extends Model<IView> implements Comparable<Question>, Serializable  {
 	/**
@@ -42,6 +43,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private Boolean hasAPicture;
 	private int id;
 	private Address address;
+	private String readableAddress;
 
 	
 	/**
@@ -58,7 +60,8 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		hasAPicture = false;
 		Random rand = new Random();
 		id = rand.nextInt(100000);
-		address = null;
+		attachAddress();
+		setReadableAddress();
 	}
 	
 	
@@ -223,18 +226,40 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		id = newId;
 	}
 
-
+	/**Attaches the address that has been genarted and attached to the username
+	 * 
+	 */
 	public void attachAddress() {
 		// TODO Auto-generated method stub
 		UserName myUserName = UserName.getInstance();
 		Address adr = myUserName.getAddress();
 		this.address = adr;
 	}
+	/**Returns the questions associated address
+	 * 
+	 * @return the address object that has been attached to the question on creation
+	 */
+	public Address getAddress(){
+		return this.address;
+	}
 
-
-	public Address getAddress() {
+	/**Converts the associated address object to a readable 
+	 * string text that has the city name and country name
+	 * of the place the question has been posted from
+	 */
+	public void setReadableAddress() {
 		// TODO Auto-generated method stub
-		return null;
+		UserName myUserName = UserName.getInstance();
+		String addr = myUserName.getFormattedAddress();
+		this.readableAddress = addr;
+	}
+	
+	/**Method that returns the string representation of the address
+	 * 
+	 * @return the easily readable string representation of the address
+	 */
+	public String getReadableAddress(){
+		return this.readableAddress;
 	}
 	
 
