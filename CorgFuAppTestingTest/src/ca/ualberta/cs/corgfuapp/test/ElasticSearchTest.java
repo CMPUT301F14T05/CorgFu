@@ -113,7 +113,11 @@ public class ElasticSearchTest extends TestCase {
 		}
 		//Search for the question
 		ArrayList<Question> result = ES.searchQuestion("duck","questionText");
-		
+		try{
+			Thread.sleep(500);
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
 		assertEquals("Make sure result was returned in array", 1, result.size());
 		if (result.size() > 0){
 			Question resultQ = result.get(0);
@@ -145,6 +149,11 @@ public class ElasticSearchTest extends TestCase {
 		qAdded.add(Q4.getId());
 		//Add a waiting method
 		ArrayList<Question> result = ES.searchQuestion("duck",null);
+		try{
+			Thread.sleep(500);
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
 		assertEquals("Testing search for multiple questions",3, result.size());
 		
 	}

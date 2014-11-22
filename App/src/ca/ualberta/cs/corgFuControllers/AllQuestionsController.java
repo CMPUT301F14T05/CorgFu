@@ -42,7 +42,7 @@ public class AllQuestionsController {
 	 */
 	public ArrayList<Question> sortByDate() {
 
-		Collections.sort(getAllQuestions(),
+		Collections.sort(AllQuestions.getAllQuestions(),
 				new Comparator<Question>() {
 
 					public int compare(Question q1, Question q2) {
@@ -84,6 +84,7 @@ public class AllQuestionsController {
 	 */
 	public ArrayList<Question> sortByUpvote() {
 		// TODO Auto-generated method stub
+		this.sortByDate();
 		Collections.sort(getAllQuestions(),
 				new Comparator<Question>() {
 

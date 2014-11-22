@@ -24,6 +24,7 @@ public class SearchResults extends Activity {
 
 	private ElasticSearch ES;
 	private ArrayList<Question> results;
+	private InsertQuestionAdapter listAdapter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,39 +32,35 @@ public class SearchResults extends Activity {
 		setContentView(R.layout.activity_search_results);
 		ES = new ElasticSearch();
 		results = null;
-		startSearch();
-		populateListView();
+		results = startSearch();
+		setAdapter();
 		setListViewListener();
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
-		startSearch();
-		populateListView();
-		setListViewListener();
+		listAdapter.notifyDataSetChanged();
 	}
 
-	private void startSearch() {
+	private ArrayList<Question> startSearch() {
 		Bundle extra = getIntent().getExtras();
 		String searchTerm = "";
 		if (extra != null){
 			searchTerm = extra.getString("@string/idSearchTerm");
 		}
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		results = AQC.search(searchTerm);
+		return AQC.search(searchTerm);
 	}
 	
 
-	private void populateListView() {
-		ArrayAdapter listAdapter = new InsertQuestionAdapter(
+	private void setAdapter() {
+		listAdapter = new InsertQuestionAdapter(
 				SearchResults.this, results);
 		ListView resultsList = (ListView) findViewById(R.id.resultsListView);
 		TextView empty = (TextView) findViewById(android.R.id.empty);
 		resultsList.setEmptyView(empty);
-		resultsList.setAdapter(listAdapter);
-		
-		listAdapter.notifyDataSetChanged();
+		resultsList.setAdapter(listAdapter);	
 	}
 
 	@Override

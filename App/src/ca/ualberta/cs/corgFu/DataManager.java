@@ -22,6 +22,7 @@ public class DataManager {
 	private static final String CacheFile = "CacheFile.save";
 	private static final String ReadLater = "ReadLater.save";
 	private static final String MyQuestions = "MyQuestions.save";
+	private static final String saveString = "saving tracker";
 	private Context context;
 	private static DataManager INSTANCE = null;
 	public ArrayList<Question> favouriteList;
@@ -44,9 +45,9 @@ public class DataManager {
 	// saves data as an array of questions, the choice indicates if its a 
 	// favourite, read later, cache  (0,1,2) respectively
 	public void saveFavouritesToFile(ArrayList<Question> dataList,int choice){
-		Log.i("apple","start");
+		Log.i(saveString,"start");
 		try {
-			Log.i("apple", "fail1");
+			Log.i(saveString, "fail1");
 			FileOutputStream fos =null;
 			if (choice ==0){
 				fos =  context.openFileOutput(FavouritesFile,Context.MODE_PRIVATE);
@@ -57,13 +58,13 @@ public class DataManager {
 			}else if(choice == 3){
 				fos = context.openFileOutput(MyQuestions, Context.MODE_PRIVATE);
 			}
-			Log.i("apple", "fail2");
+			Log.i(saveString, "fail2");
 			ObjectOutputStream osw = new ObjectOutputStream(fos);
-			Log.i("apple", "fail4");
+			Log.i(saveString, "fail4");
 			osw.writeObject(dataList);
-			Log.i("apple", "fail5");
+			Log.i(saveString, "fail5");
 			osw.close();
-			Log.i("apple", "fail6");
+			Log.i(saveString, "fail6");
 			fos.close();
 			
 		} catch (FileNotFoundException e) {

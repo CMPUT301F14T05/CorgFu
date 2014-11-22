@@ -32,9 +32,6 @@ public class SearchResultsActivityTest extends
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void testSimpleSearch(){
 		Question Q1 = new Question("Testing SearchResultsActivityTest");
 		Question Q2 = new Question("SearchResultsActivityTest");
 		
@@ -43,12 +40,23 @@ public class SearchResultsActivityTest extends
 		AQC.addQuestion(Q1);
 		AQC.addQuestion(Q2);
 		
+		try{
+			Thread.sleep(1000);
+		} catch(Exception ex){
+			ex.printStackTrace();
+		}
+		
 		String searchString = "Testing";
 		
 		Intent intent = new Intent();
 		intent.putExtra("@string/idSearchTerm", searchString);
 		setActivityIntent(intent);
 		activity = (SearchResults) getActivity();
+	}
+	
+	public void testSimpleSearch(){
+	
+		
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.resultsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
 		assertEquals("Testing search shows the right array",1,adapter.getCount());
@@ -56,28 +64,9 @@ public class SearchResultsActivityTest extends
 	}
 	
 	public void testOpenSearchResult(){
-		Question Q1 = new Question("Testing SearchResultsActivityTest");
-		Question Q2 = new Question("SearchResultsActivityTest");
-		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		
-		AQC.addQuestion(Q1);
-		AQC.addQuestion(Q2);
-		
-		String searchString = "Testing";
-		
-		Intent intent = new Intent();
-		intent.putExtra("@string/idSearchTerm", searchString);
-		setActivityIntent(intent);
-		activity = (SearchResults) getActivity();
 		
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.resultsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-		try{
-			Thread.sleep(500);
-		} catch(Exception ex){
-			ex.printStackTrace();
-		}
 		
 		assertEquals("Testing search shows the right array",1,adapter.getCount());
 		RelativeLayout rView= (RelativeLayout) adapter.getView(0, null, listView);

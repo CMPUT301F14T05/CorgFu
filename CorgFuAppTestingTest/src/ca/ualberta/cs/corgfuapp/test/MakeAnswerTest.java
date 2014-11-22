@@ -34,7 +34,7 @@ public class MakeAnswerTest extends TestCase {
 		assertEquals("testing for indirect upvoting",cnt, A2.getVotes());
 	}
 	public void testSetDate(){
-		assertEquals("dates aren't equal", A1.getDate(),D1);	
+		assertEquals("dates aren't equal", A1.getDate(),D1);	// these read the same in the test. 
 	}
 	
 }
