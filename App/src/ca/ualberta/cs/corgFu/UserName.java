@@ -29,11 +29,15 @@ public class UserName {
 	}
 	public Location getLocation() {
 		// TODO Auto-generated method stub
-		return null;
+		return instance.location;
 	}
 	public void setLocation(Location l) {
 		// TODO Auto-generated method stub
 		instance.location = l;
+	}
+	public String getAddress() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

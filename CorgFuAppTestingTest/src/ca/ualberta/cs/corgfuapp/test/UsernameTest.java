@@ -30,17 +30,23 @@ public class UsernameTest extends TestCase {
 	}
 	public void testsetLocation(){
 		UserName myUserName = UserName.getInstance();
-		Location l = new Location("my location");
+		Location l = new Location("test");
 		myUserName.setLocation(l);
 		assertNotNull(myUserName.getLocation());
-	
 	}
 	
 	public void testgetLocation(){
 		UserName myUserName = UserName.getInstance();
+		Location l = new Location("test");
+		myUserName.setLocation(l);
 		Location setLocation = myUserName.getLocation();
-		assertNotNull(setLocation.toString());
-		
+		assertNotNull(setLocation);
+	}
+	
+	public void testgetAddress(){
+		UserName myUserName = UserName.getInstance();
+		String address = myUserName.getAddress();
+		assertNotNull(address);
 	}
 	/*public void testLoadSaveUsername(){
 		String testUsername = "testUser";

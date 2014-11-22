@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -42,10 +41,13 @@ public class LoginActivity extends Activity implements LocationListener{
 		btn.setOnClickListener(new UserLoginListner());
 		
 		currentLocation = getLocation(this);
+		
+		UserName user = UserName.getInstance();
+		user.setLocation(currentLocation);
 	}
 	
 	public Location getLocation(Context con){
-		String location_context = con.LOCATION_SERVICE;
+		String location_context = Context.LOCATION_SERVICE;
 	    locationManager = (LocationManager) con.getSystemService(location_context);
 	    List<String> providers = locationManager.getProviders(true);
 	    for (String provider : providers) {
@@ -67,7 +69,7 @@ public class LoginActivity extends Activity implements LocationListener{
 	            int longitude = (int)location.getLongitude();
 	            String lat = String.valueOf(latitude);
 	            String lng = String.valueOf(longitude);
-	            Toast.makeText(getApplicationContext(), lat + " " + lng, Toast.LENGTH_LONG).show();
+	           // Toast.makeText(getApplicationContext(), lat + " " + lng, Toast.LENGTH_LONG).show();
 	            return location;
 	        } 
 	    }
