@@ -1,12 +1,18 @@
 package ca.ualberta.corgfuapp;
 
+import ca.ualberta.cs.corgFu.UserName;
+import ca.ualberta.cs.corgFuViews.LoginActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CreateLocationActivity extends Activity {
 
@@ -20,8 +26,24 @@ public class CreateLocationActivity extends Activity {
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 	}
 	
-	public void addLocation(){
+	public void addLocation(View view){
+		EditText ET = (EditText) findViewById(R.id.enterLocation);
+		String locationString = ET.getText().toString();
+		ET.setText("");
+		int ulen = locationString.length();
+		if (ulen <= 0 ){
+			Toast.makeText(getApplicationContext(), "Location can't be empty.", Toast.LENGTH_LONG).show();
+		}else{
+			UserName nameOfUser= UserName.getInstance();
+			nameOfUser.makeAddress(this,locationString);
+			goToLogin();
+		}	
 		
+	}
+	
+	public void goToLogin(){
+		Intent intent = new Intent(this,LoginActivity.class);//creates a new intent for the CreateLocation activity
+    	startActivity(intent);//starts the new activity
 	}
 
 	@Override

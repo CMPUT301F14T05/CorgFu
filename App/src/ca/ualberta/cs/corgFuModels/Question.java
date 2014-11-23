@@ -263,7 +263,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		if (myUserName.getAttachLocation()){ // handles if the user does not want to attach their address to the question
 			return this.readableAddress;
 		} else {
-			return "No Location Available";
+			return "No Location Available.";
 		}
 		
 	}

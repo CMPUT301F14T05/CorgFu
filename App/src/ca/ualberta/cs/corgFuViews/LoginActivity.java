@@ -60,11 +60,10 @@ public class LoginActivity extends Activity implements LocationListener{
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 		
-		try {
+		UserName nameOfUser= UserName.getInstance();
+		Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
+		if (nameOfUser.getFormattedAddress() == null){
 			getLocation(this);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		//Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
@@ -103,11 +102,12 @@ public class LoginActivity extends Activity implements LocationListener{
 		                        Bundle extras) {}
 		            });
 		        Location location = locationManager.getLastKnownLocation(provider);
+		        UserName user = UserName.getInstance();
 		        if (location != null) { // used to prevent null pointer exceptions
-		        	UserName user = UserName.getInstance();
 		    		user.setLocation(location);
 		        } else {
 		        	goToCreateLocation();
+		        	
 		        }
 		    }
 	}
@@ -142,7 +142,7 @@ public class LoginActivity extends Activity implements LocationListener{
 			String UserNameString = uId.getText().toString();
 			int ulen = UserNameString.length();
 			if (ulen <= 0 ){
-				Toast.makeText(getApplicationContext(), "User Name Cant be empty", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "User name can't be empty.", Toast.LENGTH_LONG).show();
 			}else{
 				UserName nameOfUser= UserName.getInstance();
 				nameOfUser.setUserName(UserNameString);

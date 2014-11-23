@@ -8,6 +8,7 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.widget.Toast;
 
 
 
@@ -20,22 +21,26 @@ public class UserName {
 	private Geocoder geocoder;
 	private Boolean attachLocation;
 	private Address adr;
-	private String formattedAddress;
+	private String formattedAddress = null;
 	
 	public UserName(){
 		
 	}
 	
-//	public String getFormattedAddress(){
-//		Address address = instance.adr;
-//		String str = new String();
-//		
-//		String city = address.getLocality();
-//		String country = address.getCountryName();
-//		
-//		str = city + ", " + country;
-//		return str;
-//	}
+	public String getFormattedAddress(){
+		return instance.formattedAddress;
+	}
+	
+	public String setFormattedAddress(){
+		Address address = instance.adr;
+		String str = new String();
+		
+		String city = address.getLocality();
+		String country = address.getCountryName();
+		
+		str = city + ", " + country;
+		return str;
+	}
 	
 	public static UserName getInstance(){
 		if (instance == null){
@@ -79,8 +84,19 @@ public class UserName {
 		return instance.adr;
 	}
 	
-	public void makeAddress(String location2) {
+	public void makeAddress(Context con,String l) {
 		// TODO Auto-generated method stub
+		instance.formattedAddress = l;
+		geocoder = new Geocoder(con, Locale.ENGLISH);
+		try {
+			List<Address> addresses = geocoder.getFromLocationName(l, 1);
+			Address add = addresses.get(0);
+			instance.adr = add;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 	}
 	public void attachLocation(Boolean attach){
