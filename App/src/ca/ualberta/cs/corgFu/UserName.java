@@ -39,6 +39,7 @@ public class UserName {
 		String country = address.getCountryName();
 		
 		str = city + ", " + country;
+		instance.formattedAddress = str;
 		return str;
 	}
 	

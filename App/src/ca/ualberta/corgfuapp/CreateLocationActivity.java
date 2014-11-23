@@ -2,6 +2,7 @@ package ca.ualberta.corgfuapp;
 
 import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuViews.LoginActivity;
+import ca.ualberta.cs.corgFuViews.MainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,8 +15,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**This activity handles when the user would like to select their own username.
+ * It checks to see if a username has been chosen before, and transitions to the next 
+ * activity needed accordingly.
+ * 
+ * @author Alex Makepeace
+ *
+ *@version 1.0 Nov.22/2014
+ */
 public class CreateLocationActivity extends Activity {
 
+	/**The onCreate method handles the formatting, font and colour of the views on the 
+	 * activity.
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +38,13 @@ public class CreateLocationActivity extends Activity {
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 	}
 	
+	/**The addLocation method handles taking an input from the edittext box and 
+	 * transforming it into a useable string that can be used as a location.
+	 * This method accounts for whether or not it is the first time you are
+	 * setting your location or not as well.
+	 * 
+	 * @param view is the button being clicked
+	 */
 	public void addLocation(View view){
 		EditText ET = (EditText) findViewById(R.id.enterLocation);
 		String locationString = ET.getText().toString();
@@ -36,14 +55,28 @@ public class CreateLocationActivity extends Activity {
 		}else{
 			UserName nameOfUser= UserName.getInstance();
 			nameOfUser.makeAddress(this,locationString);
-			goToLogin();
+			if (nameOfUser.getFormattedAddress() == null){
+				goToLogin();
+			} else {
+				toMain();
+			}
 		}	
-		
 	}
 	
+	/**goToLogin() returns you to the login page if you're GPS services are disabled and it is
+	 * your first time manually setting the location.
+	 */
 	public void goToLogin(){
 		Intent intent = new Intent(this,LoginActivity.class);//creates a new intent for the CreateLocation activity
     	startActivity(intent);//starts the new activity
+	}
+	
+	/**toMain() returns you to the AskQuestions screen after you decide to manually set your location
+	 * regardless of GPS capabilities
+	 */
+	private void toMain (){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 
 	@Override

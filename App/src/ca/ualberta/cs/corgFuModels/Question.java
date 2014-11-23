@@ -261,7 +261,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public String getReadableAddress(){
 		UserName myUserName = UserName.getInstance();
 		if (myUserName.getAttachLocation()){ // handles if the user does not want to attach their address to the question
-			return this.readableAddress;
+			return myUserName.getFormattedAddress();
 		} else {
 			return "No Location Available.";
 		}
