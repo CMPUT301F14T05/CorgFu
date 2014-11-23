@@ -50,6 +50,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	private final static int cache =1;
 	private final static int readlater = 2;
 	private final static int online =5; 
+	private static int whereToLoadFrom;
 	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
@@ -100,7 +101,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			qId = extra.getInt("@string/idExtraTag");
 		}
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		int whereToLoadFrom = getIntent().getIntExtra("loadFrom",online);
+		whereToLoadFrom = getIntent().getIntExtra("loadFrom",online);
 		Log.i("Where to load from", Integer.toString(whereToLoadFrom));
 		dc = new DataController();
 		String questionString;
@@ -116,6 +117,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			myQuestion = dc.getQuestionById(qId, whereToLoadFrom);
 			questionString = myQuestion.getQuestionText();	
 			upvoteInt = Integer.toString(myQuestion.getUpvotes());
+			QAController QAC = new QAController(myQuestion);
 		}
 		cache();
 		
@@ -271,21 +273,24 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that is being clicked on.
 	 */
 	public void upvote(View v){
-		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		Question myQuestion = AQC.getQuestionById(qId); // if we have this above why is gotten again??
-		QAController QAC = new QAController(myQuestion);
-		
-		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		
-		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
-		upvoteCount.setTypeface(customTF);
-		QAC.upvote();
-		upvoteCount.setText(Integer.toString(QAC.getVotes()));
-		
-		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
-		upvoteButton.setClickable(false);
-		upvoteButton.setEnabled(false);	
+		if(whereToLoadFrom==5){
+			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+			Question myQuestion = AQC.getQuestionById(qId); // if we have this above why is gotten again??
+			QAController QAC = new QAController(myQuestion);
+
+			Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
+
+			TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
+			upvoteCount.setTypeface(customTF);
+			QAC.upvote();
+			upvoteCount.setText(Integer.toString(QAC.getVotes()));
+
+			Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
+			upvoteButton.setClickable(false);
+			upvoteButton.setEnabled(false);	
+		}else{
+			Toast.makeText(this,"you must be online to upvote",Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	
