@@ -1,8 +1,10 @@
-package ca.ualberta.corgfuapp;
+package ca.ualberta.cs.corgFuViews;
 
+import ca.ualberta.corgfuapp.R;
+import ca.ualberta.corgfuapp.R.id;
+import ca.ualberta.corgfuapp.R.layout;
+import ca.ualberta.corgfuapp.R.menu;
 import ca.ualberta.cs.corgFu.UserName;
-import ca.ualberta.cs.corgFuViews.LoginActivity;
-import ca.ualberta.cs.corgFuViews.MainActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -55,11 +57,11 @@ public class CreateLocationActivity extends Activity {
 		}else{
 			UserName nameOfUser= UserName.getInstance();
 			if (nameOfUser.getFormattedAddress() == null){
-				nameOfUser.makeAddress(this,locationString);
-				//Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
+				nameOfUser.makeAddress(locationString);
+				Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
 				goToLogin();
 			} else {
-				nameOfUser.makeAddress(this,locationString);
+				nameOfUser.makeAddress(locationString);
 				toMain();
 			}
 		}	

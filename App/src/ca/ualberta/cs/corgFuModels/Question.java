@@ -43,7 +43,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private Boolean hasAPicture;
 	private int id;
 	private Address address;
-	private String readableAddress;
+	private String readableAddress = "No location available.";
 
 	
 	/**

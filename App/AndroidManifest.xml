@@ -61,7 +61,7 @@
             android:label="@string/title_activity_offline_data_view" >
         </activity>
         <activity
-            android:name=".CreateLocationActivity"
+            android:name="ca.ualberta.cs.corgFuViews.CreateLocationActivity"
             android:label="@string/title_activity_create_location" >
         </activity>
     </application>

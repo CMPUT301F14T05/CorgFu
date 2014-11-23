@@ -20,7 +20,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import ca.ualberta.corgfuapp.CreateLocationActivity;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.UserName;
 

@@ -85,20 +85,20 @@ public class UserName {
 		return instance.adr;
 	}
 	
-	public void makeAddress(Context con,String l) {
+	public void makeAddress(String l) {
 		// TODO Auto-generated method stub
 		instance.formattedAddress = l;
-		geocoder = new Geocoder(con, Locale.ENGLISH);
-		try {
-			List<Address> addresses = geocoder.getFromLocationName(l, 1);
-			Address add = addresses.get(0);
-			instance.adr = add;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
+//		geocoder = new Geocoder(con, Locale.ENGLISH);
+//		try {
+//			List<Address> addresses = geocoder.getFromLocationName(l, 1);
+//			Address add = addresses.get(0);
+//			instance.adr = add;
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		
 	}
 	public void attachLocation(Boolean attach){
 		instance.attachLocation = attach;
