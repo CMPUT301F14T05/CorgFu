@@ -101,6 +101,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		}
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		int whereToLoadFrom = getIntent().getIntExtra("loadFrom",online);
+		Log.i("Where to load from", Integer.toString(whereToLoadFrom));
 		dc = new DataController();
 		String questionString;
 		String upvoteInt;

@@ -28,7 +28,7 @@ import ca.ualberta.cs.corgFuModels.Question;
 public class OfflineDataView extends Activity {
 	private static InsertQuestionAdapter listAdapter1;
 	public static Context context ;
-	int choice;
+	
 	public static ArrayList<Question> myData;
 	DataController mfc;
 	private final int notConnected =0;
@@ -42,7 +42,7 @@ public class OfflineDataView extends Activity {
 		Log.i("OFDV",String.valueOf(choice));
 		
 		populateListView(choice );
-		setListViewListener();
+		setListViewListener(choice);
 		
 	}
 	protected void onResume(){
@@ -53,7 +53,7 @@ public class OfflineDataView extends Activity {
 		Log.i("OFDV",String.valueOf(choice));
 		
 		populateListView(choice );
-		setListViewListener();
+		setListViewListener(choice);
 	}
 	
 	//4321 add order
@@ -101,25 +101,27 @@ public class OfflineDataView extends Activity {
 		Log.i("FVL","before insert2");
 		BFListView.setAdapter(listAdapter1);		
 	}
-	private void setListViewListener(){
+	private void setListViewListener(final int choice){
 		final OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
 		    public void onItemClick(AdapterView parent, View v, int position, long id) {
 		    	Question question = (Question) parent.getItemAtPosition(position);
 		    	int qId = question.getId();
-		    	goToQuestion(qId);
+		    	goToQuestion(qId, choice);
 		    }
 		};
 		
 		ListView listView = (ListView) findViewById(R.id.browseOfflineListView);
 		listView.setOnItemClickListener(mMessageClickedHandler);
 	}
-	private void goToQuestion(int qId){
+	private void goToQuestion(int qId, int choice){
 		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
     	intent.putExtra("@string/idExtraTag", qId);
     	int answer = isConnected();
+    	Log.i("am i connected:",Integer.toString(answer));
     	if (answer== connected){
     		startActivity(intent);
     	}else if (answer == notConnected){
+    		Log.i("before intent", Integer.toString(choice));
     		intent.putExtra("loadFrom", choice);
     	}
 
@@ -130,12 +132,14 @@ public class OfflineDataView extends Activity {
 		//Connectivity Check
 		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+		
 		if (activeNetInfo != null )
 		{
-			return notConnected;
-		} else {
-			
+			Toast.makeText(context, "Active Network Type : " + activeNetInfo.getTypeName(), Toast.LENGTH_SHORT).show();
 			return connected;
+		} else {
+			Toast.makeText(context, "No Connection, Pushing when Connection is made", Toast.LENGTH_SHORT).show();
+			return notConnected;
 		}
 	}
 	@Override

@@ -61,17 +61,21 @@ public class DataController {
 		Log.i("AF", "before add");
 		boolean addControl =false;
 		int i=0;
-		for(Question o: dataList){
-			if (o.getId() ==q.getId()){
-				dataList.set(i, q);
-				addControl=true;
-				break;
-			} 
-			i++;
-		}
+		
+		if (dataList.size()!=0){ // if its not empty
+			for(Question o: dataList){ // if the data is in the list 
+				if (o.getId() ==q.getId()){ // then update the list
+					dataList.set(i, q);
+					addControl=true;
+					break;
+				} 
+				i++;
+			}
+		}	
+		// add if not in it
 		if (!addControl){
 			dataList.add(q);
-		}
+		} // if it already exsist just save
 		//changed
 		Log.i("AF", "passed add");
 		mdm.saveFavouritesToFile(dataList,choice);
