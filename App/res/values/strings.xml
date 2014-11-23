@@ -64,5 +64,6 @@
     <string name="emptyList">No Results found. Make sure you are connected to the Internet and try again.</string>
     <string name="Questions">Questions</string>
     <string name="title_activity_create_location">CreateLocationActivity</string>
+    <string name="MyLocation">My Location</string>
 
 </resources>

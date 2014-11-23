@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,6 +33,8 @@ import ca.ualberta.cs.corgFuModels.Question;
 public class MainActivity extends Activity
 {
 	public static Context context;
+	private static final int MyQuestionFile = 3;
+	private static final int AuthoredOffline =4;
 	/** This is the question that is being added by the user*/
 	protected Question q; //most recent Question added by the user
 	DataController DC;
@@ -51,6 +55,8 @@ public class MainActivity extends Activity
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
+		
+	
 	}
 	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.
 	 * Clicking on a button starts the Activity of BrowseItems
@@ -79,13 +85,27 @@ public class MainActivity extends Activity
 		questionText.setText("");//sets the edit text box to blank after entering a question
 
 		q = new Question(question); // creates a new question object
-		
-		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
-		addPictureDialog.show(getFragmentManager(), null);
+		//Connectivity Check
+		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+		if (activeNetInfo != null )
+		{
+			Toast.makeText(context, "Active Network Type : " + activeNetInfo.getTypeName(), Toast.LENGTH_SHORT).show();
+			 // creates a new question object
+			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+			AQC.addQuestion(q);
+			AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
+			addPictureDialog.show(getFragmentManager(), null);
 			
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		AQC.addQuestion(q);
-		DC.addData(q, 3);
+		} else {
+			//ADD TO AN ARRAY "TO BE PUSHED LATER"
+			Toast.makeText(context, "No Connection, Pushing when Connection is made", Toast.LENGTH_SHORT).show();
+			DC.addData(q, AuthoredOffline);
+		}
+	
+			
+		
+		DC.addData(q, MyQuestionFile);
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 
 	}

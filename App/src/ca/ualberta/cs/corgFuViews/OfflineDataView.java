@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
@@ -28,6 +31,8 @@ public class OfflineDataView extends Activity {
 	int choice;
 	public static ArrayList<Question> myData;
 	DataController mfc;
+	private final int notConnected =0;
+	private final int connected =1;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,7 +116,27 @@ public class OfflineDataView extends Activity {
 	private void goToQuestion(int qId){
 		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
     	intent.putExtra("@string/idExtraTag", qId);
+    	int answer = isConnected();
+    	if (answer== connected){
+    		startActivity(intent);
+    	}else if (answer == notConnected){
+    		intent.putExtra("loadFrom", choice);
+    	}
+
     	startActivity(intent);
+    	
+	}
+	private int isConnected(){
+		//Connectivity Check
+		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+		if (activeNetInfo != null )
+		{
+			return notConnected;
+		} else {
+			
+			return connected;
+		}
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

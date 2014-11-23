@@ -22,7 +22,13 @@ public class DataManager {
 	private static final String CacheFile = "CacheFile.save";
 	private static final String ReadLater = "ReadLater.save";
 	private static final String MyQuestions = "MyQuestions.save";
-	private static final String saveString = "saving tracker";
+	private static final String AuthorOffline = "AuthorOffline.save";
+	private static final String saveString = "saving tracker"; // for debuging
+	private final static int favouritesChoice = 0;
+	private final static int cacheChoice =1;
+	private final static int readLaterChoice = 2;
+	private final static int MyQuestionsChoice = 3;
+	private final static int AuthoredOfflineChoice = 4;
 	private Context context;
 	private static DataManager INSTANCE = null;
 	public ArrayList<Question> favouriteList;
@@ -49,14 +55,16 @@ public class DataManager {
 		try {
 			Log.i(saveString, "fail1");
 			FileOutputStream fos =null;
-			if (choice ==0){
+			if (choice ==favouritesChoice){
 				fos =  context.openFileOutput(FavouritesFile,Context.MODE_PRIVATE);
-			}else if(choice ==1){
+			}else if(choice ==cacheChoice){
 				fos =  context.openFileOutput(CacheFile,Context.MODE_PRIVATE);
-			}else if(choice == 2){
+			}else if(choice == readLaterChoice){
 				fos = context.openFileOutput(ReadLater, Context.MODE_PRIVATE);
-			}else if(choice == 3){
+			}else if(choice == MyQuestionsChoice){
 				fos = context.openFileOutput(MyQuestions, Context.MODE_PRIVATE);
+			}else if (choice == AuthoredOfflineChoice){
+				fos = context.openFileOutput(AuthorOffline, Context.MODE_PRIVATE);
 			}
 			Log.i(saveString, "fail2");
 			ObjectOutputStream osw = new ObjectOutputStream(fos);
@@ -82,15 +90,18 @@ public class DataManager {
 	public ArrayList<Question> loadFavouritesFromFile(int choice){
 		try{
 			File fh =null;
-			if(choice == 0){
+			if(choice == favouritesChoice){
 				fh = new File(context.getFilesDir(), DataManager.FavouritesFile);
-			}else if (choice ==1){
+			}else if (choice ==cacheChoice){
 				fh = new File(context.getFilesDir(), DataManager.CacheFile);
-			}else if (choice==2){
+			}else if (choice==readLaterChoice){
 				fh = new File(context.getFilesDir(), DataManager.ReadLater);
-			}else if (choice == 3){
+			}else if (choice == MyQuestionsChoice){
 				fh = new File(context.getFilesDir(), DataManager.MyQuestions);
+			}else if (choice == AuthoredOfflineChoice){
+				fh = new File(context.getFilesDir(), DataManager.AuthorOffline);
 			}
+			
 			Log.i("banana", "load1");
 			if (!fh.exists() ){
 				Log.i("banana","creat new");
@@ -98,14 +109,16 @@ public class DataManager {
 				return aq;
 			}
 			FileInputStream fis =null;
-			if(choice == 0){
+			if(choice == favouritesChoice){
 				fis = context.openFileInput(DataManager.FavouritesFile);
-			}else if (choice ==1){
+			}else if (choice ==cacheChoice){
 				fis = context.openFileInput(DataManager.CacheFile);
-			}else if (choice==2){
+			}else if (choice==readLaterChoice){
 				fis = context.openFileInput(DataManager.ReadLater);
-			}else if (choice == 3){
+			}else if (choice == MyQuestionsChoice){
 				fis = context.openFileInput(DataManager.MyQuestions);
+			}else if (choice == AuthoredOfflineChoice){
+				fis = context.openFileInput(DataManager.AuthorOffline);
 			}
 			Log.i("banana", "load2");
 			ObjectInputStream in;

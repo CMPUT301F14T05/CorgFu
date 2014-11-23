@@ -49,6 +49,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	private final static int favourites = 0;
 	private final static int cache =1;
 	private final static int readlater = 2;
+	private final static int online =5; 
 	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
@@ -94,29 +95,38 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	private void getQuestion(){
 		Bundle extra = getIntent().getExtras();
+		
 		if (extra != null){
 			qId = extra.getInt("@string/idExtraTag");
 		}
-		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		
+		int whereToLoadFrom = getIntent().getIntExtra("loadFrom",online);
 		dc = new DataController();
-		
-		myQuestion = AQC.getQuestionById(qId);
-		QAController QAC = new QAController(myQuestion);
-		
+		String questionString;
+		String upvoteInt;
+		if (whereToLoadFrom == online){	
+			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+			myQuestion = AQC.getQuestionById(qId);
+			QAController QAC = new QAController(myQuestion);
+			questionString = QAC.getQuestionString();
+			upvoteInt = Integer.toString(QAC.getVotes());
+					
+		}else{
+			myQuestion = dc.getQuestionById(qId, whereToLoadFrom);
+			questionString = myQuestion.getQuestionText();	
+			upvoteInt = Integer.toString(myQuestion.getUpvotes());
+		}
 		cache();
+		
 		isFavourited(myQuestion.getId());
 		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
-		questionText.setText(QAC.getQuestionString());
+		questionText.setText(questionString);
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		upvoteCount.setText(upvoteInt);
 		
 	}
 	/*
@@ -188,6 +198,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		}
 		else {
 			//Toast.makeText(this, "no picture :(", Toast.LENGTH_LONG).show();
+			
 		}
 	}
 
