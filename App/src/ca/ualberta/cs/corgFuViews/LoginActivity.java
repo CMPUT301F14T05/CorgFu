@@ -61,7 +61,6 @@ public class LoginActivity extends Activity implements LocationListener{
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 		
 		UserName nameOfUser= UserName.getInstance();
-		Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
 		if (nameOfUser.getFormattedAddress() == null){
 			getLocation(this);
 		}
