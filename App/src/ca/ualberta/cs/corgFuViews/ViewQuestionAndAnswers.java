@@ -62,8 +62,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the custom adapter*/
     InsertAnswerAdapter listAdapter;
     ExpandableListView expListView;
-    List<String> answerHeader = new ArrayList<String>();
-    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
+    static List<String> answerHeader = new ArrayList<String>();
+    static HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
 	int headIncrement = 0;
  
 	@Override
@@ -198,20 +198,27 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void populateListView()
 	{	
 		// fetch answers via MVC 
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		myQuestion = AQC.getQuestionById(qId);
+		QAController QAC = new QAController(myQuestion);
+
+		
+		// test 
 		AllAnswers AA = AllAnswersApplication.getAllAnswers();
 		AA.addView(this);
 		final AllAnswersController AAController = AllAnswersApplication
 				.getAllAnswersController();
 
+		
 		// populate expandable 
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
 			// setting list adapter
+			listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
 			expListView.setAdapter(listAdapter);
         }catch(Exception e){
             System.out.println("Errrr +++ " + e.getMessage());
-        }
-		
+        }		
 	}
 	
 	/**
@@ -285,13 +292,20 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		// fetch answer string
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
-		answerEditText.setText("");
-		
-		// MVC to handle singleton answer
 		a = new Answer(answerText);
+		answerEditText.setText("");
+
+		// MVC to handle singleton answer		
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		myQuestion = AQC.getQuestionById(qId);
+		QAController QAC = new QAController(myQuestion);
+		QAC.addAnswer(a);
+
+		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
+		
+		// test Delete after
 		AllAnswersController AAC = AllAnswersApplication.getAllAnswersController();
 		AAC.addAnswer(a);
-		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 		
 		// populate explistView
 		prepareListData(answerText);
@@ -314,7 +328,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
  
         // Adding child data
         List<String> replies = new ArrayList<String>();
-        replies.add("Reply 1");
+        replies.add("No replies ... ");
 
         replyChild.put(answerHeader.get(headIncrement), replies); // Header, Child data
         headIncrement +=1;
