@@ -93,7 +93,7 @@ public class MainActivity extends Activity
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
 
 		String question = questionText.getText().toString();//this is the text pulled from our edittext box
-
+		
 		questionText.setText("");//sets the edit text box to blank after entering a question
 
 		q = new Question(question); // creates a new question object
@@ -107,8 +107,8 @@ public class MainActivity extends Activity
 		// invokes dialog for adding picture 
 		//AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
 		//addPictureDialog.show(getFragmentManager(), null);
+
 		invokeAddPictureDialog();
-		
 		
 	}
 
@@ -127,9 +127,10 @@ public class MainActivity extends Activity
                    public void onClick(DialogInterface dialog, int id) {
                 	   // Go to another activity that fetches pictures from Android Media
                        // User wants to add a picture, fetch it from Image Gallery
-                 	   //Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
-
-                 	   //startActivityForResult(i, RESULT_LOAD_IMAGE);
+                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
+                 	   //i.putExtra("QUESTION_TEXT", "Pic8");
+                 	   int REQUEST_CODE = q.getId();
+                 	   startActivityForResult(i, REQUEST_CODE);
                    }
 
                });
@@ -152,8 +153,17 @@ public class MainActivity extends Activity
     	super.onActivityResult(requestCode, resultCode, data);
 
     	//fetches picture from image directory  
-    	if (requestCode == RESULT_LOAD_IMAGE && resultCode == Activity.RESULT_OK && null != data) {
+    	if (resultCode == Activity.RESULT_OK && null != data) {
+    		/*String questionString;
+    		Bundle extras = getIntent().getExtras();
+    	    if(extras == null) {
+    	    	questionString = null;
+    	    } else {
+    	    	questionString = extras.getString("QUESTION_TEXT");
+    	    }*/
+			//Toast.makeText(this, requestCode, Toast.LENGTH_SHORT).show();
 
+    	    
     		Uri selectedImage = data.getData();
     		InputStream is = null;
     		Bitmap attachedPic = null;
@@ -177,15 +187,11 @@ public class MainActivity extends Activity
     			// Add image to the question
     			Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show();
     			//((MainActivity)getActivity()).q.setImage(attachedPic);
-    			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-    			// Pick the most recently added question
-    			//Question q = AQC.getRecentQuestion();
-    			//q.setImage(attachedPic);
+    			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			// Pick correct question by Id
+    			q = AQC.getQuestionById(requestCode);
+    			q.setImage(attachedPic);
     			
-    			// After picture is added go back to MainActivity
-    			Intent i = new Intent(this, MainActivity.class);
-    			//i.putExtra(name, value)
-    			startActivity(i);
     		}
     		else {
     			Toast.makeText(this, "image is too large", Toast.LENGTH_SHORT).show();
