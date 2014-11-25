@@ -21,7 +21,7 @@ public class DataController {
 		// Warning: throws a runTimeException
 	}
 	
-	public Question getQuestionById(int id, int choice){
+	public Question getQuestionById(int id, String choice){
 		ArrayList<Question> questions = getData(choice);
 		for (Question q:questions){
 			if (q.getId() == id){
@@ -31,18 +31,18 @@ public class DataController {
 		return null;
 	}
 	
-	public void clearData(int choice){
+	public void clearData(String choice){
 		ArrayList<Question> newList = new ArrayList<Question>();
 		mdm.saveFavouritesToFile(newList, choice);
 	}
 
 	// Warning: throws a runTimeException
 
-	public void saveData(ArrayList<Question> dataToSave,int choice){
+	public void saveData(ArrayList<Question> dataToSave,String choice){
 		mdm.saveFavouritesToFile(dataToSave, choice);
 	}
 	
-	public ArrayList<Question> getData(int choice){
+	public ArrayList<Question> getData(String choice){
 		dataList = mdm.loadFavouritesFromFile(choice);
 		
 		return dataList;
@@ -54,7 +54,7 @@ public class DataController {
 	// 2 = read later
 	// 3 = asked
 	// adds data and updates it if it exsits.
-	public void addData( Question q,int choice) {
+	public void addData( Question q,String choice) {
 		Log.i("apple","got here");
 		Log.i("Question", q.getQuestionText());
 		dataList = mdm.loadFavouritesFromFile(choice);

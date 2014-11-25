@@ -44,20 +44,14 @@ public class DataManager {
 	//save and load data from file
 	// saves data as an array of questions, the choice indicates if its a 
 	// favourite, read later, cache  (0,1,2) respectively
-	public void saveFavouritesToFile(ArrayList<Question> dataList,int choice){
+	public void saveFavouritesToFile(ArrayList<Question> dataList,String choice){
 		Log.i(saveString,"start");
 		try {
 			Log.i(saveString, "fail1");
 			FileOutputStream fos =null;
-			if (choice ==0){
-				fos =  context.openFileOutput(FavouritesFile,Context.MODE_PRIVATE);
-			}else if(choice ==1){
-				fos =  context.openFileOutput(CacheFile,Context.MODE_PRIVATE);
-			}else if(choice == 2){
-				fos = context.openFileOutput(ReadLater, Context.MODE_PRIVATE);
-			}else if(choice == 3){
-				fos = context.openFileOutput(MyQuestions, Context.MODE_PRIVATE);
-			}
+			
+			fos =  context.openFileOutput(choice,Context.MODE_PRIVATE);
+			
 			Log.i(saveString, "fail2");
 			ObjectOutputStream osw = new ObjectOutputStream(fos);
 			Log.i(saveString, "fail4");
@@ -79,51 +73,33 @@ public class DataManager {
 	
 	// load based on choice 0 = fav, 1 =cache, 2= later
 	@SuppressWarnings("unchecked")
-	public ArrayList<Question> loadFavouritesFromFile(int choice){
+	public ArrayList<Question> loadFavouritesFromFile(String choice){
 		try{
-			File fh =null;
-			if(choice == 0){
-				fh = new File(context.getFilesDir(), DataManager.FavouritesFile);
-			}else if (choice ==1){
-				fh = new File(context.getFilesDir(), DataManager.CacheFile);
-			}else if (choice==2){
-				fh = new File(context.getFilesDir(), DataManager.ReadLater);
-			}else if (choice == 3){
-				fh = new File(context.getFilesDir(), DataManager.MyQuestions);
-			}
-			Log.i("banana", "load1");
+			File fh = new File(context.getFilesDir(), choice);
+			
+			Log.i("Loading", "load1");
 			if (!fh.exists() ){
-				Log.i("banana","creat new");
+				Log.i("Loading","create new");
 				ArrayList<Question> aq = new ArrayList<Question>();
 				return aq;
 			}
-			FileInputStream fis =null;
-			if(choice == 0){
-				fis = context.openFileInput(DataManager.FavouritesFile);
-			}else if (choice ==1){
-				fis = context.openFileInput(DataManager.CacheFile);
-			}else if (choice==2){
-				fis = context.openFileInput(DataManager.ReadLater);
-			}else if (choice == 3){
-				fis = context.openFileInput(DataManager.MyQuestions);
-			}
-			Log.i("banana", "load2");
+			FileInputStream fis = context.openFileInput(choice);
+			
+			Log.i("Loading", "load2");
 			ObjectInputStream in;
 			
 			in = new ObjectInputStream(fis);
 		
-			Log.i("banana", "load3");
+			Log.i("Loading", "load3");
 			//favourites = Favourites.getInstance();
-			Log.i("banana", "load4");
+			Log.i("Loading", "load4");
 			favouriteList = (ArrayList<Question>) in.readObject();
-			Log.i("banana", "load5");
+			Log.i("Loading", "load5");
 			
-			
-			Log.i("banana", "load6");
 			
 			in.close();
 			fis.close();
-			Log.i("banana", "load6");
+			Log.i("Loading", "Passed");
 			
 		} catch (FileNotFoundException e){
 			e.printStackTrace();

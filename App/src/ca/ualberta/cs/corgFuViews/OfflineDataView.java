@@ -13,13 +13,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 
 public class OfflineDataView extends Activity {
@@ -32,8 +30,8 @@ public class OfflineDataView extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i("OFDV","arrived");
-		Intent intentchosen = getIntent();
-		int choice = intentchosen.getIntExtra(MyProfile.EXTRA_CHOICE, 0);
+		Bundle extra = getIntent().getExtras();
+		String choice = extra.getString(MyProfile.EXTRA_CHOICE);
 		Log.i("OFDV",String.valueOf(choice));
 		
 		populateListView(choice );
@@ -43,8 +41,8 @@ public class OfflineDataView extends Activity {
 	protected void onResume(){
 		super.onResume();
 		Log.i("OFDV","arrived");
-		Intent intentchosen = getIntent();
-		int choice = intentchosen.getIntExtra(MyProfile.EXTRA_CHOICE, 0);
+		Bundle extra = getIntent().getExtras();
+		String choice = extra.getString(MyProfile.EXTRA_CHOICE);
 		Log.i("OFDV",String.valueOf(choice));
 		
 		populateListView(choice );
@@ -53,7 +51,7 @@ public class OfflineDataView extends Activity {
 	
 	//4321 add order
 	// fave 4231
-	public void populateListView(int choice){
+	public void populateListView(String choice){
 		context =getBaseContext();
 		setContentView(R.layout.activity_offline_data);
 		//Log.i("FVL","befor controller");

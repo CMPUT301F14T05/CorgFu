@@ -100,7 +100,7 @@ public class MainActivity extends Activity
 			
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-		DC.addData(q, 3);
+		DC.addData(q, "MyQuestions.save");
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 		
 		

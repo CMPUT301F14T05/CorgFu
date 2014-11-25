@@ -19,26 +19,22 @@ public class MyProfile extends Activity {
 	
 	public void toCached(View v){
 		Intent intent = new Intent(this, OfflineDataView.class);
-		int choiceClicked = 1;
-		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		intent.putExtra(EXTRA_CHOICE, "CacheFile.save");
 		startActivity(intent);
 	}
 	public void toFav(View v){
 		Intent intent = new Intent(this, OfflineDataView.class);
-		int choiceClicked = 0;
-		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		intent.putExtra(EXTRA_CHOICE, "Favourites.save");
 		startActivity(intent);
 	}
 	public void toReadLater(View v){
 		Intent intent = new Intent(this, OfflineDataView.class);
-		int choiceClicked = 2;
-		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		intent.putExtra(EXTRA_CHOICE, "ReadLater.save");
 		startActivity(intent);
 	}
 	public void toMyQuestions(View v){
 		Intent intent = new Intent(this, OfflineDataView.class);
-		int choiceClicked = 3;
-		intent.putExtra(EXTRA_CHOICE, choiceClicked);
+		intent.putExtra(EXTRA_CHOICE, "MyQuestions.save");
 		startActivity(intent);
 	}
 

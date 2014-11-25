@@ -46,9 +46,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	// 0 = favourites file
 	// 1 = cache file
 	// 2 = read later file
-	private final static int favourites = 0;
-	private final static int cache =1;
-	private final static int readlater = 2;
+	private final static String favourites = "Favourites.save";
+	private final static String cache ="CacheFile.save";
+	private final static String readlater = "ReadLater.save";
 	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
