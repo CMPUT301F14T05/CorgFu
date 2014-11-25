@@ -97,9 +97,10 @@ public class MainActivity extends Activity
 		questionText.setText("");//sets the edit text box to blank after entering a question
 
 		Question q = new Question(question); // creates a new question object
-			
+		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
+
 		DC.addData(q, "MyQuestions.save");
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 		
@@ -174,9 +175,12 @@ public class MainActivity extends Activity
     		if (Picture.smallPicture(attachedPic)) {
     			// Add image to the question
 
-    			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-    			Question q = AQC.getQuestionById(requestCode);
+    			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			Question q = DC.getQuestionById(requestCode, "MyQuestions.save");
     			q.setImage(attachedPic);
+    			DC.addData(q, "MyQuestions.save");
+    			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			AQC.addQuestion(q);
     			
     			Toast.makeText(this, "Picture is added to " + q.getQuestionText() + " Id:" + requestCode, Toast.LENGTH_SHORT).show();
 

@@ -98,8 +98,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		
 		dc = new DataController();
-		
 		myQuestion = AQC.getQuestionById(qId);
+		
 		QAController QAC = new QAController(myQuestion);
 		
 		cache();
