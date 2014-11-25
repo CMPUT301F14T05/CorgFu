@@ -1,5 +1,7 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -39,7 +41,7 @@ public class BrowseItems extends Activity implements IView
 	
 	private InsertQuestionAdapter listAdapter;
 	Spinner sortOptions;
-	
+	AllQuestionsController AQController;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -74,7 +76,7 @@ public class BrowseItems extends Activity implements IView
 		setContentView(R.layout.activity_browse_items);
 		AllQuestions AQ = AllQuestionsApplication.getAllQuestions();
 		AQ.addView(this);
-		final AllQuestionsController AQController = AllQuestionsApplication
+		AQController = AllQuestionsApplication
 				.getAllQuestionsController();
 		AQController.updateAllQuestions(); //Populates allQuestions with available questions
 
