@@ -52,10 +52,7 @@ public class AllQuestionsController {
 						return q2.getDate().compareTo(q1.getDate());
 					}
 				});
-		ArrayList<Question> printDates = allQuestions.getAllQuestions();
-		for (Question q: printDates){
-			Log.i("date of " + q.getQuestionText(), q.getDate().toString());
-		}
+	
 		return allQuestions.getAllQuestions();
 
 	}
