@@ -144,7 +144,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				Log.i("IsFavID",String.valueOf(QListId.getId()));
 				Log.i("QID", String.valueOf(qID));
 				favourited =true;
-				Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
 				break;
 			}
 		}
@@ -255,6 +254,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void addToFavorite(View v){
 		Log.i("VQAA", "breaks after");
 		dc.addData(myQuestion,favourites);
+		Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
 		setButtonToClicked();
 			
 		
