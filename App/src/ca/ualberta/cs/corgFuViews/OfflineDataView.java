@@ -123,9 +123,10 @@ public class OfflineDataView extends Activity {
     	}else if (answer == notConnected){
     		Log.i("before intent", Integer.toString(choice));
     		intent.putExtra("loadFrom", choice);
+    		startActivity(intent);
+        	
     	}
 
-    	startActivity(intent);
     	
 	}
 	private int isConnected(){

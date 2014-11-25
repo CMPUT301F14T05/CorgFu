@@ -83,7 +83,10 @@ public class DataManager {
 		
 	}
 	
-		
+		// load the author offline
+		// if offline QID doesn not exsist make question
+		// if offline QID == an online then we assume its adding a answer
+		// if offline AID == and online AID then we are adding a reply 
 	
 	// load based on choice 0 = fav, 1 =cache, 2= later
 	@SuppressWarnings("unchecked")

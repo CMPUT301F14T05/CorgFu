@@ -72,6 +72,7 @@ public class BrowseItems extends Activity implements IView
 	{
 
 		setContentView(R.layout.activity_browse_items);
+		
 		AllQuestions AQ = AllQuestionsApplication.getAllQuestions();
 		AQ.addView(this);
 		final AllQuestionsController AQController = AllQuestionsApplication
@@ -103,6 +104,7 @@ public class BrowseItems extends Activity implements IView
 					case 0:
 						listAdapter = new InsertQuestionAdapter(
 								BrowseItems.this, AQController.sortByDate());
+						Log.i("populateListView", "got here" );
 						break;
 					// will sort by pic
 					case 1:

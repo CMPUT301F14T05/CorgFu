@@ -110,6 +110,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 			myQuestion = AQC.getQuestionById(qId);
 			QAController QAC = new QAController(myQuestion);
+			Log.i("loaded online", myQuestion.getQuestionText());
 			questionString = QAC.getQuestionString();
 			upvoteInt = Integer.toString(QAC.getVotes());
 					
@@ -118,6 +119,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			questionString = myQuestion.getQuestionText();	
 			upvoteInt = Integer.toString(myQuestion.getUpvotes());
 			QAController QAC = new QAController(myQuestion);
+			Log.i("question from offline",myQuestion.getQuestionText());
 		}
 		cache();
 		
@@ -151,19 +153,16 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	private void isFavourited(int qID){
 		
 		ArrayList<Question> favList = dc.getData(favourites);
-		boolean favourited = false;
 		for (Question QListId: favList){
-			if (QListId.getId()==qID){
+			if (QListId.getId()==qID){ // checks if question has been favourited
 				Log.i("IsFavID",String.valueOf(QListId.getId()));
 				Log.i("QID", String.valueOf(qID));
-				favourited =true;
-				Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
+				setButtonToClicked();
+				//Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
 				break;
 			}
 		}
-		if(favourited){
-			setButtonToClicked();
-		}
+		
 		
 	}
 	/*
@@ -273,7 +272,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that is being clicked on.
 	 */
 	public void upvote(View v){
-		if(whereToLoadFrom==5){
+		if(whereToLoadFrom==online){
 			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 			Question myQuestion = AQC.getQuestionById(qId); // if we have this above why is gotten again??
 			QAController QAC = new QAController(myQuestion);
@@ -299,6 +298,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void submitAnswer(View v){
+		
 		// fetch answer string
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
