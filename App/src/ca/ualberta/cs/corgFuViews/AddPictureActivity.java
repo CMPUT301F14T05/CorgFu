@@ -96,6 +96,7 @@ public class AddPictureActivity extends Activity {
     			
     			// After picture is added go back to MainActivity
     			Intent i = new Intent(this, MainActivity.class);
+    			//i.putExtra(name, value)
     			startActivity(i);
     		}
     		else {

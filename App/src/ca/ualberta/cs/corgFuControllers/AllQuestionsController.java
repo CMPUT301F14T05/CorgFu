@@ -21,6 +21,7 @@ public class AllQuestionsController {
 	private AllQuestions allQuestions;
 	private ArrayList<Question> results;
 	private ElasticSearch ES;
+	private Question recentQuestion;
 	
 	/**
 	 * Initializes the controller with the model that it will be updating
@@ -160,21 +161,25 @@ public class AllQuestionsController {
 	}
 	
 	/**
-	 * Gets the most recent question from the AllQuestions model
+	 * Gets the most recent question
 	 * 
-	 * @return The question that has the latest specified date
+	 * @return The latest added question by current user
 	 *  null if no question is found
 	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
 	 */
 	public Question getRecentQuestion() {
-		ArrayList<Question> questions = allQuestions.getAllQuestions();
-		// Pick the latest added question
-		int lastIndex = questions.size() - 1; 
-		Question q = sortByDate().get(lastIndex);
-		if (questions.isEmpty()) {
-			return null;
-		}
-		return q;
+		
+		return recentQuestion;
+	}
+	
+	/**
+	 * Sets the most recent question added by current user
+	 * 
+	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
+	 */
+	public void setRecentQuestion(Question q) {
+		
+		recentQuestion = q;
 	}
 	
 

@@ -79,14 +79,17 @@ public class MainActivity extends Activity
 		questionText.setText("");//sets the edit text box to blank after entering a question
 
 		q = new Question(question); // creates a new question object
-		
-		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
-		addPictureDialog.show(getFragmentManager(), null);
 			
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
 		DC.addData(q, 3);
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
+		
+		AQC.setRecentQuestion(q);
+		
+		// invokes dialog for adding picture 
+		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
+		addPictureDialog.show(getFragmentManager(), null);
 
 	}
 	/**onCreateOptionsMenu() is an auto-generated method */
