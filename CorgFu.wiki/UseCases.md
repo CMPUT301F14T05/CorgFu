@@ -443,3 +443,74 @@ Use Cases
 	Responsibility:		Wyatt
 	Priority:			P1-High
 	
+#### ID: UC-23
+	Title: 				OptionalAttachLocation
+	Description:		For author to choose whether to attach their location to a post
+	Primary Actor:		Author
+	Precondition:		Author must be logged in to the system
+	Postcondition:		Author will either have their location attached to future questions or not
+	Main Success
+	Scenario:		1. Author logs into the system
+					2. System creates an option dialogue for the user to select whether 
+					or not the author will attach their location to questions.
+					3. Author chooses if they would like their location displayed 
+					with questions
+					4. System saves the user preference so upon posts the authors location 
+					will or will not be displayed
+	Frequency of Use:	High frequency
+	Status: 			Testcase complete
+	Responsibility:		Alex
+	Priority:			P1-High
+
+#### ID: UC-24
+	Title:				QueryForNearbyPosts
+	Description:		User may choose to query for posts nearby their set area
+	Primary Actor:		User
+	Precondition:		User logged into the app, with location set
+	Postcondition		A list of nearby posts will be displayed in the BrowseQuestions View
+	Main Success
+	Scenario:		1. User is on BrowseQuestions View
+					2. System displays default BrowseQuestions view
+					3. User selects the dropdown SearchBy menu
+					4. System displays all the SearchBy options
+					5. User selects the SearchBy questions in my area option
+					6. System selects all the questions that are nearby the user 
+					and displays them in the BrowseQuestions view
+	Frequency of Use:	Medium
+	Status:				Incomplete
+	Responsibility:		Wyatt
+	Priority:			P2-Medium
+
+#### ID: UC-25
+	Title:				FindUserLocation
+	Description:		Author may choose to set their own location, or use location services to get it
+	Primary Actor:		Author
+	Precondition:		Location services turned on, app in use
+	Postcondition:		The location either got or given will be optionally displayed
+	Main Success
+	Scenario:		1.User opens the system
+					2. System retrieves whether location services are enabled
+					Given location services are enabled: 
+						3a. System retrieves the location using the device's built in
+						GPS
+					Given location services are disabled:
+						3b. System redirects to page to set location.
+						4. Author enters their location in a edit text box and presses enter
+					5. System takes input and attaches it to teh current user for the session.
+	Frequency of Use:	High
+	Status:				Implemented
+	Responsibility:		Alex
+	Priority:			P1-High
+	
+#### ID: UC-26
+	Title:				GetIsPostNearMyLocation
+	Primary Actor:		User
+	Precondition:		User is logged in and has a location set to them
+	Postcondition:		Question will display if you near that author
+	Main Success
+	Scenario:		1.User has selected a question
+					2. Question displays whether or not user is close to the poster
+	Frequency of Use:	High
+	Status:				Not implemented, no test case
+	Responsibility:		Alex
+	Priority:			P2-Medium
