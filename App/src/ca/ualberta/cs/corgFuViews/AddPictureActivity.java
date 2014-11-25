@@ -89,10 +89,10 @@ public class AddPictureActivity extends Activity {
     			// Add image to the question
     			Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show();
     			//((MainActivity)getActivity()).q.setImage(attachedPic);
-    			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			// Pick the most recently added question
-    			Question q = AQC.getRecentQuestion();
-    			q.setImage(attachedPic);
+    			//Question q = AQC.getRecentQuestion();
+    			//q.setImage(attachedPic);
     			
     			// After picture is added go back to MainActivity
     			Intent i = new Intent(this, MainActivity.class);

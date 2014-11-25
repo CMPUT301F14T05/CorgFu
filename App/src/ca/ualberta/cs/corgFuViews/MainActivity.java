@@ -1,10 +1,13 @@
 package ca.ualberta.cs.corgFuViews;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -85,13 +88,45 @@ public class MainActivity extends Activity
 		DC.addData(q, 3);
 		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
 		
-		AQC.setRecentQuestion(q);
 		
 		// invokes dialog for adding picture 
-		AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
-		addPictureDialog.show(getFragmentManager(), null);
-
+		//AddPictureDialogFragment addPictureDialog = new AddPictureDialogFragment();
+		//addPictureDialog.show(getFragmentManager(), null);
+		invokeAddPictureDialog();
+		
+		
 	}
+
+	private void invokeAddPictureDialog() {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View v = inflater.inflate(R.layout.dialog_add_picture, null);
+
+        builder.setView(v);
+
+        //builder.setTitle("Add a picture");
+        
+        builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                	   // Go to another activity that fetches pictures from Android Media
+                	   //addPicture();
+                   }
+
+               });
+        
+        builder.setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // User refused to add a picture
+                   }
+               });
+	    //builder.setIcon(android.R.drawable.ic_dialog_alert);
+	    
+	    builder.show();
+		
+	}
+	
 	/**onCreateOptionsMenu() is an auto-generated method */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu)

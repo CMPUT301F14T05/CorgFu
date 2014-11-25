@@ -159,29 +159,6 @@ public class AllQuestionsController {
 		}
 		return null;
 	}
-	
-	/**
-	 * Gets the most recent question
-	 * 
-	 * @return The latest added question by current user
-	 *  null if no question is found
-	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
-	 */
-	public Question getRecentQuestion() {
-		
-		return recentQuestion;
-	}
-	
-	/**
-	 * Sets the most recent question added by current user
-	 * 
-	 * @see ca.ualberta.cs.corgFuModels.AllQuestions
-	 */
-	public void setRecentQuestion(Question q) {
-		
-		recentQuestion = q;
-	}
-	
 
 	/*
 	 * Retrieved from Victor Guana's github 
