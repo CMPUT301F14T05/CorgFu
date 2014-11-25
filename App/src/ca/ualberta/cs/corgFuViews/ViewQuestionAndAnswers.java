@@ -17,15 +17,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
-import ca.ualberta.cs.corgFu.AllAnswersApplication;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
-import ca.ualberta.cs.corgFuControllers.AllAnswersController;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
-import ca.ualberta.cs.corgFuModels.AllAnswers;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 /**
@@ -56,8 +53,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	boolean hasBeenRead;
 	/** This is the answer that is being added by the user*/
 	protected Answer a; //most recent Answer added by the user
-	AllAnswers AA; 
-	AllAnswersController AAController;
 	
 	/** This is the custom adapter*/
     InsertAnswerAdapter listAdapter;
@@ -200,15 +195,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
-
-		
-		// test 
-		AllAnswers AA = AllAnswersApplication.getAllAnswers();
-		AA.addView(this);
-		final AllAnswersController AAController = AllAnswersApplication
-				.getAllAnswersController();
-
-		
+	
 		// populate expandable 
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
@@ -303,9 +290,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 		
-		// test Delete after
-		AllAnswersController AAC = AllAnswersApplication.getAllAnswersController();
-		AAC.addAnswer(a);
 		
 		// populate explistView
 		prepareListData(answerText);
