@@ -74,7 +74,9 @@ public class BrowseItems extends Activity implements IView
 		setContentView(R.layout.activity_browse_items);
 		AllQuestions AQ = AllQuestionsApplication.getAllQuestions();
 		AQ.addView(this);
-		
+		final AllQuestionsController AQController = AllQuestionsApplication
+				.getAllQuestionsController();
+		AQController.updateAllQuestions(); //Populates allQuestions with available questions
 
 		// populateSpinner(0);
 		// Toast.makeText(this,"chose sort date", Toast.LENGTH_SHORT).show();
@@ -99,27 +101,21 @@ public class BrowseItems extends Activity implements IView
 				{
 				// will sort by date
 					case 0:
-						AllQuestionsController AQController = AllQuestionsApplication
-						.getAllQuestionsController();
-						AQController.updateAllQuestions(); //Populates allQuestions with available questions
+						
 						listAdapter = new InsertQuestionAdapter(
 								BrowseItems.this, AQController.sortByDate());
 						break;
 					// will sort by pic
 					case 1:
-						AllQuestionsController AQController1 = AllQuestionsApplication
-						.getAllQuestionsController();
-						AQController1.updateAllQuestions(); //Populates allQuestions with available questions
+						
 						listAdapter = new InsertQuestionAdapter(
-								BrowseItems.this, AQController1.sortByPicture());
+								BrowseItems.this, AQController.sortByPicture());
 						break;
 					// will sort by vote
 					case 2:
-						AllQuestionsController AQController2 = AllQuestionsApplication
-						.getAllQuestionsController();
-						AQController2.updateAllQuestions(); //Populates allQuestions with available questions
+						
 						listAdapter = new InsertQuestionAdapter(
-								BrowseItems.this, AQController2.sortByUpvote());
+								BrowseItems.this, AQController.sortByUpvote());
 						break;
 
 				}
