@@ -65,8 +65,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
     
-    /* Outer list view with answers to a question */
+    /** Outer list view with answers to a question */
     ListView listView;
+    /** Custom arrayAdapter to handle list of Answers */
+    ArrayAnswerAdapter arrayAnswerAdapter;
     
     List<String> replyHeader = new ArrayList<String>();
     HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
@@ -219,10 +221,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void populateAnswerView()
 	{	
 		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswersByDate();
+		ArrayList<Answer> answers = QAC.getAnswers();
 		listView = (ListView) findViewById(R.id.answersListView);
 		// setting arrayAdapter
-		ArrayAnswerAdapter arrayAnswerAdapter = new ArrayAnswerAdapter(this, answers);
+		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answers);
 		listView.setAdapter(arrayAnswerAdapter);
 	}
 	
@@ -306,6 +308,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(a);
+		
+		// Dynamically update the listView
+		populateAnswerView();
+		arrayAnswerAdapter.notifyDataSetChanged();
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 	}
