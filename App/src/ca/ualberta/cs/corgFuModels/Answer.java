@@ -44,6 +44,7 @@ public class Answer implements Serializable
 		answerText = text;
 		replies = new ArrayList<Reply>();
 		date = new Date();
+		isPushed=false;
 	}
 	
 	/**

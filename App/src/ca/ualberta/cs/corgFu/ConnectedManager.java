@@ -3,6 +3,7 @@ package ca.ualberta.cs.corgFu;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.ConnectivityManager;
+import android.util.Log;
 
 public class ConnectedManager {
 	private static ConnectedManager instance=null;
@@ -24,6 +25,7 @@ public class ConnectedManager {
 		//Connectivity Check
 		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+
 		if(activeNetInfo!=null){
 			return true;
 		}else{

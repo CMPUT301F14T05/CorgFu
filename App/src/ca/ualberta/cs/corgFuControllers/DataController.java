@@ -81,8 +81,9 @@ public class DataController {
 
 	public void pushOfflineContent() {
 		// TODO Auto-generated method stub
-		ArrayList<Question> offlineList = getData("Unpushed.save");
+		ArrayList<Question> offlineList = mdm.loadFavouritesFromFile("Unpushed.save");
 		for(Question q: offlineList){
+			Log.i("push offline",q.getQuestionText());
 			boolean keepGoing = pushQuestion(q);
 			if(keepGoing){
 				pushQuestionReplies(q);

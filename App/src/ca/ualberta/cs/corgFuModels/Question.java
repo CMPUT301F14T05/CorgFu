@@ -60,6 +60,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		Random rand = new Random();
 		id = rand.nextInt(100000);
 		attachAddress();
+		isPushed=false;
 		//setReadableAddress();
 	}
 	

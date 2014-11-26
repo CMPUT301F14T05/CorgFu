@@ -12,9 +12,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -67,17 +70,26 @@ public class MainActivity extends Activity
 		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);//button to click to go to your user profile
 		Button answersButton = (Button)findViewById(R.id.GoToAnswer);//button to click to go to the list of previously asked questions
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
-		attemptToPushOfflineContent();
+		
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		DC = new DataController();
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
+		attemptToPushOfflineContent();
+	}
+	protected void onResume(){
+		super.onResume();
+		DC = new DataController();
+		attemptToPushOfflineContent();
 	}
 	public void attemptToPushOfflineContent(){
-		isConnected= connected.isConnexted();
-		if(isConnected){
-			//DC.pushOfflineContent();
+		Log.i("Main Attempt", "start push");
+		boolean isConnect = connected.isConnexted();
+		if (isConnect )
+		{
+			Log.i("mainConnected", "going to DC to push");
+			DC.pushOfflineContent();
 		}
 		
 	}
@@ -112,8 +124,8 @@ public class MainActivity extends Activity
 		
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(q.getId());
-		Boolean isConnected = connected.isConnexted();
-		if (isConnected ==true )
+		boolean  isConnected = connected.isConnexted();		
+		if (isConnected)
 		{
 			Toast.makeText(context, "question added successfully", Toast.LENGTH_SHORT).show();
 			 // creates a new question object
@@ -123,6 +135,7 @@ public class MainActivity extends Activity
 			AQC.addQuestion(q);
 		}else{
 			Toast.makeText(context, "No Connection, Pushing when Connection is made", Toast.LENGTH_SHORT).show();
+			
 			DC.addData(q, toBePushed);
 		}
 	}
