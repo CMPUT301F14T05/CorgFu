@@ -226,6 +226,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		// setting arrayAdapter
 		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answers);
 		listView.setAdapter(arrayAnswerAdapter);
+		
 	}
 	
 	/**
@@ -355,7 +356,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param replyChild - HashMap of expandable view
 	 */
     private void prepareReplyData(List<String> replyHeader, HashMap<String, List<String>> replyChild) {
-        replyHeader.add("Replies");
+        replyHeader.add("Replies to the Question");
         List<String> replies = new ArrayList<String>();
     	
         int repliesNumber = myQuestion.getRepyCount();
