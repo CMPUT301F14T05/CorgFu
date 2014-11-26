@@ -274,9 +274,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that is being clicked on.
 	 */
 	public void upvote(View v){
-		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		Question myQuestion = AQC.getQuestionById(qId); // if we have this above why is gotten again??
 		QAController QAC = new QAController(myQuestion);
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
@@ -291,6 +288,33 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteButton.setEnabled(false);	
 	}
 	
+	/**
+	 * Upvotes the Answer. First the Answer is retrieved through the id, then
+	 * it is upvoted.
+	 * @param v The view that is being clicked on.
+	 */
+	public void upvoteAns(View v){
+		QAController QAC = new QAController(myQuestion);
+		ArrayList<Answer> answers = QAC.getAnswers();
+		int indx = listView.getPositionForView(v);
+		answers.get(indx).upvote();
+		
+		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
+		
+		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
+		upvoteCount.setTypeface(customTF);
+
+		upvoteCount.setText(Integer.toString(QAC.getAnswers().get(indx)
+				.getVotes()
+				));
+		
+		Button upvoteAnsButton = (Button) findViewById(R.id.upvoteAnswerButton);
+		populateAnswerView();
+		arrayAnswerAdapter.notifyDataSetChanged();
+		
+		upvoteAnsButton.setClickable(false);
+		upvoteAnsButton.setEnabled(false);	
+	}
 	
 	/**
 	 * Adds an answer to the question when the user clicks the submit answer button
