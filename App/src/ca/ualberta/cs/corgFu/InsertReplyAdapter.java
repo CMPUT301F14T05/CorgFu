@@ -5,6 +5,7 @@ import java.util.List;
 
 import ca.ualberta.corgfuapp.R;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,22 +37,26 @@ public class InsertReplyAdapter extends BaseExpandableListAdapter {
         return childPosition;
     }
  
-    @Override
+    @SuppressLint("InflateParams")
+	@Override
     public View getChildView(int groupPosition, final int childPosition,
             boolean isLastChild, View convertView, ViewGroup parent) {
  
         final String childText = (String) getChild(groupPosition, childPosition);
  
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this.myContext
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.reply_add, null);
+
+        LayoutInflater infalInflater = (LayoutInflater) this.myContext
+                   	.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        if (isLastChild) {
+        	convertView = infalInflater.inflate(R.layout.reply_add, null);
         }
- 
-        TextView txtListChild = (TextView) convertView
-                .findViewById(R.id.replyItem);
- 
-        txtListChild.setText(childText);
+        else {
+        	convertView = infalInflater.inflate(R.layout.reply_item, null);
+        	TextView txtListChild = (TextView) convertView
+        			.findViewById(R.id.replyItem);
+         
+        	txtListChild.setText(childText);
+            }
         return convertView;
     }
  

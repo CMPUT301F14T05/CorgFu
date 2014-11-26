@@ -58,6 +58,15 @@ public class QAController {
 		AQC.addQuestion(question);
 		
 	}
+	
+	public void addReply(Reply reply) {
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		question = AQC.getQuestionById(question.getId());
+		question.addReply(reply);
+		AQC.addQuestion(question);
+		
+	}
+	
 	public ArrayList<Answer> getAnswersByDate(){
 		Collections.sort(question.getAnswers(),
 				new Comparator<Answer>() {

@@ -26,6 +26,7 @@ import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 /**
  * Activity that is responsible for showing a Question. A question
  * can be composed of the question text, a picture related to the question
@@ -294,23 +295,53 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 	}
 	
+	/**
+	 * Add Reply to the Question
+	 * @param v View that was clicked on
+	 */
+	public void submitReplyQuestion(View v){
+		// get reply string
+		EditText replyEditText = (EditText) findViewById(R.id.replyQuestionEditText);
+		String replyText = replyEditText.getText().toString();
+		Reply reply = new Reply(replyText);
+		replyEditText.setText("");
+
+		// get current question		
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		myQuestion = AQC.getQuestionById(qId);
+		
+		// add reply to question with QAController		
+		QAController QAC = new QAController(myQuestion);
+		QAC.addReply(reply);
+		
+		Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
+
+	}
+	
 	@Override
 	public void update()
 	{
-		//listAdapter.notifyDataSetChanged();
+		replyAdapter.notifyDataSetChanged();
 	}
 	
     private void prepareReplyData(List<String> replyHeader, HashMap<String, List<String>> replyChild) {
         replyHeader.add("Replies");
-    	QAController QAC = new QAController(myQuestion);
         List<String> replies = new ArrayList<String>();
     	
-    	if (myQuestion.getRepyCount() == 0){
+        int repliesNumber = myQuestion.getRepyCount();
+    	if (repliesNumber == 0){
+    		// no replies to attach
             replies.add("No replies ... ");
     	}else{
     		// populate replies attached to Question
+    		//for (int replyIndex = 1; replyIndex <= repliesNumber; replyIndex++) {
+    		for (Reply reply : myQuestion.getReplies()) {
+    			replies.add(reply.getReplyString());
+    		}
     	}
-    	
+    	// add the last child that has reply_add view 
+        replies.add(" ");
+
         replyChild.put(replyHeader.get(0), replies); // Header, Child data 
     }
 }
