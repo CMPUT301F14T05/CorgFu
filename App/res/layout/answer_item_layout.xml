@@ -32,7 +32,16 @@
         android:id="@+id/answerReplies"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageAnswer"
         android:layout_alignTop="@+id/upvoteAnswerButton"
         android:layout_toLeftOf="@+id/upvoteAnswerButton" />
+
+    <ImageView
+        android:id="@+id/imageAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/upvoteAnswerButton"
+        android:layout_below="@+id/upvoteAnswerCount"
+        android:layout_marginTop="18dp" />
 
 </RelativeLayout>

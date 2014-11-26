@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Random;
 
 import android.graphics.Bitmap;
 
@@ -45,6 +46,9 @@ public class Answer implements Serializable
 		replies = new ArrayList<Reply>();
 		date = new Date();
 		isPushed=false;
+		
+		Random rand = new Random();
+		id = rand.nextInt(100000);
 	}
 	
 	/**

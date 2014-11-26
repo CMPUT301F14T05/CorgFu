@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFuModels.Answer;
@@ -31,6 +32,8 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 	private static int answerTVId = R.id.answerText;
 	private static int upvoteCount = R.id.upvoteAnswerCount;
 	private static int answerRepliesExpId = R.id.answerReplies;
+	private static int answerImageId = R.id.imageAnswer;
+
 	
 	/** Adapter that handles replies to each Answer */
 	private InsertReplyAdapter replyAnswerAdapter;
@@ -69,16 +72,23 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(myResource, parent, false);
 		}
+
+		Answer answer = myObjects.get(position);
+
 		//Set Answer Text
 		TextView answerTV = (TextView) convertView.findViewById(answerTVId);
-		answerTV.setText(myObjects.get(position).getAnswerString());
+		answerTV.setText(answer.getAnswerString());
 		TextView upvoteCountTV = (TextView) convertView.findViewById(upvoteCount);
-		upvoteCountTV.setText(String.valueOf(myObjects.get(position).getVotes()));
+		upvoteCountTV.setText(String.valueOf(answer.getVotes()));
+		
+		// Set Answer Picture
+		ImageView imageAnswer = (ImageView) convertView.findViewById(answerImageId);
+		imageAnswer.setImageBitmap(answer.getPicture());
 		
 		//Populate Replies to Answer Expandable
 		ExpandableListView expListView = (ExpandableListView) convertView.findViewById(answerRepliesExpId);
 
-		prepareReplyData(myObjects.get(position));
+		prepareReplyData(answer);
 
 		// setting replyAdapter
 		replyAnswerAdapter = new InsertReplyAdapter(myContext, replyHeader, replyChild);
@@ -111,7 +121,7 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
     		}
     	}
     	// add the last child that has reply_add view 
-        //replies.add(" ");
+        replies.add(" ");
 
         replyChild.put(replyHeader.get(0), replies);
         

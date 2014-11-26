@@ -53,8 +53,7 @@ public class MainActivity extends Activity
 	private static final String toBePushed = "Unpushed.save";
 	
 	public static Context context;
-	/** This is the question that is being added by the user*/
-	//protected Question q; //most recent Question added by the user
+
 	DataController DC;
 	ConnectedManager connected;
 	boolean isConnected;
@@ -145,7 +144,10 @@ public class MainActivity extends Activity
 		}
 	}
 
-	
+	/** Prepare and invoke dialog for adding
+	 *  picture to Question
+	 * @param qId - Id of the Question
+	 */
 	private void invokeAddPictureDialog(final int qId) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -176,6 +178,10 @@ public class MainActivity extends Activity
 		
 	}
 	
+	/** Prepare and invoke dialog for adding
+	 *  smaller picture to Question
+	 * @param qId - Id of the Question
+	 */
 	private void invokeAddSmallerPictureDialog(final int qId) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -211,7 +217,10 @@ public class MainActivity extends Activity
 	}
 	
     /**
-     *  Function onActivityResult expects requestCode of successfully loaded image
+     *  Function onActivityResult fetches image from Media Activity
+     *  @param requestCode - Question Id
+     *  @param resuldCode - result of resolving external activity
+     *  @param data - intent that contains image path
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
     	super.onActivityResult(requestCode, resultCode, data);
