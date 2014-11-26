@@ -58,9 +58,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the custom adapter*/
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
-    static List<String> replyHeader = new ArrayList<String>();
-    static HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
-	int headIncrement = 0;
+
  
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -190,10 +188,22 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * Populates the ListView of answers with answers in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
-	public void populateListView()
-	{	
-		// 1. populate Replies 
-		prepareReplyData();
+	public void populateListView() {
+	    List<String> replyHeader = new ArrayList<String>();
+	    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
+		final int FIRST_HEAD = 0;
+		
+		// populate Replies 
+        // adding reply header string
+        replyHeader.add("Replies");
+ 
+        // adding children data
+        List<String> replies = new ArrayList<String>();
+        replies.add("No replies ... ");
+
+        // combine header and children data into HashMap
+        replyChild.put(replyHeader.get(FIRST_HEAD), replies);
+
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
 			// setting replyAdapter
@@ -296,17 +306,5 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	{
 		//listAdapter.notifyDataSetChanged();
 	}
-	
-	// testing 
-    private void prepareReplyData() {
-        // Adding header data
-        replyHeader.add("Replies");
- 
-        // Adding child data
-        List<String> replies = new ArrayList<String>();
-        replies.add("No replies ... ");
 
-        replyChild.put(replyHeader.get(headIncrement), replies); // Header, Child data
-        headIncrement +=1;
-    }
 }
