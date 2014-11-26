@@ -21,9 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.ArrayAnswerAdapter;
-import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
+import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
@@ -71,7 +70,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     /** Outer list view with answers to a question */
     ListView listView;
     /** Custom arrayAdapter to handle list of Answers */
-    ArrayAnswerAdapter arrayAnswerAdapter;
+    InsertAnswerAdapter arrayAnswerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -224,7 +223,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		ArrayList<Answer> answers = QAC.getAnswers();
 		listView = (ListView) findViewById(R.id.answersListView);
 		// setting arrayAdapter
-		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answers);
+		arrayAnswerAdapter = new InsertAnswerAdapter(this, answers);
 		listView.setAdapter(arrayAnswerAdapter);
 		
 	}
