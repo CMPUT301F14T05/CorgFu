@@ -26,9 +26,11 @@
         android:textSize = "30sp"
         />
     
-    <ExpandableListView 
+    <ExpandableListView
         android:id="@+id/answerReplies"
         android:layout_width="fill_parent"
-        android:layout_height = "wrap_content"
-        android:layout_below="@+id/upvoteAnswerButton"/>
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/upvoteAnswerButton"
+        android:layout_toLeftOf="@+id/upvoteAnswerButton" />
+
 </RelativeLayout>

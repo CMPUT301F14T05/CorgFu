@@ -9,21 +9,26 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ArrayAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
+import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuModels.Reply;
@@ -59,6 +64,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the custom replyAdapter*/
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
+    
+    /** Outer list view with answers to a question */
+    ListView listView;
+    /** Custom arrayAdapter to handle list of Answers */
+    ArrayAnswerAdapter arrayAnswerAdapter;
+    
     List<String> replyHeader = new ArrayList<String>();
     HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
     
@@ -173,12 +184,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	private void setPicture() {
 		if (myQuestion.hasPicture()) {
-			Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
 			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView);
 			qPictureView.setImageBitmap(myQuestion.getImage());
 		}
 		else {
-			Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show();
+			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -192,12 +203,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     	List<String> replyHeader = new ArrayList<String>(); // re-initialize replyHeader 
 		prepareReplyData(replyHeader, replyChild);
 
-		try{
+		try {
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
 			// setting replyAdapter
 			replyAdapter = new InsertReplyAdapter(this, replyHeader, replyChild);
 			expListView.setAdapter(replyAdapter);
-        }catch(Exception e){
+        }
+		catch(Exception e) {
             System.out.println("Errrr +++ " + e.getMessage());
         }
 	}
@@ -209,6 +221,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void populateAnswerView()
 	{	
 		QAController QAC = new QAController(myQuestion);
+		ArrayList<Answer> answers = QAC.getAnswers();
+		listView = (ListView) findViewById(R.id.answersListView);
+		// setting arrayAdapter
+		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answers);
+		listView.setAdapter(arrayAnswerAdapter);
+		
 	}
 	
 	/**
@@ -291,6 +309,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(a);
+		
+		// Dynamically update the listView
+		populateAnswerView();
+		arrayAnswerAdapter.notifyDataSetChanged();
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 	}
@@ -328,8 +350,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		replyAdapter.notifyDataSetChanged();
 	}
 	
+	/** populates header and children of expandable view
+	 * for replies to a Question
+	 * @param replyHeader - header of expandable view
+	 * @param replyChild - HashMap of expandable view
+	 */
     private void prepareReplyData(List<String> replyHeader, HashMap<String, List<String>> replyChild) {
-        replyHeader.add("Replies");
+        replyHeader.add("Replies to the Question");
         List<String> replies = new ArrayList<String>();
     	
         int repliesNumber = myQuestion.getRepyCount();
@@ -348,4 +375,22 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
         replyChild.put(replyHeader.get(0), replies); // Header, Child data 
     }
+    
+	/** populates headers and children of expandable view
+	 * for Answers to a Question
+	 * @param answerHeader - header of expandable view
+	 * @param answerChild - HashMap of expandable view
+	 */
+    private void prepareAnswerData(List<String> answerHeader, HashMap<String, List<String>> answerChild) {
+
+    	for (Answer answer : myQuestion.getAnswers()) {
+    		answerHeader.add(answer.getAnswerString());
+        	List<String> replies = new ArrayList<String>();
+    		
+    	}
+
+        //replyChild.put(replyHeader.get(0), replies); // Header, Child data 
+    }
+    
+    
 }

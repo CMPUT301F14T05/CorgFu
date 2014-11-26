@@ -50,7 +50,7 @@ public class QAController {
 		AQC.addQuestion(question);
 	}
 
-
+	/** Adds Answer to the question */
 	public void addAnswer(Answer answer){
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		question = AQC.getQuestionById(question.getId());
@@ -59,6 +59,7 @@ public class QAController {
 		
 	}
 	
+	/** Adds Reply to the question */
 	public void addReply(Reply reply) {
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		question = AQC.getQuestionById(question.getId());
@@ -67,6 +68,10 @@ public class QAController {
 		
 	}
 	
+	/** Sort answers by date and return updated
+	 * list of answers to the question
+	 * @return sorted array of answers
+	 */
 	public ArrayList<Answer> getAnswersByDate(){
 		Collections.sort(question.getAnswers(),
 				new Comparator<Answer>() {
@@ -83,10 +88,26 @@ public class QAController {
 		return  question.getAnswers(); 
 	}
 	
+	/** get array of answers to the question
+	 * 
+	 * @return array of answers
+	 */
+	public ArrayList<Answer> getAnswers(){
+		return  question.getAnswers(); 
+	}
+	
+	/** get array of replies to the question
+	 * 
+	 * @return array of replies
+	 */
 	public ArrayList<Reply> getReplies(){
 		return  question.getReplies(); 
 	}
 	
+	/** Sort answers by upvotes and return updated
+	 * list of answers to the question
+	 * @return sorted array of answers
+	 */
 	public ArrayList<Answer> getAnswersByUpVotes(){
 		// TODO Auto-generated method stub
 		this.getAnswersByDate();
