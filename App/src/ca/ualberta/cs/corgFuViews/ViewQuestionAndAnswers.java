@@ -20,6 +20,7 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
+import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -55,9 +56,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	protected Answer a; //most recent Answer added by the user
 	
 	/** This is the custom adapter*/
-    InsertAnswerAdapter listAdapter;
+    InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
-    static List<String> answerHeader = new ArrayList<String>();
+    static List<String> replyHeader = new ArrayList<String>();
     static HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
 	int headIncrement = 0;
  
@@ -76,9 +77,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void onResume(){
 		super.onResume();
 		expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
-		listAdapter = (InsertAnswerAdapter) expListView.getExpandableListAdapter();
-		if (listAdapter != null){
-			listAdapter.notifyDataSetChanged();
+		replyAdapter = (InsertReplyAdapter) expListView.getExpandableListAdapter();
+		if (replyAdapter != null){
+			replyAdapter.notifyDataSetChanged();
 		}
 	}
 	
@@ -191,20 +192,19 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void populateListView()
 	{	
-		// fetch answers via MVC 
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		myQuestion = AQC.getQuestionById(qId);
-		QAController QAC = new QAController(myQuestion);
-	
-		// populate expandable 
+		// 1. populate Replies 
+		prepareReplyData();
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
-			// setting list adapter
-			listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
-			expListView.setAdapter(listAdapter);
+			// setting replyAdapter
+			replyAdapter = new InsertReplyAdapter(this, replyHeader, replyChild);
+			expListView.setAdapter(replyAdapter);
         }catch(Exception e){
             System.out.println("Errrr +++ " + e.getMessage());
-        }		
+        }
+		
+		// 2. populate Answers 
+		QAController QAC = new QAController(myQuestion);
 	}
 	
 	/**
@@ -289,14 +289,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		QAC.addAnswer(a);
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
-		
-		
-		// populate explistView
-		prepareListData(answerText);
-		listAdapter = new InsertAnswerAdapter(this, answerHeader, replyChild);
-		populateListView();
-		
-		// update();
 	}
 	
 	@Override
@@ -306,15 +298,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	}
 	
 	// testing 
-    private void prepareListData(String answerText) {
+    private void prepareReplyData() {
         // Adding header data
-        answerHeader.add(answerText);
+        replyHeader.add("Replies");
  
         // Adding child data
         List<String> replies = new ArrayList<String>();
         replies.add("No replies ... ");
 
-        replyChild.put(answerHeader.get(headIncrement), replies); // Header, Child data
+        replyChild.put(replyHeader.get(headIncrement), replies); // Header, Child data
         headIncrement +=1;
     }
 }
