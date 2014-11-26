@@ -65,14 +65,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
     
+    List<String> replyHeader = new ArrayList<String>();
+    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
+    
     /** Outer list view with answers to a question */
     ListView listView;
     /** Custom arrayAdapter to handle list of Answers */
     ArrayAnswerAdapter arrayAnswerAdapter;
-    
-    List<String> replyHeader = new ArrayList<String>();
-    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
-    
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -305,8 +305,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		answerEditText.setText("");
 
 		// MVC to handle singleton answer		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(a);
 		
