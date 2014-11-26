@@ -333,7 +333,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		QAC.addAnswer(a);
 		
 		// Dynamically update the listView
-		populateAnswerView();
+		// populateAnswerView();
 		arrayAnswerAdapter.notifyDataSetChanged();
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
