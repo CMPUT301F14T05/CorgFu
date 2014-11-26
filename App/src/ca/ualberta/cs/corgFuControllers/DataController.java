@@ -96,6 +96,9 @@ public class DataController {
 	private void pushAnswers(Question q) {
 		for(Answer a: q.getAnswers()){
 			if(a.isPushed()==false){
+				for(Reply r: a.getReplies()){
+					r.setPushed(true);
+				}
 				QAController QAC = new QAController(q);
 				QAC.addAnswer(a);
 				

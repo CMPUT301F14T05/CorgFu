@@ -21,9 +21,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.ArrayAnswerAdapter;
-import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
+import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
@@ -65,14 +64,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
     
-    /** Outer list view with answers to a question */
-    ListView listView;
-    /** Custom arrayAdapter to handle list of Answers */
-    ArrayAnswerAdapter arrayAnswerAdapter;
-    
     List<String> replyHeader = new ArrayList<String>();
     HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
     
+    /** Outer list view with answers to a question */
+    ListView listView;
+    /** Custom arrayAdapter to handle list of Answers */
+    InsertAnswerAdapter arrayAnswerAdapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -224,7 +223,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		ArrayList<Answer> answers = QAC.getAnswers();
 		listView = (ListView) findViewById(R.id.answersListView);
 		// setting arrayAdapter
-		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answers);
+		arrayAnswerAdapter = new InsertAnswerAdapter(this, answers);
 		listView.setAdapter(arrayAnswerAdapter);
 		
 	}
@@ -305,8 +304,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		answerEditText.setText("");
 
 		// MVC to handle singleton answer		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		myQuestion = AQC.getQuestionById(qId);
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(a);
 		
