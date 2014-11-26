@@ -44,7 +44,9 @@ public class AddLocationToQuestionFragment extends DialogFragment{
          	   //If the user would like to attach their location to questions this triggers a boolean on the username
             	UserName myUser = UserName.getInstance();
             	myUser.attachLocation(true);
-            	toMain();
+            	if (myUser.getLocation() == null){
+            		toCreateLocation();
+            	}
             }
         });
 	    builder.setNegativeButton(R.string.do_not_attach_location, new DialogInterface.OnClickListener() {
@@ -58,6 +60,12 @@ public class AddLocationToQuestionFragment extends DialogFragment{
 	    
 	    return builder.create();
 	}
+	
+	public void toCreateLocation(){
+		Intent intent = new Intent(getActivity(), CreateLocationActivity.class);
+		startActivity(intent);
+	}
+	
 	/**The toMain() method takes the user to the MainActivity 
 	 * screen after they decide whether they'd like to attach
 	 * their location to questions.

@@ -45,8 +45,9 @@ public class UserName {
 	
 	public static UserName getInstance(){
 		if (instance == null){
-			instance = new UserName();
+			instance = new UserName();	
 		}
+		instance.location = null;
 		return instance;
 	}
 	public void setUserName(String uNameString){

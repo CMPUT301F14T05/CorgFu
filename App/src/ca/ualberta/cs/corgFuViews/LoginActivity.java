@@ -103,9 +103,6 @@ public class LoginActivity extends Activity implements LocationListener{
 		        UserName user = UserName.getInstance();
 		        if (location != null) { // used to prevent null pointer exceptions
 		    		user.setLocation(location);
-		        } else {
-		        	goToCreateLocation();
-		        	
 		        }
 		    }
 	}

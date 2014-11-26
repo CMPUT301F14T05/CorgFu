@@ -58,8 +58,8 @@ public class CreateLocationActivity extends Activity {
 			UserName nameOfUser= UserName.getInstance();
 			if (nameOfUser.getFormattedAddress() == null){
 				nameOfUser.makeAddress(locationString);
-				Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
-				goToLogin();
+				//Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
+				goToMain();
 			} else {
 				nameOfUser.makeAddress(locationString);
 				toMain();
@@ -70,8 +70,8 @@ public class CreateLocationActivity extends Activity {
 	/**goToLogin() returns you to the login page if you're GPS services are disabled and it is
 	 * your first time manually setting the location.
 	 */
-	public void goToLogin(){
-		Intent intent = new Intent(this,LoginActivity.class);//creates a new intent for the CreateLocation activity
+	public void goToMain(){
+		Intent intent = new Intent(this,MainActivity.class);//creates a new intent for the CreateLocation activity
     	startActivity(intent);//starts the new activity
 	}
 	
