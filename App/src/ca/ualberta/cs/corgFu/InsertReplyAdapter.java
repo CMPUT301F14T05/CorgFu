@@ -45,7 +45,7 @@ public class InsertReplyAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.myContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.reply_item, null);
+            convertView = infalInflater.inflate(R.layout.reply_add, null);
         }
  
         TextView txtListChild = (TextView) convertView
