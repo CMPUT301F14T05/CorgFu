@@ -2,10 +2,12 @@ package ca.ualberta.cs.corgFuControllers;
 
 import java.util.ArrayList;
 
-import android.content.Context;
 import android.util.Log;
+import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.DataManager;
+import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 
 public class DataController {
 
@@ -14,7 +16,7 @@ public class DataController {
 	//should this be a singleton?
 	private static ArrayList<Question> dataList;
 	public static DataManager mdm;
-	
+	AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 	public DataController(){
 		mdm = DataManager.getInstance();
 		//Data = OfflineData.getInstance();
@@ -76,4 +78,70 @@ public class DataController {
 		Log.i("AF", "passed add");
 		mdm.saveFavouritesToFile(dataList,choice);
 	}
+
+	public void pushOfflineContent() {
+		// TODO Auto-generated method stub
+		ArrayList<Question> offlineList = getData("Unpushed.save");
+		for(Question q: offlineList){
+			boolean keepGoing = pushQuestion(q);
+			if(keepGoing){
+				pushQuestionReplies(q);
+				pushAnswers(q);
+			}
+			setToPushed(q);
+		}
+		clearData("Unpushed.save");
+	}
+	private void pushAnswers(Question q) {
+		for(Answer a: q.getAnswers()){
+			if(a.isPushed()==false){
+				QAController QAC = new QAController(q);
+				QAC.addAnswer(a);
+				
+				//push answer using AQC
+			}else{
+				pushAnswerReplies(a);
+			}
+		}
+	}
+	private void pushAnswerReplies(Answer a){
+		for(Reply r: a.getReplies()){
+			if (r.isPushed()==false){
+				
+				//push reply
+			}
+		}
+	}
+	private void pushQuestionReplies(Question q){
+		ArrayList<Reply> replies = q.getReplies();
+		for(Reply r: replies){
+			if(r.isPushed()==false){
+				r.setPushed(true);
+				//push reply r
+			}
+		}
+	}
+	private boolean pushQuestion(Question q) {
+		if(q.getIsPushed()==false){
+			setToPushed(q);
+			AQC.addQuestion(q);
+			return false;
+		}else{
+			return true;
+		}
+	}
+	private void setToPushed(Question q){
+		q.setIsPushed(true);
+		for(Reply r:q.getReplies()){
+			r.setPushed(true);
+		}
+		ArrayList<Answer> answerList = q.getAnswers();
+		for(Answer a: answerList){
+			a.setPushed(true);
+			for(Reply r: a.getReplies()){
+				r.setPushed(true);
+			}
+		}
+	}
+
 }

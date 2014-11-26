@@ -17,6 +17,8 @@ import java.util.Date;
 public class Reply implements Serializable{
 	private String replyString;
 	private Date date;
+
+	private boolean isPushed;
 	private static final long serialVersionUID = -8270344298863725879L;
 	/**
 	 * Builds an Reply based on the question/answer text
@@ -26,8 +28,15 @@ public class Reply implements Serializable{
 	public Reply(String reply){
 		this.replyString = reply;
 		this.date = new Date();
+		this.isPushed = false;
+		
 	}
-	
+	public boolean isPushed() {
+		return isPushed;
+	}
+	public void setPushed(boolean isPushed) {
+		this.isPushed = isPushed;
+	}
 	/**
 	 * Returns the reply text.
 	 * @return reply Text. 
@@ -35,7 +44,6 @@ public class Reply implements Serializable{
 	public String getReplyString() {
 		return replyString;
 	}
-	
 	/**
 	 * Gets the date the Reply was authored on. More specifically the
 	 * date/time the user submitted their answer, regardless of internet
@@ -45,5 +53,4 @@ public class Reply implements Serializable{
 	public Date getDate(){
 		return date;
 	}
-
 }

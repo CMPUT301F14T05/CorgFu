@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.Picture;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
@@ -46,12 +47,14 @@ public class MainActivity extends Activity
 	 * RESULT_LOAD_IMAGE indicates whether an Image has been successfully loaded
 	 */
 	private static int RESULT_LOAD_IMAGE = 111;
+	private static final String toBePushed = "Unpushed.save";
 	
 	public static Context context;
 	/** This is the question that is being added by the user*/
 	//protected Question q; //most recent Question added by the user
 	DataController DC;
-	
+	ConnectedManager connected;
+	boolean isConnected;
 	/**onCreate() sets up the display of the Activity, it makes sure that all of the desired text is set to the correct typeface.*/
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -59,16 +62,24 @@ public class MainActivity extends Activity
 		context = getBaseContext();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		connected =ConnectedManager.getInstatnce();
+		connected.setContext(context);
 		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);//button to click to go to your user profile
 		Button answersButton = (Button)findViewById(R.id.GoToAnswer);//button to click to go to the list of previously asked questions
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
-		
+		attemptToPushOfflineContent();
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		DC = new DataController();
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
+	}
+	public void attemptToPushOfflineContent(){
+		isConnected= connected.isConnexted();
+		if(isConnected){
+			//DC.pushOfflineContent();
+		}
+		
 	}
 	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.
 	 * Clicking on a button starts the Activity of BrowseItems
@@ -89,26 +100,31 @@ public class MainActivity extends Activity
 	 * @param view takes in the view of the current activity
 	 */
 	public void addQuestion(View view){
-		
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
-
 		String question = questionText.getText().toString();//this is the text pulled from our edittext box
-
 		questionText.setText("");//sets the edit text box to blank after entering a question
-
 		Question q = new Question(question); // creates a new question object
 		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
 
 		DC.addData(q, "MyQuestions.save");
-		Toast.makeText(getApplicationContext(), "Your question has been added.", Toast.LENGTH_LONG).show();
-		
 		
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(q.getId());
-		
-		
+		Boolean isConnected = connected.isConnexted();
+		if (isConnected ==true )
+		{
+			Toast.makeText(context, "question added successfully", Toast.LENGTH_SHORT).show();
+			 // creates a new question object
+			DC.getQuestionById(q.getId(), "MyQuestions.save");
+			q.setIsPushed(true);
+			AQC = AllQuestionsApplication.getAllQuestionsController();
+			AQC.addQuestion(q);
+		}else{
+			Toast.makeText(context, "No Connection, Pushing when Connection is made", Toast.LENGTH_SHORT).show();
+			DC.addData(q, toBePushed);
+		}
 	}
 
 	private void invokeAddPictureDialog(final int qId) {

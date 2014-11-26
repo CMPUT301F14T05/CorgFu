@@ -43,7 +43,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private int id;
 	private Address address;
 	private String readableAddress = "No location available.";
-
+	private Boolean isPushed;
 	
 	/**
 	 * Builds a question based on the question text
@@ -63,6 +63,13 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		//setReadableAddress();
 	}
 	
+	public Boolean getIsPushed() {
+		return isPushed;
+	}
+
+	public void setIsPushed(Boolean isPushed) {
+		this.isPushed = isPushed;
+	}
 	
 	/**
 	 * 

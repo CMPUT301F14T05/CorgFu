@@ -32,6 +32,7 @@ public class Answer implements Serializable
 	private Bitmap genericPic;
 	private Boolean hasAPicture;
 	private int id;
+	private boolean isPushed;
 
 	/**
 	 * Builds an Answer based on the question text
@@ -163,5 +164,13 @@ public class Answer implements Serializable
 	}
 	public void setId(int newId){
 		id = newId;
+	}
+
+	public boolean isPushed() {
+		return isPushed;
+	}
+
+	public void setPushed(boolean isPushed) {
+		this.isPushed = isPushed;
 	}
 }
