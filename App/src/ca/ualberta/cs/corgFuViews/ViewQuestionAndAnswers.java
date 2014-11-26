@@ -58,8 +58,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the custom replyAdapter*/
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
-
- 
+    List<String> replyHeader = new ArrayList<String>();
+    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -71,7 +72,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		populateReplyView();
 		populateAnswerView();
 	}
-	// 
+	
 	@Override
 	public void onResume(){
 		super.onResume();
@@ -184,29 +185,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * Populates the ReplyView of questions with questions in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
-<<<<<<< HEAD
+
 	public void populateReplyView()
 	{	
     	List<String> replyHeader = new ArrayList<String>(); // re-initialize replyHeader 
 		prepareReplyData(replyHeader, replyChild);
-=======
-	public void populateListView() {
-	    List<String> replyHeader = new ArrayList<String>();
-	    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
-		final int FIRST_HEAD = 0;
-		
-		// populate Replies 
-        // adding reply header string
-        replyHeader.add("Replies");
- 
-        // adding children data
-        List<String> replies = new ArrayList<String>();
-        replies.add("No replies ... ");
 
-        // combine header and children data into HashMap
-        replyChild.put(replyHeader.get(FIRST_HEAD), replies);
-
->>>>>>> 6f2d5da7386f8f5faa50c4accc0513c5aa1a558d
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
 			// setting replyAdapter
@@ -315,21 +299,18 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	{
 		//listAdapter.notifyDataSetChanged();
 	}
-<<<<<<< HEAD
 	
-	// prepare Replies 
     private void prepareReplyData(List<String> replyHeader, HashMap<String, List<String>> replyChild) {
-
         replyHeader.add("Replies");
     	QAController QAC = new QAController(myQuestion);
         List<String> replies = new ArrayList<String>();
     	
     	if (myQuestion.getRepyCount() == 0){
             replies.add("No replies ... ");
+    	}else{
+    		// populate replies attached to Question
     	}
-        replyChild.put(replyHeader.get(headIncrement), replies); // Header, Child data 
+    	
+        replyChild.put(replyHeader.get(0), replies); // Header, Child data 
     }
-=======
-
->>>>>>> 6f2d5da7386f8f5faa50c4accc0513c5aa1a558d
 }
