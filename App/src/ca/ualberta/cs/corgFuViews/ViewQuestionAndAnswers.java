@@ -58,9 +58,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the custom replyAdapter*/
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
-    static List<String> replyHeader = new ArrayList<String>();
-    static HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
-	int headIncrement = 0;
+
  
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -186,10 +184,29 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * Populates the ReplyView of questions with questions in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
+<<<<<<< HEAD
 	public void populateReplyView()
 	{	
     	List<String> replyHeader = new ArrayList<String>(); // re-initialize replyHeader 
 		prepareReplyData(replyHeader, replyChild);
+=======
+	public void populateListView() {
+	    List<String> replyHeader = new ArrayList<String>();
+	    HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
+		final int FIRST_HEAD = 0;
+		
+		// populate Replies 
+        // adding reply header string
+        replyHeader.add("Replies");
+ 
+        // adding children data
+        List<String> replies = new ArrayList<String>();
+        replies.add("No replies ... ");
+
+        // combine header and children data into HashMap
+        replyChild.put(replyHeader.get(FIRST_HEAD), replies);
+
+>>>>>>> 6f2d5da7386f8f5faa50c4accc0513c5aa1a558d
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
 			// setting replyAdapter
@@ -298,6 +315,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	{
 		//listAdapter.notifyDataSetChanged();
 	}
+<<<<<<< HEAD
 	
 	// prepare Replies 
     private void prepareReplyData(List<String> replyHeader, HashMap<String, List<String>> replyChild) {
@@ -311,4 +329,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     	}
         replyChild.put(replyHeader.get(headIncrement), replies); // Header, Child data 
     }
+=======
+
+>>>>>>> 6f2d5da7386f8f5faa50c4accc0513c5aa1a558d
 }
