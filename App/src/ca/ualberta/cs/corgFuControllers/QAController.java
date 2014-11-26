@@ -9,13 +9,14 @@ import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 /**
  * The controller that allows for modification of the question
  * model, which also includes the modification of the answer
  * models. Upvotes, replies, and pictures can also be modified
  * throught the QAController.
  * @see ca.ualberta.cs.corgFuModels.Answer
- * @see ca.ualberta.cs.corgFu.Reply
+ * @see ca.ualberta.cs.corgFuModels.Reply
  * @see ca.ualberta.cs.corgFu.Picture
  * @author wrflemin
  *
@@ -72,6 +73,11 @@ public class QAController {
 
 		return  question.getAnswers(); 
 	}
+	
+	public ArrayList<Reply> getReplies(){
+		return  question.getReplies(); 
+	}
+	
 	public ArrayList<Answer> getAnswersByUpVotes(){
 		// TODO Auto-generated method stub
 		this.getAnswersByDate();

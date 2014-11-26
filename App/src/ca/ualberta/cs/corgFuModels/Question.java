@@ -11,7 +11,6 @@ import android.graphics.Bitmap;
 import android.location.Address;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.Model;
-import ca.ualberta.cs.corgFu.Reply;
 import ca.ualberta.cs.corgFu.UserName;
 /**
  * The object that represents a question that has been asked
@@ -22,7 +21,7 @@ import ca.ualberta.cs.corgFu.UserName;
  * by other users which may include upvotes, a picture, and replies.
  * 
  * @see ca.ualberta.cs.corgFuModels.Answer
- * @see ca.ualberta.cs.corgFu.Reply
+ * @see ca.ualberta.cs.corgFuModels.Reply
  * @see ca.ualberta.cs.corgFu.Picture
  * @author wrflemin
  * @author Alex Makepeace
@@ -186,6 +185,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public ArrayList<Answer> getAnswers() {
 		return answers;
 	}
+	
 	public void setAnswers(ArrayList<Answer> newAnswers){
 		answers = newAnswers;
 	}
@@ -195,6 +195,16 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	}
 
 
+	/**
+	 * Returns the number of replies to the question
+	 * @return The size of the answers array, which is the number of 
+	 * answers to the question.
+	 */
+
+	public int getRepyCount() {
+		return replies.size();
+	}
+	
 	/**
 	 * Returns the number of answers to the question
 	 * @return The size of the answers array, which is the number of 

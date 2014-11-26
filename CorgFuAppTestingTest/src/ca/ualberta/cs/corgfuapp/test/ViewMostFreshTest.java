@@ -2,10 +2,10 @@ package ca.ualberta.cs.corgfuapp.test;
 
 import java.util.ArrayList;
 
-import ca.ualberta.cs.corgFu.Reply;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 import junit.framework.TestCase;
 
 public class ViewMostFreshTest extends TestCase {

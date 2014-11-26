@@ -35,7 +35,7 @@ import ca.ualberta.cs.corgFuModels.Question;
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture
- * @see ca.ualberta.cs.corgFu.Reply
+ * @see ca.ualberta.cs.corgFuModels.Reply
  * @author wrflemin
  *
  */
@@ -55,7 +55,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the answer that is being added by the user*/
 	protected Answer a; //most recent Answer added by the user
 	
-	/** This is the custom adapter*/
+	/** This is the custom replyAdapter*/
     InsertReplyAdapter replyAdapter;
     ExpandableListView expListView;
     static List<String> replyHeader = new ArrayList<String>();
@@ -70,17 +70,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		getQuestion();
 		setFont();
 		setPicture();
-		populateListView();
+		populateReplyView();
+		populateAnswerView();
 	}
 	// 
 	@Override
 	public void onResume(){
 		super.onResume();
-		expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
-		replyAdapter = (InsertReplyAdapter) expListView.getExpandableListAdapter();
-		if (replyAdapter != null){
-			replyAdapter.notifyDataSetChanged();
-		}
 	}
 	
 	/**
@@ -187,13 +183,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	}
 
 	/**
-	 * Populates the ListView of answers with answers in the order 
+	 * Populates the ReplyView of questions with questions in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
-	public void populateListView()
+	public void populateReplyView()
 	{	
-		// 1. populate Replies 
-		prepareReplyData();
+    	List<String> replyHeader = new ArrayList<String>(); // re-initialize replyHeader 
+		prepareReplyData(replyHeader, replyChild);
 		try{
 			expListView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
 			// setting replyAdapter
@@ -202,8 +198,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
         }catch(Exception e){
             System.out.println("Errrr +++ " + e.getMessage());
         }
-		
-		// 2. populate Answers 
+	}
+	
+	/**
+	 * Populates the ListView of answers with answers in the order 
+	 * specified by the user (Sorted by date on default)
+	 */
+	public void populateAnswerView()
+	{	
 		QAController QAC = new QAController(myQuestion);
 	}
 	
@@ -297,16 +299,16 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		//listAdapter.notifyDataSetChanged();
 	}
 	
-	// testing 
-    private void prepareReplyData() {
-        // Adding header data
-        replyHeader.add("Replies");
- 
-        // Adding child data
-        List<String> replies = new ArrayList<String>();
-        replies.add("No replies ... ");
+	// prepare Replies 
+    private void prepareReplyData(List<String> replyHeader, HashMap<String, List<String>> replyChild) {
 
-        replyChild.put(replyHeader.get(headIncrement), replies); // Header, Child data
-        headIncrement +=1;
+        replyHeader.add("Replies");
+    	QAController QAC = new QAController(myQuestion);
+        List<String> replies = new ArrayList<String>();
+    	
+    	if (myQuestion.getRepyCount() == 0){
+            replies.add("No replies ... ");
+    	}
+        replyChild.put(replyHeader.get(headIncrement), replies); // Header, Child data 
     }
 }

@@ -8,7 +8,6 @@ import java.util.Date;
 
 import android.graphics.Bitmap;
 
-import ca.ualberta.cs.corgFu.Reply;
 
 /**
  * This is an object that represents an answer that has been
@@ -20,7 +19,7 @@ import ca.ualberta.cs.corgFu.Reply;
  * @author Anthony Wu
  * @author Oleksii Shevchenko
  * @see ca.ualberta.cs.corgFuModels.Question
- * @see ca.ualberta.cs.corgFu.Reply
+ * @see ca.ualberta.cs.corgFuModels.Reply
  * @see ca.ualberta.cs.corgFu.Picture
  */
 public class Answer implements Serializable

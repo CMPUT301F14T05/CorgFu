@@ -1,4 +1,4 @@
-package ca.ualberta.cs.corgFu;
+package ca.ualberta.cs.corgFuModels;
 
 import java.io.Serializable;
 import java.util.Date;

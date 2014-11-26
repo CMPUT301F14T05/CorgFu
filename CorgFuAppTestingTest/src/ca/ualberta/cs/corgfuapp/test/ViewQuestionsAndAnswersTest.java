@@ -3,10 +3,10 @@ package ca.ualberta.cs.corgfuapp.test;
 import java.util.ArrayList;
 
 import junit.framework.TestCase;
-import ca.ualberta.cs.corgFu.Reply;
 import ca.ualberta.cs.corgFuControllers.QAController;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 
 public class ViewQuestionsAndAnswersTest extends TestCase { 
 	public ViewQuestionsAndAnswersTest (){

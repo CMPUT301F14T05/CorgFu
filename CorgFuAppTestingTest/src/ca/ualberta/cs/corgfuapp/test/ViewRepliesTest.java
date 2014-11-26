@@ -1,9 +1,9 @@
 package ca.ualberta.cs.corgfuapp.test;
 
 import junit.framework.TestCase;
-import ca.ualberta.cs.corgFu.Reply;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 
 public class ViewRepliesTest extends TestCase {
 	public void testController() {
