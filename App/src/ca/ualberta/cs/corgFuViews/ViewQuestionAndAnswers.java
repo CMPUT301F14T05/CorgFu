@@ -279,7 +279,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * Adds an answer to the question when the user clicks the submit answer button
 	 * @param v The view that was clicked on
 	 */
-	public void submitAnswer(View v){
+	public void submitAnswer(View v) {
 		// fetch answer string
 		EditText answerEditText = (EditText) findViewById(R.id.answerQuestionEditText);
 		String answerText = answerEditText.getText().toString();
@@ -314,13 +314,17 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		QAController QAC = new QAController(myQuestion);
 		QAC.addReply(reply);
 		
+		// dynamic update of replies list
+		populateReplyView();
+		ExpandableListView listView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+		listView.expandGroup(0);
+		replyAdapter.notifyDataSetChanged();
 		Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
 
 	}
 	
 	@Override
-	public void update()
-	{
+	public void update() {
 		replyAdapter.notifyDataSetChanged();
 	}
 	
@@ -329,12 +333,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
         List<String> replies = new ArrayList<String>();
     	
         int repliesNumber = myQuestion.getRepyCount();
-    	if (repliesNumber == 0){
+    	if (repliesNumber == 0) {
     		// no replies to attach
             replies.add("No replies ... ");
-    	}else{
+    	}
+    	else {
     		// populate replies attached to Question
-    		//for (int replyIndex = 1; replyIndex <= repliesNumber; replyIndex++) {
     		for (Reply reply : myQuestion.getReplies()) {
     			replies.add(reply.getReplyString());
     		}
