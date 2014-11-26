@@ -85,7 +85,10 @@ public class MainActivity extends Activity
 	}
 	public void attemptToPushOfflineContent(){
 		Log.i("Main Attempt", "start push");
-		boolean isConnect = connected.isConnexted();
+		
+		// buggy method isConnexted();
+		//boolean isConnect = connected.isConnexted();
+		boolean isConnect = true;
 		if (isConnect )
 		{
 			Log.i("mainConnected", "going to DC to push");
@@ -124,7 +127,9 @@ public class MainActivity extends Activity
 		
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(q.getId());
-		boolean  isConnected = connected.isConnexted();		
+		// buggy method isConnexted();
+		//boolean  isConnected = connected.isConnexted();
+		isConnected = true;
 		if (isConnected)
 		{
 			Toast.makeText(context, "question added successfully", Toast.LENGTH_SHORT).show();
@@ -140,6 +145,7 @@ public class MainActivity extends Activity
 		}
 	}
 
+	
 	private void invokeAddPictureDialog(final int qId) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -148,8 +154,6 @@ public class MainActivity extends Activity
         final View v = inflater.inflate(R.layout.dialog_add_picture, null);
 
         builder.setView(v);
-
-        //builder.setTitle("Add a picture");
         
         builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
@@ -167,7 +171,40 @@ public class MainActivity extends Activity
                        // User refused to add a picture
                    }
                });
-	    //builder.setIcon(android.R.drawable.ic_dialog_alert);
+	    
+	    builder.show();
+		
+	}
+	
+	private void invokeAddSmallerPictureDialog(final int qId) {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View v = inflater.inflate(R.layout.dialog_add_smaller_picture, null);
+
+        builder.setView(v);
+
+        builder.setTitle("Picture exceeds 64KB");
+        
+        builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                	   // Go to another activity that fetches pictures from Android Media
+                       // User wants to add a picture, fetch it from Image Gallery
+                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
+
+                 	   startActivityForResult(i, qId);
+                   }
+
+               });
+        
+        builder.setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // User refused to add a picture
+                   }
+               });
+	    
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
 	    
 	    builder.show();
 		
@@ -211,16 +248,13 @@ public class MainActivity extends Activity
     			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			AQC.addQuestion(q);
     			
-    			Toast.makeText(this, "Picture is added to " + q.getQuestionText() + " Id:" + requestCode, Toast.LENGTH_SHORT).show();
+    			Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show();
 
     		}
     		else {
     			Toast.makeText(this, "image is too large", Toast.LENGTH_LONG).show();
     			// Image is too large. Invoke another dialog asking to add another image
-    			AddSmallerPictureDialog addPictureDialog = new AddSmallerPictureDialog();
-    			addPictureDialog.show(getFragmentManager(), null);
-    			
-    			setContentView(R.layout.activity_add_picture);
+    			invokeAddSmallerPictureDialog(requestCode);
 
     		}
 
