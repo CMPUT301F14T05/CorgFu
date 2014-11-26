@@ -85,9 +85,7 @@ public class MainActivity extends Activity
 	public void attemptToPushOfflineContent(){
 		Log.i("Main Attempt", "start push");
 		
-		// buggy method isConnexted();
-		//boolean isConnect = connected.isConnexted();
-		boolean isConnect = true;
+		boolean isConnect = connected.isConnexted();
 		if (isConnect )
 		{
 			Log.i("mainConnected", "going to DC to push");
