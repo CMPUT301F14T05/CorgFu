@@ -29,6 +29,7 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 	private Context myContext;
 	private static int myResource = R.layout.answer_item_layout;
 	private static int answerTVId = R.id.answerText;
+	private static int upvoteCount = R.id.upvoteAnswerCount;
 	private static int answerRepliesExpId = R.id.answerReplies;
 	
 	/** Adapter that handles replies to each Answer */
@@ -71,6 +72,8 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 		//Set Answer Text
 		TextView answerTV = (TextView) convertView.findViewById(answerTVId);
 		answerTV.setText(myObjects.get(position).getAnswerString());
+		TextView upvoteCountTV = (TextView) convertView.findViewById(upvoteCount);
+		upvoteCountTV.setText(String.valueOf(myObjects.get(position).getVotes()));
 		
 		//Populate Replies to Answer Expandable
 		ExpandableListView expListView = (ExpandableListView) convertView.findViewById(answerRepliesExpId);
@@ -113,5 +116,5 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
         replyChild.put(replyHeader.get(0), replies);
         
     }
-	
+
 }
