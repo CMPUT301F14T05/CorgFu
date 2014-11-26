@@ -308,7 +308,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				.getVotes()
 				));
 		
-		Button upvoteAnsButton = (Button) findViewById(R.id.upvoteAnswerButton);
+		Button upvoteAnsButton = (Button) v;
 		
 		upvoteAnsButton.setClickable(false);
 		upvoteAnsButton.setEnabled(false);	
