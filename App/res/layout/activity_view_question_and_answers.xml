@@ -52,16 +52,6 @@
         android:onClick="addToFavorite"
         android:src="@android:drawable/btn_star_big_off"
         android:contentDescription="@string/fav_button_description"/>
-
-    <Button
-        android:id="@+id/upvoteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/favoriteButton"
-        android:layout_below="@+id/questionText"
-        android:text="@string/upvoteButtonText"
-        android:textSize="15sp" 
-        android:onClick="upvote"/>
     <TextView 
         android:id = "@+id/upvoteCount"
         android:layout_width = "wrap_content"
@@ -134,5 +124,16 @@
         android:layout_alignLeft="@+id/questionText"
         android:layout_alignTop="@+id/readLaterButton"
         android:contentDescription="@string/pictureDescriptionQuestion" />
+
+    <Button
+        android:id="@+id/upvoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/questionRepliesExpandable"
+        android:layout_toEndOf="@+id/favoriteButton"
+        android:layout_toRightOf="@+id/favoriteButton"
+        android:onClick="upvote"
+        android:text="@string/upvoteButtonText"
+        android:textSize="15sp" />
 
 </RelativeLayout>

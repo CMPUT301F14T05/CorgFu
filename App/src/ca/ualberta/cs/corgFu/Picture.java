@@ -1,5 +1,7 @@
 package ca.ualberta.cs.corgFu;
 
+import java.io.Serializable;
+
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import android.graphics.Bitmap;
@@ -16,7 +18,7 @@ import android.graphics.Bitmap;
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
  */
-public class Picture {
+public class Picture implements Serializable {
 
 	/**MAX_PICTURE_SIZE is the maximum size of the picture in bytes*/
 	private static int MAX_PICTURE_SIZE = 65536;
