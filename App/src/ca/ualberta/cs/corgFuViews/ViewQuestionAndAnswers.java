@@ -352,7 +352,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		// MVC to handle singleton answer		
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(a);
-
+		
+		populateAnswerView();
+		
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 	}
 
