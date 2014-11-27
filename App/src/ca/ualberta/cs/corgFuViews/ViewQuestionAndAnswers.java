@@ -1,13 +1,24 @@
 package ca.ualberta.cs.corgFuViews;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore.Images.Media;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,6 +36,7 @@ import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFu.UserName;
+import ca.ualberta.cs.corgFu.Picture;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -279,9 +291,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that is being clicked on.
 	 */
 	public void upvote(View v){
-		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		Question myQuestion = AQC.getQuestionById(qId); // if we have this above why is gotten again??
 		QAController QAC = new QAController(myQuestion);
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
@@ -296,6 +305,34 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteButton.setEnabled(false);	
 	}
 	
+	/**
+	 * Upvotes the Answer. First the Answer is retrieved through the id, then
+	 * it is upvoted.
+	 * @param v The view that is being clicked on.
+	 */
+	public void upvoteAns(View v){
+		QAController QAC = new QAController(myQuestion);
+		ArrayList<Answer> answers = QAC.getAnswers();
+		int indx = listView.getPositionForView(v);
+		answers.get(indx).upvote();
+		
+		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
+		
+		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
+		upvoteCount.setTypeface(customTF);
+
+		upvoteCount.setText(Integer.toString(QAC.getAnswers().get(indx)
+				.getVotes()
+				));
+		
+		Button upvoteAnsButton = (Button) v;
+		
+		upvoteAnsButton.setClickable(false);
+		upvoteAnsButton.setEnabled(false);	
+		
+		//populateAnswerView();
+		arrayAnswerAdapter.notifyDataSetChanged();
+	}
 	
 	/**
 	 * Adds an answer to the question when the user clicks the submit answer button
@@ -308,16 +345,148 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		a = new Answer(answerText);
 		answerEditText.setText("");
 
+		int aId = a.getId();
+		// invokes dialog for adding picture
+		invokeAddPictureDialog(aId);
+		
 		// MVC to handle singleton answer		
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(a);
-		
-		// Dynamically update the listView
-		populateAnswerView();
-		arrayAnswerAdapter.notifyDataSetChanged();
 
 		Toast.makeText(this, "Your answer has been added", Toast.LENGTH_SHORT).show();
 	}
+
+	/** Prepare and invoke dialog for adding
+	 *  picture to Answer
+	 * @param aId - Id of the Answer
+	 */
+	private void invokeAddPictureDialog(final int aId) {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View v = inflater.inflate(R.layout.dialog_add_picture, null);
+
+        builder.setView(v);
+        
+        builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                	   // Go to another activity that fetches pictures from Android Media
+                       // User wants to add a picture, fetch it from Image Gallery
+                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
+
+                 	   startActivityForResult(i, aId);
+                   }
+
+               });
+        
+        builder.setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // User refused to add a picture
+                   }
+               });
+	    
+	    builder.show();
+		
+	}
+	
+	/** Prepare and invoke dialog for adding
+	 *  smaller picture to Answer
+	 * @param aId - Id of the Answer
+	 */
+	private void invokeAddSmallerPictureDialog(final int aId) {
+        // Use the Builder class for convenient dialog construction
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View v = inflater.inflate(R.layout.dialog_add_smaller_picture, null);
+
+        builder.setView(v);
+
+        builder.setTitle("Picture exceeds 64KB");
+        
+        builder.setPositiveButton(R.string.yes_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                	   // Go to another activity that fetches pictures from Android Media
+                       // User wants to add a picture, fetch it from Image Gallery
+                 	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
+
+                 	   startActivityForResult(i, aId);
+                   }
+
+               });
+        
+        builder.setNegativeButton(R.string.no_button_text, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // User refused to add a picture
+                   }
+               });
+	    
+        builder.setIcon(android.R.drawable.ic_dialog_alert);
+	    
+	    builder.show();
+		
+	}
+	
+	
+    /**
+     *  Function onActivityResult fetches image from Media Activity
+     *  @param requestCode - Question Id
+     *  @param resuldCode - result of resolving external activity
+     *  @param data - intent that contains image path
+     */
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
+
+    	//fetches picture from image directory  
+    	if (resultCode == Activity.RESULT_OK && null != data) {
+
+    		Uri selectedImage = data.getData();
+    		InputStream is = null;
+    		Bitmap attachedPic = null;
+			try {
+				is = this.getContentResolver().openInputStream(selectedImage);
+				attachedPic = BitmapFactory.decodeStream(is);
+	    		
+			} catch (FileNotFoundException e) {
+				// Invalid URI exception
+				e.printStackTrace();
+			}
+
+			try {
+				is.close();
+			} catch (IOException e) {
+				// Attempt to close non-existing InputStream
+				e.printStackTrace();
+			}
+
+    		if (Picture.smallPicture(attachedPic)) {
+    			// Add image to the question
+
+    			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			Question q = dc.getQuestionById(qId, "MyQuestions.save");
+    			Answer answer = q.getAnswerById(requestCode);
+    			answer.setPicture(attachedPic);
+    			dc.addData(q, "MyQuestions.save");
+    			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			AQC.addQuestion(q);
+    			
+    			Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show();
+
+    		}
+    		else {
+    			Toast.makeText(this, "image is too large", Toast.LENGTH_LONG).show();
+    			// Image is too large. Invoke another dialog asking to add another image
+    			invokeAddSmallerPictureDialog(requestCode);
+
+    		}
+    		
+    		// Dynamically update the listView
+    		populateAnswerView();
+    		arrayAnswerAdapter.notifyDataSetChanged();
+
+    	}
+    }
 	
 	/**
 	 * Add Reply to the Question

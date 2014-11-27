@@ -194,6 +194,15 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		return answers;
 	}
 	
+	public Answer getAnswerById(int id) {
+		for (Answer a:answers){
+			if (a.getId() == id){
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	public void setAnswers(ArrayList<Answer> newAnswers){
 		answers = newAnswers;
 	}
