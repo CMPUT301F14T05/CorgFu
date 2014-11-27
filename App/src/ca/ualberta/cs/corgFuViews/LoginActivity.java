@@ -1,6 +1,5 @@
 package ca.ualberta.cs.corgFuViews;
 
-import java.io.IOError;
 import java.util.List;
 
 import android.app.Activity;
@@ -8,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.location.Address;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -21,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.UserName;
 
 /**The LoginActivity Activity handles setting the global username for the session
@@ -44,6 +43,7 @@ public class LoginActivity extends Activity implements LocationListener{
 	private LocationManager locationManager;
 	/**The currentLocation is used to hold whatever location is established in the getLocation() method.*/
 	private Location currentLocation;
+	ConnectedManager connected;
 	
 	/**The onCreate method is used to grab the username that will be used,
 	 * also it grabs any location information that can be used during the session.
@@ -63,7 +63,7 @@ public class LoginActivity extends Activity implements LocationListener{
 		if (nameOfUser.getFormattedAddress() == null){
 			getLocation(this);
 		}
-		
+		connected = new ConnectedManager(context);
 		//Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
 		
 		final Button btn = (Button) findViewById(R.id.LoginButton);

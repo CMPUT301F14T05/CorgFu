@@ -65,8 +65,7 @@ public class MainActivity extends Activity
 		context = getBaseContext();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		connected =ConnectedManager.getInstatnce();
-		connected.setContext(context);
+		
 		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);//button to click to go to your user profile
 		Button answersButton = (Button)findViewById(R.id.GoToAnswer);//button to click to go to the list of previously asked questions
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
@@ -76,24 +75,14 @@ public class MainActivity extends Activity
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		attemptToPushOfflineContent();
+		connected = new ConnectedManager(context);
 	}
 	protected void onResume(){
 		super.onResume();
 		DC = new DataController();
-		attemptToPushOfflineContent();
+		connected = new ConnectedManager(context);
 	}
-	public void attemptToPushOfflineContent(){
-		Log.i("Main Attempt", "start push");
-		
-		boolean isConnect = connected.isConnexted();
-		if (isConnect )
-		{
-			Log.i("mainConnected", "going to DC to push");
-			DC.pushOfflineContent();
-		}
-		
-	}
+	
 	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.
 	 * Clicking on a button starts the Activity of BrowseItems
 	 * 
@@ -125,9 +114,9 @@ public class MainActivity extends Activity
 		
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(q.getId());
-		// buggy method isConnexted();
-		//boolean  isConnected = connected.isConnexted();
-		isConnected = true;
+		
+		isConnected = connected.isConnexted();
+	
 		if (isConnected)
 		{
 			Toast.makeText(context, "question added successfully", Toast.LENGTH_SHORT).show();

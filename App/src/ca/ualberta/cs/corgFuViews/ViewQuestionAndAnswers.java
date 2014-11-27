@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
@@ -52,6 +54,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	private final static String favourites = "Favourites.save";
 	private final static String cache ="CacheFile.save";
 	private final static String readlater = "ReadLater.save";
+	private Context context=getBaseContext();
 	/** This is the previous question asked by other users*/
 	Question myQuestion;
 	private int qId = 0;
@@ -82,11 +85,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		setPicture();
 		populateReplyView();
 		populateAnswerView();
+		ConnectedManager connected= new ConnectedManager(context);
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
+		ConnectedManager connected= new ConnectedManager(context);
 	}
 	
 	/**

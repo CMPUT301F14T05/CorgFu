@@ -3,6 +3,7 @@ package ca.ualberta.cs.corgFuViews;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,11 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
@@ -25,7 +26,7 @@ public class SearchResults extends Activity {
 	private ElasticSearch ES;
 	private ArrayList<Question> results;
 	private InsertQuestionAdapter listAdapter;
-	
+	private Context context = getBaseContext();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,12 +36,16 @@ public class SearchResults extends Activity {
 		results = startSearch();
 		setAdapter();
 		setListViewListener();
+		ConnectedManager connected= new ConnectedManager(context);
+
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
 		listAdapter.notifyDataSetChanged();
+		ConnectedManager connected= new ConnectedManager(context);
+
 	}
 
 	private ArrayList<Question> startSearch() {

@@ -1,12 +1,10 @@
 package ca.ualberta.cs.corgFuViews;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
@@ -42,7 +41,8 @@ public class BrowseItems extends Activity implements IView
 	private InsertQuestionAdapter listAdapter;
 	Spinner sortOptions;
 	AllQuestionsController AQController;
-	
+	ConnectedManager connected;
+	Context context = getBaseContext();
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -52,6 +52,7 @@ public class BrowseItems extends Activity implements IView
 		populateListView();
 		setListViewListener();
 		setFont();
+		connected = new ConnectedManager(context);
 	}
 	
 	@Override
@@ -60,6 +61,7 @@ public class BrowseItems extends Activity implements IView
 		populateListView();
 		setListViewListener();
 		setFont();
+		connected = new ConnectedManager(context);
 	}
 
 	// Taken from

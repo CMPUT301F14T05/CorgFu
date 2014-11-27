@@ -4,12 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-import ca.ualberta.corgfuapp.R;
-import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.Picture;
-import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
-import ca.ualberta.cs.corgFuModels.Question;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -19,6 +15,9 @@ import android.provider.MediaStore.Images.Media;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.ConnectedManager;
+import ca.ualberta.cs.corgFu.Picture;
 
 public class AddPictureActivity extends Activity {
 	
@@ -26,7 +25,7 @@ public class AddPictureActivity extends Activity {
 	 * RESULT_LOAD_IMAGE indicates whether an Image has been successfully loaded
 	 */
 	private static int RESULT_LOAD_IMAGE = 111;
-
+	private static Context context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,6 +34,8 @@ public class AddPictureActivity extends Activity {
  	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
 
  	   startActivityForResult(i, RESULT_LOAD_IMAGE);
+ 		ConnectedManager connected= new ConnectedManager(context);
+
 	}
 
 	@Override

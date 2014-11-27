@@ -2,19 +2,24 @@ package ca.ualberta.cs.corgFuViews;
 
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 
 public class MyProfile extends Activity {
 	public static final String EXTRA_CHOICE = "the Choice";
+	private Context context=getBaseContext();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_profile);
+		ConnectedManager connected= new ConnectedManager(context);
+
 	}
 	
 	public void toCached(View v){

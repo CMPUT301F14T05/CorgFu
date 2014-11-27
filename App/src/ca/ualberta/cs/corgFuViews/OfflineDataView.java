@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
@@ -36,6 +37,8 @@ public class OfflineDataView extends Activity {
 		
 		populateListView(choice );
 		setListViewListener();
+		ConnectedManager connected= new ConnectedManager(context);
+
 		
 	}
 	protected void onResume(){
@@ -47,6 +50,8 @@ public class OfflineDataView extends Activity {
 		
 		populateListView(choice );
 		setListViewListener();
+		ConnectedManager connected= new ConnectedManager(context);
+
 	}
 	
 	//4321 add order
