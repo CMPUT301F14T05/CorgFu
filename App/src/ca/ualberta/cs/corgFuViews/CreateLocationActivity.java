@@ -32,7 +32,6 @@ public class CreateLocationActivity extends Activity {
 	/**The onCreate method handles the formatting, font and colour of the views on the 
 	 * activity.
 	 */
-	ConnectedManager connected;
 	Context context = getBaseContext();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +41,6 @@ public class CreateLocationActivity extends Activity {
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
-		connected = new ConnectedManager(context);
-	}
-	protected void onResume(){
-		connected = new ConnectedManager(context);
 	}
 	
 	/**The addLocation method handles taking an input from the edittext box and 

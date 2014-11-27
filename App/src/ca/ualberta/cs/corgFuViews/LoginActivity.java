@@ -43,7 +43,6 @@ public class LoginActivity extends Activity implements LocationListener{
 	private LocationManager locationManager;
 	/**The currentLocation is used to hold whatever location is established in the getLocation() method.*/
 	private Location currentLocation;
-	ConnectedManager connected;
 	
 	/**The onCreate method is used to grab the username that will be used,
 	 * also it grabs any location information that can be used during the session.
@@ -63,7 +62,6 @@ public class LoginActivity extends Activity implements LocationListener{
 		if (nameOfUser.getFormattedAddress() == null){
 			getLocation(this);
 		}
-		connected = new ConnectedManager(context);
 		//Toast.makeText(getApplicationContext(), address, Toast.LENGTH_LONG).show();
 		
 		final Button btn = (Button) findViewById(R.id.LoginButton);
