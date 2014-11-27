@@ -8,15 +8,25 @@ import ca.ualberta.cs.corgFuControllers.DataController;
 public class ConnectedManager {
 	private Context myContext;
 	private DataController DC;
-	public ConnectedManager(Context context){
-		myContext = context;
-		DC = new DataController();
-		attemptToPushOfflineContent();
+	private Context context;
+	private static ConnectedManager instance=null;
+	public ConnectedManager(){
+		
+	}
+	
+	public static ConnectedManager getInstatnce(){
+		if(instance == null){
+			instance = new ConnectedManager();
+		}
+		return instance;
+	}
+	public void setContext(Context mainContext){
+		context = mainContext;
 	}
 	
 	public Boolean isConnexted(){
 		//Connectivity Check
-		ConnectivityManager connectivityManager = (ConnectivityManager) myContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
 
 		if(activeNetInfo!=null){

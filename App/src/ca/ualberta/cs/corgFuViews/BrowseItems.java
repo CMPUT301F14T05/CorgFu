@@ -52,7 +52,9 @@ public class BrowseItems extends Activity implements IView
 		populateListView();
 		setListViewListener();
 		setFont();
-		connected = new ConnectedManager(context);
+ 		connected= ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
+
 	}
 	
 	@Override
@@ -61,7 +63,9 @@ public class BrowseItems extends Activity implements IView
 		populateListView();
 		setListViewListener();
 		setFont();
-		connected = new ConnectedManager(context);
+ 		connected= ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
+
 	}
 
 	// Taken from

@@ -36,7 +36,8 @@ public class SearchResults extends Activity {
 		results = startSearch();
 		setAdapter();
 		setListViewListener();
-		ConnectedManager connected= new ConnectedManager(context);
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 
 	}
 	
@@ -44,7 +45,8 @@ public class SearchResults extends Activity {
 	public void onResume(){
 		super.onResume();
 		listAdapter.notifyDataSetChanged();
-		ConnectedManager connected= new ConnectedManager(context);
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 
 	}
 

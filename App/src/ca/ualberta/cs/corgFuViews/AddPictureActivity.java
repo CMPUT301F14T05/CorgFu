@@ -34,7 +34,7 @@ public class AddPictureActivity extends Activity {
  	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
 
  	   startActivityForResult(i, RESULT_LOAD_IMAGE);
- 		ConnectedManager connected= new ConnectedManager(context);
+ 		ConnectedManager connected= ConnectedManager.getInstatnce();
 
 	}
 

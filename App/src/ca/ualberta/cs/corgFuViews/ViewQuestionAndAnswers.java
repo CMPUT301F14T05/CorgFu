@@ -85,13 +85,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		setPicture();
 		populateReplyView();
 		populateAnswerView();
-		ConnectedManager connected= new ConnectedManager(context);
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
-		ConnectedManager connected= new ConnectedManager(context);
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 	}
 	
 	/**

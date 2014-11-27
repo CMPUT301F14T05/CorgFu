@@ -37,8 +37,8 @@ public class OfflineDataView extends Activity {
 		
 		populateListView(choice );
 		setListViewListener();
-		ConnectedManager connected= new ConnectedManager(context);
-
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 		
 	}
 	protected void onResume(){
@@ -50,7 +50,8 @@ public class OfflineDataView extends Activity {
 		
 		populateListView(choice );
 		setListViewListener();
-		ConnectedManager connected= new ConnectedManager(context);
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 
 	}
 	

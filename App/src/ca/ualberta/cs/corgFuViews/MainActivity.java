@@ -75,12 +75,17 @@ public class MainActivity extends Activity
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		connected = new ConnectedManager(context);
+ 		connected= ConnectedManager.getInstatnce();
+ 		connected.setContext(context);
+ 		connected.attemptToPushOfflineContent();
 	}
 	protected void onResume(){
 		super.onResume();
 		DC = new DataController();
-		connected = new ConnectedManager(context);
+ 		connected= ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
+
+
 	}
 	
 	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.

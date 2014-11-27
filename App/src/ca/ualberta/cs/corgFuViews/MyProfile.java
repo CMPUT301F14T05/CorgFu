@@ -18,7 +18,8 @@ public class MyProfile extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_profile);
-		ConnectedManager connected= new ConnectedManager(context);
+		ConnectedManager connected = ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
 
 	}
 	
