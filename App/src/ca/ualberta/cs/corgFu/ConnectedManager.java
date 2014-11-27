@@ -7,7 +7,7 @@ import ca.ualberta.cs.corgFuControllers.DataController;
 
 public class ConnectedManager {
 	private Context myContext;
-	private DataController DC;
+	private DataController DC = new DataController();
 	private Context context;
 	private static ConnectedManager instance=null;
 	public ConnectedManager(){

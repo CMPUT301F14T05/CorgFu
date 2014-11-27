@@ -35,6 +35,8 @@ public class AddPictureActivity extends Activity {
 
  	   startActivityForResult(i, RESULT_LOAD_IMAGE);
  		ConnectedManager connected= ConnectedManager.getInstatnce();
+ 		connected.attemptToPushOfflineContent();
+
 
 	}
 
