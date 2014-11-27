@@ -20,6 +20,10 @@ import android.graphics.Bitmap;
  */
 public class Picture implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3443016608644060514L;
 	/**MAX_PICTURE_SIZE is the maximum size of the picture in bytes*/
 	private static int MAX_PICTURE_SIZE = 65536;
 	
