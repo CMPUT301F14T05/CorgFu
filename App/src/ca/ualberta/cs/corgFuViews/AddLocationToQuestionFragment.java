@@ -17,7 +17,7 @@ import android.view.View;
  * 
  * @author Alex Makepeace
  *
- *@version 1.0 Nov. 21/2014
+ *@version 2.0 Nov. 21/2014
  */
 
 public class AddLocationToQuestionFragment extends DialogFragment{

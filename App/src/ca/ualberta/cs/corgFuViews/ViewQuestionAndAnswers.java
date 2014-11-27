@@ -24,6 +24,7 @@ import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
+import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -112,7 +113,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		cache();
 		isFavourited(myQuestion.getId());
 		
+		UserName user = UserName.getInstance();
+		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
+		TextView locationText = (TextView) findViewById(R.id.location);
+		locationText.setText(user.getFormattedAddress());
 		questionText.setTypeface(customTF);
 		questionText.setText(QAC.getQuestionString());
 		

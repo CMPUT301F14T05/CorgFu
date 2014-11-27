@@ -10,7 +10,15 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.widget.Toast;
 
-
+/**The username class is a singleton that holds all relevant information that the
+ * application may need to access. 
+ * 
+ * @author Alex Makepeace
+ * @author Devon Sigurd
+ * 
+ * @version 2.0 Nov. 26,1024
+ *
+ */
 
 
 public class UserName {
