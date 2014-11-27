@@ -1,3 +1,22 @@
+##2014/11/26
+####Comments
+	- We need to document some refactoring. Use J Deoderant and write why or why
+	didn't refactor the deadlines
+	- Should run our code on the lab machines to
+	- Work on the UI
+####Devon & Ahmed
+	- Authored offline is mostly done. Every activity now has to set the context.
+	working for the Main Activity. works based on booleans for checking if it has
+	been added only
+####Alex O. & Anthony
+	- Attach picture to question is done. Did some refactoring with the answer
+	controller and used 
+	- Working on answering a question and adding it to the view and making it 
+	
+####Wyatt & Alex M.
+	- Alex worked on the GeoLocation and completed it and now it shows 
+	- Needs to reflect changes in the UML
+	- 
 ##2014/11/19
 ####Comments
 	- Presentation is next week. We will be trying to sell the app to our audience and convince them to use our app instead of the competitor's.
