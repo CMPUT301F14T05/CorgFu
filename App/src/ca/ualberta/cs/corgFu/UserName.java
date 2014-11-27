@@ -37,7 +37,9 @@ public class UserName {
 	
 	public String getFormattedAddress(){
 		if (instance.formattedAddress == null){
-			setFormattedAddress();
+			if (instance.getLocation() != null){			
+				setFormattedAddress();
+			}
 		}
 		
 		return instance.formattedAddress;

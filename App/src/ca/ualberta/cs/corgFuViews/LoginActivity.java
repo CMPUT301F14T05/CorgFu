@@ -59,10 +59,7 @@ public class LoginActivity extends Activity implements LocationListener{
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
 		TV.setTextColor(Color.argb(255,4,193,210));//sets the colour according to the argb values used in the storyboard
 		
-		Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_LONG).show();
 		getLocation(this);
-		
-		Toast.makeText(getApplicationContext(), "hello2", Toast.LENGTH_LONG).show();
 		
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());
@@ -102,7 +99,6 @@ public class LoginActivity extends Activity implements LocationListener{
 		        if (location != null) { // used to prevent null pointer exceptions
 		    		user.setLocation(location);
 		    		user.setAddress(this);
-		    		Toast.makeText(getApplicationContext(), user.getFormattedAddress(), Toast.LENGTH_LONG).show();
 		        }
 		    }
 	}
