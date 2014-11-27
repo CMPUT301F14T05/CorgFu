@@ -44,8 +44,10 @@ public class AddLocationToQuestionFragment extends DialogFragment{
          	   //If the user would like to attach their location to questions this triggers a boolean on the username
             	UserName myUser = UserName.getInstance();
             	myUser.attachLocation(true);
-            	if (myUser.getLocation() == null){
+            	if (myUser.getFormattedAddress() == null){
             		toCreateLocation();
+            	} else {
+            		toMain();
             	}
             }
         });

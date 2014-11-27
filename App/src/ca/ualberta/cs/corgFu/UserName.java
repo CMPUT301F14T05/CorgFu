@@ -29,13 +29,17 @@ public class UserName {
 	private Geocoder geocoder;
 	private Boolean attachLocation;
 	private Address adr;
-	private String formattedAddress = null;
+	private String formattedAddress;
 	
 	public UserName(){
 		
 	}
 	
 	public String getFormattedAddress(){
+		if (instance.formattedAddress == null){
+			setFormattedAddress();
+		}
+		
 		return instance.formattedAddress;
 	}
 	
@@ -55,6 +59,7 @@ public class UserName {
 		if (instance == null){
 			instance = new UserName();	
 		}
+		instance.formattedAddress = null;
 		instance.location = null;
 		return instance;
 	}
@@ -84,6 +89,7 @@ public class UserName {
 			List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
 			Address add = addresses.get(0);
 			instance.adr = add;
+			setFormattedAddress();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

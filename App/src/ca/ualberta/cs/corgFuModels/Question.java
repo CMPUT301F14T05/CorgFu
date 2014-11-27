@@ -42,7 +42,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private Boolean hasAPicture;
 	private int id;
 	private Address address;
-	private String readableAddress = "No location available.";
+	private String readableAddress = "No Location Available.";
 	private Boolean isPushed;
 	
 	/**
@@ -61,7 +61,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		id = rand.nextInt(100000);
 		attachAddress();
 		isPushed=false;
-		//setReadableAddress();
+		setReadableAddress();
 	}
 	
 	public Boolean getIsPushed() {
@@ -274,12 +274,12 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 * string text that has the city name and country name
 	 * of the place the question has been posted from
 	 */
-//	public void setReadableAddress() {
-//		// TODO Auto-generated method stub
-//		UserName myUserName = UserName.getInstance();
-//		String addr = myUserName.getFormattedAddress();
-//		this.readableAddress = addr;
-//	}
+	public void setReadableAddress() {
+		// TODO Auto-generated method stub
+		UserName myUserName = UserName.getInstance();
+		String addr = myUserName.getFormattedAddress();
+		this.readableAddress = addr;
+	}
 	
 	/**Method that returns the string representation of the address
 	 * 
@@ -288,7 +288,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public String getReadableAddress(){
 		UserName myUserName = UserName.getInstance();
 		if (myUserName.getAttachLocation()){ // handles if the user does not want to attach their address to the question
-			return myUserName.getFormattedAddress();
+			return this.readableAddress;
 		} else {
 			return "No Location Available.";
 		}

@@ -26,6 +26,7 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 	private static int questionTVId = R.id.QuestionTextTextView;
 	private static int answerCountTVId = R.id.AnswerCount;
 	private static int upvoteCount = R.id.UpvoteCount;
+	private static int Location = R.id.locationName;
 	private ArrayList<Question> myObjects;
 	
 	/**
@@ -57,12 +58,16 @@ public class InsertQuestionAdapter extends ArrayAdapter<Question> {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(myResource, parent, false);
 		}
+		UserName user = UserName.getInstance();
+		
 		TextView questionTV = (TextView) convertView.findViewById(questionTVId);
 		questionTV.setText(myObjects.get(position).toString());
 		TextView answerCountTV = (TextView) convertView.findViewById(answerCountTVId);
 		answerCountTV.setText(String.valueOf(myObjects.get(position).getAnswerCount()));
 		TextView upvoteCountTV = (TextView) convertView.findViewById(upvoteCount);
 		upvoteCountTV.setText(String.valueOf(myObjects.get(position).getUpvotes()));
+		TextView locationTV = (TextView)convertView.findViewById(Location);
+		locationTV.setText(myObjects.get(position).getReadableAddress());
 		return convertView;
 	}
 	

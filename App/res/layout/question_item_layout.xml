@@ -29,4 +29,11 @@
     	android:textColor="#ff04c1d2"
 		android:layout_alignParentRight="true"
 	/>
+	<TextView
+	    android:id = "@+id/locationName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/AnswerCount"
+	    ></TextView>
 </RelativeLayout>
