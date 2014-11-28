@@ -128,6 +128,16 @@ public class QAController {
 		return question.getAnswers();
 				
 	}
+	
+	public Answer getAnswerById(int id) {
+		for (Answer a:question.getAnswers()){
+			if (a.getId() == id){
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * Makes the question available offline so it can be viewed later
 	 * @param controller The controller that will add the question to the 

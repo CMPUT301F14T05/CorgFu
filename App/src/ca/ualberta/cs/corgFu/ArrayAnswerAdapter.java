@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuControllers.QAController;
+import ca.ualberta.cs.corgFuModels.Question;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -18,12 +21,14 @@ public class ArrayAnswerAdapter extends BaseExpandableListAdapter {
     private Context myContext;
     private List<String> answerHeader;                  // answerHeader titles
     private HashMap<String, List<String>> answerChild;  // answerChild titles
+    private Question myQuestion; 						 // current question
  
     public ArrayAnswerAdapter(Context context, List<String> listDataHeader,
-            HashMap<String, List<String>> listChildData) {
+            HashMap<String, List<String>> listChildData, Question question) {
         this.myContext = context;
         this.answerHeader = listDataHeader;
         this.answerChild = listChildData;
+        this.myQuestion = question;
     }
  
     @Override
@@ -77,7 +82,24 @@ public class ArrayAnswerAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded,
             View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
+    	String headerTitle;
+    	String noAnswersString = "No Answers";
+    	// get string of answer id
+    	String answerIdString = (String) getGroup(groupPosition);
+    	// check if there are any answers
+    	if(answerIdString == noAnswersString) {
+    		// no answers, display No Answers string
+    		headerTitle = noAnswersString;
+    	}
+    	else {
+        	// convert answer id string to integer
+            Integer answerId = Integer.parseInt(answerIdString);
+            // get text of the answer by its Id
+    		QAController QAC = new QAController(myQuestion);
+    		headerTitle = QAC.getAnswerById(answerId).getAnswerString();
+            //String headerTitle = myQuestion.getAnswerById(answerId).getAnswerString();
+    	}
+
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.myContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -86,7 +108,7 @@ public class ArrayAnswerAdapter extends BaseExpandableListAdapter {
  
         TextView lblListHeader = (TextView) convertView
                 .findViewById(R.id.answerHeader);
-        lblListHeader.setText(headerTitle);
+		lblListHeader.setText(headerTitle);
  
         return convertView;
     }

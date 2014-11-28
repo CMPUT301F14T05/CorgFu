@@ -249,7 +249,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
         }
 		answerListView = (ExpandableListView) findViewById(R.id.answersListView);
 		// setting arrayAdapter
-		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answerHeader, answerChild);
+		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answerHeader, answerChild, myQuestion);
 		answerListView.setAdapter(arrayAnswerAdapter);
 		
 	}
@@ -580,7 +580,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
         }
         else {
         	for (Answer answer : answers) {
-        		answerHeader.add(answer.getAnswerString()); 
+        		answerHeader.add(Integer.toString(answer.getId())); 
         	}
         }
     	return answerHeader;
