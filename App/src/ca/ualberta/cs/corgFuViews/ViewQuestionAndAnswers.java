@@ -68,7 +68,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	DataController dc;
 	boolean hasBeenRead;
 	/** This is the answer that is being added by the user*/
-	protected Answer answer; //most recent Reply added by the user
+	protected Answer myAnswer; //most recent Reply added by the user
+	private int aId = 0;
 	
     /** ReplyList view with answers to a question */
     ListView answerListView;
@@ -290,11 +291,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		 
 		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
 		String answerText = answerEditText.getText().toString();
-		answer = new Answer(answerText);
+		myAnswer = new Answer(answerText);
 		answerEditText.setText("");
 
 		QAController QAC = new QAController(myQuestion);
-		QAC.addAnswer(answer);
+		QAC.addAnswer(myAnswer);
 		
 		populateAnswerView();
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
@@ -306,9 +307,35 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void goToQReplies(View v) {
 		int qId = myQuestion.getId();
-		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
+		
+		Toast.makeText(this, "Going to QReplies", Toast.LENGTH_SHORT).show();
+		
 		Intent launch = new Intent(this, ViewQuestionAndReplies.class);
     	launch.putExtra("@string/idExtraTag", qId);
+		startActivity(launch);
+
+	}
+	
+	/**
+	 * Links to AnswerAndReplies View when clicked 
+	 * @param v The view that was clicked on
+	 */
+	public void goToAReplies(View v) {
+		QAController QAC = new QAController(myQuestion);
+		ArrayList<Answer> answers = QAC.getAnswers();
+		
+		int indx = answerListView.getPositionForView(v);
+		myAnswer = answers.get(indx);
+		
+		int aId = myAnswer.getId();
+		int qId = myQuestion.getId();
+		
+		Toast.makeText(this, "Going to AReplies", Toast.LENGTH_SHORT).show();
+		
+		Intent launch = new Intent(this, ViewAnswerAndReplies.class);
+		
+    	launch.putExtra("@string/idQuestionTag", qId);
+    	launch.putExtra("@string/idAnswerTag", aId);
 		startActivity(launch);
 
 	}

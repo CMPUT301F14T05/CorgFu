@@ -69,6 +69,10 @@
             android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers"
             android:label="@string/title_activity_view_question_and_answers" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.corgFuViews.ViewAnswerAndReplies"
+            android:label="@string/title_activity_view_answer_and_replies" >
+        </activity>
     </application>
 
 </manifest>

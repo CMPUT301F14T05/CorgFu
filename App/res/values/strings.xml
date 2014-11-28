@@ -19,10 +19,10 @@
     <string name="initPrompt">Enter a username to begin \n asking questions.</string>
     <string name="GoToAsk">ASK\n QUESTION</string>
     <string name="SearchButton">Search</string>
+    <string name="create_location">Please enter the location \n you would like to use.</string>
+    <string name="locationHint"> Enter your location here.</string>
+    <string name="Enter">Enter</string>
 
-    <string name = "create_location">Please enter the location \n you would like to use.</string>
-    <string name = "locationHint"> Enter your location here.</string>
-    <string name= "Enter">Enter</string>
     <string-array name="sortOptions">
         <item>Date Posted</item>
         <item>Questions With Pictures</item>
@@ -69,5 +69,6 @@
     <string name="emptyList">No Results found. Make sure you are connected to the Internet and try again.</string>
     <string name="Questions">Questions</string>
     <string name="title_activity_create_location">CreateLocationActivity</string>
+    <string name="title_activity_view_answer_and_replies">ViewAnswerAndReplies</string>
 
 </resources>

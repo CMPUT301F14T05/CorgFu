@@ -53,7 +53,7 @@ import ca.ualberta.cs.corgFuModels.Reply;
  * @author wrflemin
  *
  */
-public class ViewQuestionAndReplies extends Activity implements IView
+public class ViewAnswerAndReplies extends Activity implements IView
 {
 	// 0 = favourites file
 	// 1 = cache file
@@ -66,10 +66,12 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	private int qId = 0;
 	DataController dc;
 	boolean hasBeenRead;
-	/** This is the answer that is being added by the user*/
+	/** This is the previous answer that is being added by the user*/
+	Answer myAnswer;
+	private int aId = 0;
+
 	protected Reply reply; //most recent Reply added by the user
-	
-    /** ReplyList view with replies to a question */
+    /** ReplyList view with replies to a answer */
     ListView replyListView;
     /** Custom arrayAdapter to handle list of Answers */
     InsertReplyAdapter arrayReplyAdapter;
@@ -77,11 +79,11 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_view_question_and_replies);
+		setContentView(R.layout.activity_view_answer_and_replies);
 		hasBeenRead = false;
-		getQuestion();
+		getAnswer();
 		setFont();
-		populateReplyView();
+		//populateReplyView();
 	}
 	
 	@Override
@@ -90,14 +92,15 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Gets the question id that was sent through the intent using the tag
+	 * Gets the answer id that was sent through the intent using the tag
 	 * of @string/idExtraTag. From their the question object is retrieved
 	 * and its contents are populated into their respective views.
 	 */
-	private void getQuestion(){
+	private void getAnswer(){
 		Bundle extra = getIntent().getExtras();
 		if (extra != null){
-			qId = extra.getInt("@string/idExtraTag");
+			qId = extra.getInt("@string/idQuestionTag");
+			aId = extra.getInt("@string/idAnswerTag"); 
 		}
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
@@ -114,13 +117,14 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		
 		UserName user = UserName.getInstance();
 		
-		TextView questionText = (TextView) findViewById(R.id.questionText);
-		questionText.setTypeface(customTF);
-		questionText.setText(QAC.getQuestionString());
+		TextView answerText = (TextView) findViewById(R.id.questionText);
+		answerText.setTypeface(customTF);
+		myAnswer = myQuestion.getAnswerById(aId); 
+		answerText.setText(myAnswer.getAnswerString());
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		upvoteCount.setText(Integer.toString(myQuestion.getAnswerById(aId).getVotes()));
 		
 	}
 	/*
@@ -187,8 +191,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 
 	public void populateReplyView()
 	{	
-		QAController QAC = new QAController(myQuestion);
-		ArrayList<Reply> replies = QAC.getReplies();
+		ArrayList<Reply> replies = myAnswer.getReplies();
 		replyListView = (ListView) findViewById(R.id.replyList);
 		arrayReplyAdapter = new InsertReplyAdapter(this, replies);
 		replyListView.setAdapter(arrayReplyAdapter);
@@ -265,8 +268,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		reply = new Reply(replyText);
 		replyEditText.setText("");
 
-		QAController QAC = new QAController(myQuestion);
-		QAC.addReply(reply);
+		myAnswer.addReply(reply);
 		
 		populateReplyView();
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
