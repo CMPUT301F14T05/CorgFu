@@ -30,6 +30,7 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -66,10 +67,11 @@ public class MainActivity extends Activity
 		setContentView(R.layout.activity_main);
 		connected =ConnectedManager.getInstatnce();
 		connected.setContext(context);
+		UserName nameOfUser = UserName.getInstance();
 		Button myProfileButton = (Button)findViewById(R.id.MyProfileButton);//button to click to go to your user profile
 		Button answersButton = (Button)findViewById(R.id.GoToAnswer);//button to click to go to the list of previously asked questions
 		TextView TV = (TextView)findViewById(R.id.MainQuestionText);//grabs the text view to be displayed
-		
+		Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
 		Typeface customTypeFace = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");//creates a custom typeface from the textview
 		DC = new DataController();
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
@@ -116,7 +118,7 @@ public class MainActivity extends Activity
 		String question = questionText.getText().toString();//this is the text pulled from our edittext box
 		questionText.setText("");//sets the edit text box to blank after entering a question
 		Question q = new Question(question); // creates a new question object
-		
+		q.setReadableAddress();
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
 

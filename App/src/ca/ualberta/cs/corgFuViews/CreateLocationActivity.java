@@ -56,9 +56,9 @@ public class CreateLocationActivity extends Activity {
 			Toast.makeText(getApplicationContext(), "Location can't be empty.", Toast.LENGTH_LONG).show();
 		}else{
 			UserName nameOfUser= UserName.getInstance();
-			if (nameOfUser.getFormattedAddress() == null){
+			if (nameOfUser.getLocation() == null){
 				nameOfUser.makeAddress(locationString);
-				//Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), nameOfUser.getFormattedAddress(), Toast.LENGTH_LONG).show();
 				toMain();
 			} else {
 				nameOfUser.makeAddress(locationString);

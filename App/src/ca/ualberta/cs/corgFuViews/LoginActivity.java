@@ -61,6 +61,7 @@ public class LoginActivity extends Activity implements LocationListener{
 		
 		getLocation(this);
 		
+		
 		final Button btn = (Button) findViewById(R.id.LoginButton);
 		btn.setOnClickListener(new UserLoginListner());
 	}
