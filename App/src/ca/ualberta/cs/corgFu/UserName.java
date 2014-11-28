@@ -23,9 +23,13 @@ import android.widget.Toast;
 
 public class UserName {
 	
+	/**The singleton instance for the username being used across the app*/
 	private static UserName instance = null;
+	/**String representing the inputted username*/
 	private String uN;
+	/**The location that is attached to the username if location services are turned on*/
 	private Location location;
+	/**A geocoder object used to convert a location object into a formatted string*/
 	private Geocoder geocoder;
 	private Boolean attachLocation = false;
 	private Address adr;
@@ -37,11 +41,16 @@ public class UserName {
 	
 	public String getFormattedAddress(){
 		if (instance.formattedAddress == null){
-			if (instance.getLocation() != null){			
-				setFormattedAddress();
+			if (instance.getLocation() != null){	
+				if (instance.getAttachLocation() == true){
+					setFormattedAddress();
+				} else {
+					instance.formattedAddress = "No Location Available.";
+				}
+			} else {
+					instance.formattedAddress = "No Location Available.";
+				}
 			}
-		}
-		
 		return instance.formattedAddress;
 	}
 	
@@ -61,8 +70,6 @@ public class UserName {
 		if (instance == null){
 			instance = new UserName();	
 		}
-		instance.formattedAddress = null;
-		instance.location = null;
 		return instance;
 	}
 	public void setUserName(String uNameString){
