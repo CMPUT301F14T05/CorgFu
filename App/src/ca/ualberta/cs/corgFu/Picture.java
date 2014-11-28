@@ -5,6 +5,7 @@ import java.io.Serializable;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import android.graphics.Bitmap;
+import android.util.Log;
 
 /**
  * This is an abstract class that performs all the needed
@@ -42,9 +43,9 @@ public class Picture implements Serializable {
 		 3. prescribe a default image if no images are supplied/option aborted */
 		
 		// Finally, attach Image meets requirements 
-		if (smallPicture(image)) {
-			question.setImage(image);
-		}
+		Bitmap resizedImage = getResizedBitmap(image, 64);
+		question.setImage(resizedImage);
+
 	}
 
 	/**
@@ -65,12 +66,26 @@ public class Picture implements Serializable {
 	 */
 	public static Boolean smallPicture(Bitmap Image) {
 		// attached picture meets requirements
-		if ((byteSizeOf(Image) >0) && (byteSizeOf(Image) <= MAX_PICTURE_SIZE)) {
-			return true;
-		}
-		// attached picture fails requirements 
-		return false;
+		return true;
 	}
+	
+	public static Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+		int outWidth;
+		int outHeight;
+		int inWidth = image.getWidth();
+		int inHeight = image.getHeight();
+		if(inWidth > inHeight){
+		    outWidth = maxSize;
+		    outHeight = (inHeight * maxSize) / inWidth; 
+		} else {
+		    outHeight = maxSize;
+		    outWidth = (inWidth * maxSize) / inHeight; 
+		}
+		Bitmap resizedBitmap = Bitmap.createScaledBitmap(image, outWidth, outHeight, false);
+		return resizedBitmap;
+    }
+	
+
 	
 	/**
 	 * Determines the number of bytes of an Bitmap Image. 

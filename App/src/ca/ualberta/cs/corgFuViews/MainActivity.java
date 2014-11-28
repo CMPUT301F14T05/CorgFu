@@ -247,12 +247,13 @@ public class MainActivity extends Activity
 				e.printStackTrace();
 			}
 
-    		if (Picture.smallPicture(attachedPic)) {
+    		if (Picture.byteSizeOf(attachedPic) > 0) {
     			// Add image to the question
 
     			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			Question q = DC.getQuestionById(requestCode, "MyQuestions.save");
-    			q.setImage(attachedPic);
+    			Bitmap resizedPic = Picture.getResizedBitmap(attachedPic, 64);
+    			q.setImage(resizedPic);
     			DC.addData(q, "MyQuestions.save");
     			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			AQC.addQuestion(q);
