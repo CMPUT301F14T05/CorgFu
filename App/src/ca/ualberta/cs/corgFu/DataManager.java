@@ -31,7 +31,7 @@ public class DataManager {
 	private static final String saveString = "saving tracker";
 	private Context context;
 	private static DataManager INSTANCE = null;
-	public ArrayList<Question> favouriteList;
+	public ArrayList<Question> questionList;
 	public static Boolean control = true;
 	public static OfflineData favourites;
 	public DataManager(){
@@ -50,7 +50,7 @@ public class DataManager {
 	//save and load data from file
 	// saves data as an array of questions, the choice indicates if its a 
 	// favourite, read later, cache  (0,1,2) respectively
-	public void saveFavouritesToFile(ArrayList<Question> dataList,String choice){
+	public void saveDataToFile(ArrayList<Question> dataList,String choice){
 		Log.i(saveString,"start");
 		try {
 			Log.i(saveString, "fail1");
@@ -62,7 +62,7 @@ public class DataManager {
 			gson.toJson(dataList,osw);
 			Log.i(saveString, "fail5");
 			osw.flush();
-			Log.i(saveString, "fail6");
+			Log.i(saveString, "passed");
 			fos.close();
 			
 		} catch (FileNotFoundException e) {
@@ -76,7 +76,7 @@ public class DataManager {
 		
 	
 	// load based on choice 0 = fav, 1 =cache, 2= later
-	public ArrayList<Question> loadFavouritesFromFile(String choice){
+	public ArrayList<Question> loadDataToFile(String choice){
 		try{
 			File fh = new File(context.getFilesDir(), choice);
 			
@@ -97,7 +97,10 @@ public class DataManager {
 			Type listType = new TypeToken<ArrayList<Question>>(){}.getType();
 			//favourites = Favourites.getInstance();
 			Log.i("Loading", "load4");
-			favouriteList = gson.fromJson(in, listType);
+			questionList = gson.fromJson(in, listType);
+			for(Question q:questionList){
+				Log.i("loaded q", q.getQuestionText());
+			}
 			Log.i("Loading", "load5");
 			
 			
@@ -106,15 +109,13 @@ public class DataManager {
 			Log.i("Loading", "Passed");
 			
 		} catch (FileNotFoundException e){
-			e.printStackTrace();
-		}catch (StreamCorruptedException e) {
-			// TODO Auto-generated catch block
+			Log.i("Loading", "Filenotfound");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		return favouriteList;
+		return questionList;
 	}
 	
 }
