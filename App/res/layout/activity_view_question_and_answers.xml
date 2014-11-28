@@ -9,17 +9,17 @@
     android:scrollbars="vertical"
     tools:context=".ViewQuestionAndAnswers" >
 
-	<Button 
-        android:id = "@+id/readLaterButton"
+    <Button
+        android:id="@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:fontFamily="fonts/26783.ttf"
-        android:textColor="#ff04c1d2"
-        android:text="@string/readLaterButtonText"
         android:background="@drawable/buttonshape"
+        android:fontFamily="fonts/26783.ttf"
         android:onClick="readLater"
-    />
+        android:text="@string/readLaterButtonText"
+        android:textColor="#ff04c1d2" />
+
     <TextView
         android:id="@+id/questionText"
         android:layout_width="wrap_content"
@@ -29,16 +29,17 @@
         android:layout_below="@+id/readLaterButton"
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
-        android:textSize="15sp" >    
+        android:textSize="15sp" >
     </TextView>
-    <TextView 
-        android:id="@+id/location" 
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
+
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/questionText"
-        android:textSize="12sp"> 
+        android:textSize="12sp" >
     </TextView>
 
     <ImageButton
@@ -47,75 +48,20 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/location"
-        android:text="@string/favoriteButtonText"
-        android:textSize="15sp" 
+        android:contentDescription="@string/fav_button_description"
         android:onClick="addToFavorite"
         android:src="@android:drawable/btn_star_big_off"
-        android:contentDescription="@string/fav_button_description"/>
-    <TextView 
-        android:id = "@+id/upvoteCount"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
+        android:text="@string/favoriteButtonText"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/upvoteCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/questionText"
         android:textColor="#ff04c1d2"
-        android:textSize = "30sp"
-        />
-    <ExpandableListView
-        android:id="@+id/questionRepliesExpandable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/favoriteButton" 
-        />
-        
-    <TextView 
-        android:id = "@+id/topAnswerLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:textStyle="bold"
-        android:text = "@string/topAnswerLabelText"
-        android:layout_below="@+id/questionRepliesExpandable"
-        
-        />
-    
-    <TextView
-        android:id="@+id/topAnswerText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/topAnswerLabel" />
-    
-    <ExpandableListView
-        android:id="@+id/topAnswerReplies"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/topAnswerText" />
-    <ListView 
-        android:id="@+id/answersListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below = "@+id/topAnswerReplies"
-        />
-    <EditText 
-        android:id="@+id/answerQuestionEditText"
-        android:layout_width = "fill_parent"
-		android:layout_height = "wrap_content"
-		android:layout_toStartOf="@+id/submitAnswerButton"
-		android:hint="@string/writeAnswerHint"
-		android:layout_below = "@+id/answersListView"
-	/>
-    <Button 
-        android:id = "@+id/submitAnswerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="fonts/26783.ttf"
-        android:textColor="#ff04c1d2"
-        android:layout_below = "@+id/answersListView"
-        android:layout_alignParentEnd="true"
-        android:text="@string/answerButtonText"
-        android:background="@drawable/buttonshape"
-        android:onClick="submitAnswer"/>
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/qPictureView"
@@ -125,11 +71,54 @@
         android:layout_alignTop="@+id/readLaterButton"
         android:contentDescription="@string/pictureDescriptionQuestion" />
 
+    <ExpandableListView
+        android:id="@+id/answersListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/questionRepliesExpandable"
+		android:layout_above="@+id/submitAnswerButton"
+         >
+
+    </ExpandableListView>
+
+    <Button
+        android:id="@+id/submitAnswerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="fonts/26783.ttf"
+        android:onClick="submitAnswer"
+        android:text="@string/answerButtonText"
+        android:textColor="#ff04c1d2" />
+
+    <EditText
+        android:id="@+id/answerQuestionEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/submitAnswerButton"
+        android:ems="10"
+        android:hint="@string/writeAnswerHint" />
+
+    <ExpandableListView
+        android:id="@+id/questionRepliesExpandable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/answerQuestionEditText"
+        android:layout_below="@+id/favoriteButton"
+         >
+
+    </ExpandableListView>
+
     <Button
         android:id="@+id/upvoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/questionRepliesExpandable"
+        android:layout_below="@+id/location"
         android:layout_toEndOf="@+id/favoriteButton"
         android:layout_toRightOf="@+id/favoriteButton"
         android:onClick="upvote"

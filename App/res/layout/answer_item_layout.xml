@@ -2,46 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    
+
     <TextView
-        android:id="@+id/answerText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
+        android:id="@+id/upvoteAnswerCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="#ff04c1d2"
+        android:textSize="30sp" />
 
     <Button
-        android:id="@+id/upvoteAnswerButton"
+        android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/answerText"
-        android:onClick="upvoteAns"
-        android:text="@string/upvoteButtonText"
-        android:textSize="15sp" />
-        
-   	<TextView 
-        android:id = "@+id/upvoteAnswerCount"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/answerText"
-        android:textColor="#ff04c1d2"
-        android:textSize = "30sp"
-        />
-    
-    <ExpandableListView
-        android:id="@+id/answerReplies"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageAnswer"
-        android:layout_alignTop="@+id/upvoteAnswerButton"
-        android:layout_toLeftOf="@+id/upvoteAnswerButton" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="View Picture" />
 
-    <ImageView
-        android:id="@+id/imageAnswer"
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/upvoteAnswerButton"
-        android:layout_below="@+id/upvoteAnswerCount"
-        android:layout_marginTop="18dp" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Reply" />
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button2"
+        android:text="Upvote" />
 
 </RelativeLayout>

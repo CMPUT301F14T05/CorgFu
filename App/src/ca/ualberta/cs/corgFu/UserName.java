@@ -31,7 +31,7 @@ public class UserName {
 	private Location location;
 	/**A geocoder object used to convert a location object into a formatted string*/
 	private Geocoder geocoder;
-	private Boolean attachLocation;
+	private Boolean attachLocation = false;
 	private Address adr;
 	private String formattedAddress;
 	

@@ -90,9 +90,13 @@ public class QAController {
 	
 	/** get array of answers to the question
 	 * 
-	 * @return array of answers
+	 * @return array of answers if there are an answers
+	 * and null if there are no answers
 	 */
 	public ArrayList<Answer> getAnswers(){
+		if(question.getAnswerCount() == 0) {
+			return null;
+		}
 		return  question.getAnswers(); 
 	}
 	
