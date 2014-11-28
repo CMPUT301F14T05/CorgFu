@@ -29,10 +29,10 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 	
 	private Context myContext;
 	private static int myResource = R.layout.answer_item_layout;
-	private static int answerTVId = R.id.answerText;
+	//private static int answerTVId = R.id.answerText;
 	private static int upvoteCount = R.id.upvoteAnswerCount;
-	private static int answerRepliesExpId = R.id.answerReplies;
-	private static int answerImageId = R.id.imageAnswer;
+	//private static int answerRepliesExpId = R.id.answerReplies;
+	//private static int answerImageId = R.id.imageAnswer;
 
 	
 	/** Adapter that handles replies to each Answer */
@@ -76,16 +76,16 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 		Answer answer = myObjects.get(position);
 
 		//Set Answer Text
-		TextView answerTV = (TextView) convertView.findViewById(answerTVId);
-		answerTV.setText(answer.getAnswerString());
+		//TextView answerTV = (TextView) convertView.findViewById(answerTVId);
+		//answerTV.setText(answer.getAnswerString());
 		TextView upvoteCountTV = (TextView) convertView.findViewById(upvoteCount);
 		upvoteCountTV.setText(String.valueOf(answer.getVotes()));
 		
 		// Set Answer Picture
-		ImageView imageAnswer = (ImageView) convertView.findViewById(answerImageId);
-		imageAnswer.setImageBitmap(answer.getPicture());
+		//ImageView imageAnswer = (ImageView) convertView.findViewById(answerImageId);
+		//imageAnswer.setImageBitmap(answer.getPicture());
 		
-		//Populate Replies to Answer Expandable
+/*		//Populate Replies to Answer Expandable
 		ExpandableListView expListView = (ExpandableListView) convertView.findViewById(answerRepliesExpId);
 
 		prepareReplyData(answer);
@@ -93,7 +93,7 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 		// setting replyAdapter
 		replyAnswerAdapter = new InsertReplyAdapter(myContext, replyHeader, replyChild);
 		expListView.setAdapter(replyAnswerAdapter);
-		return convertView;
+*/		return convertView;
 	}
 	
 	/** populates header and children of expandable view

@@ -32,6 +32,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ArrayAnswerAdapter;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
@@ -81,9 +82,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     HashMap<String, List<String>> replyChild = new HashMap<String, List<String>>();
     
     /** Outer list view with answers to a question */
-    ListView listView;
+    ExpandableListView answerListView;
     /** Custom arrayAdapter to handle list of Answers */
-    InsertAnswerAdapter arrayAnswerAdapter;
+    ArrayAnswerAdapter arrayAnswerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -238,10 +239,18 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	{	
 		QAController QAC = new QAController(myQuestion);
 		ArrayList<Answer> answers = QAC.getAnswers();
-		listView = (ListView) findViewById(R.id.answersListView);
+        List<String> answerHeader = prepareAnswerData(answers);
+        HashMap<String, List<String>> answerChild = new HashMap<String, List<String>>();
+        List<String> dummyChildren = new ArrayList<String>();
+        dummyChildren.add("");
+        int headerId  = answerHeader.size();
+        for(int i = 0; i < headerId; i++) {
+        	answerChild.put(answerHeader.get(i), dummyChildren); // Header, Child data 
+        }
+		answerListView = (ExpandableListView) findViewById(R.id.answersListView);
 		// setting arrayAdapter
-		arrayAnswerAdapter = new InsertAnswerAdapter(this, answers);
-		listView.setAdapter(arrayAnswerAdapter);
+		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answerHeader, answerChild);
+		answerListView.setAdapter(arrayAnswerAdapter);
 		
 	}
 	
@@ -311,7 +320,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that is being clicked on.
 	 */
 	public void upvoteAns(View v){
-		QAController QAC = new QAController(myQuestion);
+/*		QAController QAC = new QAController(myQuestion);
 		ArrayList<Answer> answers = QAC.getAnswers();
 		int indx = listView.getPositionForView(v);
 		answers.get(indx).upvote();
@@ -332,7 +341,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		//populateAnswerView();
 		arrayAnswerAdapter.notifyDataSetChanged();
-	}
+*/	}
 	
 	/**
 	 * Adds an answer to the question when the user clicks the submit answer button
@@ -553,15 +562,21 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * for Answers to a Question
 	 * @param answerHeader - header of expandable view
 	 * @param answerChild - HashMap of expandable view
+	 * @return 
 	 */
-    private void prepareAnswerData(List<String> answerHeader, HashMap<String, List<String>> answerChild) {
-
-    	for (Answer answer : myQuestion.getAnswers()) {
-    		answerHeader.add(answer.getAnswerString());
-        	List<String> replies = new ArrayList<String>();
-    		
-    	}
-
+    private List<String> prepareAnswerData(ArrayList<Answer> answers) {
+        List<String> answerHeader = new ArrayList<String>();
+        //HashMap<String, List<String>> answerChild = new HashMap<String, List<String>>();
+        if (answers == null) {
+        	//no answers
+        	answerHeader.add("No Answers");
+        }
+        else {
+        	for (Answer answer : answers) {
+        		answerHeader.add(answer.getAnswerString()); 
+        	}
+        }
+    	return answerHeader;
         //replyChild.put(replyHeader.get(0), replies); // Header, Child data 
     }
     
