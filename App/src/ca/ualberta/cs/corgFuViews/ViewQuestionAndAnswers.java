@@ -504,27 +504,34 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v View that was clicked on
 	 */
 	public void submitReplyQuestion(View v){
+		String emptyString = "";
 		// get reply string
 		EditText replyEditText = (EditText) findViewById(R.id.replyQuestionEditText);
 		String replyText = replyEditText.getText().toString();
-		Reply reply = new Reply(replyText);
-		replyEditText.setText("");
 
-		// get current question		
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		myQuestion = AQC.getQuestionById(qId);
-		
-		// add reply to question with QAController		
-		QAController QAC = new QAController(myQuestion);
-		QAC.addReply(reply);
-		
-		// dynamic update of replies list
-		populateReplyView();
-		ExpandableListView listView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
-		listView.expandGroup(0);
-		replyAdapter.notifyDataSetChanged();
-		Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
+		// making sure we are not adding empty reply
+		if(replyText.isEmpty()) {
+			// handling attempt to submit empty reply
+		}
+		else {
+			Reply reply = new Reply(replyText);
+			replyEditText.setText(emptyString);
 
+			// get current question		
+			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+			myQuestion = AQC.getQuestionById(qId);
+		
+			// add reply to question with QAController		
+			QAController QAC = new QAController(myQuestion);
+			QAC.addReply(reply);
+		
+			// dynamic update of replies list
+			populateReplyView();
+			ExpandableListView listView = (ExpandableListView) findViewById(R.id.questionRepliesExpandable);
+			listView.expandGroup(0);
+			replyAdapter.notifyDataSetChanged();
+			//Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
+		}
 	}
 	
 	@Override
