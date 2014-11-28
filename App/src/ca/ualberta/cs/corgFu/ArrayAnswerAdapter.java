@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.TextView;
  
 public class ArrayAnswerAdapter extends BaseExpandableListAdapter {
@@ -103,7 +104,7 @@ public class ArrayAnswerAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.myContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.answer_header, null);
+            convertView = infalInflater.inflate(R.layout.answer_header_relative, null);
         }
  
         TextView lblListHeader = (TextView) convertView

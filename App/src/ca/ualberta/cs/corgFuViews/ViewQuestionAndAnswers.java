@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
@@ -201,12 +202,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	private void setPicture() {
 		if (myQuestion.hasPicture()) {
-			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show();
 			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView);
 			qPictureView.setImageBitmap(myQuestion.getImage());
 		}
 		else {
-			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -225,6 +226,9 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			// setting replyAdapter
 			replyAdapter = new InsertReplyAdapter(this, replyHeader, replyChild);
 			expListView.setAdapter(replyAdapter);
+			Drawable expandIcon = this.getResources().getDrawable(android.R.drawable.ic_input_add);
+			expListView.setGroupIndicator(expandIcon);
+			expListView.setChildIndicator(null);
         }
 		catch(Exception e) {
             System.out.println("Errrr +++ " + e.getMessage());
@@ -250,8 +254,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		answerListView = (ExpandableListView) findViewById(R.id.answersListView);
 		// setting arrayAdapter
 		arrayAnswerAdapter = new ArrayAnswerAdapter(this, answerHeader, answerChild, myQuestion);
-		answerListView.setAdapter(arrayAnswerAdapter);
-		
+		answerListView.setAdapter(arrayAnswerAdapter);		
 	}
 	
 	/**
@@ -320,19 +323,21 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that is being clicked on.
 	 */
 	public void upvoteAns(View v){
-/*		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswers();
-		int indx = listView.getPositionForView(v);
-		answers.get(indx).upvote();
+		QAController QAC = new QAController(myQuestion);
+		//ArrayList<Answer> answers = QAC.getAnswers();
+		//int buttonPosition = expListView.getPositionForView(v);
+		View child = (View) v.getParent().getParent();
+		
+		//Toast.makeText(this, "Button position: " + buttonPosition, Toast.LENGTH_LONG).show();
+/*		Answer answer = answers.get(buttonPosition);
+		answer.upvote();
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
 		upvoteCount.setTypeface(customTF);
 
-		upvoteCount.setText(Integer.toString(QAC.getAnswers().get(indx)
-				.getVotes()
-				));
+		upvoteCount.setText(Integer.toString(answer.getVotes()));
 		
 		Button upvoteAnsButton = (Button) v;
 		
@@ -340,8 +345,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteAnsButton.setEnabled(false);	
 		
 		//populateAnswerView();
-		arrayAnswerAdapter.notifyDataSetChanged();
-*/	}
+*/		arrayAnswerAdapter.notifyDataSetChanged();
+	}
 	
 	/**
 	 * Adds an answer to the question when the user clicks the submit answer button
@@ -353,14 +358,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		String answerText = answerEditText.getText().toString();
 		a = new Answer(answerText);
 		answerEditText.setText("");
+		
+		// MVC to handle singleton answer		
+		QAController QAC = new QAController(myQuestion);
+		QAC.addAnswer(a);
 
 		int aId = a.getId();
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(aId);
 		
-		// MVC to handle singleton answer		
-		QAController QAC = new QAController(myQuestion);
-		QAC.addAnswer(a);
 		
 		populateAnswerView();
 		
@@ -387,6 +393,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
                  	   Intent i = new Intent(Intent.ACTION_PICK, Media.EXTERNAL_CONTENT_URI);
 
                  	   startActivityForResult(i, aId);
+
                    }
 
                });
@@ -451,7 +458,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
     	//fetches picture from image directory  
     	if (resultCode == Activity.RESULT_OK && null != data) {
-
     		Uri selectedImage = data.getData();
     		InputStream is = null;
     		Bitmap attachedPic = null;
@@ -470,23 +476,26 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				// Attempt to close non-existing InputStream
 				e.printStackTrace();
 			}
+    		Toast.makeText(this, "Picture cannot be added. RequestCode = " + requestCode, Toast.LENGTH_LONG).show();
 
     		if (Picture.smallPicture(attachedPic)) {
-    			// Add image to the question
-
-    			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+    			// Add image to the answer
+    			// needs to know both question Id and answer Id
+/*
+    			dc = new DataController();
     			Question q = dc.getQuestionById(qId, "MyQuestions.save");
-    			Answer answer = q.getAnswerById(requestCode);
+    			QAController QAC = new QAController(q);
+    			Answer answer = QAC.getAnswerById(requestCode);
     			answer.setPicture(attachedPic);
     			dc.addData(q, "MyQuestions.save");
     			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			AQC.addQuestion(q);
     			
     			Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show();
-
+*/
     		}
     		else {
-    			Toast.makeText(this, "image is too large", Toast.LENGTH_LONG).show();
+    			//Toast.makeText(this, "image is too large", Toast.LENGTH_LONG).show();
     			// Image is too large. Invoke another dialog asking to add another image
     			invokeAddSmallerPictureDialog(requestCode);
 
