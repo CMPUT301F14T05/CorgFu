@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/favoriteButton"
-        android:text="@string/topAnswerLabelText"
+        android:text="@string/topRepliesLabelText"
         android:textStyle="bold" />
 
     <ImageView
@@ -81,45 +81,45 @@
         android:contentDescription="@string/pictureDescriptionQuestion" />
 
     <Button
-        android:id="@+id/goToQReplies"
+        android:id="@+id/gotoAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/topHeaderLabelText"
         android:layout_toEndOf="@+id/upvoteButton"
         android:layout_toRightOf="@+id/upvoteButton"
-        android:onClick="goToQReplies"
-        android:text="@string/replyButtonText"
+        android:onClick="gotoAnswer"
+        android:text="@string/AnswerButtonText"
         android:textSize="15sp" />
 
     <EditText
-        android:id="@+id/AnswerEditText"
+        android:id="@+id/ReplyEditText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/submitAnswerButton"
-        android:layout_toStartOf="@+id/submitAnswerButton"
+        android:layout_toLeftOf="@+id/submitReplyButton"
+        android:layout_toStartOf="@+id/submitReplyButton"
         android:ems="10"
-        android:hint="@string/writeAnswerHint" />
+        android:hint="@string/writeReplyHint" />
 
     <Button
-        android:id="@+id/submitAnswerButton"
+        android:id="@+id/submitReplyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/AnswerEditText"
+        android:layout_alignBottom="@+id/ReplyEditText"
         android:layout_alignParentEnd="true"
         android:layout_alignRight="@+id/topHeaderLabelText"
         android:background="@drawable/buttonshape"
         android:fontFamily="fonts/26783.ttf"
-        android:onClick="submitAnswer"
-        android:text="@string/answerButtonText"
+        android:onClick="submitReply"
+        android:text="@string/replyButtonText"
         android:textColor="#ff04c1d2" />
 
     <ListView
-        android:id="@+id/answerList"
+        android:id="@+id/replyList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/submitAnswerButton"
-        android:layout_alignLeft="@+id/AnswerEditText"
+        android:layout_above="@+id/ReplyEditText"
+        android:layout_alignLeft="@+id/ReplyEditText"
         android:layout_below="@+id/topHeaderLabelText" >
 
     </ListView>

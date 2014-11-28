@@ -43,9 +43,14 @@
     <string name="questionHeaderText">QUESTION</string>
     <string name="favoriteButtonText">Favorite</string>
     <string name="upvoteButtonText">Upvote</string>
-    <string name="topAnswerLabelText">Top Answer</string>
-    <string name="writeAnswerHint">Answer this question</string>
-    <string name="answerButtonText">Submit</string>
+    <string name="topRepliesLabelText">Most Recent Replies</string>
+    <string name="topAnswerLabelText">Top Answers</string>
+    <string name="AnswerButtonText">Answer</string>
+    <string name="writeReplyHint">Type Reply here ...</string>
+    <string name="writeAnswerHint">Type Answer here ...</string>
+    <string name="replyButtonText">Reply</string>
+    <string name="answerButtonText">Answer</string>
+    <string name="ReplyButtonText">Reply</string>
     <string name="readLaterButtonText">Read Later</string>
     <string name="idExtraTag">QuestionIdExtraTag</string>
     <string name="title_activity_my_profile">MyProfile</string>

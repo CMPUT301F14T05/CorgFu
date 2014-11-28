@@ -30,7 +30,6 @@ import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
-import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFu.Picture;
@@ -54,7 +53,7 @@ import ca.ualberta.cs.corgFuModels.Reply;
  * @author wrflemin
  *
  */
-public class ViewQuestionAndAnswers extends Activity implements IView
+public class ViewQuestionAndReplies extends Activity implements IView
 {
 	// 0 = favourites file
 	// 1 = cache file
@@ -68,21 +67,21 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	DataController dc;
 	boolean hasBeenRead;
 	/** This is the answer that is being added by the user*/
-	protected Answer answer; //most recent Reply added by the user
+	protected Reply reply; //most recent Reply added by the user
 	
     /** ReplyList view with answers to a question */
-    ListView answerListView;
+    ListView replyListView;
     /** Custom arrayAdapter to handle list of Answers */
-    InsertAnswerAdapter arrayAnswerAdapter;
+    InsertReplyAdapter arrayReplyAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_view_question_and_answers);
+		setContentView(R.layout.activity_view_question_and_replies);
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
-		populateAnswerView();
+		populateReplyView();
 	}
 	
 	@Override
@@ -177,7 +176,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Button readLater = (Button) findViewById(R.id.readLaterButton);
 		readLater.setTypeface(customTF);
 		
-		Button submit = (Button) findViewById(R.id.submitAnswerButton);
+		Button submit = (Button) findViewById(R.id.submitReplyButton);
 		submit.setTypeface(customTF);
 	}
 
@@ -186,13 +185,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * specified by the user (Sorted by date on default)
 	 */
 
-	public void populateAnswerView()
+	public void populateReplyView()
 	{	
 		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswersByUpVotes();
-		answerListView = (ListView) findViewById(R.id.answerList);
-		arrayAnswerAdapter = new InsertAnswerAdapter(this, answers);
-		answerListView.setAdapter(arrayAnswerAdapter);
+		ArrayList<Reply> replies = QAC.getReplies();
+		replyListView = (ListView) findViewById(R.id.replyList);
+		arrayReplyAdapter = new InsertReplyAdapter(this, replies);
+		replyListView.setAdapter(arrayReplyAdapter);
 	}
 	
 	/**
@@ -256,58 +255,31 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	}
 	
 	/**
-	 * Upvotes the Answer. First the Answer is retrieved through the id, then
-	 * it is upvoted.
-	 * @param v The view that is being clicked on.
-	 */
-	public void upvoteAns(View v){
-		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswers();
-		
-		int indx = answerListView.getPositionForView(v);
-		answers.get(indx).upvote();
-		
-		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
-		
-		upvoteCount.setTypeface(customTF);
-		upvoteCount.setText(Integer.toString(QAC.getAnswers()
-				.get(indx).getVotes()
-		));
-		
-		Button upvoteAnsButton = (Button) v;
-		upvoteAnsButton.setClickable(false);
-		upvoteAnsButton.setEnabled(false);
-		
-		arrayAnswerAdapter.notifyDataSetChanged();
-	}
-	
-	/**
-	 * Adds an Answer to the question when the user clicks the submit answer button
+	 * Adds an reply to the question when the user clicks the submit answer button
 	 * @param v The view that was clicked on
 	 */
-	public void submitAnswer(View v) {
+	public void submitReply(View v) {
 		 
-		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
-		String answerText = answerEditText.getText().toString();
-		answer = new Answer(answerText);
-		answerEditText.setText("");
+		EditText replyEditText = (EditText) findViewById(R.id.ReplyEditText);
+		String replyText = replyEditText.getText().toString();
+		reply = new Reply(replyText);
+		replyEditText.setText("");
 
 		QAController QAC = new QAController(myQuestion);
-		QAC.addAnswer(answer);
+		QAC.addReply(reply);
 		
-		populateAnswerView();
+		populateReplyView();
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 	}
 	
 	/**
-	 * Links to QuestionAndReplies View when clicked 
+	 * Links to QuestionAndAnswers View when clicked 
 	 * @param v The view that was clicked on
 	 */
-	public void goToQReplies(View v) {
+	public void gotoAnswer(View v) {
 		int qId = myQuestion.getId();
 		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
-		Intent launch = new Intent(this, ViewQuestionAndReplies.class);
+		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
 
@@ -315,6 +287,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
 	@Override
 	public void update() {
-		arrayAnswerAdapter.notifyDataSetChanged();
+		arrayReplyAdapter.notifyDataSetChanged();
 	}    
 }

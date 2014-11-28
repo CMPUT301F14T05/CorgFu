@@ -26,7 +26,7 @@
         </activity>
         <activity android:name="ca.ualberta.cs.corgFuViews.SearchResults" >
         </activity>
-        <activity android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers" >
+        <activity android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndReplies" >
         </activity>
         <activity
             android:name="ca.ualberta.cs.corgFuViews.AttachPicture"
@@ -46,7 +46,7 @@
             android:label="@string/title_activity_my_profile" >
         </activity>
         <activity
-            android:name=".ProfileActivity"
+            android:name="ca.ualberta.corgfuapp.ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
@@ -64,6 +64,10 @@
         <activity
             android:name="ca.ualberta.cs.corgFuViews.CreateLocationActivity"
             android:label="@string/title_activity_create_location" >
+        </activity>
+        <activity
+            android:name="ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers"
+            android:label="@string/title_activity_view_question_and_answers" >
         </activity>
     </application>
 

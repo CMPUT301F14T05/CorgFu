@@ -106,7 +106,7 @@ public class SearchResults extends Activity {
 	 * purposes.
 	 */
 	private void goToQuestion(int qId){
-		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
+		Intent intent = new Intent(this, ViewQuestionAndReplies.class);
     	intent.putExtra("@string/idExtraTag", qId);
     	startActivity(intent);
 	}

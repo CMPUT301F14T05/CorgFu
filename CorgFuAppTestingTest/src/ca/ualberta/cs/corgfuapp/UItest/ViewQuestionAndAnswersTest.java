@@ -8,15 +8,15 @@ import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.BrowseItems;
-import ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers;
+import ca.ualberta.cs.corgFuViews.ViewQuestionAndReplies;
 
 public class ViewQuestionAndAnswersTest extends
-		ActivityInstrumentationTestCase2<ViewQuestionAndAnswers> {
+		ActivityInstrumentationTestCase2<ViewQuestionAndReplies> {
 	
-	ViewQuestionAndAnswers activity;
+	ViewQuestionAndReplies activity;
 	
 	public ViewQuestionAndAnswersTest(){
-		super(ViewQuestionAndAnswers.class);
+		super(ViewQuestionAndReplies.class);
 	}
 	
 	public void testViewQuestionText(){
@@ -27,7 +27,7 @@ public class ViewQuestionAndAnswersTest extends
 		Intent intent = new Intent();
     	intent.putExtra("@string/idExtraTag", Q1.getId());
     	setActivityIntent(intent);
-		activity = (ViewQuestionAndAnswers) getActivity();
+		activity = (ViewQuestionAndReplies) getActivity();
 		
 		TextView questionText = (TextView) activity.findViewById(R.id.questionText);
 		assertEquals("Testing question text makes it to view","Test one", questionText.getText());
@@ -43,7 +43,7 @@ public class ViewQuestionAndAnswersTest extends
 		Intent intent = new Intent();
     	intent.putExtra("@string/idExtraTag", Q1.getId());
     	setActivityIntent(intent);
-		activity = (ViewQuestionAndAnswers) getActivity();
+		activity = (ViewQuestionAndReplies) getActivity();
 		
 		TextView upvoteCount = (TextView) activity.findViewById(R.id.upvoteCount);
 		assertEquals("Testing question text makes it to view","1", upvoteCount.getText());

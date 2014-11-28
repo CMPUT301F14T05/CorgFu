@@ -17,7 +17,7 @@ import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.LoginActivity;
-import ca.ualberta.cs.corgFuViews.ViewQuestionAndAnswers;
+import ca.ualberta.cs.corgFuViews.ViewQuestionAndReplies;
 
 public class OfflineDataAdapter extends ArrayAdapter<Question> {
 	private Context myContext;
@@ -90,7 +90,7 @@ public class OfflineDataAdapter extends ArrayAdapter<Question> {
 	
 	private void goToQuestion(Question myQuestion){
 		
-		Intent intent = new Intent( myContext, ViewQuestionAndAnswers.class);
+		Intent intent = new Intent( myContext, ViewQuestionAndReplies.class);
 		
 		int qId = myQuestion.getId();
 		AllQuestions AllQuestions = AllQuestionsApplication.getAllQuestions();

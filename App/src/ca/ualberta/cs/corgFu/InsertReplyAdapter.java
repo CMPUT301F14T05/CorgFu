@@ -1,110 +1,66 @@
 package ca.ualberta.cs.corgFu;
 
-import java.util.HashMap;
-import java.util.List;
+import java.lang.annotation.Inherited;
+import java.util.ArrayList;
 
-import ca.ualberta.corgfuapp.R;
-
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
- 
-public class InsertReplyAdapter extends BaseExpandableListAdapter {
-	 
-    private Context myContext;
-    private List<String> replyHeader;                  // replyHeader titles
-    private HashMap<String, List<String>> replyChild;  // replyChild titles
- 
-    public InsertReplyAdapter(Context context, List<String> listDataHeader,
-            HashMap<String, List<String>> listChildData) {
-        this.myContext = context;
-        this.replyHeader = listDataHeader;
-        this.replyChild = listChildData;
-    }
- 
-    @Override
-    public Object getChild(int groupPosition, int childPosititon) {
-        return this.replyChild.get(this.replyHeader.get(groupPosition))
-                .get(childPosititon);
-    }
- 
-    @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return childPosition;
-    }
- 
-    @SuppressLint("InflateParams")
-	@Override
-    public View getChildView(int groupPosition, final int childPosition,
-            boolean isLastChild, View convertView, ViewGroup parent) {
- 
-        final String childText = (String) getChild(groupPosition, childPosition);
- 
+import ca.ualberta.corgfuapp.R;
+import ca.ualberta.cs.corgFuModels.Question;
+import ca.ualberta.cs.corgFuModels.Reply;
 
-        LayoutInflater infalInflater = (LayoutInflater) this.myContext
-                   	.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        if (isLastChild) {
-        	convertView = infalInflater.inflate(R.layout.reply_add, null);
-        }
-        else {
-        	convertView = infalInflater.inflate(R.layout.reply_item, null);
-        	TextView txtListChild = (TextView) convertView
-        			.findViewById(R.id.replyItem);
-         
-        	txtListChild.setText(childText);
-            }
-        return convertView;
-    }
- 
-    @Override
-    public int getChildrenCount(int groupPosition) {
-        return this.replyChild.get(this.replyHeader.get(groupPosition))
-                .size();
-    }
- 
-    @Override
-    public Object getGroup(int groupPosition) {
-        return this.replyHeader.get(groupPosition);
-    }
- 
-    @Override
-    public int getGroupCount() {
-        return this.replyHeader.size();
-    }
- 
-    @Override
-    public long getGroupId(int groupPosition) {
-        return groupPosition;
-    }
- 
-    @Override
-    public View getGroupView(int groupPosition, boolean isExpanded,
-            View convertView, ViewGroup parent) {
-        String headerTitle = (String) getGroup(groupPosition);
-        if (convertView == null) {
-            LayoutInflater infalInflater = (LayoutInflater) this.myContext
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.answer_header, null);
-        }
- 
-        TextView lblListHeader = (TextView) convertView
-                .findViewById(R.id.answerHeader);
-        lblListHeader.setText(headerTitle);
- 
-        return convertView;
-    }
- 
-    @Override
-    public boolean hasStableIds() {
-        return false;
-    }
- 
-    @Override
-    public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
-    }
+/**
+ * The custom ArrayAdapter that allows a custom view to be inserted
+ * in an android ListView. The custom view used in this case displays
+ * the question text, number of answers to the question, and the
+ * number of upvotes the question has.
+ * @author Anthony
+ */
+public class InsertReplyAdapter extends ArrayAdapter<Reply> {
+	
+	private Context myContext;
+	private ArrayList<Reply> myObjects;
+	private static int replyTVId = R.id.replyItem;
+	private static int myResource = R.layout.reply_item;
+	
+	/**
+	 * Builds the custom adapter that is used to insert a custom layout
+	 * into the listview that shows the list of current questions.
+	 * @param context Information on the global application environment
+	 * @param objects The items that are going to be parsed into the custom
+	 * view and displayed in a listview.
+	 */
+	public InsertReplyAdapter(Context context, ArrayList<Reply> objects) {
+		super(context, myResource, objects);
+		myContext = context;
+		myObjects = objects;
+	}
+
+	/**
+	 * Inserts specific elements from objects into their respective views
+	 * to create a custom row in a listview.
+	 * @param position Indicates the position of the item being inserted
+	 * in the list
+	 * @param convertView The view that is passed in to be recycled (if
+	 * possible) to allow for fast scrolling through listviews
+	 * @param parent The listview that the element is being inserted into
+	 */
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent){
+		if (convertView == null){
+			LayoutInflater inflater = (LayoutInflater) myContext
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = inflater.inflate(myResource, parent, false);
+		}
+		UserName user = UserName.getInstance();
+		
+		TextView questionTV = (TextView) convertView.findViewById(replyTVId);
+		questionTV.setText(myObjects.get(position).getReplyString());
+		return convertView;
+	}
+	
 }

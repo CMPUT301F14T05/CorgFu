@@ -12,7 +12,6 @@
         android:id="@+id/upvoteAnswerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@+id/answerText"
         android:onClick="upvoteAns"
         android:text="@string/upvoteButtonText"
@@ -28,14 +27,6 @@
         android:textSize = "30sp"
         />
     
-    <ExpandableListView
-        android:id="@+id/answerReplies"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageAnswer"
-        android:layout_alignTop="@+id/upvoteAnswerButton"
-        android:layout_toLeftOf="@+id/upvoteAnswerButton" />
-
     <ImageView
         android:id="@+id/imageAnswer"
         android:layout_width="wrap_content"
