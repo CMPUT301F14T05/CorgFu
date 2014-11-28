@@ -27,7 +27,7 @@ public class UserName {
 	private String uN;
 	private Location location;
 	private Geocoder geocoder;
-	private Boolean attachLocation;
+	private Boolean attachLocation = false;
 	private Address adr;
 	private String formattedAddress;
 	

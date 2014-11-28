@@ -1,21 +1,26 @@
 package ca.ualberta.cs.corgFu;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.StreamCorruptedException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.util.Log;
 import ca.ualberta.cs.corgFuModels.OfflineData;
 import ca.ualberta.cs.corgFuModels.Question;
-import ca.ualberta.cs.corgFuViews.LoginActivity;
 import ca.ualberta.cs.corgFuViews.MainActivity;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 public class DataManager {
 	private static final String FavouritesFile = "Favourites.save";
@@ -26,7 +31,7 @@ public class DataManager {
 	private static final String saveString = "saving tracker";
 	private Context context;
 	private static DataManager INSTANCE = null;
-	public ArrayList<Question> favouriteList;
+	public ArrayList<Question> questionList;
 	public static Boolean control = true;
 	public static OfflineData favourites;
 	public DataManager(){
@@ -45,21 +50,19 @@ public class DataManager {
 	//save and load data from file
 	// saves data as an array of questions, the choice indicates if its a 
 	// favourite, read later, cache  (0,1,2) respectively
-	public void saveFavouritesToFile(ArrayList<Question> dataList,String choice){
+	public void saveDataToFile(ArrayList<Question> dataList,String choice){
 		Log.i(saveString,"start");
 		try {
 			Log.i(saveString, "fail1");
-			FileOutputStream fos =null;
-			
-			fos =  context.openFileOutput(choice,Context.MODE_PRIVATE);
-			
+			FileOutputStream fos =  context.openFileOutput(choice,Context.MODE_PRIVATE);
+			Gson gson = new Gson();
 			Log.i(saveString, "fail2");
-			ObjectOutputStream osw = new ObjectOutputStream(fos);
+			OutputStreamWriter osw = new OutputStreamWriter(fos);
 			Log.i(saveString, "fail4");
-			osw.writeObject(dataList);
+			gson.toJson(dataList,osw);
 			Log.i(saveString, "fail5");
-			osw.close();
-			Log.i(saveString, "fail6");
+			osw.flush();
+			Log.i(saveString, "passed");
 			fos.close();
 			
 		} catch (FileNotFoundException e) {
@@ -73,8 +76,7 @@ public class DataManager {
 		
 	
 	// load based on choice 0 = fav, 1 =cache, 2= later
-	@SuppressWarnings("unchecked")
-	public ArrayList<Question> loadFavouritesFromFile(String choice){
+	public ArrayList<Question> loadDataToFile(String choice){
 		try{
 			File fh = new File(context.getFilesDir(), choice);
 			
@@ -85,16 +87,20 @@ public class DataManager {
 				return aq;
 			}
 			FileInputStream fis = context.openFileInput(choice);
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(fis));
 			
 			Log.i("Loading", "load2");
-			ObjectInputStream in;
-			
-			in = new ObjectInputStream(fis);
+			Gson gson = new Gson();
 		
 			Log.i("Loading", "load3");
+			Type listType = new TypeToken<ArrayList<Question>>(){}.getType();
 			//favourites = Favourites.getInstance();
 			Log.i("Loading", "load4");
-			favouriteList = (ArrayList<Question>) in.readObject();
+			questionList = gson.fromJson(in, listType);
+			for(Question q:questionList){
+				Log.i("loaded q", q.getQuestionText());
+			}
 			Log.i("Loading", "load5");
 			
 			
@@ -103,17 +109,13 @@ public class DataManager {
 			Log.i("Loading", "Passed");
 			
 		} catch (FileNotFoundException e){
-			e.printStackTrace();
-		}catch (StreamCorruptedException e) {
-			// TODO Auto-generated catch block
+			Log.i("Loading", "Filenotfound");
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (ClassNotFoundException e){
-			e.printStackTrace();
-		}
-		return favouriteList;
+		} 
+		return questionList;
 	}
 	
 }
