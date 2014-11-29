@@ -227,6 +227,22 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		return null;
 	}
 	
+	/**
+	 *  returns answer with correct tempId and
+	 *  resets tempId
+	 * @param tempId
+	 * @return Answer
+	 */
+	public Answer getAnswerByTempId(int id) {
+		for (Answer a:answers){
+			if (a.getTempId() == id){
+				a.setTempId(0);
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	public void setAnswers(ArrayList<Answer> newAnswers){
 		answers = newAnswers;
 	}

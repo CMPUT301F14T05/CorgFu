@@ -33,10 +33,12 @@
     </TextView>
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
+    </TextView>
 
-</TextView><TextView
+    <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,8 +55,7 @@
         android:layout_below="@+id/questionText"
         android:text="Testing Name"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-    
-    
+
     <ImageButton
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"
@@ -142,8 +143,8 @@
         android:id="@+id/qPictureView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/questionText"
-        android:layout_alignTop="@+id/readLaterButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:contentDescription="@string/pictureDescriptionQuestion" />
 
 </RelativeLayout>

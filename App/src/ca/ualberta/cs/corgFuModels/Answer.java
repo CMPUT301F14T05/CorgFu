@@ -35,6 +35,7 @@ public class Answer implements Serializable
 	private Bitmap genericPic;
 	private Boolean hasAPicture;
 	private int id;
+	private int tempId;
 	private boolean isPushed;
 	private String author;
 
@@ -150,6 +151,7 @@ public class Answer implements Serializable
 	 * Answer.
 	 */
 	public void setPicture(Bitmap picture){
+		hasAPicture = true;
 		genericPic = picture;
 	}
 	/**
@@ -172,6 +174,19 @@ public class Answer implements Serializable
 	}
 	public void setId(int newId){
 		id = newId;
+	}
+	
+	/**
+	 * Returns the id that is temporary assigned to the answer
+	 * to identify it within the same question.
+	 * @return The TempId of the answer which is 0<= id <= 100000
+	 */
+	public int getTempId(){
+		return tempId;
+	}
+	
+	public void setTempId(int newId){
+		tempId = newId;
 	}
 
 	public boolean isPushed() {
