@@ -286,15 +286,15 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		}else{
 			reply = new Reply(replyText);
 			replyEditText.setText("");
+			
+			UserName user = UserName.getInstance();
+			reply.setAuthor(user.getUserName());
 
 			QAController QAC = new QAController(myQuestion);
 			QAC.addReply(reply);
 
 			populateReplyView();
 			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
-
-			UserName user = UserName.getInstance();
-			reply.setAuthor(user.getUserName());
 		}
 	}
 	
