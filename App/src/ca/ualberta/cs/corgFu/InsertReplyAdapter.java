@@ -25,6 +25,7 @@ public class InsertReplyAdapter extends ArrayAdapter<Reply> {
 	private Context myContext;
 	private ArrayList<Reply> myObjects;
 	private static int replyTVId = R.id.replyItem;
+	private static int dateTVId = R.id.date;
 	private static int myResource = R.layout.reply_item;
 	
 	/**
@@ -57,6 +58,9 @@ public class InsertReplyAdapter extends ArrayAdapter<Reply> {
 			convertView = inflater.inflate(myResource, parent, false);
 		}
 		UserName user = UserName.getInstance();
+		
+		TextView dateTV = (TextView) convertView.findViewById(dateTVId);
+		dateTV.setText(String.valueOf(myObjects.get(position).stringDate()));
 		
 		TextView questionTV = (TextView) convertView.findViewById(replyTVId);
 		questionTV.setText(myObjects.get(position).getReplyString());
