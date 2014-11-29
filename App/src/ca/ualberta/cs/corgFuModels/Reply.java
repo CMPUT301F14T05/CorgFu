@@ -1,6 +1,8 @@
 package ca.ualberta.cs.corgFuModels;
 
 import java.io.Serializable;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -16,6 +18,7 @@ import java.util.Date;
  */
 public class Reply implements Serializable{
 	private String replyString;
+	private String author;
 	private Date date;
 
 	private boolean isPushed;
@@ -53,4 +56,19 @@ public class Reply implements Serializable{
 	public Date getDate(){
 		return date;
 	}
+	
+	public String stringDate(){
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		return formatter.format(this.date);
+	}
+	
+	public void setAuthor(String author){
+		this.author = author;
+	}
+	
+	public String stringAuthor(){
+		return this.author;
+
+	}
+	
 }

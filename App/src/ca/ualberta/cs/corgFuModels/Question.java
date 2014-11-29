@@ -177,7 +177,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		Collections.sort(replies, new Comparator<Reply>() {
 
 						public int compare(Reply R1, Reply R2) {
-							return R1.getDate().compareTo(R2.getDate());
+							return R2.getDate().compareTo(R1.getDate());
 						}
 					});
 		return replies;

@@ -11,7 +11,6 @@ import android.app.Activity;
 import android.content.Intent;
 
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
@@ -30,9 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
-import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFu.Picture;
@@ -56,7 +53,7 @@ import ca.ualberta.cs.corgFuModels.Reply;
  * @author wrflemin
  *
  */
-public class ViewQuestionAndAnswers extends Activity implements IView
+public class ViewAnswerAndReplies extends Activity implements IView
 {
 	// 0 = favourites file
 	// 1 = cache file
@@ -69,25 +66,24 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	private int qId = 0;
 	DataController dc;
 	boolean hasBeenRead;
-	/** This is the answer that is being added by the user*/
-	protected Answer myAnswer; //most recent Reply added by the user
+	/** This is the previous answer that is being added by the user*/
+	Answer myAnswer;
 	private int aId = 0;
-	
-    /** ReplyList view with answers to a question */
-    ListView answerListView;
 
+	protected Reply reply; //most recent Reply added by the user
+    /** ReplyList view with replies to a answer */
+    ListView replyListView;
     /** Custom arrayAdapter to handle list of Answers */
-    InsertAnswerAdapter arrayAnswerAdapter;
+    InsertReplyAdapter arrayReplyAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_view_question_and_answers);
+		setContentView(R.layout.activity_view_answer_and_replies);
 		hasBeenRead = false;
-		getQuestion();
+		getAnswer();
 		setFont();
-		setPicture();
-		populateAnswerView();
+		//populateReplyView();
 	}
 	
 	@Override
@@ -96,14 +92,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	}
 	
 	/**
-	 * Gets the question id that was sent through the intent using the tag
+	 * Gets the answer id that was sent through the intent using the tag
 	 * of @string/idExtraTag. From their the question object is retrieved
 	 * and its contents are populated into their respective views.
 	 */
-	private void getQuestion(){
+	private void getAnswer(){
 		Bundle extra = getIntent().getExtras();
 		if (extra != null){
-			qId = extra.getInt("@string/idExtraTag");
+			qId = extra.getInt("@string/idQuestionTag");
+			aId = extra.getInt("@string/idAnswerTag"); 
 		}
 		
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
@@ -120,13 +117,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		UserName user = UserName.getInstance();
 		
-		TextView questionText = (TextView) findViewById(R.id.questionText);
-		questionText.setTypeface(customTF);
-		questionText.setText(QAC.getQuestionString());
+		TextView answerText = (TextView) findViewById(R.id.questionText);
+		answerText.setTypeface(customTF);
+		myAnswer = myQuestion.getAnswerById(aId); 
+		answerText.setText(myAnswer.getAnswerString());
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		upvoteCount.setText(Integer.toString(myQuestion.getAnswerById(aId).getVotes()));
 		
 	}
 	/*
@@ -182,37 +180,21 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Button readLater = (Button) findViewById(R.id.readLaterButton);
 		readLater.setTypeface(customTF);
 		
-		Button submit = (Button) findViewById(R.id.submitAnswerButton);
+		Button submit = (Button) findViewById(R.id.submitReplyButton);
 		submit.setTypeface(customTF);
 	}
 
-	/** 	
-	  * * Updates imageView with a question picture if this question has a picture 	
-	  */ 	
-	private void setPicture() { 	
-		if (myQuestion.hasPicture()) { 	
-			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
-			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
-			qPictureView.setImageBitmap(myQuestion.getImage()); 	
-		} 	
-		else { 	
-			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
-		} 	
-	}
-	
 	/**
 	 * Populates the ReplyView of questions with questions in the order 
 	 * specified by the user (Sorted by date on default)
 	 */
 
-	public void populateAnswerView()
+	public void populateReplyView()
 	{	
-		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswersByUpVotes();
-		answerListView = (ListView) findViewById(R.id.answerList);
-		arrayAnswerAdapter = new InsertAnswerAdapter(this, answers);
-		answerListView.setAdapter(arrayAnswerAdapter);
-
+		ArrayList<Reply> replies = myAnswer.getReplies();
+		replyListView = (ListView) findViewById(R.id.replyList);
+		arrayReplyAdapter = new InsertReplyAdapter(this, replies);
+		replyListView.setAdapter(arrayReplyAdapter);
 	}
 	
 	/**
@@ -276,95 +258,37 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	}
 	
 	/**
-	 * Upvotes the Answer. First the Answer is retrieved through the id, then
-	 * it is upvoted.
-	 * @param v The view that is being clicked on.
-	 */
-	public void upvoteAns(View v){
-		QAController QAC = new QAController(myQuestion);
-
-		ArrayList<Answer> answers = QAC.getAnswers();
-		
-		int indx = answerListView.getPositionForView(v);
-		answers.get(indx).upvote();
-
-		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
-		
-		upvoteCount.setTypeface(customTF);
-
-		upvoteCount.setText(Integer.toString(QAC.getAnswers()
-				.get(indx).getVotes()
-		));
-
-		
-		Button upvoteAnsButton = (Button) v;
-		upvoteAnsButton.setClickable(false);
-		upvoteAnsButton.setEnabled(false);
-		
-
-		arrayAnswerAdapter.notifyDataSetChanged();
-	}
-	
-	/**
-	 * Adds an Answer to the question when the user clicks the submit answer button
+	 * Adds an reply to the question when the user clicks the submit answer button
 	 * @param v The view that was clicked on
 	 */
-	public void submitAnswer(View v) {
+	public void submitReply(View v) {
 		 
-		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
-		String answerText = answerEditText.getText().toString();
-		myAnswer = new Answer(answerText);
-		answerEditText.setText("");
+		EditText replyEditText = (EditText) findViewById(R.id.ReplyEditText);
+		String replyText = replyEditText.getText().toString();
+		reply = new Reply(replyText);
+		replyEditText.setText("");
+
+		myAnswer.addReply(reply);
 		
-		QAController QAC = new QAController(myQuestion);
-		QAC.addAnswer(myAnswer);
-		
-		populateAnswerView();
+		populateReplyView();
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 	}
 	
 	/**
-	 * Links to QuestionAndReplies View when clicked 
+	 * Links to QuestionAndAnswers View when clicked 
 	 * @param v The view that was clicked on
 	 */
-	public void goToQReplies(View v) {
+	public void gotoAnswer(View v) {
 		int qId = myQuestion.getId();
-		
-		Toast.makeText(this, "Going to QReplies", Toast.LENGTH_SHORT).show();
-		
-		Intent launch = new Intent(this, ViewQuestionAndReplies.class);
+		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
+		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
-	}
-	
-	/**
-	 * Links to AnswerAndReplies View when clicked 
-	 * @param v The view that was clicked on
-	 */
 
-	public void goToAReplies(View v) {
-		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswers();
-		
-		int indx = answerListView.getPositionForView(v);
-		myAnswer = answers.get(indx);
-		
-		int aId = myAnswer.getId();
-		int qId = myQuestion.getId();
-		
-		Toast.makeText(this, "Going to AReplies", Toast.LENGTH_SHORT).show();
-		
-		Intent launch = new Intent(this, ViewAnswerAndReplies.class);
-		
-    	launch.putExtra("@string/idQuestionTag", qId);
-    	launch.putExtra("@string/idAnswerTag", aId);
-		startActivity(launch);
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+		arrayReplyAdapter.notifyDataSetChanged();
+	}    
 }

@@ -176,7 +176,7 @@ public class AllQuestionsController {
 		}
 		return null;
 	}
-
+	
 	/*
 	 * Retrieved from Victor Guana's github 
 	 * (https://github.com/guana/elasticsearch) on November 10th, 2014
