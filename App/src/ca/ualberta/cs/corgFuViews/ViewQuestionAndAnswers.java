@@ -90,7 +90,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateAnswerView();
 	}
 	
@@ -315,7 +315,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void submitAnswer(View v) {
-		 
+
+		final Integer separator = 12345;
 		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
 		String answerText = answerEditText.getText().toString();
 		myAnswer = new Answer(answerText);
@@ -323,6 +324,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(myAnswer);
+		
+		String combinedIdStr = "" + myQuestion.getId() + separator + myAnswer.getId();
+		Integer combinedId = Integer.parseInt(combinedIdStr);
+		// invokes dialog for adding picture
+		invokeAddPictureDialog(combinedId);
 		
 		populateAnswerView();
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
@@ -392,14 +398,23 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				e.printStackTrace(); 	
 			}
 			
-			if (Picture.smallPicture(attachedPic)) {
-				// Add image to the question
+    		if (Picture.byteSizeOf(attachedPic) > 0) {
+    			// Add image to the answer
+    			
+    			// parse requestCode Id
+    			String requestCodeStr = String.valueOf(requestCode);
+    			String separator = "12345";
+    			String[] IDs = requestCodeStr.split(separator);
+    			Integer qId = Integer.parseInt(IDs[0]);
+    			Integer aId = Integer.parseInt(IDs[1]);
 				Question q = dc.getQuestionById(qId, "MyQuestions.save"); 	
-				Answer answer = q.getAnswerById(requestCode); 	
-				answer.setPicture(attachedPic); 	
+				Answer answer = q.getAnswerById(aId); 	
+				answer.setPicture(attachedPic);
+				
+				dc = new DataController();
 				dc.addData(q, "MyQuestions.save"); 	
 				AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
-				AQC.addQuestion(q); 	
+				AQC.addQuestion(q);
 				
 				Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show(); 	
 				
