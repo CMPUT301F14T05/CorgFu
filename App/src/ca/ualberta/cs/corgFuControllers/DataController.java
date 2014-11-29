@@ -35,17 +35,17 @@ public class DataController {
 	
 	public void clearData(String choice){
 		ArrayList<Question> newList = new ArrayList<Question>();
-		mdm.saveFavouritesToFile(newList, choice);
+		mdm.saveDataToFile(newList, choice);
 	}
 
 	// Warning: throws a runTimeException
 
 	public void saveData(ArrayList<Question> dataToSave,String choice){
-		mdm.saveFavouritesToFile(dataToSave, choice);
+		mdm.saveDataToFile(dataToSave, choice);
 	}
 	
 	public ArrayList<Question> getData(String choice){
-		dataList = mdm.loadFavouritesFromFile(choice);
+		dataList = mdm.loadDataToFile(choice);
 		
 		return dataList;
 	}
@@ -59,7 +59,7 @@ public class DataController {
 	public void addData( Question q,String choice) {
 		Log.i("apple","got here");
 		Log.i("Question", q.getQuestionText());
-		dataList = mdm.loadFavouritesFromFile(choice);
+		dataList = mdm.loadDataToFile(choice);
 		Log.i("AF", "before add");
 		boolean addControl =false;
 		int i=0;
@@ -76,12 +76,12 @@ public class DataController {
 		}
 		//changed
 		Log.i("AF", "passed add");
-		mdm.saveFavouritesToFile(dataList,choice);
+		mdm.saveDataToFile(dataList,choice);
 	}
 
 	public void pushOfflineContent() {
 		// TODO Auto-generated method stub
-		ArrayList<Question> offlineList = mdm.loadFavouritesFromFile("Unpushed.save");
+		ArrayList<Question> offlineList = mdm.loadDataToFile("Unpushed.save");
 		for(Question q: offlineList){
 			Log.i("push offline",q.getQuestionText());
 			boolean keepGoing = pushQuestion(q);

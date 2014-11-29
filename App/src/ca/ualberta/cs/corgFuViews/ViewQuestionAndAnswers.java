@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
@@ -29,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
@@ -73,6 +75,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	
     /** ReplyList view with answers to a question */
     ListView answerListView;
+
     /** Custom arrayAdapter to handle list of Answers */
     InsertAnswerAdapter arrayAnswerAdapter;
 
@@ -194,6 +197,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		answerListView = (ListView) findViewById(R.id.answerList);
 		arrayAnswerAdapter = new InsertAnswerAdapter(this, answers);
 		answerListView.setAdapter(arrayAnswerAdapter);
+
 	}
 	
 	/**
@@ -263,23 +267,27 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void upvoteAns(View v){
 		QAController QAC = new QAController(myQuestion);
+
 		ArrayList<Answer> answers = QAC.getAnswers();
 		
 		int indx = answerListView.getPositionForView(v);
 		answers.get(indx).upvote();
-		
+
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
 		
 		upvoteCount.setTypeface(customTF);
+
 		upvoteCount.setText(Integer.toString(QAC.getAnswers()
 				.get(indx).getVotes()
 		));
+
 		
 		Button upvoteAnsButton = (Button) v;
 		upvoteAnsButton.setClickable(false);
 		upvoteAnsButton.setEnabled(false);
 		
+
 		arrayAnswerAdapter.notifyDataSetChanged();
 	}
 	
@@ -293,7 +301,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		String answerText = answerEditText.getText().toString();
 		myAnswer = new Answer(answerText);
 		answerEditText.setText("");
-
+		
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(myAnswer);
 		
@@ -313,13 +321,13 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		Intent launch = new Intent(this, ViewQuestionAndReplies.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
-
 	}
 	
 	/**
 	 * Links to AnswerAndReplies View when clicked 
 	 * @param v The view that was clicked on
 	 */
+
 	public void goToAReplies(View v) {
 		QAController QAC = new QAController(myQuestion);
 		ArrayList<Answer> answers = QAC.getAnswers();
@@ -337,11 +345,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     	launch.putExtra("@string/idQuestionTag", qId);
     	launch.putExtra("@string/idAnswerTag", aId);
 		startActivity(launch);
-
 	}
 
 	@Override
 	public void update() {
-		arrayAnswerAdapter.notifyDataSetChanged();
-	}    
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -90,9 +90,13 @@ public class QAController {
 	
 	/** get array of answers to the question
 	 * 
-	 * @return array of answers
+	 * @return array of answers if there are an answers
+	 * and null if there are no answers
 	 */
 	public ArrayList<Answer> getAnswers(){
+		if(question.getAnswerCount() == 0) {
+			return null;
+		}
 		return  question.getAnswers(); 
 	}
 	
@@ -124,6 +128,16 @@ public class QAController {
 		return question.getAnswers();
 				
 	}
+	
+	public Answer getAnswerById(int id) {
+		for (Answer a:question.getAnswers()){
+			if (a.getId() == id){
+				return a;
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * Makes the question available offline so it can be viewed later
 	 * @param controller The controller that will add the question to the 

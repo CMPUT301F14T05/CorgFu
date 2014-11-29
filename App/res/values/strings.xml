@@ -70,5 +70,6 @@
     <string name="Questions">Questions</string>
     <string name="title_activity_create_location">CreateLocationActivity</string>
     <string name="title_activity_view_answer_and_replies">ViewAnswerAndReplies</string>
+    <string name="AddLocation">Add Location</string>
 
 </resources>
