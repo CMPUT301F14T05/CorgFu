@@ -4,6 +4,7 @@ import java.lang.annotation.Inherited;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 	private static int answerTVId = R.id.answerText;
 	private static int myResource = R.layout.answer_item_layout;
 	private static int upvoteCount = R.id.upvoteAnswerCount;
+	private static int dateTVId = R.id.date;
+	private static int authorTVId = R.id.author;
 	
 	/**
 	 * Builds the custom adapter that is used to insert a custom layout
@@ -59,12 +62,19 @@ public class InsertAnswerAdapter extends ArrayAdapter<Answer> {
 			convertView = inflater.inflate(myResource, parent, false);
 		}
 		UserName user = UserName.getInstance();
-		
+				
 		TextView questionTV = (TextView) convertView.findViewById(answerTVId);
 		questionTV.setText(myObjects.get(position).getAnswerString());
 		
 		TextView upvoteCountTV = (TextView) convertView.findViewById(upvoteCount);
 		upvoteCountTV.setText(String.valueOf(myObjects.get(position).getVotes()));
+		
+		TextView authorTV = (TextView) convertView.findViewById(authorTVId);
+		authorTV.setText(String.valueOf(myObjects.get(position).stringAuthor()));
+		
+		TextView dateTV = (TextView) convertView.findViewById(dateTVId);
+		dateTV.setText(String.valueOf(myObjects.get(position).stringDate()));
+		
 		
 		return convertView;
 	}

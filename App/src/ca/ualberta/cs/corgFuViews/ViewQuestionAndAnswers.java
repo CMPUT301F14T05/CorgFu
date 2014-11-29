@@ -327,10 +327,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		myAnswer = new Answer(answerText);
 		answerEditText.setText("");
 		
+		UserName user = UserName.getInstance();
+		myAnswer.setAuthor(user.getUserName());
+		
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(myAnswer);
 		
 		populateAnswerView();
+		arrayAnswerAdapter.notifyDataSetChanged(); 	
+		
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 	}
 

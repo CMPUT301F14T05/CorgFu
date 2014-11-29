@@ -1,6 +1,8 @@
 package ca.ualberta.cs.corgFuModels;
 
 import java.io.Serializable;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -34,6 +36,7 @@ public class Answer implements Serializable
 	private Boolean hasAPicture;
 	private int id;
 	private boolean isPushed;
+	private String author;
 
 	/**
 	 * Builds an Answer based on the question text
@@ -177,5 +180,19 @@ public class Answer implements Serializable
 
 	public void setPushed(boolean isPushed) {
 		this.isPushed = isPushed;
+	}
+		
+	public String stringDate(){
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		return formatter.format(this.date);
+	}
+	
+	public void setAuthor(String author){
+		this.author = author;
+	}
+	
+	public String stringAuthor(){
+		return this.author;
+
 	}
 }
