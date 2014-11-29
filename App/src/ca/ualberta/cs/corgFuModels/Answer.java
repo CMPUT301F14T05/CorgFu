@@ -67,7 +67,7 @@ public class Answer implements Serializable
 	 * A function that increments the number of upvotes a Answer has.
 	 */
 	public void upvote(){
-		upvotes += 1; 	// Increments vote counter
+		this.upvotes += 1; 	// Increments vote counter
 	}
 	
 	/**
