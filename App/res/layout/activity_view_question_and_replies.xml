@@ -13,6 +13,7 @@
         android:id="@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/questionText"
         android:layout_alignParentEnd="true"
         android:background="@drawable/buttonshape"
         android:fontFamily="fonts/26783.ttf"
@@ -30,14 +31,31 @@
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
         android:textSize="15sp" >
-    </TextView>
+        
+    </TextView><TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/questionText"
+        android:text="Testing Date"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <ImageButton
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/questionText"
+        android:text="Testing Name"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+<ImageButton
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/date"
         android:contentDescription="@string/fav_button_description"
         android:onClick="addToFavorite"
         android:src="@android:drawable/btn_star_big_off"
@@ -48,7 +66,7 @@
         android:id="@+id/upvoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/author"
         android:layout_toEndOf="@+id/favoriteButton"
         android:onClick="upvote"
         android:text="@string/upvoteButtonText"
@@ -59,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/author"
         android:textColor="#ff04c1d2"
         android:textSize="30sp" />
 
@@ -69,51 +87,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/favoriteButton"
-        android:text="@string/topAnswerLabelText"
+        android:text="@string/topRepliesLabelText"
         android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/goToQReplies"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/topHeaderLabelText"
-        android:layout_toEndOf="@+id/upvoteButton"
-        android:layout_toRightOf="@+id/upvoteButton"
-        android:onClick="goToQReplies"
-        android:text="@string/replyButtonText"
-        android:textSize="15sp" />
-
-    <EditText
-        android:id="@+id/AnswerEditText"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/submitAnswerButton"
-        android:layout_toStartOf="@+id/submitAnswerButton"
-        android:ems="10"
-        android:hint="@string/writeAnswerHint" />
-
-    <Button
-        android:id="@+id/submitAnswerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/AnswerEditText"
-        android:layout_alignParentEnd="true"
-        android:layout_alignRight="@+id/topHeaderLabelText"
-        android:background="@drawable/buttonshape"
-        android:fontFamily="fonts/26783.ttf"
-        android:onClick="submitAnswer"
-        android:text="@string/answerButtonText"
-        android:textColor="#ff04c1d2" />
-
-    <ListView
-        android:id="@+id/answerList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/submitAnswerButton"
-        android:layout_alignLeft="@+id/AnswerEditText"
-        android:layout_below="@+id/topHeaderLabelText" >
-    </ListView>
 
     <ImageView
         android:id="@+id/qPictureView"
@@ -122,5 +97,49 @@
         android:layout_alignLeft="@+id/questionText"
         android:layout_alignTop="@+id/readLaterButton"
         android:contentDescription="@string/pictureDescriptionQuestion" />
+
+    <Button
+        android:id="@+id/gotoAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/topHeaderLabelText"
+        android:layout_toEndOf="@+id/upvoteButton"
+        android:layout_toRightOf="@+id/upvoteButton"
+        android:onClick="gotoAnswer"
+        android:text="@string/AnswerButtonText"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/ReplyEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/submitReplyButton"
+        android:layout_toStartOf="@+id/submitReplyButton"
+        android:ems="10"
+        android:hint="@string/writeReplyHint" />
+
+    <Button
+        android:id="@+id/submitReplyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ReplyEditText"
+        android:layout_alignParentEnd="true"
+        android:layout_alignRight="@+id/topHeaderLabelText"
+        android:background="@drawable/buttonshape"
+        android:fontFamily="fonts/26783.ttf"
+        android:onClick="submitReply"
+        android:text="@string/replyButtonText"
+        android:textColor="#ff04c1d2" />
+
+    <ListView
+        android:id="@+id/replyList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ReplyEditText"
+        android:layout_alignLeft="@+id/ReplyEditText"
+        android:layout_below="@+id/topHeaderLabelText" >
+
+    </ListView>
 
 </RelativeLayout>

@@ -44,7 +44,7 @@ public class AddLocationToQuestionFragment extends DialogFragment{
          	   //If the user would like to attach their location to questions this triggers a boolean on the username
             	UserName myUser = UserName.getInstance();
             	myUser.attachLocation(true);
-            	if (myUser.getFormattedAddress() == null){
+            	if (myUser.getLocation() == null){
             		toCreateLocation();
             	} else {
             		toMain();
@@ -56,13 +56,16 @@ public class AddLocationToQuestionFragment extends DialogFragment{
                 // User refused to attach location to the questions they create
             	UserName myUser = UserName.getInstance();
             	myUser.attachLocation(false);
+            	myUser.makeAddress("No Location Available.");
             	toMain();
             }
         });
 	    
 	    return builder.create();
 	}
-	
+	/**The method brings the user to a view where they can enter their location of choice
+	 * 
+	 */
 	public void toCreateLocation(){
 		Intent intent = new Intent(getActivity(), CreateLocationActivity.class);
 		startActivity(intent);

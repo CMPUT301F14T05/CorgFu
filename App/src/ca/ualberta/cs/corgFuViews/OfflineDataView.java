@@ -107,7 +107,7 @@ public class OfflineDataView extends Activity {
 		listView.setOnItemClickListener(mMessageClickedHandler);
 	}
 	private void goToQuestion(int qId){
-		Intent intent = new Intent(this, ViewQuestionAndAnswers.class);
+		Intent intent = new Intent(this, ViewQuestionAndReplies.class);
     	intent.putExtra("@string/idExtraTag", qId);
     	startActivity(intent);
 	}

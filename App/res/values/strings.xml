@@ -19,10 +19,10 @@
     <string name="initPrompt">Enter a username to begin \n asking questions.</string>
     <string name="GoToAsk">ASK\n QUESTION</string>
     <string name="SearchButton">Search</string>
+    <string name="create_location">Please enter the location \n you would like to use.</string>
+    <string name="locationHint"> Enter your location here.</string>
+    <string name="Enter">Enter</string>
 
-    <string name = "create_location">Please enter the location \n you would like to use.</string>
-    <string name = "locationHint"> Enter your location here.</string>
-    <string name= "Enter">Enter</string>
     <string-array name="sortOptions">
         <item>Date Posted</item>
         <item>Questions With Pictures</item>
@@ -43,9 +43,14 @@
     <string name="questionHeaderText">QUESTION</string>
     <string name="favoriteButtonText">Favorite</string>
     <string name="upvoteButtonText">Upvote</string>
-    <string name="topAnswerLabelText">Top Answer</string>
-    <string name="writeAnswerHint">Answer this question</string>
-    <string name="answerButtonText">Submit</string>
+    <string name="topRepliesLabelText">Most Recent Replies</string>
+    <string name="topAnswerLabelText">Top Answers</string>
+    <string name="AnswerButtonText">Answer</string>
+    <string name="writeReplyHint">Type Reply here ...</string>
+    <string name="writeAnswerHint">Type Answer here ...</string>
+    <string name="replyButtonText">Reply</string>
+    <string name="answerButtonText">Answer</string>
+    <string name="ReplyButtonText">Reply</string>
     <string name="readLaterButtonText">Read Later</string>
     <string name="idExtraTag">QuestionIdExtraTag</string>
     <string name="title_activity_my_profile">MyProfile</string>
@@ -64,5 +69,7 @@
     <string name="emptyList">No Results found. Make sure you are connected to the Internet and try again.</string>
     <string name="Questions">Questions</string>
     <string name="title_activity_create_location">CreateLocationActivity</string>
+    <string name="title_activity_view_answer_and_replies">ViewAnswerAndReplies</string>
+    <string name="AddLocation">Add Location</string>
 
 </resources>

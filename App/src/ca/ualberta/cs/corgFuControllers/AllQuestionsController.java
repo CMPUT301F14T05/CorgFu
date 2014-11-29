@@ -113,7 +113,14 @@ public class AllQuestionsController {
 		results = null;
 		Thread thread = new SearchThread(string);
 		thread.start();
-		while (results == null){}
+		while (results == null){
+			try {
+		      Thread.sleep(100);
+		   } catch (InterruptedException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		   }
+		   continue;}
 		return results;
 	}
 	/**
@@ -130,7 +137,14 @@ public class AllQuestionsController {
 		results = null;
 		Thread thread = new SearchThread("");
 		thread.start();
-		while (results == null){}
+		while (results == null){
+			try {
+		      Thread.sleep(100);
+		   } catch (InterruptedException e) {
+		      // TODO Auto-generated catch block
+		      e.printStackTrace();
+		   }
+		   continue;}
 		allQuestions.setAllQuestions(results);
 	}
 	/**
@@ -162,7 +176,7 @@ public class AllQuestionsController {
 		}
 		return null;
 	}
-
+	
 	/*
 	 * Retrieved from Victor Guana's github 
 	 * (https://github.com/guana/elasticsearch) on November 10th, 2014
