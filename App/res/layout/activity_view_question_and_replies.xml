@@ -13,6 +13,7 @@
         android:id="@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/questionText"
         android:layout_alignParentEnd="true"
         android:background="@drawable/buttonshape"
         android:fontFamily="fonts/26783.ttf"
@@ -72,6 +73,14 @@
         android:text="@string/topRepliesLabelText"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/qPictureView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/questionText"
+        android:layout_alignTop="@+id/readLaterButton"
+        android:contentDescription="@string/pictureDescriptionQuestion" />
+
     <Button
         android:id="@+id/gotoAnswer"
         android:layout_width="wrap_content"
@@ -115,13 +124,5 @@
         android:layout_below="@+id/topHeaderLabelText" >
 
     </ListView>
-
-    <ImageView
-        android:id="@+id/qPictureView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/questionText"
-        android:layout_alignTop="@+id/readLaterButton"
-        android:contentDescription="@string/pictureDescriptionQuestion" />
 
 </RelativeLayout>
