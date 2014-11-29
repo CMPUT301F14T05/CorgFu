@@ -331,15 +331,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(myAnswer);
 		
-		String combinedIdStr = "" + myQuestion.getId() + separator + myAnswer.getId();
-		Integer combinedId = Integer.parseInt(combinedIdStr);
+		//String combinedIdStr = "" + myQuestion.getId() + separator + myAnswer.getId();
+		//Integer combinedId = Integer.parseInt(combinedIdStr);
 		// invokes dialog for adding picture
-		invokeAddPictureDialog(combinedId);
+		// invokeAddPictureDialog(combinedId);
 		
 		populateAnswerView();
 		arrayAnswerAdapter.notifyDataSetChanged(); 	
 		
-		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
 	}
 
 	/** Prepare and invoke dialog for adding 	
