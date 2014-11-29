@@ -25,7 +25,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/replyItem"
-    android:text="Anthony Wu"
+    android:text="Testing Name"
     android:layout_alignParentRight="true"
     android:textAppearance="?android:attr/textAppearanceSmall" />
 

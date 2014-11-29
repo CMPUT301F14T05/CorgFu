@@ -61,7 +61,6 @@ public class InsertReplyAdapter extends ArrayAdapter<Reply> {
 		
 		UserName user = UserName.getInstance();
 		
-		
 		TextView dateTV = (TextView) convertView.findViewById(dateTVId);
 		dateTV.setText(String.valueOf(myObjects.get(position).stringDate()));
 		

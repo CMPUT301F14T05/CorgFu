@@ -262,18 +262,24 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		 
 		EditText replyEditText = (EditText) findViewById(R.id.ReplyEditText);
 		String replyText = replyEditText.getText().toString();
-		reply = new Reply(replyText);
-		replyEditText.setText("");
-
-		QAController QAC = new QAController(myQuestion);
-		QAC.addReply(reply);
 		
-		populateReplyView();
-		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		int replyLen = replyText.length();
 		
-		UserName user = UserName.getInstance();
-		reply.setAuthor(user.getUserName());
+		if (replyLen <= 0||isBlank(replyText) == true) {
+			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
+		}else{
+			reply = new Reply(replyText);
+			replyEditText.setText("");
 
+			QAController QAC = new QAController(myQuestion);
+			QAC.addReply(reply);
+
+			populateReplyView();
+			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+
+			UserName user = UserName.getInstance();
+			reply.setAuthor(user.getUserName());
+		}
 	}
 	
 	/**
@@ -293,4 +299,18 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
 	}    
+	
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
+	
 }
