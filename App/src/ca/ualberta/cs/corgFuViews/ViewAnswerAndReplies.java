@@ -249,8 +249,8 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		QAC.upvote();
-		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		myAnswer.upvote();
+		upvoteCount.setText(Integer.toString(myAnswer.getVotes()));
 		
 		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
 		upvoteButton.setClickable(false);

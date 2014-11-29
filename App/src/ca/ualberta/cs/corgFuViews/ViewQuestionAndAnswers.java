@@ -132,6 +132,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		upvoteCount.setTypeface(customTF);
 		upvoteCount.setText(Integer.toString(QAC.getVotes()));
 		
+		TextView date = (TextView) findViewById(R.id.date);
+		date.setText(myQuestion.stringDate());
+		
+		TextView author = (TextView) findViewById(R.id.author);
+		author.setText(myQuestion.stringAuthor());
+		
 	}
 	/*
 	 * caches question if it hasnt been cached already
