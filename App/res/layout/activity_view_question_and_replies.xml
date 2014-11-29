@@ -31,17 +31,15 @@
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
         android:textSize="15sp" >
-        
     </TextView>
-    
+
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/questionText"
-        android:text="Testing Date"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:text="Testing Name" />
 
     <TextView
         android:id="@+id/author"
@@ -50,9 +48,9 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/questionText"
         android:text="Testing Name"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textStyle="bold" />
 
-<ImageButton
+    <ImageButton
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,7 +131,6 @@
         android:layout_above="@+id/ReplyEditText"
         android:layout_alignLeft="@+id/ReplyEditText"
         android:layout_below="@+id/topHeaderLabelText" >
-
     </ListView>
 
     <ImageView

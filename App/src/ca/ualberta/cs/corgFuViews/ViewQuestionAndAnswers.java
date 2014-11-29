@@ -298,23 +298,20 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		ArrayList<Answer> answers = QAC.getAnswers();
 		
 		int indx = answerListView.getPositionForView(v);
-		answers.get(indx).upvote();
+		myAnswer = answers.get(indx);
+	    myAnswer.upvote();
 
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
 		
 		upvoteCount.setTypeface(customTF);
 
-		upvoteCount.setText(Integer.toString(QAC.getAnswers()
-				.get(indx).getVotes()
-		));
-
+		upvoteCount.setText(Integer.toString(myAnswer.getVotes()));
 		
 		Button upvoteAnsButton = (Button) v;
 		upvoteAnsButton.setClickable(false);
 		upvoteAnsButton.setEnabled(false);
 		
-
 		arrayAnswerAdapter.notifyDataSetChanged();
 	}
 	
@@ -338,11 +335,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(myQuestion.getId());
 		
-		
 		populateAnswerView();
 		arrayAnswerAdapter.notifyDataSetChanged(); 	
 		
-		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
 	}
 
 	/** Prepare and invoke dialog for adding 	

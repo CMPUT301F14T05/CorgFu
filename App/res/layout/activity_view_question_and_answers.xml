@@ -54,8 +54,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/questionText"
         android:text="Testing Name"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
+        android:textStyle="bold"/>
     <ImageButton
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"

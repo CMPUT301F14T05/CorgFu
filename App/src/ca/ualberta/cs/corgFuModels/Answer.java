@@ -68,7 +68,7 @@ public class Answer implements Serializable
 	 * A function that increments the number of upvotes a Answer has.
 	 */
 	public void upvote(){
-		upvotes += 1; 	// Increments vote counter
+		this.upvotes += 1; 	// Increments vote counter
 	}
 	
 	/**
@@ -119,7 +119,7 @@ public class Answer implements Serializable
 		Collections.sort(replies, new Comparator<Reply>() {
 
 						public int compare(Reply R1, Reply R2) {
-							return R1.getDate().compareTo(R2.getDate());
+							return R2.getDate().compareTo(R1.getDate());
 						}
 					});
 
