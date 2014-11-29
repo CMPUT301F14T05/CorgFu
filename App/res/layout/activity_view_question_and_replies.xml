@@ -31,14 +31,31 @@
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
         android:textSize="15sp" >
-    </TextView>
+        
+    </TextView><TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/questionText"
+        android:text="Testing Date"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <ImageButton
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/questionText"
+        android:text="Testing Name"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+<ImageButton
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/date"
         android:contentDescription="@string/fav_button_description"
         android:onClick="addToFavorite"
         android:src="@android:drawable/btn_star_big_off"
@@ -49,7 +66,7 @@
         android:id="@+id/upvoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/author"
         android:layout_toEndOf="@+id/favoriteButton"
         android:onClick="upvote"
         android:text="@string/upvoteButtonText"
@@ -60,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/questionText"
+        android:layout_below="@+id/author"
         android:textColor="#ff04c1d2"
         android:textSize="30sp" />
 
