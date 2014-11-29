@@ -46,7 +46,7 @@ public class BrowseItemsActivityTest extends
 		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-		assertEquals("Testing browseItems initializes with correct questions",ES.searchQuestion("", null).size(),adapter.getCount());
+		assertEquals("Testing browseItems initializes with correct questions",AQController.search("").size(),adapter.getCount());
 		activity.finish();
 	}
 	
