@@ -81,6 +81,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
+		setPicture();
 		populateReplyView();
 	}
 	
@@ -178,6 +179,17 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		
 		Button submit = (Button) findViewById(R.id.submitReplyButton);
 		submit.setTypeface(customTF);
+	}
+	
+	private void setPicture() { 	
+		if (myQuestion.hasPicture()) { 	
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
+			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
+			qPictureView.setImageBitmap(myQuestion.getImage()); 	
+		} 	
+		else { 	
+			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
+		} 	
 	}
 
 	/**

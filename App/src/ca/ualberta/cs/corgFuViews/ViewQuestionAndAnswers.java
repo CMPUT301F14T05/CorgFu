@@ -86,6 +86,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
+		setPicture();
 		populateAnswerView();
 	}
 	
@@ -185,6 +186,20 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		submit.setTypeface(customTF);
 	}
 
+	/** 	
+	  * * Updates imageView with a question picture if this question has a picture 	
+	  */ 	
+	private void setPicture() { 	
+		if (myQuestion.hasPicture()) { 	
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
+			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
+			qPictureView.setImageBitmap(myQuestion.getImage()); 	
+		} 	
+		else { 	
+			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
+		} 	
+	}
+	
 	/**
 	 * Populates the ReplyView of questions with questions in the order 
 	 * specified by the user (Sorted by date on default)
