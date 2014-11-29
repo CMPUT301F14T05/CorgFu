@@ -262,18 +262,28 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void submitReply(View v) {
-		 
+		
 		EditText replyEditText = (EditText) findViewById(R.id.ReplyEditText);
 		String replyText = replyEditText.getText().toString();
-		reply = new Reply(replyText);
-		replyEditText.setText("");
-
-		myAnswer.addReply(reply);
 		
-		populateReplyView();
-		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		int replyLen = replyText.length();
+		
+		if (replyLen <= 0||isBlank(replyText) == true) {
+			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
+		}else{
+			reply = new Reply(replyText);
+			replyEditText.setText("");
+			
+			UserName user = UserName.getInstance();
+			reply.setAuthor(user.getUserName());
+
+			myAnswer.addReply(reply);
+
+			populateReplyView();
+			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		}
 	}
-	
+		
 	/**
 	 * Links to QuestionAndAnswers View when clicked 
 	 * @param v The view that was clicked on
@@ -290,5 +300,19 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	@Override
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
-	}    
+	}
+	
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
+	
 }
