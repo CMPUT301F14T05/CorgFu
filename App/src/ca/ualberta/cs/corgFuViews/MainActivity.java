@@ -121,7 +121,10 @@ public class MainActivity extends Activity
 		q.setReadableAddress();
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-
+		
+		UserName user = UserName.getInstance();
+		q.setAuthor(user.getUserName());
+		
 		DC.addData(q, "MyQuestions.save");
 		
 		// invokes dialog for adding picture

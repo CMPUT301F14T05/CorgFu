@@ -113,9 +113,6 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		cache();
 		isFavourited(myQuestion.getId());
 		
-		UserName user = UserName.getInstance();
-		myQuestion.setAuthor(user.getUserName());
-		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
 		questionText.setText(QAC.getQuestionString());
