@@ -44,34 +44,4 @@ public class UsernameTest extends TestCase {
 		Location setLocation = myUserName.getLocation();
 		assertNotNull(setLocation);
 	}
-	
-	public void testgetAddress(){
-		UserName myUserName = UserName.getInstance();
-		Address address = myUserName.getAddress();
-		assertNotNull(address);
-	}
-	public void testmakeAddress(){
-		UserName myUserName = UserName.getInstance();
-		String location = "Edmonton";
-		//myUserName.makeAddress(location);
-		Address address = myUserName.getAddress();
-		assertNotNull(address);
-	}
-	
-//	public void testattachLocation(){
-//		UserName myUserName = UserName.getInstance();
-//		myUserName.attachLocation(true);
-//		Boolean attach = myUserName.getAttachLocation();
-//		assertTrue(attach);
-//	}
-	
-	/*public void testLoadSaveUsername(){
-		String testUsername = "testUser";
-		UserName myUserName = new UserName(testUsername);
-		myUserName.setUserName(testUsername);
-		
-		myUserName.saveUserName();
-		
-		assertEquals("Testing load/save username", testUsername, myUserName.loadUserName().getUserName());
-	}*/
 }

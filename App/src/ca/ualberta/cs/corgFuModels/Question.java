@@ -63,11 +63,18 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		isPushed=false;
 		setReadableAddress();
 	}
-	
+	/**Returns whether the Question has been pushed to Elastic Search
+	 * 
+	 * @return the status of the question, whether it has been pushed online
+	 */
 	public Boolean getIsPushed() {
 		return isPushed;
 	}
 
+	/**Method sets the question to its state as pushed online or not 
+	 * 
+	 * @param isPushed the boolean state that you' like the set the pushed status to
+	 */
 	public void setIsPushed(Boolean isPushed) {
 		this.isPushed = isPushed;
 	}
@@ -113,11 +120,15 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		return questionText; // return the string that has been passed as a
 								// question text
 	}
-
+	
+	/**Method overrides the default toString method, returns the questionText
+	 * @return the String representation of the Question
+	 */
 	@Override
 	public String toString() {
 		return questionText;
 	}
+	
 	/**
 	 * Allows for setting up upvotes when either testing or 
 	 * building a question from an elastic search response.
@@ -126,6 +137,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public void setUpvotes(int i) {
 		upvotes = i;// sets the current number of upvotes to the passed int i
 	}
+	
 	/**
 	 * Gets the number of upvotes that the question currently
 	 * has.
@@ -135,6 +147,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		return upvotes;// returns the current number of upvotes logged for this
 						// question
 	}
+	
 	/**
 	 * Gets the date the question was authored on. More specifically the
 	 * date/time the user submitted their answer, regardless of internet
@@ -144,6 +157,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public Date getDate() {
 		return date;
 	}
+	
 	/**
 	 * Allows for setting of the date to a specific date/time. Used
 	 * for testing or building a question from an elasticsearch 
@@ -153,6 +167,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public void setDate(Date d) {
 		date = d;
 	}
+	
 	/**
 	 * Returns all the replies to the question in an ArrayList.
 	 * @return The ArrayList of replies to the question.
@@ -165,10 +180,9 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 							return R1.getDate().compareTo(R2.getDate());
 						}
 					});
-
-		
 		return replies;
 	}
+	
 	/**
 	 * Returns the image that is attached to the question.
 	 * @return The bitmap of the picture attached to the question.
@@ -176,6 +190,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public Bitmap getImage() {
 		return genericPic;
 	}
+	
 	/**
 	 * Allows for setting of the picture attached to the question.
 	 * @param Image The bitmap of the picture to be attached to the
@@ -185,6 +200,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		genericPic = image;
 		hasAPicture = true;
 	}
+	
 	/**
 	 * Returns the list of Answer objects that are associated with
 	 * the question
@@ -194,6 +210,11 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		return answers;
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Answer getAnswerById(int id) {
 		for (Answer a:answers){
 			if (a.getId() == id){
@@ -206,7 +227,11 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public void setAnswers(ArrayList<Answer> newAnswers){
 		answers = newAnswers;
 	}
-
+	
+	/**Method returns the list of answers as sorted by upvotes
+	 * 
+	 * @return the list of answers sorted by upvotes
+	 */
 	public ArrayList<Answer> getAnswerByVotes() {
 		return null;
 	}
@@ -217,7 +242,6 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 * @return The size of the answers array, which is the number of 
 	 * answers to the question.
 	 */
-
 	public int getRepyCount() {
 		return replies.size();
 	}
@@ -286,7 +310,6 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 * @return the easily readable string representation of the address
 	 */
 	public String getReadableAddress(){
-			return this.readableAddress;
-		
+			return this.readableAddress;	
 	}
 }

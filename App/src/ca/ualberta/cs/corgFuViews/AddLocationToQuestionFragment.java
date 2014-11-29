@@ -63,7 +63,9 @@ public class AddLocationToQuestionFragment extends DialogFragment{
 	    
 	    return builder.create();
 	}
-	
+	/**The method brings the user to a view where they can enter their location of choice
+	 * 
+	 */
 	public void toCreateLocation(){
 		Intent intent = new Intent(getActivity(), CreateLocationActivity.class);
 		startActivity(intent);
