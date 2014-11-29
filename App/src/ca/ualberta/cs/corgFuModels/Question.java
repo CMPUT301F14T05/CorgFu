@@ -1,6 +1,8 @@
 package ca.ualberta.cs.corgFuModels;
 
 import java.io.Serializable;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -44,6 +46,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	private Address address;
 	private String readableAddress = "No Location Available.";
 	private Boolean isPushed;
+	private String author;
 	
 	/**
 	 * Builds a question based on the question text
@@ -311,5 +314,19 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 */
 	public String getReadableAddress(){
 			return this.readableAddress;	
+	}
+	
+	public void setAuthor(String author){
+		this.author = author;
+	}
+	
+	public String stringAuthor(){
+		return this.author;
+
+	}
+	
+	public String stringDate(){
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		return formatter.format(this.date);
 	}
 }

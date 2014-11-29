@@ -114,6 +114,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		isFavourited(myQuestion.getId());
 		
 		UserName user = UserName.getInstance();
+		myQuestion.setAuthor(user.getUserName());
 		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
@@ -122,6 +123,12 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
 		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		
+		TextView date = (TextView) findViewById(R.id.date);
+		date.setText(myQuestion.stringDate());
+		
+		TextView author = (TextView) findViewById(R.id.author);
+		author.setText(myQuestion.stringAuthor());
 		
 	}
 	/*
