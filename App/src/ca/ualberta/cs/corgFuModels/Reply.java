@@ -58,8 +58,17 @@ public class Reply implements Serializable{
 	}
 	
 	public String stringDate(){
-		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		return formatter.format(this.date);
+	}
+	
+	public void setAuthor(String author){
+		this.author = author;
+	}
+	
+	public String stringAuthor(){
+		return this.author;
+
 	}
 	
 }

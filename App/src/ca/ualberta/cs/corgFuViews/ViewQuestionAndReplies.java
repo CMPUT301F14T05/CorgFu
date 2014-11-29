@@ -270,6 +270,10 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		
 		populateReplyView();
 		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		
+		UserName user = UserName.getInstance();
+		reply.setAuthor(user.getUserName());
+
 	}
 	
 	/**
