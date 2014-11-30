@@ -198,8 +198,11 @@ public class Answer implements Serializable
 	}
 		
 	public String stringDate(){
-		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		return formatter.format(this.date);
+		Format month = new SimpleDateFormat("MMM dd, yyyy");
+		Format time = new SimpleDateFormat("hh:mm");
+		String strMonth = month.format(this.date);
+		String strTime = time.format(this.date);
+		return  (strMonth + " at " + strTime);
 	}
 	
 	public void setAuthor(String author){
