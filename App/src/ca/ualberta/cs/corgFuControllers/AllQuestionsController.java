@@ -23,7 +23,6 @@ public class AllQuestionsController {
 	private AllQuestions allQuestions;
 	private ArrayList<Question> results;
 	private ElasticSearch ES;
-	private Question recentQuestion;
 	
 	/**
 	 * Initializes the controller with the model that it will be updating
