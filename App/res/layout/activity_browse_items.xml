@@ -36,13 +36,26 @@
         android:fontFamily="fonts/26783.ttf"
         android:onClick="toUserProfile"
       />
+     
+      <TextView
+        android:id="@+id/searchLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GoToAsk"
+        android:layout_alignParentLeft="true"
+        android:gravity = "center_vertical"
+        android:text="@string/search"
+        android:fontFamily="fonts/26783.ttf"
+    	android:textColor="#ff04c1d2" 
+        android:textSize="15dp"/>
+     
     <EditText
         android:id="@+id/searchEditText"
         android:hint = "@string/keyword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/searchLabel"
-        android:layout_below="@+id/GoToAsk"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/searchLabel"
         android:ems="10" >
 		
     </EditText>
@@ -51,51 +64,37 @@
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/searchEditText"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/searchLabel"
         android:layout_toEndOf="@+id/searchEditText"
-        android:layout_below = "@+id/GoToAsk"
         android:background="#04C1D2"
+        android:onClick="toSearchResults"
+        android:padding="2sp"
         android:text="@string/SearchButton"
         android:textColor="#FFFFFF"
-        android:textSize="13sp" 
-        android:padding="2sp"
-        android:onClick = "toSearchResults"/>
-
-    <TextView
-        android:id="@+id/searchLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-		android:layout_alignBottom="@+id/searchEditText"
-        android:layout_below="@id/GoToAsk"
-        android:layout_alignParentLeft="true"
-        android:gravity = "center_vertical"
-        android:text="@string/search"
-        android:fontFamily="fonts/26783.ttf"
-    	android:textColor="#ff04c1d2" 
-        android:textSize="20dp"/>
+        android:textSize="13sp" />
 
     <Spinner
         android:id="@+id/sortSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/searchEditText"
         android:layout_alignStart="@+id/searchEditText"
-        android:layout_below="@+id/searchEditText" />
+        android:layout_alignEnd="@+id/searchEditText"
+        android:layout_below="@+id/sortLabel" />
 
     <TextView
         android:id="@+id/sortLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sortSpinner"
+        android:layout_below="@+id/searchEditText"
         android:layout_alignLeft="@+id/searchLabel"
         android:layout_alignStart="@+id/searchLabel"
-        android:layout_alignRight="@+id/searchLabel"
-        android:layout_alignEnd="@+id/searchLabel"
-        android:layout_alignTop="@+id/sortSpinner"
         android:gravity = "center_vertical"
         android:text="@string/sort"
         android:fontFamily="fonts/26783.ttf"
     	android:textColor="#ff04c1d2" 
-        android:textSize="20dp"/>
+        android:textSize="15dp"/>
 
     <ListView
         android:id="@+id/browseQuestionsListView"
