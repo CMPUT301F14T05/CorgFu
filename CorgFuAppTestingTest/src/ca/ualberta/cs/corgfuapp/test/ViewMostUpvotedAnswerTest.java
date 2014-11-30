@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.QAController;
+import ca.ualberta.cs.corgFuES.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 
