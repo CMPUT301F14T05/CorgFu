@@ -242,7 +242,11 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 		}
 		return null;
 	}
-	
+	/**
+	 * Allows for the list of Answers to the question to be 
+	 * set
+	 * @param newAnswers The new list of answers to the question
+	 */
 	public void setAnswers(ArrayList<Answer> newAnswers){
 		answers = newAnswers;
 	}
@@ -331,16 +335,26 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public String getReadableAddress(){
 			return this.readableAddress;	
 	}
-	
+	/**
+	 * Allows for the Author of the question to be set.
+	 * @param author The name of the author of the question
+	 */
 	public void setAuthor(String author){
 		this.author = author;
 	}
-	
+	/**
+	 * Gets the author of the question
+	 * @return The string containing the author's 
+	 * username
+	 */
 	public String stringAuthor(){
 		return this.author;
 
 	}
-	
+	/**
+	 * Gets the date of the question in a string format
+	 * @return
+	 */
 	public String stringDate(){
 		Format month = new SimpleDateFormat("MMM dd, yyyy");
 		Format time = new SimpleDateFormat("hh:mm");
