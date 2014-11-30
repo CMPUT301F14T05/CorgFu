@@ -76,7 +76,7 @@ public class Answer implements Serializable
 	 * the Answer
 	 */
 	public void addReply(Reply reply){
-		replies.add(reply);
+		this.replies.add(reply);
 	}
 
 	/**
@@ -115,7 +115,7 @@ public class Answer implements Serializable
 	 */
 	public ArrayList<Reply> getReplies() {
 
-		Collections.sort(replies, new Comparator<Reply>() {
+		Collections.sort(this.replies, new Comparator<Reply>() {
 
 						public int compare(Reply R1, Reply R2) {
 							return R2.getDate().compareTo(R1.getDate());
@@ -123,7 +123,7 @@ public class Answer implements Serializable
 					});
 
 		
-		return replies;
+		return this.replies;
 		
 	}
 	
