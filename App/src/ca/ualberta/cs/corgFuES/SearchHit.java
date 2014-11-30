@@ -2,7 +2,7 @@
  * Retrieved from Victor Guana's github 
  * (https://github.com/guana/elasticsearch) on November 10th, 2014
  */
-package ca.ualberta.cs.corgFu;
+package ca.ualberta.cs.corgFuES;
 /**This class SearchHit is used to determine whether or not a Question has been successfully found in a search.
  * 
  * @author Alex Makepeace

@@ -12,9 +12,9 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.ElasticSearch;
-import ca.ualberta.cs.corgFu.SearchHit;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuES.ElasticSearch;
+import ca.ualberta.cs.corgFuES.SearchHit;
 import ca.ualberta.cs.corgFuModels.Question;
 
 import com.google.gson.Gson;

@@ -2,7 +2,7 @@
  * Retrieved from Victor Guana's github 
  * (https://github.com/guana/elasticsearch) on November 10th, 2014
  */
-package ca.ualberta.cs.corgFu;
+package ca.ualberta.cs.corgFuES;
 
 import java.io.BufferedReader;
 import java.io.IOException;

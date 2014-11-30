@@ -45,6 +45,11 @@ public class BrowseItems extends Activity implements IView
 	AllQuestionsController AQController;
 	
 	@Override
+	/**
+	 * populates the List view with the questions from AllQuestions and 
+	 * sets up the click listener for each item. Also sets the font for
+	 * the text in the view.
+	 */
 	protected void onCreate(Bundle savedInstanceState)
 	{
 
@@ -56,6 +61,9 @@ public class BrowseItems extends Activity implements IView
 	}
 	
 	@Override
+	/**
+	 * Updates the list with the most recent entries from AllQuestions
+	 */
 	public void onResume(){
 		super.onResume();
 		populateListView();
@@ -193,13 +201,27 @@ public class BrowseItems extends Activity implements IView
 		Intent intent = new Intent(this, MyProfile.class);
 		startActivity(intent);
 	}
-	
+	/**
+	 * Method that is called when the user clicks on the search button.
+	 * It extracts the text from the search fields and sends it to the
+	 * method that will start the search activity as long as the field
+	 * isn't empty.
+	 * @param view
+	 */
 	public void toSearchResults(View view){
 		EditText searchBox = (EditText) findViewById(R.id.searchEditText);
 		String searchTerm = searchBox.getText().toString();
-		startSearchActivity(searchTerm);
+		if (!searchTerm.equals("")){
+			startSearchActivity(searchTerm);
+		}
 	}
-	
+	/**
+	 * Method that adds the search term to be search to the extra so that
+	 * the SearchResults activity can search using that search term.
+	 * @param searchTerm The string entered by the user that they want to 
+	 * search for
+	 * @see ca.ualberta.cs.corgFuViews.SearchResults
+	 */
 	private void startSearchActivity(String searchTerm){
 		Intent intent = new Intent(this, SearchResults.class);
 		intent.putExtra("@string/idSearchTerm", searchTerm);

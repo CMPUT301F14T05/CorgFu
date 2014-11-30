@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import junit.framework.TestCase;
 import android.graphics.Bitmap;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuES.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgfuapp.Util.BogoPicGen;
 

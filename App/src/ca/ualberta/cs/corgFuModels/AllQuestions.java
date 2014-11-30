@@ -12,9 +12,9 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 
-import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.Model;
+import ca.ualberta.cs.corgFuES.ElasticSearch;
 
 /**
  * The model that holds all of the currently available questions 

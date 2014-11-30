@@ -15,11 +15,23 @@ import android.widget.ListView;
 import android.widget.TextView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.ElasticSearch;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuES.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.Question;
 
+/**
+ * The activity that displays the search results of a search.
+ * The search string is passed to the activity as an extra 
+ * and it is extracted here and used to query elasticsearch.
+ * The rest of the view behavies as BrowseItems does, allowing
+ * the user to view the question text, upvote count, number of
+ * answers, and location.The question can also be clicked on to
+ * open the ViewQuestionAndReplies Activity.
+ * @author wrflemin
+ * @see ca.ualberta.cs.corgFuViews.BrowseItems
+ * @see ca.ualberta.cs.corgFuViews.ViewQuestionAndReplies
+ */
 public class SearchResults extends Activity {
 
 	private ElasticSearch ES;
@@ -27,6 +39,10 @@ public class SearchResults extends Activity {
 	private InsertQuestionAdapter listAdapter;
 	
 	@Override
+	/**
+	 * Here the class used for elastic search is set up and the
+	 * list for viewing the questions is set up.
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_results);
@@ -42,7 +58,11 @@ public class SearchResults extends Activity {
 		super.onResume();
 		listAdapter.notifyDataSetChanged();
 	}
-
+	/**
+	 * Method that performs the search using the keywords
+	 * entered by the user in BrowseItems
+	 * @return The list of search results of the query
+	 */
 	private ArrayList<Question> startSearch() {
 		Bundle extra = getIntent().getExtras();
 		String searchTerm = "";
@@ -53,7 +73,10 @@ public class SearchResults extends Activity {
 		return AQC.search(searchTerm, null);
 	}
 	
-
+	/**
+	 * Sets the question adapter for the listview that will
+	 * display the questions from the search results.
+	 */
 	private void setAdapter() {
 		listAdapter = new InsertQuestionAdapter(
 				SearchResults.this, results);
