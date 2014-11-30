@@ -342,7 +342,10 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	}
 	
 	public String stringDate(){
-		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-		return formatter.format(this.date);
+		Format month = new SimpleDateFormat("MMM dd, yyyy");
+		Format time = new SimpleDateFormat("hh:mm");
+		String strMonth = month.format(this.date);
+		String strTime = time.format(this.date);
+		return  (strMonth + " at " + strTime);
 	}
 }
