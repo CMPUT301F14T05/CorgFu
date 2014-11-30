@@ -12,6 +12,7 @@ Contents
 * [Licence](#licence)
 * [Glossary](/CorgFu.wiki/Glossary.md)
 * [UML](/App/doc/CorgFu_UML_diagram.png)
+* [Javadoc](https://raw.githubusercontent.com/CMPUT301F14T05/CorgFu/master/App/doc/index.html)
 
 Description
 =======
