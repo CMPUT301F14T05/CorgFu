@@ -55,7 +55,11 @@ public class AllQuestions extends Model<IView>
 	public static ArrayList<Question> getAllQuestions(){
 		return allQuestions;
 	}
-	
+	/**
+	 * Allows for the list of all questions held by all questions to be 
+	 * set with a new list
+	 * @param newAQ The new list of quesitons to be set in all questions
+	 */
 	public void setAllQuestions(ArrayList<Question> newAQ){
 		allQuestions = newAQ;
 	}
