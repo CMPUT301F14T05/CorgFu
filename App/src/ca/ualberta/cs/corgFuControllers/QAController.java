@@ -128,7 +128,12 @@ public class QAController {
 		return question.getAnswers();
 				
 	}
-	
+	/**
+	 * Gets an answer to the question by its id
+	 * @param id The id number of the answer that is 
+	 * being requested
+	 * @return The answer if it exists, null otherwise.
+	 */
 	public Answer getAnswerById(int id) {
 		for (Answer a:question.getAnswers()){
 			if (a.getId() == id){
@@ -145,6 +150,10 @@ public class QAController {
 	public String getQuestionString() {
 		return question.getQuestionText();
 	}
+	/**
+	 * Gets the number of upvotes the question has
+	 * @return The number of upvotes
+	 */
 	public int getVotes() {
 		return question.getUpvotes();
 	}
