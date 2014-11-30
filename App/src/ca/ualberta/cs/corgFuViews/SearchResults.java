@@ -50,7 +50,7 @@ public class SearchResults extends Activity {
 			searchTerm = extra.getString("@string/idSearchTerm");
 		}
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		return AQC.search(searchTerm);
+		return AQC.search(searchTerm, null);
 	}
 	
 

@@ -190,6 +190,25 @@ public class ElasticSearchTest extends TestCase {
 		
 		assertEquals("Testing the clear worked",0,ES.searchQuestion("", null).size());
 	}
+	
+	public void testSearchLocation(){
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		Question Q1 = new Question("Testing searchLocation");
+		
+		AQC.addQuestion(Q1);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		ArrayList<Question> actual = AQC.search(Q1.getReadableAddress(), "readableAddress");
+		ArrayList<Question> expected = new ArrayList<Question>();
+		expected.add(Q1);
+		if (actual.size() < 1){
+			fail("No results found");
+		}
+		assertEquals("Testing search for location",expected.get(0).toString(), actual.get(0).toString());
+	}
 	@Override
 	public void tearDown(){
 		AllQuestionsApplication.destroy();

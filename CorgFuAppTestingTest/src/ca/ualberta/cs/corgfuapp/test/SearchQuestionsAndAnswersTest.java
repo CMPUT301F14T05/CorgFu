@@ -45,7 +45,7 @@ public class SearchQuestionsAndAnswersTest extends TestCase {
 				mQ1.toString(),ES.getQuestion(mQ1.getId()).toString());
 		ArrayList<Question> actual = null;
 		for (int i = 0;i<5;i++){
-			actual = aQC.search("Searchable");
+			actual = aQC.search("Searchable", null);
 			if (actual.size()>0){
 				break;
 			}
@@ -53,13 +53,13 @@ public class SearchQuestionsAndAnswersTest extends TestCase {
 		assertEquals("Testing only one question was returned for searchable", 1, actual.size());
 		assertEquals("Testing search of a Question",expected.toString(), actual.get(0).toString());
 		for (int i = 0;i<5;i++){
-			actual = aQC.search("Searchable");
+			actual = aQC.search("Searchable", null);
 			if (actual.size()>0){
 				break;
 			}
 		}
 		assertEquals("Testing only one question was returned for answer", 1, actual.size());
-		actual = aQC.search("random");
+		actual = aQC.search("random", null);
 		assertEquals("Testing search of an Answer",0,actual.size());
 	}
 	@Override

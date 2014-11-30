@@ -46,7 +46,7 @@ public class BrowseItemsActivityTest extends
 		activity = (BrowseItems) getActivity();
 		ListView listView = (ListView) activity.findViewById(ca.ualberta.corgfuapp.R.id.browseQuestionsListView);
 		ArrayAdapter adapter = (ArrayAdapter) listView.getAdapter();
-		assertEquals("Testing browseItems initializes with correct questions",AQController.search("").size(),adapter.getCount());
+		assertEquals("Testing browseItems initializes with correct questions",AQController.search("",null).size(),adapter.getCount());
 		activity.finish();
 	}
 	
@@ -95,7 +95,7 @@ public class BrowseItemsActivityTest extends
 		RelativeLayout layout = (RelativeLayout) adapter.getView(0, null, listView);
 		
 		int children = layout.getChildCount();
-		assertEquals("Check that there are 2 children",3,children);
+		assertEquals("Check that there are 4 children",4,children);
 		TextView tView = (TextView) layout.getChildAt(2);
 				
 		assertEquals("Testing display answers","10",tView.getText());

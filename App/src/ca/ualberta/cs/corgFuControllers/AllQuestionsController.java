@@ -109,9 +109,10 @@ public class AllQuestionsController {
 	 * and answers in elastic search (All questions by all users)
 	 * @return
 	 */
-	public ArrayList<Question> search(String string) {
+	public ArrayList<Question> search(String search, String field) {
 		results = null;
-		Thread thread = new SearchThread(string);
+		//field = null if searching all fields.
+		Thread thread = new SearchThread(search, field);
 		thread.start();
 		while (results == null){
 			try {
@@ -135,7 +136,7 @@ public class AllQuestionsController {
 	}
 	public void updateAllQuestions(){
 		results = null;
-		Thread thread = new SearchThread("");
+		Thread thread = new SearchThread("", null);
 		thread.start();
 		while (results == null){
 			try {
@@ -213,14 +214,16 @@ public class AllQuestionsController {
 	 */
 	class SearchThread extends Thread {
 		private String search;
+		private String field;
 		
-		public SearchThread(String s) {
+		public SearchThread(String s, String f) {
 			search = s;
+			field = f;
 		}
 
 		@Override
 		public void run() {
-			results = ES.searchQuestion(search, null);
+			results = ES.searchQuestion(search, field);
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
