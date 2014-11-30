@@ -23,6 +23,7 @@ import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
+import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -119,6 +120,10 @@ public class BrowseItems extends Activity implements IView
 						listAdapter = new InsertQuestionAdapter(
 								BrowseItems.this, AQController.sortByUpvote());
 						break;
+					//will open neaby questions
+					case 3:
+						UserName username = UserName.getInstance();
+						startSearchActivity(username.getFormattedAddress());
 
 				}
 				// TODO Auto-generated method stub
@@ -190,9 +195,13 @@ public class BrowseItems extends Activity implements IView
 	}
 	
 	public void toSearchResults(View view){
-		Intent intent = new Intent(this, SearchResults.class);
 		EditText searchBox = (EditText) findViewById(R.id.searchEditText);
 		String searchTerm = searchBox.getText().toString();
+		startSearchActivity(searchTerm);
+	}
+	
+	private void startSearchActivity(String searchTerm){
+		Intent intent = new Intent(this, SearchResults.class);
 		intent.putExtra("@string/idSearchTerm", searchTerm);
 		startActivity(intent);
 	}
