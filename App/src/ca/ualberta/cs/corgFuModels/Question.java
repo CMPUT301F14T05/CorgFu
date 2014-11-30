@@ -210,7 +210,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 * @return The ArrayList of Answer objects (answers to the question)
 	 */
 	public ArrayList<Answer> getAnswers() {
-		return answers;
+		return this.answers;
 	}
 	
 	/**

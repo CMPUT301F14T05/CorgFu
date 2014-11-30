@@ -92,7 +92,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
-		setPicture();
+		//setPicture();
 		populateAnswerView();
 	}
 	
@@ -323,22 +323,29 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
 		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
 		String answerText = answerEditText.getText().toString();
-		myAnswer = new Answer(answerText);
-		answerEditText.setText("");
 		
-		UserName user = UserName.getInstance();
-		myAnswer.setAuthor(user.getUserName());
-		myAnswer.setTempId(ADD_PICTURE_CODE);
-		QAController QAC = new QAController(myQuestion);
-		QAC.addAnswer(myAnswer);
+		int answerLen = answerText.length();
 		
-		// invokes dialog for adding picture
-		invokeAddPictureDialog(myQuestion.getId());
-		
-		populateAnswerView();
-		arrayAnswerAdapter.notifyDataSetChanged(); 	
-		
-		Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
+		if (answerLen <= 0||isBlank(answerText) == true) {
+			Toast.makeText(getApplicationContext(), "Answer can't be empty.", Toast.LENGTH_LONG).show();
+		}else{
+			myAnswer = new Answer(answerText);
+			answerEditText.setText("");
+			
+			UserName user = UserName.getInstance();
+			myAnswer.setAuthor(user.getUserName());
+			myAnswer.setTempId(ADD_PICTURE_CODE);
+			QAController QAC = new QAController(myQuestion);
+			QAC.addAnswer(myAnswer);
+			
+			// invokes dialog for adding picture
+			invokeAddPictureDialog(myQuestion.getId());
+			
+			populateAnswerView();
+			arrayAnswerAdapter.notifyDataSetChanged(); 	
+			
+			Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	/** Prepare and invoke dialog for adding 	
@@ -473,4 +480,17 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		// TODO Auto-generated method stub
 		
 	}
+	
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
