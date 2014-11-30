@@ -4,7 +4,13 @@
  */
 package ca.ualberta.cs.corgFuES;
 
-
+/**
+ * A utility class used for Elasticsearch responses
+ * @author Victor Guana
+ *
+ * @param <T> the objects returned by an elasticsearch 
+ * response
+ */
 public class SearchResponse<T> {
 
 	private int took;
@@ -48,7 +54,11 @@ public class SearchResponse<T> {
 }
 
 	
-
+/**
+ * a utility class used for parsing Elasticsearch responses
+ * @author Victor Guana
+ *
+ */
 class Shard {
 	private int total;
 	private int successful;
