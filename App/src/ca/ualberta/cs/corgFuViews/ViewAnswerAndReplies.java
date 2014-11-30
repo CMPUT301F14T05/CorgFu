@@ -83,7 +83,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		hasBeenRead = false;
 		getAnswer();
 		setFont();
-		setPicture();
+		//setPicture();
 		populateReplyView();
 	}
 	
