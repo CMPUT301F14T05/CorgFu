@@ -303,15 +303,6 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void gotoAnswer(View v) {
-		QAController QAC = new QAController(myQuestion);
-		ArrayList<Answer> answers = QAC.getAnswers();
-		
-		int indx = replyListView.getPositionForView(v);
-		myAnswer = answers.get(indx);
-		
-		int aId = myAnswer.getId();
-		int qId = myQuestion.getId();
-		
 		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
