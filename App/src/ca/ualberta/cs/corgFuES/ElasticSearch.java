@@ -207,7 +207,7 @@ public class ElasticSearch {
 	/**
 	 * Gets content from an HTTP response
 	 */
-	public String getEntityContent(HttpResponse response) throws IOException {
+	private String getEntityContent(HttpResponse response) throws IOException {
 		BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
 		StringBuffer result = new StringBuffer();

@@ -33,7 +33,6 @@ import ca.ualberta.cs.corgFuES.ElasticSearch;
 public class AllQuestions extends Model<IView>
 {
 	private static ArrayList<Question> allQuestions;
-	ElasticSearch ES;
 	/**
 	 * Builds the AllQuestions model which will hold the questions
 	 * that are currently available (online or offline)
