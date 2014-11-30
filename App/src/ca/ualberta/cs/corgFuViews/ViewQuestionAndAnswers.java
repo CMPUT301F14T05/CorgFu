@@ -76,6 +76,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the answer that is being added by the user*/
 	protected Answer myAnswer; //most recent Reply added by the user
 	private int aId = 0;
+	final Integer ADD_PICTURE_CODE = 123;
+
 	
     /** ReplyList view with answers to a question */
     ListView answerListView;
@@ -319,7 +321,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 */
 	public void submitAnswer(View v) {
 
-		final Integer separator = 12345;
 		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
 		String answerText = answerEditText.getText().toString();
 		myAnswer = new Answer(answerText);
@@ -327,14 +328,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		UserName user = UserName.getInstance();
 		myAnswer.setAuthor(user.getUserName());
-		
+		myAnswer.setTempId(ADD_PICTURE_CODE);
 		QAController QAC = new QAController(myQuestion);
 		QAC.addAnswer(myAnswer);
 		
-		//String combinedIdStr = "" + myQuestion.getId() + separator + myAnswer.getId();
-		//Integer combinedId = Integer.parseInt(combinedIdStr);
 		// invokes dialog for adding picture
-		// invokeAddPictureDialog(combinedId);
+		invokeAddPictureDialog(myQuestion.getId());
 		
 		populateAnswerView();
 		arrayAnswerAdapter.notifyDataSetChanged(); 	
@@ -408,15 +407,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			
     		if (Picture.byteSizeOf(attachedPic) > 0) {
     			// Add image to the answer
-    			
-    			// parse requestCode Id
-    			String requestCodeStr = String.valueOf(requestCode);
-    			String separator = "12345";
-    			String[] IDs = requestCodeStr.split(separator);
-    			Integer qId = Integer.parseInt(IDs[0]);
-    			Integer aId = Integer.parseInt(IDs[1]);
-				Question q = dc.getQuestionById(qId, "MyQuestions.save"); 	
-				Answer answer = q.getAnswerById(aId); 	
+				Question q = dc.getQuestionById(requestCode, "MyQuestions.save"); 	
+				Answer answer = q.getAnswerByTempId(ADD_PICTURE_CODE); 	
 				answer.setPicture(attachedPic);
 				
 				dc = new DataController();
