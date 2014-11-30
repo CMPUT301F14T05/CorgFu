@@ -121,7 +121,10 @@ public class MainActivity extends Activity
 		q.setReadableAddress();
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		AQC.addQuestion(q);
-
+		
+		UserName user = UserName.getInstance();
+		q.setAuthor(user.getUserName());
+		
 		DC.addData(q, "MyQuestions.save");
 		
 		// invokes dialog for adding picture
@@ -252,7 +255,7 @@ public class MainActivity extends Activity
 
     			//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
     			Question q = DC.getQuestionById(requestCode, "MyQuestions.save");
-    			Bitmap resizedPic = Picture.getResizedBitmap(attachedPic, 64);
+    			Bitmap resizedPic = Picture.getResizedBitmap(attachedPic, 64); // resized to 64KB
     			q.setImage(resizedPic);
     			DC.addData(q, "MyQuestions.save");
     			AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();

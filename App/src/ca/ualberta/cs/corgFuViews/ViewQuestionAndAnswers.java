@@ -76,6 +76,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the answer that is being added by the user*/
 	protected Answer myAnswer; //most recent Reply added by the user
 	private int aId = 0;
+	final Integer ADD_PICTURE_CODE = 123;
+
 	
     /** ReplyList view with answers to a question */
     ListView answerListView;
@@ -131,6 +133,12 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
 		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		
+		TextView date = (TextView) findViewById(R.id.date);
+		date.setText(myQuestion.stringDate());
+		
+		TextView author = (TextView) findViewById(R.id.author);
+		author.setText(myQuestion.stringAuthor());
 		
 	}
 	/*
@@ -290,23 +298,20 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		ArrayList<Answer> answers = QAC.getAnswers();
 		
 		int indx = answerListView.getPositionForView(v);
-		answers.get(indx).upvote();
+		myAnswer = answers.get(indx);
+	    myAnswer.upvote();
 
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);
 		
 		upvoteCount.setTypeface(customTF);
 
-		upvoteCount.setText(Integer.toString(QAC.getAnswers()
-				.get(indx).getVotes()
-		));
-
+		upvoteCount.setText(Integer.toString(myAnswer.getVotes()));
 		
 		Button upvoteAnsButton = (Button) v;
 		upvoteAnsButton.setClickable(false);
 		upvoteAnsButton.setEnabled(false);
 		
-
 		arrayAnswerAdapter.notifyDataSetChanged();
 	}
 	
@@ -315,17 +320,32 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void submitAnswer(View v) {
-		 
+
 		EditText answerEditText = (EditText) findViewById(R.id.AnswerEditText);
 		String answerText = answerEditText.getText().toString();
-		myAnswer = new Answer(answerText);
-		answerEditText.setText("");
 		
-		QAController QAC = new QAController(myQuestion);
-		QAC.addAnswer(myAnswer);
+		int answerLen = answerText.length();
 		
-		populateAnswerView();
-		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		if (answerLen <= 0||isBlank(answerText) == true) {
+			Toast.makeText(getApplicationContext(), "Answer can't be empty.", Toast.LENGTH_LONG).show();
+		}else{
+			myAnswer = new Answer(answerText);
+			answerEditText.setText("");
+			
+			UserName user = UserName.getInstance();
+			myAnswer.setAuthor(user.getUserName());
+			myAnswer.setTempId(ADD_PICTURE_CODE);
+			QAController QAC = new QAController(myQuestion);
+			QAC.addAnswer(myAnswer);
+			
+			// invokes dialog for adding picture
+			invokeAddPictureDialog(myQuestion.getId());
+			
+			populateAnswerView();
+			arrayAnswerAdapter.notifyDataSetChanged(); 	
+			
+			Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	/** Prepare and invoke dialog for adding 	
@@ -392,14 +412,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				e.printStackTrace(); 	
 			}
 			
-			if (Picture.smallPicture(attachedPic)) {
-				// Add image to the question
-				Question q = dc.getQuestionById(qId, "MyQuestions.save"); 	
-				Answer answer = q.getAnswerById(requestCode); 	
-				answer.setPicture(attachedPic); 	
-				dc.addData(q, "MyQuestions.save"); 	
-				AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
-				AQC.addQuestion(q); 	
+    		if (Picture.byteSizeOf(attachedPic) > 0) {
+    			// Add image to the answer
+				Question q = dc.getQuestionById(requestCode, "MyQuestions.save"); 	
+				Answer answer = q.getAnswerByTempId(ADD_PICTURE_CODE); 	
+				//answer.setPicture(attachedPic);
+				
+				//dc.addData(q, "MyQuestions.save"); 	
+				//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
+				//AQC.addQuestion(q);
 				
 				Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show(); 	
 				
@@ -459,4 +480,17 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		// TODO Auto-generated method stub
 		
 	}
+	
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

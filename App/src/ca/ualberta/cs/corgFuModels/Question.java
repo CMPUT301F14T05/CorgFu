@@ -210,7 +210,7 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	 * @return The ArrayList of Answer objects (answers to the question)
 	 */
 	public ArrayList<Answer> getAnswers() {
-		return answers;
+		return this.answers;
 	}
 	
 	/**
@@ -221,6 +221,22 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	public Answer getAnswerById(int id) {
 		for (Answer a:answers){
 			if (a.getId() == id){
+				return a;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 *  returns answer with correct tempId and
+	 *  resets tempId
+	 * @param tempId
+	 * @return Answer
+	 */
+	public Answer getAnswerByTempId(int id) {
+		for (Answer a:answers){
+			if (a.getTempId() == id){
+				a.setTempId(0);
 				return a;
 			}
 		}

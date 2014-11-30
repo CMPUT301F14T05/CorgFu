@@ -8,11 +8,30 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+</TextView><TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/answerText"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/answerText" />
+    
     <Button
         android:id="@+id/upvoteAnswerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answerText"
+        android:layout_below="@+id/date"
         android:onClick="upvoteAns"
         android:text="@string/upvoteButtonText"
         android:textSize="15sp" />
@@ -21,7 +40,7 @@
         android:id="@+id/goToQReplies"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answerText"
+        android:layout_below="@+id/date"
         android:layout_toEndOf="@+id/upvoteAnswerButton"
         android:layout_toRightOf="@+id/upvoteAnswerButton"
         android:onClick="goToAReplies"
@@ -33,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/answerText"
+        android:layout_below="@+id/author"
         android:textColor="#ff04c1d2"
         android:textSize="30sp" />
 

@@ -1,6 +1,8 @@
 package ca.ualberta.cs.corgFuModels;
 
 import java.io.Serializable;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -31,9 +33,11 @@ public class Answer implements Serializable
 	private Date date;
 	private ArrayList<Reply> replies;
 	private Bitmap genericPic;
-	private Boolean hasAPicture;
+	private Boolean hasAPicture = false;
 	private int id;
+	private int tempId;
 	private boolean isPushed;
+	private String author;
 
 	/**
 	 * Builds an Answer based on the question text
@@ -64,7 +68,7 @@ public class Answer implements Serializable
 	 * A function that increments the number of upvotes a Answer has.
 	 */
 	public void upvote(){
-		upvotes += 1; 	// Increments vote counter
+		this.upvotes += 1; 	// Increments vote counter
 	}
 	
 	/**
@@ -73,7 +77,7 @@ public class Answer implements Serializable
 	 * the Answer
 	 */
 	public void addReply(Reply reply){
-		replies.add(reply);
+		this.replies.add(reply);
 	}
 
 	/**
@@ -112,15 +116,15 @@ public class Answer implements Serializable
 	 */
 	public ArrayList<Reply> getReplies() {
 
-		Collections.sort(replies, new Comparator<Reply>() {
+		Collections.sort(this.replies, new Comparator<Reply>() {
 
 						public int compare(Reply R1, Reply R2) {
-							return R1.getDate().compareTo(R2.getDate());
+							return R2.getDate().compareTo(R1.getDate());
 						}
 					});
 
 		
-		return replies;
+		return this.replies;
 		
 	}
 	
@@ -147,6 +151,7 @@ public class Answer implements Serializable
 	 * Answer.
 	 */
 	public void setPicture(Bitmap picture){
+		hasAPicture = true;
 		genericPic = picture;
 	}
 	/**
@@ -170,6 +175,19 @@ public class Answer implements Serializable
 	public void setId(int newId){
 		id = newId;
 	}
+	
+	/**
+	 * Returns the id that is temporary assigned to the answer
+	 * to identify it within the same question.
+	 * @return The TempId of the answer which is 0<= id <= 100000
+	 */
+	public int getTempId(){
+		return tempId;
+	}
+	
+	public void setTempId(int newId){
+		tempId = newId;
+	}
 
 	public boolean isPushed() {
 		return isPushed;
@@ -177,5 +195,19 @@ public class Answer implements Serializable
 
 	public void setPushed(boolean isPushed) {
 		this.isPushed = isPushed;
+	}
+		
+	public String stringDate(){
+		Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		return formatter.format(this.date);
+	}
+	
+	public void setAuthor(String author){
+		this.author = author;
+	}
+	
+	public String stringAuthor(){
+		return this.author;
+
 	}
 }

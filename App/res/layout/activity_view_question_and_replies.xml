@@ -13,8 +13,8 @@
         android:id="@+id/readLaterButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/questionText"
         android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/ReplyEditText"
         android:background="@drawable/buttonshape"
         android:fontFamily="fonts/26783.ttf"
         android:onClick="readLater"
@@ -31,15 +31,15 @@
         android:fontFamily="fonts/26783.ttf"
         android:textColor="#ff04c1d2"
         android:textSize="15sp" >
-        
-    </TextView><TextView
+    </TextView>
+
+    <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/questionText"
-        android:text="Testing Date"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:text="Testing Name" />
 
     <TextView
         android:id="@+id/author"
@@ -48,9 +48,9 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/questionText"
         android:text="Testing Name"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textStyle="bold" />
 
-<ImageButton
+    <ImageButton
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,14 +89,6 @@
         android:layout_below="@+id/favoriteButton"
         android:text="@string/topRepliesLabelText"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/qPictureView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/questionText"
-        android:layout_alignTop="@+id/readLaterButton"
-        android:contentDescription="@string/pictureDescriptionQuestion" />
 
     <Button
         android:id="@+id/gotoAnswer"
@@ -139,7 +131,14 @@
         android:layout_above="@+id/ReplyEditText"
         android:layout_alignLeft="@+id/ReplyEditText"
         android:layout_below="@+id/topHeaderLabelText" >
-
     </ListView>
+
+    <ImageView
+        android:id="@+id/qPictureView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/favoriteButton"
+        android:layout_alignTop="@+id/readLaterButton"
+        android:contentDescription="@string/pictureDescriptionQuestion" />
 
 </RelativeLayout>

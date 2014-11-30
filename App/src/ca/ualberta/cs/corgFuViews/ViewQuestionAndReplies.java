@@ -113,9 +113,6 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		cache();
 		isFavourited(myQuestion.getId());
 		
-		UserName user = UserName.getInstance();
-		myQuestion.setAuthor(user.getUserName());
-		
 		TextView questionText = (TextView) findViewById(R.id.questionText);
 		questionText.setTypeface(customTF);
 		questionText.setText(QAC.getQuestionString());
@@ -289,15 +286,15 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		}else{
 			reply = new Reply(replyText);
 			replyEditText.setText("");
+			
+			UserName user = UserName.getInstance();
+			reply.setAuthor(user.getUserName());
 
 			QAController QAC = new QAController(myQuestion);
 			QAC.addReply(reply);
 
 			populateReplyView();
 			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
-
-			UserName user = UserName.getInstance();
-			reply.setAuthor(user.getUserName());
 		}
 	}
 	

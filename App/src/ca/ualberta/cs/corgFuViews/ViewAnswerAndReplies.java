@@ -83,6 +83,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		hasBeenRead = false;
 		getAnswer();
 		setFont();
+		//setPicture();
 		populateReplyView();
 	}
 	
@@ -183,6 +184,20 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		Button submit = (Button) findViewById(R.id.submitReplyButton);
 		submit.setTypeface(customTF);
 	}
+	
+	/** 	
+	  * * Updates imageView with a question picture if this question has a picture 	
+	  */ 	
+	private void setPicture() { 	
+		if (myAnswer.hasPicture()) { 	
+			Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
+			//ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
+			//qPictureView.setImageBitmap(myAnswer.getPicture()); 	
+		} 	
+		else { 	
+			Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
+		} 	
+	}
 
 	/**
 	 * Populates the ReplyView of questions with questions in the order 
@@ -249,8 +264,8 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
 		upvoteCount.setTypeface(customTF);
-		QAC.upvote();
-		upvoteCount.setText(Integer.toString(QAC.getVotes()));
+		myAnswer.upvote();
+		upvoteCount.setText(Integer.toString(myAnswer.getVotes()));
 		
 		Button upvoteButton = (Button) findViewById(R.id.upvoteButton);
 		upvoteButton.setClickable(false);
@@ -262,24 +277,32 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void submitReply(View v) {
-		 
+		
 		EditText replyEditText = (EditText) findViewById(R.id.ReplyEditText);
 		String replyText = replyEditText.getText().toString();
-		reply = new Reply(replyText);
-		replyEditText.setText("");
-
-		myAnswer.addReply(reply);
 		
-		populateReplyView();
-		Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		int replyLen = replyText.length();
+		
+		if (replyLen <= 0||isBlank(replyText) == true) {
+			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
+		}else{
+			reply = new Reply(replyText);
+			replyEditText.setText("");
+			
+			UserName user = UserName.getInstance();
+			reply.setAuthor(user.getUserName());
+			
+			myAnswer.addReply(reply);
+			populateReplyView();
+			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+		}
 	}
-	
+		
 	/**
 	 * Links to QuestionAndAnswers View when clicked 
 	 * @param v The view that was clicked on
 	 */
 	public void gotoAnswer(View v) {
-		int qId = myQuestion.getId();
 		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
@@ -290,5 +313,19 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	@Override
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
-	}    
+	}
+	
+    public static boolean isBlank(String str) {
+        int strLen;
+        if (str == null || (strLen = str.length()) == 0) {
+            return true;
+        }
+        for (int i = 0; i < strLen; i++) {
+            if ((Character.isWhitespace(str.charAt(i)) == false)) {
+                return false;
+            }
+        }
+        return true;
+    }
+	
 }
