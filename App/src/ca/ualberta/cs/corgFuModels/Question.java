@@ -31,10 +31,7 @@ import ca.ualberta.cs.corgFu.UserName;
  *@version 2.0 Nov.22,2014
  */
 public class Question extends Model<IView> implements Comparable<Question>, Serializable  {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5952661765874184488L;
+
 	private int upvotes;
 	private String questionText;
 	private Bitmap genericPic;
