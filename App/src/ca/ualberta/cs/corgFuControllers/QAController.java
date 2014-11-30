@@ -23,8 +23,8 @@ import ca.ualberta.cs.corgFuModels.Reply;
  */
 public class QAController {
 	
-	Question question;
-	ElasticSearch ES = new ElasticSearch();
+	private Question question;
+	private ElasticSearch ES = new ElasticSearch();
 	/**
 	 * Builds the controller with the question model that it will be 
 	 * modifying.	
@@ -137,12 +137,6 @@ public class QAController {
 		}
 		return null;
 	}
-	
-	/**
-	 * Makes the question available offline so it can be viewed later
-	 * @param controller The controller that will add the question to the 
-	 * list of available offline answers.
-	 */
 	
 	/**
 	 * Returns the text of the question.
