@@ -33,7 +33,7 @@ public class Answer implements Serializable
 	private Date date;
 	private ArrayList<Reply> replies;
 	private Bitmap genericPic;
-	private Boolean hasAPicture;
+	private Boolean hasAPicture = false;
 	private int id;
 	private int tempId;
 	private boolean isPushed;

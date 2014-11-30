@@ -409,12 +409,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
     			// Add image to the answer
 				Question q = dc.getQuestionById(requestCode, "MyQuestions.save"); 	
 				Answer answer = q.getAnswerByTempId(ADD_PICTURE_CODE); 	
-				answer.setPicture(attachedPic);
+				//answer.setPicture(attachedPic);
 				
-				dc = new DataController();
-				dc.addData(q, "MyQuestions.save"); 	
-				AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
-				AQC.addQuestion(q);
+				//dc.addData(q, "MyQuestions.save"); 	
+				//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
+				//AQC.addQuestion(q);
 				
 				Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show(); 	
 				
