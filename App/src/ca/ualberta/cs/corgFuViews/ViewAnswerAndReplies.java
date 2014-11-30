@@ -127,6 +127,12 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		upvoteCount.setTypeface(customTF);
 		upvoteCount.setText(Integer.toString(myQuestion.getAnswerById(aId).getVotes()));
 		
+		TextView date = (TextView) findViewById(R.id.date);
+		date.setText(myAnswer.stringDate());
+		
+		TextView author = (TextView) findViewById(R.id.author);
+		author.setText(myAnswer.stringAuthor());
+		
 	}
 	/*
 	 * caches question if it hasnt been cached already

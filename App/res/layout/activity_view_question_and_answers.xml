@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/questionText"
-        android:text="Testing Date"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textStyle="italic" 
+        android:text="Testing Name" />
 
     <TextView
         android:id="@+id/author"
