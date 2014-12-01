@@ -10,7 +10,9 @@ import android.webkit.WebView.FindListener;
 import android.widget.Button;
 import android.widget.EditText;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.DataManager;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
+import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.BrowseItems;
@@ -23,9 +25,11 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		setActivityInitialTouchMode(true);
 	}
 	@UiThreadTest
-	public void testAddQuestionButton(){
+	public void testAddQuestionButtonAndSaving(){
 		AllQuestionsController AQController = AllQuestionsApplication.getAllQuestionsController();//the app allQuestion singleton
 		Question q = new Question("Test one");
+		DataController DC = new DataController();
+		DC.clearData("MyQuestions.save");
 		AllQuestions aq = new AllQuestions();//controlled all questions object 
 		aq.addQuestion(q);
 		MainActivity activity = getActivity();
@@ -36,5 +40,10 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		ArrayList<Question> first = aq.getAllQuestions();
 		ArrayList<Question> second = AQController.getAllQuestions();
 		assertEquals(first.get(0).toString(), second.get(0).toString());//makes sure the added question text is equal to the expected question text 
+		ArrayList<Question> third = DC.getData("MyQuestions.save");
+		assertEquals(first.get(0).toString(), third.get(0).toString());
 	}
+	
+		
+	
 }
