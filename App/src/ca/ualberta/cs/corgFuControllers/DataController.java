@@ -110,6 +110,7 @@ public class DataController {
 	public void pushOfflineContent() {
 		// TODO Auto-generated method stub
 		ArrayList<Question> offlineList = mdm.loadDataToFile("Unpushed.save");
+		Log.i("AOC", "here");
 		for(Question q: offlineList){
 			Log.i("push offline",q.getQuestionText());
 			boolean keepGoing = pushQuestion(q);
