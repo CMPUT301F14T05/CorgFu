@@ -29,10 +29,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFu.choiceSingleton;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -58,6 +60,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	// 0 = favourites file
 	// 1 = cache file
 	// 2 = read later file
+	ConnectedManager connected;
 	private final static String favourites = "Favourites.save";
 	private final static String cache ="CacheFile.save";
 	private final static String readlater = "ReadLater.save";
@@ -69,12 +72,13 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	/** This is the previous answer that is being added by the user*/
 	Answer myAnswer;
 	private int aId = 0;
-
+	choiceSingleton cs;
 	protected Reply reply; //most recent Reply added by the user
     /** ReplyList view with replies to a answer */
     ListView replyListView;
     /** Custom arrayAdapter to handle list of Answers */
     InsertReplyAdapter arrayReplyAdapter;
+    QAController QAC;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -109,9 +113,18 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		
 		dc = new DataController();
-		myQuestion = AQC.getQuestionById(qId);
+		cs = choiceSingleton.getInstance();
 		
-		QAController QAC = new QAController(myQuestion);
+		boolean isConnect = connected.isConnexted();
+		Log.i("VQAR",String.valueOf(isConnect));
+		if (isConnect ==false)
+		{
+			myQuestion =dc.getQuestionById(qId, cs.getChoice());
+		}else{
+			myQuestion = AQC.getQuestionById(qId);
+		}
+		
+		QAC = new QAController(myQuestion);
 		
 		cache();
 		isFavourited(myQuestion.getId());
@@ -298,9 +311,23 @@ public class ViewAnswerAndReplies extends Activity implements IView
 			UserName user = UserName.getInstance();
 			reply.setAuthor(user.getUserName());
 			
+			
 			myAnswer.addReply(reply);
+			
+			
+			boolean isConnect = connected.isConnexted();
+			Log.i("VQAR",String.valueOf(isConnect));
+			if (isConnect ==false)
+			{
+				dc.addData(myQuestion, 
+						cs.getChoice());
+				dc.addData(myQuestion, "Unpushed.save");
+				Toast.makeText(this, "Your Reply will be added when connection is made", Toast.LENGTH_SHORT).show();
+			}else{
+				QAC.addAnswer();
+				Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
+			}
 			populateReplyView();
-			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 		}
 	}
 		
