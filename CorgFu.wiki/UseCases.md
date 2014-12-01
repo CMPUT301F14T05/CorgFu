@@ -48,7 +48,7 @@ Use Cases
 						3a.1 no answers exsists for the question
   
 	Frequency of Use: 	very often, close to every use.
-	Status: 			pending implementation
+	Status: 			completed
 	Responsibility:		pending implementation, test case complete
 	Prioirty: 			P1-High
 
@@ -64,7 +64,7 @@ Use Cases
 						2. shows replies
 	
 	Frequency of Use:	somewhat often
-	Status: 			pending testcase, and implementation
+	Status: 			completed
 	Responsibility:		pending implementation, test case complete
 	Priority: 			P3-Low 		
 ####	ID:	UC-04
@@ -81,7 +81,7 @@ Use Cases
 						2. selects to not to  add photo not(if no stop)
 	Extenions: 
 	Frequency of Use: 	somewhat often
-	Status: 			pending implementation, test case complete
+	Status: 			completed
 	Responsibility: 	Devon 
 	Priority:			P1-High
 ####	ID: UC-05
@@ -97,7 +97,7 @@ Use Cases
 						2. selects to not to  add photo not(if no stop)
 	Extenions:
 	Frequency of Use: 	somewhat often
-	Status: 			pending implementation, test case complete
+	Status: 			completed
 	Responsibility: 	Devon 
 	Priority:			P1-High
 ####	ID: UC-06
@@ -113,7 +113,7 @@ Use Cases
 						2. user submits a reply
 						3. their reply appears at the top as the most recent
 	Frequency of Use: 	infrequent
-	Status: 			pending implementation, test case complete
+	Status: 			completed
 	Resposibility:		Devon 
 	Priority: 			P3-Low
 ####	ID: UC-07
@@ -130,7 +130,7 @@ Use Cases
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture
 							2a1. Picture is larger than 64Kb.
 	Frequency of Use: 	Somewhat often
-	Status: 			Testcase completed.
+	Status: 			not done.
     Responsibility:     Anthony
 	Priority: 			p2-Medium
 ####	ID:	UC-08
@@ -148,7 +148,7 @@ Use Cases
 	Extensions:			2a. Image directory is empty; AppUser selects a void picture 
 							2a1. Picture added exceeds the speficifcations; >64kB. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who add pictures to their answers.
-	Status:				Testcases completed.
+	Status:				not done.
 	Responsibility:		Anthony for Test cases
 	Priority:			P3-Low
 
@@ -184,8 +184,8 @@ Use Cases
 							2a1. App displays error message saying no questions are currently
                                  available, try connecting to the internet. 
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse questions with pictures.
-	Status:				Testcases in production
-	Responsibility:		Anthony
+	Status:				completed
+	Responsibility:		Devon
 	Priority:			P2 - Medium
 
 ####	ID:	UC-11
@@ -202,8 +202,8 @@ Use Cases
 							2a1. App displays error message saying no questions are currently
 								available, try connecting to the internet.
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse the most recent/oldest questions.
-	Status:				Testcases completed
-	Responsibility:		Anthony for test cases
+	Status:				Devon
+	Responsibility:		Devon
 	Priority:			P3 - Low
 
 ####	ID:	UC-12
@@ -242,7 +242,7 @@ Use Cases
 								available, try connecting to the internet.
 	Frequency of Use: 	Likely used somewhat often by AppUsers who like to browse popular 
 	                    questions
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt for test cases
 	Priority:			P3-Low
 
@@ -262,7 +262,7 @@ Use Cases
 							2a1. System displays error message indicating no questions are
 							currently available.
 	Frequency of Use:	Very frequent, every time an AppUser browses questions.
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priotity:			P2-Medium
 	
@@ -291,7 +291,7 @@ Use Cases
 							5a1. System displays error message indicating that no results were 
 							found.
 	Frequency of Use:	Very frequent, AppUsers will often find questions this way.
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P2 - Medium
 					
@@ -312,7 +312,7 @@ Use Cases
 							when the device has internet access again.
 							3a2. System pushes question once it gains internet acess
 	Frequency of Use:	Very frequent. Whenever an author makes a question.
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 	
@@ -335,7 +335,7 @@ Use Cases
 						4. AppUser can view this question and its answers offline.
 	Extensions:			None so far
 	Frequency of Use:	Very frequent. Used whenever an AppUser views a question.
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 
@@ -355,7 +355,7 @@ Use Cases
 						4. System adds the question to the AppUser's favorites and makes it
 						available offline.
 	Frequency of Use:	Infrequent to medium frequency depending on the AppUser
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 	
@@ -380,7 +380,7 @@ Use Cases
 							1a3. System stores answer or reply and posts it when internet is
 							available.
 	Frequency of Use:	Medium frequency
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 							
@@ -401,7 +401,7 @@ Use Cases
 						3. System pushes offline content so it can be viewed by other AppUsers
 						and Authors.
 	Frequency of Use:	Medium frequency
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P3-Low
 	Extends:			UC-19
@@ -421,7 +421,7 @@ Use Cases
 						4. System displays replies with the most recent replies visable to the 
 						AppUser
 	Frequency of Use:	High frequency
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P2-Medium 
 	
@@ -439,7 +439,7 @@ Use Cases
 						4. System uses the username to show other users who created the question,
 						answer, or reply
 	Frequency of Use: 	High frequency
-	Status:				Testcase complete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P1-High
 	
@@ -477,7 +477,7 @@ Use Cases
 					6. System selects all the questions that are nearby the user 
 					and displays them in the BrowseQuestions view
 	Frequency of Use:	Medium
-	Status:				Incomplete
+	Status:				completed
 	Responsibility:		Wyatt
 	Priority:			P2-Medium
 
@@ -511,6 +511,6 @@ Use Cases
 	Scenario:		1.User has selected a question
 					2. Question displays whether or not user is close to the poster
 	Frequency of Use:	High
-	Status:				Not implemented, no test case
+	Status:				completed
 	Responsibility:		Alex
 	Priority:			P2-Medium
