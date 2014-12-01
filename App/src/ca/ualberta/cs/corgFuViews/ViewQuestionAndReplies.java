@@ -52,8 +52,8 @@ import ca.ualberta.cs.corgFuModels.Reply;
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture
  * @see ca.ualberta.cs.corgFuModels.Reply
- * @author wrflemin
- *
+ * @author Anthony Wu
+ * @author Oleksii Shevchenko
  */
 public class ViewQuestionAndReplies extends Activity implements IView
 {
@@ -86,7 +86,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateReplyView();
 	}
 	
@@ -141,7 +141,8 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		author.setText(myQuestion.stringAuthor());
 		
 	}
-	/*
+	
+	/**
 	 * caches question if it hasnt been cached already
 	 */
 	private void cache(){
@@ -155,9 +156,9 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		}
 		dc.addData(myQuestion, cache);
 	}
-	/*
-	 * sets the button for favourite based on if its already saved.
-	 * 
+	
+	/**
+	 * Sets the button for favourite based on if its already saved.
 	 */
 	private void isFavourited(int qID){
 		
@@ -176,8 +177,8 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		}
 		
 	}
-	/*
-	 * set button to clicked for favourites
+	/**
+	 * Sets button to clicked for favourites
 	 */
 	private void setButtonToClicked(){
 		
@@ -207,12 +208,8 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	 */
 	private void setPicture() { 	
 		if (myQuestion.hasPicture()) { 	
-			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
 			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
 			qPictureView.setImageBitmap(myQuestion.getImage()); 	
-		} 	
-		else { 	
-			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
 		} 	
 	}
 
@@ -250,10 +247,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 			}
 		}
 		dc.addData(myQuestion, readlater);
-		return;
-		
-		// Change button image after question has been added to favorites
-		
+		return;		
 	}
 	
 	/**
@@ -266,8 +260,6 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		dc.addData(myQuestion,favourites);
 		Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
 		setButtonToClicked();
-			
-		
 	}
 	
 	/**
