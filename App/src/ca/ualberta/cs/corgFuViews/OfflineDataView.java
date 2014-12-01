@@ -16,6 +16,7 @@ import android.widget.ListView;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFu.InsertQuestionAdapter;
+import ca.ualberta.cs.corgFu.choiceSingleton;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuModels.Question;
@@ -23,9 +24,10 @@ import ca.ualberta.cs.corgFuModels.Question;
 public class OfflineDataView extends Activity {
 	private static InsertQuestionAdapter listAdapter1;
 	public static Context context ;
-	int choice;
+	
 	public static ArrayList<Question> myData;
 	DataController mfc;
+	static String choice;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,10 +35,10 @@ public class OfflineDataView extends Activity {
 		Bundle extra = getIntent().getExtras();
 		String choice = extra.getString(MyProfile.EXTRA_CHOICE);
 		Log.i("OFDV",String.valueOf(choice));
-		
-		populateListView(choice );
+		choiceSingleton cs = choiceSingleton.getInstance();
+		cs.setChoice(choice);
+		populateListView(choice);
 		setListViewListener();
-		
 	}
 	protected void onResume(){
 		super.onResume();
@@ -44,7 +46,8 @@ public class OfflineDataView extends Activity {
 		Bundle extra = getIntent().getExtras();
 		String choice = extra.getString(MyProfile.EXTRA_CHOICE);
 		Log.i("OFDV",String.valueOf(choice));
-		
+		choiceSingleton cs = choiceSingleton.getInstance();
+		cs.setChoice(choice);
 		populateListView(choice );
 		setListViewListener();
 	}
@@ -94,6 +97,9 @@ public class OfflineDataView extends Activity {
 		Log.i("FVL","before insert2");
 		BFListView.setAdapter(listAdapter1);		
 	}
+	public String getChoice(){
+		return choice;
+	}
 	private void setListViewListener(){
 		final OnItemClickListener mMessageClickedHandler = new OnItemClickListener() {
 		    public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -108,7 +114,12 @@ public class OfflineDataView extends Activity {
 	}
 	private void goToQuestion(int qId){
 		Intent intent = new Intent(this, ViewQuestionAndReplies.class);
+		
+		choiceSingleton cs = new choiceSingleton();
+		String choiceStr = cs.getChoice();
     	intent.putExtra("@string/idExtraTag", qId);
+    	Log.i("string",choiceStr);
+    	intent.putExtra("@string/loadFromTag", choiceStr);
     	startActivity(intent);
 	}
 	@Override
