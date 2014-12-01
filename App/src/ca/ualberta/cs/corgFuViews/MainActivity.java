@@ -116,6 +116,10 @@ public class MainActivity extends Activity
 	public void addQuestion(View view){
 		EditText questionText = (EditText) findViewById(R.id.EnterQuestionBox);//grabs the iD of the edit Text box where you will be entering ypour information
 		String question = questionText.getText().toString();//this is the text pulled from our edittext box
+		if (question.equals("")){
+			Toast.makeText(context, "Please Add Question Text", Toast.LENGTH_SHORT).show();
+			return;
+		}
 		questionText.setText("");//sets the edit text box to blank after entering a question
 		Question q = new Question(question); // creates a new question object
 		q.setReadableAddress();
@@ -134,7 +138,7 @@ public class MainActivity extends Activity
 		isConnected = true;
 		if (isConnected)
 		{
-			Toast.makeText(context, "question added successfully", Toast.LENGTH_SHORT).show();
+			Toast.makeText(context, "Question added successfully", Toast.LENGTH_SHORT).show();
 			 // creates a new question object
 			DC.getQuestionById(q.getId(), "MyQuestions.save");
 			q.setIsPushed(true);

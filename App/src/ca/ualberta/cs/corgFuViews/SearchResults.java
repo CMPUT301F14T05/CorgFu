@@ -66,11 +66,13 @@ public class SearchResults extends Activity {
 	private ArrayList<Question> startSearch() {
 		Bundle extra = getIntent().getExtras();
 		String searchTerm = "";
+		String field = null;
 		if (extra != null){
 			searchTerm = extra.getString("@string/idSearchTerm");
+			field = extra.getString("@string/idField");
 		}
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		return AQC.search(searchTerm, null);
+		return AQC.search(searchTerm, field);
 	}
 	
 	/**
