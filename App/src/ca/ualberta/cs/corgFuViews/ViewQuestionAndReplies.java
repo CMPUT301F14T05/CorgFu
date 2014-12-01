@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.Blank;
 import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
@@ -43,10 +44,9 @@ import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuModels.Reply;
 /**
- * Activity that is responsible for showing a Question. A question
+ * Activity that is responsible for showing a Question & its replies. A question
  * can be composed of the question text, a picture related to the question
- * number of upvotes, replies to the question, and all of the answers to 
- * the questions which can have answer text, a picture relating to the answer,
+ * number of upvotes, replies to the question, and a picture relating to the question,
  * upvotes, and replies.
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
@@ -200,6 +200,11 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		submit.setTypeface(customTF);
 	}
 	
+	/**
+	 * Sets the picture of the Question. First it evaluates whether or not 
+	 * The 	Question already has a picture and based on that assessment,
+	 * attaches the picture to the Question. 
+	 */
 	private void setPicture() { 	
 		if (myQuestion.hasPicture()) { 	
 			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
@@ -296,7 +301,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		
 		int replyLen = replyText.length();
 		
-		if (replyLen <= 0||isBlank(replyText) == true) {
+		if (replyLen <= 0||Blank.isBlank(replyText) == true) {
 			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
 		}else{
 			reply = new Reply(replyText);
@@ -321,9 +326,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 				populateReplyView();
 				Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 			}
-			
 
-			
 		}
 	}
 	
@@ -343,18 +346,4 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
 	}    
-	
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if ((Character.isWhitespace(str.charAt(i)) == false)) {
-                return false;
-            }
-        }
-        return true;
-    }
-	
 }
