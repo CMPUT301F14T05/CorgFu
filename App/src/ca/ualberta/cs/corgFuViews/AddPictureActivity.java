@@ -20,6 +20,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+/**
+ * Activity that is invoked after user is adding a picture
+ * to ensure its proper delivery with correct response code
+ * and result code through the onActivityResult method
+ * @author Oleksii Shevchenko
+ * @see ca.ualberta.cs.corgFuModels.AddPictureDialogFragment
+ */
+
 public class AddPictureActivity extends Activity {
 	
 	/**
