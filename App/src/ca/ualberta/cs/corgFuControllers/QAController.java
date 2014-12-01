@@ -107,6 +107,14 @@ public class QAController {
 	public ArrayList<Reply> getReplies(){
 		return  question.getReplies(); 
 	}
+	/** Adds Reply to the question */
+	public void addAnswerReply(Reply reply) {
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		question = AQC.getQuestionById(question.getId());
+		question.addReply(reply);
+		AQC.addQuestion(question);
+		
+	}
 	
 	/** Sort answers by upvotes and return updated
 	 * list of answers to the question
