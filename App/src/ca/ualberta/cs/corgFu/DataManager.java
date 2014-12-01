@@ -21,7 +21,13 @@ import ca.ualberta.cs.corgFuViews.MainActivity;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
+/**
+ * This is a class that handles all of our data, saving each respective
+ * type of data in a particular save directory. Whether the type is favorites,
+ * cached, read later, my questions or unpushed data
+ * @author Ahmed
+ *
+ */
 public class DataManager {
 	private static final String FavouritesFile = "Favourites.save";
 	private static final String CacheFile = "CacheFile.save";
@@ -39,7 +45,12 @@ public class DataManager {
 		this.context = MainActivity.context;
 		
 	}
-	//data manager singleton
+	/**
+	 * singleton
+	 * Returns the single instance that is used to manipulate the 
+	 * current copy of getInstance that is currently available
+	 * @return the instance to be manipulated 
+	 */
 	public static DataManager getInstance(){
 		if (INSTANCE == null){
 			INSTANCE = new DataManager();
@@ -47,9 +58,13 @@ public class DataManager {
 		return INSTANCE;
 	}
 	
-	//save and load data from file
-	// saves data as an array of questions, the choice indicates if its a 
-	// favourite, read later, cache  (0,1,2) respectively
+	/**
+	 * save and load data from files 
+	 * saves data as an array of questions, the choice indicates if its a 
+	 * favourite, read later, cache respectively
+	 * @param dataList is an array list of Questions for the data being saved
+	 * @param choice is the choice name of the file we are saving to
+	 */
 	public void saveDataToFile(ArrayList<Question> dataList,String choice){
 		Log.i(saveString,"start");
 		try {
@@ -75,7 +90,12 @@ public class DataManager {
 	
 		
 	
-	// load based on choice 0 = fav, 1 =cache, 2= later
+	/**
+	 * load based on choice favourites, cache,read later, unpushed and questions
+	 * from the files that were saved
+	 * @param choice is the string of the file we are loading from
+	 * @return the data in the file that we are currently loading from
+	 */
 	public ArrayList<Question> loadDataToFile(String choice){
 		try{
 			File fh = new File(context.getFilesDir(), choice);
