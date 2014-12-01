@@ -12,7 +12,7 @@ Contents
 * [Licence](#licence)
 * [Glossary](/CorgFu.wiki/Glossary.md)
 * [UML](/App/doc/CorgFu_UML_diagram.png)
-* [Meeting Notes](/CorgFu.wiki/MeetingNotes.md)
+* [Meeting Notes](/CorgFu.wiki/Meeting Notes.md)
 
 Description
 =======
