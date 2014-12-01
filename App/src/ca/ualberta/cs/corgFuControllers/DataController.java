@@ -13,6 +13,7 @@ public class DataController {
 
 	
 	//private static OfflineData Data;
+	QAController QACA;
 	//should this be a singleton?
 	private static ArrayList<Question> dataList;
 	public static DataManager mdm;
@@ -94,13 +95,14 @@ public class DataController {
 		clearData("Unpushed.save");
 	}
 	private void pushAnswers(Question q) {
+		QACA = new QAController(q);
 		for(Answer a: q.getAnswers()){
 			if(a.isPushed()==false){
 				for(Reply r: a.getReplies()){
 					r.setPushed(true);
 				}
-				QAController QAC = new QAController(q);
-				QAC.addAnswer(a);
+				a.setPushed(true);
+				QACA.addAnswer(a);
 				
 				//push answer using AQC
 			}else{
@@ -111,16 +113,19 @@ public class DataController {
 	private void pushAnswerReplies(Answer a){
 		for(Reply r: a.getReplies()){
 			if (r.isPushed()==false){
-				
+				r.setPushed(true);
+				QACA.addReplyToAnswer(r, a.getId());
 				//push reply
 			}
 		}
 	}
 	private void pushQuestionReplies(Question q){
+		QAController QACC = new QAController(q);
 		ArrayList<Reply> replies = q.getReplies();
 		for(Reply r: replies){
 			if(r.isPushed()==false){
 				r.setPushed(true);
+				QACC.addReply(r);
 				//push reply r
 			}
 		}

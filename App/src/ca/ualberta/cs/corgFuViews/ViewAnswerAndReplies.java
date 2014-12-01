@@ -324,6 +324,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 				dc.addData(myQuestion, "Unpushed.save");
 				Toast.makeText(this, "Your Reply will be added when connection is made", Toast.LENGTH_SHORT).show();
 			}else{
+				QAC.addReplyToAnswer(reply, myAnswer.getId());
 				Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
 			}
 			populateReplyView();

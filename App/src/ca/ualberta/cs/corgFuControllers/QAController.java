@@ -68,6 +68,14 @@ public class QAController {
 		
 	}
 	
+	public void addReplyToAnswer(Reply reply, int AId) {
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		question = AQC.getQuestionById(question.getId());
+		Answer myAnswer = question.getAnswerById(AId);
+		myAnswer.addReply(reply);
+		AQC.addQuestion(question);
+		
+	}
 	/** Sort answers by date and return updated
 	 * list of answers to the question
 	 * @return sorted array of answers
@@ -107,14 +115,7 @@ public class QAController {
 	public ArrayList<Reply> getReplies(){
 		return  question.getReplies(); 
 	}
-	/** Adds Reply to the question */
-	public void addAnswerReply(Reply reply) {
-		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		question = AQC.getQuestionById(question.getId());
-		question.addReply(reply);
-		AQC.addQuestion(question);
-		
-	}
+	
 	
 	/** Sort answers by upvotes and return updated
 	 * list of answers to the question
