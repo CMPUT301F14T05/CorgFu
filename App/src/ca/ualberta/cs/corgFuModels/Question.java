@@ -225,21 +225,6 @@ public class Question extends Model<IView> implements Comparable<Question>, Seri
 	}
 	
 	/**
-	 *  returns answer with correct tempId and
-	 *  resets tempId
-	 * @param tempId
-	 * @return Answer
-	 */
-	public Answer getAnswerByTempId(int id) {
-		for (Answer a:answers){
-			if (a.getTempId() == id){
-				a.setTempId(0);
-				return a;
-			}
-		}
-		return null;
-	}
-	/**
 	 * Allows for the list of Answers to the question to be 
 	 * set
 	 * @param newAnswers The new list of answers to the question

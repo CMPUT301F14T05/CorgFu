@@ -69,8 +69,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	/** This is the answer that is being added by the user*/
 	protected Answer myAnswer; //most recent Reply added by the user
 	private int aId = 0;
-	final Integer ADD_PICTURE_CODE = 123;
-
 	
     /** ReplyList view with answers to a question */
     ListView answerListView;
@@ -340,7 +338,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			
 			UserName user = UserName.getInstance();
 			myAnswer.setAuthor(user.getUserName());
-			myAnswer.setTempId(ADD_PICTURE_CODE);
 			
 			QAController QAC = new QAController(myQuestion);
 			
@@ -434,13 +431,14 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			
     		if (Picture.byteSizeOf(attachedPic) > 0) {
     			// Add image to the answer
-				Question q = dc.getQuestionById(requestCode, "MyQuestions.save"); 	
-				Answer answer = q.getAnswerByTempId(ADD_PICTURE_CODE); 	
-				//answer.setPicture(attachedPic);
+				AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+				Question q = AQC.getQuestionById(requestCode); 	
+				Answer answer = q.getAnswers().get(0);
+				answer.setPicture(attachedPic);
 				
 				//dc.addData(q, "MyQuestions.save"); 	
 				//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
-				//AQC.addQuestion(q);
+				AQC.addQuestion(q);
 				
 				Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show(); 	
 				
@@ -464,7 +462,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void goToQReplies(View v) {
 		int qId = myQuestion.getId();
 		
-		Toast.makeText(this, "Going to QReplies", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Going to QReplies", Toast.LENGTH_SHORT).show();
 		
 		Intent launch = new Intent(this, ViewQuestionAndReplies.class);
     	launch.putExtra("@string/idExtraTag", qId);
@@ -486,7 +484,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		int aId = myAnswer.getId();
 		int qId = myQuestion.getId();
 		
-		Toast.makeText(this, "Going to AReplies", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Going to AReplies", Toast.LENGTH_SHORT).show();
 		
 		Intent launch = new Intent(this, ViewAnswerAndReplies.class);
 		
