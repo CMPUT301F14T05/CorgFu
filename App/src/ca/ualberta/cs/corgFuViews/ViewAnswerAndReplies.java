@@ -343,7 +343,6 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
-
 	}
 
 	@Override

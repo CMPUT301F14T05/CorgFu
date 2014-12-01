@@ -358,11 +358,11 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				QAC.addAnswer(myAnswer);
 				invokeAddPictureDialog(myQuestion.getId());
 				
-				populateAnswerView();
 				arrayAnswerAdapter.notifyDataSetChanged(); 	
 				
 				Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
 			}
+			populateAnswerView();
 			// invokes dialog for adding picture
 			
 		}
