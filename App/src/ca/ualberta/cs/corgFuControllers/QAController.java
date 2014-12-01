@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import android.util.Log;
+
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuES.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
@@ -58,7 +60,7 @@ public class QAController {
 		AQC.addQuestion(question);
 		
 	}
-	
+
 	/** Adds Reply to the question */
 	public void addReply(Reply reply) {
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
