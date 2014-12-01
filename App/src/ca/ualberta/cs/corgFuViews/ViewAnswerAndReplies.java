@@ -339,7 +339,6 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void gotoAnswer(View v) {
-		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);

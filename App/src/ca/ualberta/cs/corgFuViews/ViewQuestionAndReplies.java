@@ -333,7 +333,6 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	 */
 	public void gotoAnswer(View v) {
 		int qId = myQuestion.getId();
-		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);

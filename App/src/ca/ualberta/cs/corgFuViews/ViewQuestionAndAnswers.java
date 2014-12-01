@@ -483,9 +483,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		int aId = myAnswer.getId();
 		int qId = myQuestion.getId();
-		
-		//Toast.makeText(this, "Going to AReplies", Toast.LENGTH_SHORT).show();
-		
+				
 		Intent launch = new Intent(this, ViewAnswerAndReplies.class);
 		
     	launch.putExtra("@string/idQuestionTag", qId);
