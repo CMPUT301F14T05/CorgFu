@@ -85,6 +85,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_answer_and_replies);
 		hasBeenRead = false;
+		connected =ConnectedManager.getInstatnce();
 		getAnswer();
 		setFont();
 		//setPicture();
@@ -93,6 +94,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	
 	@Override
 	public void onResume(){
+		connected =ConnectedManager.getInstatnce();
 		super.onResume();
 	}
 	
@@ -312,13 +314,14 @@ public class ViewAnswerAndReplies extends Activity implements IView
 			reply.setAuthor(user.getUserName());
 			
 			
-			myAnswer.addReply(reply);
 			
 			
 			boolean isConnect = connected.isConnexted();
 			Log.i("VQAR",String.valueOf(isConnect));
 			if (isConnect ==false)
 			{
+				myAnswer.addReply(reply);
+
 				dc.addData(myQuestion, 
 						cs.getChoice());
 				dc.addData(myQuestion, "Unpushed.save");
