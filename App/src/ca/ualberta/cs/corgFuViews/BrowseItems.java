@@ -131,7 +131,7 @@ public class BrowseItems extends Activity implements IView
 					//will open neaby questions
 					case 3:
 						UserName username = UserName.getInstance();
-						startSearchActivity(username.getFormattedAddress());
+						startSearchActivity(username.getFormattedAddress(), "readableAddress");
 
 				}
 				// TODO Auto-generated method stub
@@ -212,7 +212,7 @@ public class BrowseItems extends Activity implements IView
 		EditText searchBox = (EditText) findViewById(R.id.searchEditText);
 		String searchTerm = searchBox.getText().toString();
 		if (!searchTerm.equals("")){
-			startSearchActivity(searchTerm);
+			startSearchActivity(searchTerm, null);
 		}
 	}
 	/**
@@ -222,9 +222,10 @@ public class BrowseItems extends Activity implements IView
 	 * search for
 	 * @see ca.ualberta.cs.corgFuViews.SearchResults
 	 */
-	private void startSearchActivity(String searchTerm){
+	private void startSearchActivity(String searchTerm, String field){
 		Intent intent = new Intent(this, SearchResults.class);
 		intent.putExtra("@string/idSearchTerm", searchTerm);
+		intent.putExtra("@string/idField", field);
 		startActivity(intent);
 	}
 	

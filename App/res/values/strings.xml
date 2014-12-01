@@ -65,6 +65,7 @@
     <string name="pictureDescriptionQuestion">Question Picture</string>
     <string name="addSmallerPicture">Do you want to add smaller picture?</string>
     <string name="idSearchTerm">SearchTermIdExtraTag</string>
+    <string name="idField">FieldIdExtraTag</string>
     <string name="MyQuestions">My Questions</string>
     <string name="title_activity_offline_data_view">OfflineDataView</string>
     <string name="emptyList">No Results found. Make sure you are connected to the Internet and try again.</string>
