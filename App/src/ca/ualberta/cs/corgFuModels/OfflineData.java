@@ -3,7 +3,6 @@ package ca.ualberta.cs.corgFuModels;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import ca.ualberta.cs.corgFu.Listener;
 
 public class OfflineData implements Serializable {
 	/**
