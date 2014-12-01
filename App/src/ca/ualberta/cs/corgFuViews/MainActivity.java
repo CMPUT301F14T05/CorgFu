@@ -86,14 +86,12 @@ public class MainActivity extends Activity
 	}
 	public void attemptToPushOfflineContent(){
 		Log.i("Main Attempt", "start push");
-		
 		boolean isConnect = connected.isConnexted();
 		if (isConnect )
 		{
 			Log.i("mainConnected", "going to DC to push");
 			DC.pushOfflineContent();
 		}
-		
 	}
 	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.
 	 * Clicking on a button starts the Activity of BrowseItems

@@ -353,7 +353,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				dc.addData(myQuestion, 
 						cs.getChoice());
 				dc.addData(myQuestion, "Unpushed.save");
-				Toast.makeText(this, "Your Reply will be added when connection is made", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "Your Answer will be added when connection is made", Toast.LENGTH_SHORT).show();
 			}else{
 				QAC.addAnswer(myAnswer);
 				invokeAddPictureDialog(myQuestion.getId());

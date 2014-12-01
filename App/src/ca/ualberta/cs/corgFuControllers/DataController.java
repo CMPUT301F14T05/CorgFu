@@ -94,38 +94,50 @@ public class DataController {
 		}
 		clearData("Unpushed.save");
 	}
-	private void pushAnswers(Question q) {
-		QACA = new QAController(q);
-		for(Answer a: q.getAnswers()){
+	private void pushAnswers(Question qForA) {
+		for(Answer a: qForA.getAnswers()){
 			if(a.isPushed()==false){
 				for(Reply r: a.getReplies()){
 					r.setPushed(true);
 				}
 				a.setPushed(true);
-				QACA.addAnswer(a);
-				
+				AllQuestionsController AQC4 = AllQuestionsApplication.getAllQuestionsController();
+				Question question2 = AQC4.getQuestionById(qForA.getId());
+				question2.addAnswer(a);
+				AQC4.addQuestion(question2);
 				//push answer using AQC
 			}else{
-				pushAnswerReplies(a);
+				pushAnswerReplies(a,qForA.getId());
 			}
 		}
 	}
-	private void pushAnswerReplies(Answer a){
+	private void pushAnswerReplies(Answer a,int QId){
 		for(Reply r: a.getReplies()){
 			if (r.isPushed()==false){
 				r.setPushed(true);
-				QACA.addReplyToAnswer(r, a.getId());
+				AllQuestionsController AQC3 = AllQuestionsApplication.getAllQuestionsController();
+				Question question2 = AQC3.getQuestionById(QId);
+				question2.addReply(r);
+				AQC3.addQuestion(question2);
 				//push reply
 			}
 		}
 	}
+//	AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+//	question = AQC.getQuestionById(question.getId());
+//	question.addAnswer(answer);
+//	AQC.addQuestion(question);
 	private void pushQuestionReplies(Question q){
 		QAController QACC = new QAController(q);
 		ArrayList<Reply> replies = q.getReplies();
 		for(Reply r: replies){
 			if(r.isPushed()==false){
 				r.setPushed(true);
-				QACC.addReply(r);
+				Log.i("push reply",r.getReplyString());
+				AllQuestionsController AQC2 = AllQuestionsApplication.getAllQuestionsController();
+				Question question2 = AQC2.getQuestionById(q.getId());
+				question2.addReply(r);
+				AQC2.addQuestion(question2);
 				//push reply r
 			}
 		}

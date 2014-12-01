@@ -1,5 +1,6 @@
 package ca.ualberta.cs.corgFu;
 
+import ca.ualberta.cs.corgFuControllers.DataController;
 import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.ConnectivityManager;
@@ -8,6 +9,7 @@ import android.util.Log;
 public class ConnectedManager {
 	private static ConnectedManager instance=null;
 	Context context;
+	DataController DC = new DataController();
 	public ConnectedManager(){
 		
 	}
@@ -27,9 +29,17 @@ public class ConnectedManager {
 		NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
 
 		if(activeNetInfo!=null){
+			attemptToPushOfflineContent();
 			return true;
 		}else{
 			return false;
 		}
 	}
+	public void attemptToPushOfflineContent(){
+		Log.i("Main Attempt", "start push");
+			
+		DC.pushOfflineContent();
+		
+	}
+	
 }
