@@ -12,6 +12,7 @@ Contents
 * [Licence](#licence)
 * [Glossary](/CorgFu.wiki/Glossary.md)
 * [UML](/App/doc/CorgFu_UML_diagram.png)
+* [Meeting Notes](/CorgFu.wiki/MeetingNotes.md)
 
 Description
 =======
@@ -30,6 +31,9 @@ BogoPicGen.java is directly imported in our code and can be found at:
 The code (authored by Abram Hindle) was directly taken from his github at the following site:
    
     https://github.com/abramhindle/BogoPicGen/blob/master/src/es/softwareprocess/bogopicgen/BogoPicGen.java 
+
+For the elasticsearch portion of this poject we based our code off of Victor Guana's code for a movie system that used elastic search. The code is available at:
+    https://github.com/guana/elasticsearch
 
 Licence
 =======
