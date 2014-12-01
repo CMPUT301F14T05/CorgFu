@@ -44,10 +44,9 @@ import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuModels.Reply;
 /**
- * Activity that is responsible for showing a Question & its replies. A question
- * can be composed of the question text, a picture related to the question
- * number of upvotes, replies to the question, and a picture relating to the question,
- * upvotes, and replies.
+ * Activity that is responsible for showing a Question & its replies. A Question
+ * can be composed of the Question text, a picture related to the Question and the
+ * number of upvotes it has. 
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture

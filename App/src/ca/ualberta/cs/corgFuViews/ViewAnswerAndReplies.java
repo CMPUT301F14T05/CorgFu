@@ -44,17 +44,15 @@ import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuModels.Reply;
 /**
- * Activity that is responsible for showing a Question. A question
- * can be composed of the question text, a picture related to the question
- * number of upvotes, replies to the question, and all of the answers to 
- * the questions which can have answer text, a picture relating to the answer,
- * upvotes, and replies.
- * @see ca.ualberta.cs.corgFuModels.Question
+ * Activity that is responsible for showing an Answer & its replies. An Answer
+ * can be composed of the reply text, a picture related to the Answer and 
+ * a Answers sub-menu with the option of allowing the user to reply or upvote 
+ * to that certain Answer. 
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture
  * @see ca.ualberta.cs.corgFuModels.Reply
- * @author wrflemin
- *
+ * @author Anthony Wu
+ * @author Oleksii Shevchenko
  */
 public class ViewAnswerAndReplies extends Activity implements IView
 {
@@ -150,7 +148,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		author.setText(myAnswer.stringAuthor());
 		
 	}
-	/*
+	/**
 	 * caches question if it hasnt been cached already
 	 */
 	private void cache(){
@@ -162,9 +160,8 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		}
 		dc.addData(myQuestion, cache);
 	}
-	/*
+	/**
 	 * sets the button for favourite based on if its already saved.
-	 * 
 	 */
 	private void isFavourited(int qID){
 		
@@ -183,7 +180,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		}
 		
 	}
-	/*
+	/**
 	 * set button to clicked for favourites
 	 */
 	private void setButtonToClicked(){
@@ -208,7 +205,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/** 	
-	  * * Updates imageView with a question picture if this question has a picture 	
+	  * * Updates imageView with an Answer picture if this Answer has a picture 	
 	  */ 	
 	private void setPicture() { 	
 		if (myAnswer.hasPicture()) { 	
@@ -235,7 +232,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Add the question being viewed to the read later list which makes the
+	 * Add the Answer being viewed to the read later list which makes the
 	 * question available for reading offline. 
 	 * @param v The view that was clicked on
 	 */
@@ -261,7 +258,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Add the question being viewed to the favorite list which makes the
+	 * Add the Answer being viewed to the favorite list which makes the
 	 * question available for reading offline. 
 	 * @param v The view being clicked on
 	 */
@@ -275,7 +272,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Upvotes the question. First the question is retrieved through the id, then
+	 * Upvotes the Answer. First the Answer is retrieved through the id, then
 	 * it is upvoted.
 	 * @param v The view that is being clicked on.
 	 */
@@ -295,7 +292,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Adds an reply to the question when the user clicks the submit answer button
+	 * Adds an Reply to the Answer when the user clicks the submit Reply button
 	 * @param v The view that was clicked on
 	 */
 	public void submitReply(View v) {
