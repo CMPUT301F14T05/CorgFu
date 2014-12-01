@@ -7,15 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
 import java.io.OutputStreamWriter;
-import java.io.StreamCorruptedException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import android.content.Context;
 import android.util.Log;
-import ca.ualberta.cs.corgFuModels.OfflineData;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuViews.MainActivity;
 
@@ -39,7 +36,6 @@ public class DataManager {
 	private static DataManager INSTANCE = null;
 	public ArrayList<Question> questionList;
 	public static Boolean control = true;
-	public static OfflineData favourites;
 	public DataManager(){
 		
 		this.context = MainActivity.context;
