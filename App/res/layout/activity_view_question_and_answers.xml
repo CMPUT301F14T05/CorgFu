@@ -32,11 +32,7 @@
         android:textSize="15sp" >
     </TextView>
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TextView>
+
 
     <TextView
         android:id="@+id/date"
@@ -142,8 +138,10 @@
         android:id="@+id/qPictureView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/questionText"
-        android:layout_alignLeft="@+id/upvoteButton"
+        android:layout_alignBottom="@+id/readLaterButton"
+        android:layout_alignLeft="@+id/questionText"
+        android:layout_alignRight="@+id/favoriteButton"
+        android:layout_alignTop="@+id/readLaterButton"
         android:contentDescription="@string/pictureDescriptionQuestion" />
 
 </RelativeLayout>

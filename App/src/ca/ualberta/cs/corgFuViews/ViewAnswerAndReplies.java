@@ -88,7 +88,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		connected =ConnectedManager.getInstatnce();
 		getAnswer();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateReplyView();
 	}
 	
@@ -211,12 +211,12 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	  */ 	
 	private void setPicture() { 	
 		if (myAnswer.hasPicture()) { 	
-			Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
-			//ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
-			//qPictureView.setImageBitmap(myAnswer.getPicture()); 	
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
+			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
+			qPictureView.setImageBitmap(myAnswer.getPicture()); 	
 		} 	
 		else { 	
-			Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
+			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
 		} 	
 	}
 

@@ -86,7 +86,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateReplyView();
 	}
 	
