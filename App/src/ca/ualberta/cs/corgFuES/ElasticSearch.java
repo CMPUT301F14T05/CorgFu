@@ -225,17 +225,12 @@ public class ElasticSearch {
 	private HttpPost createSearchRequest(String searchString, String field)	throws UnsupportedEncodingException {
 		
 		HttpPost searchRequest = new HttpPost(SEARCH_URL);
-
-		String[] fields = null;
-		if (field != null) {
-			fields = new String[1];
-			fields[0] = field;
-		}
+		
+		String[] fields = getFields(field);
 		
 		SimpleSearchCommand command = new SimpleSearchCommand(searchString,	fields);
 		
 		String query = command.getJsonCommand();
-		Log.i(TAG, "Json command: " + query);
 
 		StringEntity stringEntity;
 		stringEntity = new StringEntity(query);
@@ -245,6 +240,20 @@ public class ElasticSearch {
 
 		return searchRequest;
 	}
+	/**
+	 * Takes in a string of a field and makes it into a string[]
+	 * @param field The string that represents the field that is
+	 * being searched
+	 */
+	private String[] getFields(String field){
+		String[] fields = null;
+		if (field != null) {
+			fields = new String[1];
+			fields[0] = field;
+		}
+		return fields;
+	}
+	
 	/**
 	 * Parses the response of a search
 	 */
