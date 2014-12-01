@@ -34,9 +34,17 @@ public class Reply implements Serializable{
 		this.isPushed = false;
 		
 	}
+	/**Returns whether the Reply has been pushed to Elastic Search
+	 * 
+	 * @return the status of the Reply, whether it has been pushed online
+	 */
 	public boolean isPushed() {
 		return isPushed;
 	}
+	/**Returns whether the Reply has been pushed to Elastic Search
+	 * 
+	 * @return the status of the Reply, whether it has been pushed online
+	 */
 	public void setPushed(boolean isPushed) {
 		this.isPushed = isPushed;
 	}
