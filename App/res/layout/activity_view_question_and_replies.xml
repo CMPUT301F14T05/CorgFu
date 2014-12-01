@@ -138,8 +138,8 @@
         android:id="@+id/qPictureView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/questionText"
-        android:layout_alignTop="@+id/readLaterButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:contentDescription="@string/pictureDescriptionQuestion" />
 
 </RelativeLayout>

@@ -86,7 +86,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
 		getQuestion();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateAnswerView();
 	}
 	
@@ -435,7 +435,8 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 				AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 				Question q = AQC.getQuestionById(requestCode); 	
 				Answer answer = q.getAnswers().get(0);
-				answer.setPicture(attachedPic);
+    			Bitmap resizedPic = Picture.getResizedBitmap(attachedPic, 64); // resized to 64KB
+    			answer.setPicture(resizedPic);
 				
 				//dc.addData(q, "MyQuestions.save"); 	
 				//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
