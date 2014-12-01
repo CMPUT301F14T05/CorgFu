@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.Blank;
 import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
@@ -304,7 +305,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		
 		int replyLen = replyText.length();
 		
-		if (replyLen <= 0||isBlank(replyText) == true) {
+		if (replyLen <= 0||Blank.isBlank(replyText) == true) {
 			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
 		}else{
 			reply = new Reply(replyText);
@@ -312,10 +313,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 			
 			UserName user = UserName.getInstance();
 			reply.setAuthor(user.getUserName());
-			
-			
-			
-			
+
 			boolean isConnect = connected.isConnexted();
 			Log.i("VQAR",String.valueOf(isConnect));
 			if (isConnect ==false)
@@ -339,7 +337,6 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void gotoAnswer(View v) {
-		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
@@ -349,18 +346,4 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
 	}
-	
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if ((Character.isWhitespace(str.charAt(i)) == false)) {
-                return false;
-            }
-        }
-        return true;
-    }
-	
 }
