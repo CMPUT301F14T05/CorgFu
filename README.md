@@ -12,7 +12,8 @@ Contents
 * [Licence](#licence)
 * [Glossary](/CorgFu.wiki/Glossary.md)
 * [UML](/App/doc/CorgFu_UML_diagram.png)
-* [Meeting Notes](/CorgFu.wiki/MeetingNotes.md)
+* [Meeting Notes](/CorgFu.wiki/Meeting Notes.md)
+* [Refactoring](https://github.com/CMPUT301F14T05/CorgFu/wiki/Refectoring)
 
 Description
 =======
