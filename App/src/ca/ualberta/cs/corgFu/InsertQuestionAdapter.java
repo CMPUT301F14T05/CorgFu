@@ -1,6 +1,5 @@
 package ca.ualberta.cs.corgFu;
 
-import java.lang.annotation.Inherited;
 import java.util.ArrayList;
 
 import android.content.Context;
