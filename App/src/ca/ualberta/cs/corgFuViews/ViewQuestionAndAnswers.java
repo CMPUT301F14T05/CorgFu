@@ -304,7 +304,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		int indx = answerListView.getPositionForView(v);
 		myAnswer = answers.get(indx);
-	    myAnswer.upvote();
+	    QAC.addUpvoteToAnswers(myAnswer.getId(), myQuestion.getId());
 
 		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		TextView upvoteCount = (TextView) findViewById(R.id.upvoteAnswerCount);

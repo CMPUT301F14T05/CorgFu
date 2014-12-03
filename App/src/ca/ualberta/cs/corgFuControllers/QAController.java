@@ -69,7 +69,13 @@ public class QAController {
 		AQC.addQuestion(question);
 		
 	}
-	
+	public void addUpvoteToAnswers(int AId,int QId){
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		question = AQC.getQuestionById(QId);
+		Answer myAnswer = question.getAnswerById(AId);
+		myAnswer.upvote();
+		AQC.addQuestion(question);
+	}
 	public void addReplyToAnswer(Reply reply, int AId) {
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		question = AQC.getQuestionById(question.getId());
