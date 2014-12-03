@@ -35,7 +35,6 @@ public class Answer implements Serializable
 	private Bitmap genericPic;
 	private Boolean hasAPicture = false;
 	private int id;
-	private int tempId;
 	private boolean isPushed;
 	private String author;
 
@@ -172,31 +171,41 @@ public class Answer implements Serializable
 	public int getId(){
 		return id;
 	}
+	
+	/**
+	 * Sets new Id to Answer
+	 * method is used mainly for testing as new Id
+	 * is created with creation of Answer
+	 * @param newId - new Id to be set for the answer
+	 */
 	public void setId(int newId){
 		id = newId;
 	}
-	
-	/**
-	 * Returns the id that is temporary assigned to the answer
-	 * to identify it within the same question.
-	 * @return The TempId of the answer which is 0<= id <= 100000
-	 */
-	public int getTempId(){
-		return tempId;
-	}
-	
-	public void setTempId(int newId){
-		tempId = newId;
-	}
 
+	/**
+	 * Checks if Answer was pushed to Online
+	 * @return isPushed - boolean that indicates
+	 * pushed Online state of Answer 
+	 */
 	public boolean isPushed() {
 		return isPushed;
 	}
-
+	
+	/**
+	 * Updates isPushed state of Answer
+	 * method is used mainly for testing
+	 * @param isPushed - boolean be set for Answer's isPushed
+	 */
 	public void setPushed(boolean isPushed) {
 		this.isPushed = isPushed;
 	}
-		
+	
+	/**
+	 * Creates date formats and fills them
+	 * with date of Answer creation and then
+	 * converts it to String
+	 * @return full date in string format
+	 */
 	public String stringDate(){
 		Format month = new SimpleDateFormat("MMM dd, yyyy");
 		Format time = new SimpleDateFormat("hh:mm");
@@ -205,10 +214,18 @@ public class Answer implements Serializable
 		return  (strMonth + " at " + strTime);
 	}
 	
+	/**
+	 * Sets author of the Answer
+	 * @param author - string value for author of the Answer
+	 */
 	public void setAuthor(String author){
 		this.author = author;
 	}
 	
+	/**
+	 * Returns author of the current Answer
+	 * @return string value of this Answer's author
+	 */
 	public String stringAuthor(){
 		return this.author;
 

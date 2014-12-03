@@ -27,7 +27,7 @@ public class AddSmallerPictureDialog extends DialogFragment {
 	
 	@Override
 	/**
-	 * 
+	 * creates custom alert dialog
 	 */
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction

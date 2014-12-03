@@ -77,24 +77,14 @@ public class MainActivity extends Activity
 		myProfileButton.setTypeface(customTypeFace);//sets the button to obtain that specific typeface
 		answersButton.setTypeface(customTypeFace);//sets the typeface for another button
 		TV.setTypeface(customTypeFace);//sets the textview to obtain that specific typeface
-		attemptToPushOfflineContent();
+		
 	}
 	protected void onResume(){
 		super.onResume();
 		DC = new DataController();
-		attemptToPushOfflineContent();
-	}
-	public void attemptToPushOfflineContent(){
-		Log.i("Main Attempt", "start push");
-		
-		boolean isConnect = connected.isConnexted();
-		if (isConnect )
-		{
-			Log.i("mainConnected", "going to DC to push");
-			DC.pushOfflineContent();
-		}
 		
 	}
+	
 	/**toBrowseItems() changes to intent of the app to that of viewing browseItems.
 	 * Clicking on a button starts the Activity of BrowseItems
 	 * 
@@ -130,12 +120,13 @@ public class MainActivity extends Activity
 		q.setAuthor(user.getUserName());
 		
 		DC.addData(q, "MyQuestions.save");
-		
+		 
 		// invokes dialog for adding picture
 		invokeAddPictureDialog(q.getId());
 		// buggy method isConnexted();
-		//boolean  isConnected = connected.isConnexted();
-		isConnected = true;
+		connected =ConnectedManager.getInstatnce();
+		connected.setContext(context);
+		boolean  isConnected = connected.isConnexted();
 		if (isConnected)
 		{
 			Toast.makeText(context, "Question added successfully", Toast.LENGTH_SHORT).show();

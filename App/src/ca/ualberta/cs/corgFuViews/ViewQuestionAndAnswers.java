@@ -4,49 +4,41 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images.Media;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
-import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
+import ca.ualberta.cs.corgFu.Blank;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertAnswerAdapter;
-import ca.ualberta.cs.corgFu.InsertReplyAdapter;
-import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFu.UserName;
+import ca.ualberta.cs.corgFu.choiceSingleton;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
-import ca.ualberta.cs.corgFuModels.AllQuestions;
 import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
-import ca.ualberta.cs.corgFuModels.Reply;
 /**
  * Activity that is responsible for showing a Question. A question
  * can be composed of the question text, a picture related to the question
@@ -65,6 +57,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	// 0 = favourites file
 	// 1 = cache file
 	// 2 = read later file
+	ConnectedManager connected;
 	private final static String favourites = "Favourites.save";
 	private final static String cache ="CacheFile.save";
 	private final static String readlater = "ReadLater.save";
@@ -73,11 +66,10 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	private int qId = 0;
 	DataController dc;
 	boolean hasBeenRead;
+	choiceSingleton cs;
 	/** This is the answer that is being added by the user*/
 	protected Answer myAnswer; //most recent Reply added by the user
 	private int aId = 0;
-	final Integer ADD_PICTURE_CODE = 123;
-
 	
     /** ReplyList view with answers to a question */
     ListView answerListView;
@@ -90,15 +82,19 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_answers);
 		hasBeenRead = false;
+		connected =ConnectedManager.getInstatnce();
+
 		getQuestion();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateAnswerView();
 	}
 	
 	@Override
 	public void onResume(){
 		super.onResume();
+		connected =ConnectedManager.getInstatnce();
+
 	}
 	
 	/**
@@ -117,7 +113,16 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		
 		dc = new DataController();
-		myQuestion = AQC.getQuestionById(qId);
+		cs = choiceSingleton.getInstance();
+		
+		boolean isConnect = connected.isConnexted();
+		Log.i("VQAR",String.valueOf(isConnect));
+		if (isConnect ==false)
+		{
+			myQuestion =dc.getQuestionById(qId, cs.getChoice());
+		}else{
+			myQuestion = AQC.getQuestionById(qId);
+		}
 		
 		QAController QAC = new QAController(myQuestion);
 		
@@ -326,7 +331,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		int answerLen = answerText.length();
 		
-		if (answerLen <= 0||isBlank(answerText) == true) {
+		if (answerLen <= 0||Blank.isBlank(answerText) == true) {
 			Toast.makeText(getApplicationContext(), "Answer can't be empty.", Toast.LENGTH_LONG).show();
 		}else{
 			myAnswer = new Answer(answerText);
@@ -334,17 +339,30 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			
 			UserName user = UserName.getInstance();
 			myAnswer.setAuthor(user.getUserName());
-			myAnswer.setTempId(ADD_PICTURE_CODE);
+			
 			QAController QAC = new QAController(myQuestion);
-			QAC.addAnswer(myAnswer);
 			
-			// invokes dialog for adding picture
-			invokeAddPictureDialog(myQuestion.getId());
 			
+			boolean isConnect = connected.isConnexted();
+			Log.i("VQAR",String.valueOf(isConnect));
+			if (isConnect ==false)
+			{
+				myQuestion.addAnswer(myAnswer);
+				dc.addData(myQuestion, 
+						cs.getChoice());
+				dc.addData(myQuestion, "Unpushed.save");
+				Toast.makeText(this, "Your Answer will be added when connection is made", Toast.LENGTH_SHORT).show();
+			}else{
+				QAC.addAnswer(myAnswer);
+				invokeAddPictureDialog(myQuestion.getId());
+				
+				arrayAnswerAdapter.notifyDataSetChanged(); 	
+				
+				Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
+			}
 			populateAnswerView();
-			arrayAnswerAdapter.notifyDataSetChanged(); 	
+			// invokes dialog for adding picture
 			
-			Toast.makeText(this, "Your Answer has been added", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -414,13 +432,15 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 			
     		if (Picture.byteSizeOf(attachedPic) > 0) {
     			// Add image to the answer
-				Question q = dc.getQuestionById(requestCode, "MyQuestions.save"); 	
-				Answer answer = q.getAnswerByTempId(ADD_PICTURE_CODE); 	
-				//answer.setPicture(attachedPic);
+				AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+				Question q = AQC.getQuestionById(requestCode); 	
+				Answer answer = q.getAnswers().get(0);
+    			Bitmap resizedPic = Picture.getResizedBitmap(attachedPic, 64); // resized to 64KB
+    			answer.setPicture(resizedPic);
 				
 				//dc.addData(q, "MyQuestions.save"); 	
 				//AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController(); 	
-				//AQC.addQuestion(q);
+				AQC.addQuestion(q);
 				
 				Toast.makeText(this, "Picture is added", Toast.LENGTH_SHORT).show(); 	
 				
@@ -444,7 +464,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 	public void goToQReplies(View v) {
 		int qId = myQuestion.getId();
 		
-		Toast.makeText(this, "Going to QReplies", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "Going to QReplies", Toast.LENGTH_SHORT).show();
 		
 		Intent launch = new Intent(this, ViewQuestionAndReplies.class);
     	launch.putExtra("@string/idExtraTag", qId);
@@ -465,9 +485,7 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 		
 		int aId = myAnswer.getId();
 		int qId = myQuestion.getId();
-		
-		Toast.makeText(this, "Going to AReplies", Toast.LENGTH_SHORT).show();
-		
+				
 		Intent launch = new Intent(this, ViewAnswerAndReplies.class);
 		
     	launch.putExtra("@string/idQuestionTag", qId);
@@ -477,20 +495,6 @@ public class ViewQuestionAndAnswers extends Activity implements IView
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
-	
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if ((Character.isWhitespace(str.charAt(i)) == false)) {
-                return false;
-            }
-        }
-        return true;
-    }
 }

@@ -34,9 +34,17 @@ public class Reply implements Serializable{
 		this.isPushed = false;
 		
 	}
+	/**Returns whether the Reply has been pushed to Elastic Search
+	 * 
+	 * @return the status of the Reply, whether it has been pushed online
+	 */
 	public boolean isPushed() {
 		return isPushed;
 	}
+	/**Returns whether the Reply has been pushed to Elastic Search
+	 * 
+	 * @return the status of the Reply, whether it has been pushed online
+	 */
 	public void setPushed(boolean isPushed) {
 		this.isPushed = isPushed;
 	}
@@ -57,6 +65,10 @@ public class Reply implements Serializable{
 		return date;
 	}
 	
+	/**
+	 * Gets the date of the Reply in a string format
+	 * @return
+	 */
 	public String stringDate(){
 		Format month = new SimpleDateFormat("MMM dd, yyyy");
 		Format time = new SimpleDateFormat("hh:mm");
@@ -65,10 +77,19 @@ public class Reply implements Serializable{
 		return  (strMonth + " at " + strTime);
 	}
 	
+	/**
+	 * Allows for the Author of the Reply to be set.
+	 * @param author The name of the author of the Reply
+	 */
 	public void setAuthor(String author){
 		this.author = author;
 	}
 	
+	/**
+	 * Gets the author of the Reply
+	 * @return The string containing the author's 
+	 * username
+	 */
 	public String stringAuthor(){
 		return this.author;
 

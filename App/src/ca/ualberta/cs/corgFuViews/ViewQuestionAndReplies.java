@@ -29,10 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.Blank;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFu.choiceSingleton;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -41,30 +44,30 @@ import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuModels.Reply;
 /**
- * Activity that is responsible for showing a Question. A question
- * can be composed of the question text, a picture related to the question
- * number of upvotes, replies to the question, and all of the answers to 
- * the questions which can have answer text, a picture relating to the answer,
- * upvotes, and replies.
+ * Activity that is responsible for showing a Question & its replies. A Question
+ * can be composed of the Question text, a picture related to the Question and the
+ * number of upvotes it has. 
  * @see ca.ualberta.cs.corgFuModels.Question
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture
  * @see ca.ualberta.cs.corgFuModels.Reply
- * @author wrflemin
- *
+ * @author Anthony Wu
+ * @author Oleksii Shevchenko
  */
 public class ViewQuestionAndReplies extends Activity implements IView
 {
 	// 0 = favourites file
 	// 1 = cache file
 	// 2 = read later file
+	ConnectedManager connected;
 	private final static String favourites = "Favourites.save";
 	private final static String cache ="CacheFile.save";
 	private final static String readlater = "ReadLater.save";
 	/** This is the previous question asked by other users*/
-	Question myQuestion;
+	static Question myQuestion;
 	private int qId = 0;
 	DataController dc;
+	choiceSingleton cs;
 	boolean hasBeenRead;
 	/** This is the answer that is being added by the user*/
 	protected Reply reply; //most recent Reply added by the user
@@ -78,15 +81,17 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_question_and_replies);
+		connected =ConnectedManager.getInstatnce();
 		hasBeenRead = false;
 		getQuestion();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateReplyView();
 	}
 	
 	@Override
 	public void onResume(){
+		connected =ConnectedManager.getInstatnce();
 		super.onResume();
 	}
 	
@@ -100,13 +105,20 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		if (extra != null){
 			qId = extra.getInt("@string/idExtraTag");
 		}
-		
-		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
-		
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
-		
 		dc = new DataController();
-		myQuestion = AQC.getQuestionById(qId);
+		
+		cs = choiceSingleton.getInstance();
+		boolean isConnect = connected.isConnexted();
+		Log.i("VQAR",String.valueOf(isConnect));
+		if (isConnect ==false)
+		{
+			myQuestion =dc.getQuestionById(qId, cs.getChoice());
+		}else{
+			myQuestion = AQC.getQuestionById(qId);
+		}
+		Log.i("VQAR", myQuestion.getQuestionText());
+		Typeface customTF = Typeface.createFromAsset(getAssets(), "fonts/26783.ttf");
 		
 		QAController QAC = new QAController(myQuestion);
 		
@@ -128,21 +140,24 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		author.setText(myQuestion.stringAuthor());
 		
 	}
-	/*
+	
+	/**
 	 * caches question if it hasnt been cached already
 	 */
 	private void cache(){
+		Log.i("VQAR2", myQuestion.getQuestionText());
 		ArrayList<Question> cacheList = dc.getData(cache);
 		for(Question CacheQ: cacheList){
-			if(CacheQ.getId()==myQuestion.getId()){
+			if(CacheQ.getId()==
+					myQuestion.getId()){
 				return;
 			}
 		}
 		dc.addData(myQuestion, cache);
 	}
-	/*
-	 * sets the button for favourite based on if its already saved.
-	 * 
+	
+	/**
+	 * Sets the button for favourite based on if its already saved.
 	 */
 	private void isFavourited(int qID){
 		
@@ -161,8 +176,8 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		}
 		
 	}
-	/*
-	 * set button to clicked for favourites
+	/**
+	 * Sets button to clicked for favourites
 	 */
 	private void setButtonToClicked(){
 		
@@ -185,14 +200,15 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		submit.setTypeface(customTF);
 	}
 	
+	/**
+	 * Sets the picture of the Question. First it evaluates whether or not 
+	 * The 	Question already has a picture and based on that assessment,
+	 * attaches the picture to the Question. 
+	 */
 	private void setPicture() { 	
 		if (myQuestion.hasPicture()) { 	
-			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
 			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
 			qPictureView.setImageBitmap(myQuestion.getImage()); 	
-		} 	
-		else { 	
-			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
 		} 	
 	}
 
@@ -230,10 +246,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 			}
 		}
 		dc.addData(myQuestion, readlater);
-		return;
-		
-		// Change button image after question has been added to favorites
-		
+		return;		
 	}
 	
 	/**
@@ -246,8 +259,6 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		dc.addData(myQuestion,favourites);
 		Toast.makeText(this, "Saved to Favourites!", Toast.LENGTH_SHORT).show();
 		setButtonToClicked();
-			
-		
 	}
 	
 	/**
@@ -281,7 +292,7 @@ public class ViewQuestionAndReplies extends Activity implements IView
 		
 		int replyLen = replyText.length();
 		
-		if (replyLen <= 0||isBlank(replyText) == true) {
+		if (replyLen <= 0||Blank.isBlank(replyText) == true) {
 			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
 		}else{
 			reply = new Reply(replyText);
@@ -289,12 +300,24 @@ public class ViewQuestionAndReplies extends Activity implements IView
 			
 			UserName user = UserName.getInstance();
 			reply.setAuthor(user.getUserName());
-
+			
 			QAController QAC = new QAController(myQuestion);
-			QAC.addReply(reply);
+			boolean isConnect = connected.isConnexted();
+			Log.i("VQAR",String.valueOf(isConnect));
+			if (isConnect ==false)
+			{
+				myQuestion.addReply(reply);
+				dc.addData(myQuestion, 
+						cs.getChoice());
+				dc.addData(myQuestion, "Unpushed.save");
+				Toast.makeText(this, "Your Reply will be added when connection is made", Toast.LENGTH_SHORT).show();
+				populateReplyView();
+			}else{
+				QAC.addReply(reply);
+				populateReplyView();
+				Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
+			}
 
-			populateReplyView();
-			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 		}
 	}
 	
@@ -304,7 +327,6 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	 */
 	public void gotoAnswer(View v) {
 		int qId = myQuestion.getId();
-		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
@@ -315,18 +337,4 @@ public class ViewQuestionAndReplies extends Activity implements IView
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
 	}    
-	
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if ((Character.isWhitespace(str.charAt(i)) == false)) {
-                return false;
-            }
-        }
-        return true;
-    }
-	
 }

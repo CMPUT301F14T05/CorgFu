@@ -29,10 +29,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import ca.ualberta.corgfuapp.R;
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
+import ca.ualberta.cs.corgFu.Blank;
+import ca.ualberta.cs.corgFu.ConnectedManager;
 import ca.ualberta.cs.corgFu.IView;
 import ca.ualberta.cs.corgFu.InsertReplyAdapter;
 import ca.ualberta.cs.corgFu.UserName;
 import ca.ualberta.cs.corgFu.Picture;
+import ca.ualberta.cs.corgFu.choiceSingleton;
 import ca.ualberta.cs.corgFuControllers.AllQuestionsController;
 import ca.ualberta.cs.corgFuControllers.DataController;
 import ca.ualberta.cs.corgFuControllers.QAController;
@@ -41,23 +44,22 @@ import ca.ualberta.cs.corgFuModels.Answer;
 import ca.ualberta.cs.corgFuModels.Question;
 import ca.ualberta.cs.corgFuModels.Reply;
 /**
- * Activity that is responsible for showing a Question. A question
- * can be composed of the question text, a picture related to the question
- * number of upvotes, replies to the question, and all of the answers to 
- * the questions which can have answer text, a picture relating to the answer,
- * upvotes, and replies.
- * @see ca.ualberta.cs.corgFuModels.Question
+ * Activity that is responsible for showing an Answer & its replies. An Answer
+ * can be composed of the reply text, a picture related to the Answer and 
+ * a Answers sub-menu with the option of allowing the user to reply or upvote 
+ * to that certain Answer. 
  * @see ca.ualberta.cs.corgFuModels.Answer
  * @see ca.ualberta.cs.corgFu.Picture
  * @see ca.ualberta.cs.corgFuModels.Reply
- * @author wrflemin
- *
+ * @author Anthony Wu
+ * @author Oleksii Shevchenko
  */
 public class ViewAnswerAndReplies extends Activity implements IView
 {
 	// 0 = favourites file
 	// 1 = cache file
 	// 2 = read later file
+	ConnectedManager connected;
 	private final static String favourites = "Favourites.save";
 	private final static String cache ="CacheFile.save";
 	private final static String readlater = "ReadLater.save";
@@ -69,26 +71,29 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	/** This is the previous answer that is being added by the user*/
 	Answer myAnswer;
 	private int aId = 0;
-
+	choiceSingleton cs;
 	protected Reply reply; //most recent Reply added by the user
     /** ReplyList view with replies to a answer */
     ListView replyListView;
     /** Custom arrayAdapter to handle list of Answers */
     InsertReplyAdapter arrayReplyAdapter;
+    QAController QAC;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_answer_and_replies);
 		hasBeenRead = false;
+		connected =ConnectedManager.getInstatnce();
 		getAnswer();
 		setFont();
-		//setPicture();
+		setPicture();
 		populateReplyView();
 	}
 	
 	@Override
 	public void onResume(){
+		connected =ConnectedManager.getInstatnce();
 		super.onResume();
 	}
 	
@@ -109,9 +114,18 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
 		
 		dc = new DataController();
-		myQuestion = AQC.getQuestionById(qId);
+		cs = choiceSingleton.getInstance();
 		
-		QAController QAC = new QAController(myQuestion);
+		boolean isConnect = connected.isConnexted();
+		Log.i("VQAR",String.valueOf(isConnect));
+		if (isConnect ==false)
+		{
+			myQuestion =dc.getQuestionById(qId, cs.getChoice());
+		}else{
+			myQuestion = AQC.getQuestionById(qId);
+		}
+		
+		QAC = new QAController(myQuestion);
 		
 		cache();
 		isFavourited(myQuestion.getId());
@@ -134,7 +148,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		author.setText(myAnswer.stringAuthor());
 		
 	}
-	/*
+	/**
 	 * caches question if it hasnt been cached already
 	 */
 	private void cache(){
@@ -146,9 +160,8 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		}
 		dc.addData(myQuestion, cache);
 	}
-	/*
+	/**
 	 * sets the button for favourite based on if its already saved.
-	 * 
 	 */
 	private void isFavourited(int qID){
 		
@@ -167,7 +180,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		}
 		
 	}
-	/*
+	/**
 	 * set button to clicked for favourites
 	 */
 	private void setButtonToClicked(){
@@ -192,16 +205,16 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/** 	
-	  * * Updates imageView with a question picture if this question has a picture 	
+	  * * Updates imageView with an Answer picture if this Answer has a picture 	
 	  */ 	
 	private void setPicture() { 	
 		if (myAnswer.hasPicture()) { 	
-			Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
-			//ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
-			//qPictureView.setImageBitmap(myAnswer.getPicture()); 	
+			//Toast.makeText(this, "has picture", Toast.LENGTH_LONG).show(); 	
+			ImageView qPictureView = (ImageView)findViewById(R.id.qPictureView); 	
+			qPictureView.setImageBitmap(myAnswer.getPicture()); 	
 		} 	
 		else { 	
-			Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
+			//Toast.makeText(this, "no picture, Id:" + myQuestion.getId(), Toast.LENGTH_LONG).show(); 	
 		} 	
 	}
 
@@ -219,7 +232,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Add the question being viewed to the read later list which makes the
+	 * Add the Answer being viewed to the read later list which makes the
 	 * question available for reading offline. 
 	 * @param v The view that was clicked on
 	 */
@@ -245,7 +258,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Add the question being viewed to the favorite list which makes the
+	 * Add the Answer being viewed to the favorite list which makes the
 	 * question available for reading offline. 
 	 * @param v The view being clicked on
 	 */
@@ -259,7 +272,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Upvotes the question. First the question is retrieved through the id, then
+	 * Upvotes the Answer. First the Answer is retrieved through the id, then
 	 * it is upvoted.
 	 * @param v The view that is being clicked on.
 	 */
@@ -279,7 +292,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	}
 	
 	/**
-	 * Adds an reply to the question when the user clicks the submit answer button
+	 * Adds an Reply to the Answer when the user clicks the submit Reply button
 	 * @param v The view that was clicked on
 	 */
 	public void submitReply(View v) {
@@ -289,7 +302,7 @@ public class ViewAnswerAndReplies extends Activity implements IView
 		
 		int replyLen = replyText.length();
 		
-		if (replyLen <= 0||isBlank(replyText) == true) {
+		if (replyLen <= 0||Blank.isBlank(replyText) == true) {
 			Toast.makeText(getApplicationContext(), "Reply can't be empty.", Toast.LENGTH_LONG).show();
 		}else{
 			reply = new Reply(replyText);
@@ -297,10 +310,22 @@ public class ViewAnswerAndReplies extends Activity implements IView
 			
 			UserName user = UserName.getInstance();
 			reply.setAuthor(user.getUserName());
-			
-			myAnswer.addReply(reply);
+
+			boolean isConnect = connected.isConnexted();
+			Log.i("VQAR",String.valueOf(isConnect));
+			if (isConnect ==false)
+			{
+				myAnswer.addReply(reply);
+
+				dc.addData(myQuestion, 
+						cs.getChoice());
+				dc.addData(myQuestion, "Unpushed.save");
+				Toast.makeText(this, "Your Reply will be added when connection is made", Toast.LENGTH_SHORT).show();
+			}else{
+				QAC.addReplyToAnswer(reply, myAnswer.getId());
+				Toast.makeText(this, "Your reply has been added", Toast.LENGTH_SHORT).show();
+			}
 			populateReplyView();
-			Toast.makeText(this, "Your Reply has been added", Toast.LENGTH_SHORT).show();
 		}
 	}
 		
@@ -309,29 +334,13 @@ public class ViewAnswerAndReplies extends Activity implements IView
 	 * @param v The view that was clicked on
 	 */
 	public void gotoAnswer(View v) {
-		Toast.makeText(this, "Going to Answers", Toast.LENGTH_SHORT).show();
 		Intent launch = new Intent(this, ViewQuestionAndAnswers.class);
     	launch.putExtra("@string/idExtraTag", qId);
 		startActivity(launch);
-
 	}
 
 	@Override
 	public void update() {
 		arrayReplyAdapter.notifyDataSetChanged();
 	}
-	
-    public static boolean isBlank(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return true;
-        }
-        for (int i = 0; i < strLen; i++) {
-            if ((Character.isWhitespace(str.charAt(i)) == false)) {
-                return false;
-            }
-        }
-        return true;
-    }
-	
 }

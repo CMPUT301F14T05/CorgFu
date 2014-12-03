@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import android.util.Log;
+
 import ca.ualberta.cs.corgFu.AllQuestionsApplication;
 import ca.ualberta.cs.corgFuES.ElasticSearch;
 import ca.ualberta.cs.corgFuModels.AllQuestions;
@@ -58,7 +60,7 @@ public class QAController {
 		AQC.addQuestion(question);
 		
 	}
-	
+
 	/** Adds Reply to the question */
 	public void addReply(Reply reply) {
 		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
@@ -68,6 +70,14 @@ public class QAController {
 		
 	}
 	
+	public void addReplyToAnswer(Reply reply, int AId) {
+		AllQuestionsController AQC = AllQuestionsApplication.getAllQuestionsController();
+		question = AQC.getQuestionById(question.getId());
+		Answer myAnswer = question.getAnswerById(AId);
+		myAnswer.addReply(reply);
+		AQC.addQuestion(question);
+		
+	}
 	/** Sort answers by date and return updated
 	 * list of answers to the question
 	 * @return sorted array of answers
@@ -107,6 +117,7 @@ public class QAController {
 	public ArrayList<Reply> getReplies(){
 		return  question.getReplies(); 
 	}
+	
 	
 	/** Sort answers by upvotes and return updated
 	 * list of answers to the question

@@ -56,8 +56,8 @@ public class ViewMostUpvotedAnswerTest extends TestCase{
 	expected.add(a2);
 	expected.add(a3);
 	QAController QAC = new QAController(mQ1);
-	
-	assertEquals("Testing if QuestionController returns list in correct order", expected,QAC.getAnswersByUpVotes()); // will and should fail, no answer sort function in controller
+	ArrayList<Answer> actual = QAC.getAnswersByUpVotes();
+	assertEquals("Testing if QuestionController returns list in correct order", expected.get(0).getAnswerString(),actual.get(0).getAnswerString()); // will and should fail, no answer sort function in controller
 	tearDown();
 	}
 	@Override

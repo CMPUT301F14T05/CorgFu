@@ -42,7 +42,7 @@ public class SearchQuestionsAndAnswersTest extends TestCase {
 		Question expected = mQ1;
 		
 		assertEquals("Making sure searchable question made it to the server",
-				mQ1.toString(),ES.getQuestion(mQ1.getId()).toString());
+				mQ1.toString(),ES.getQuestion(mQ1.getId()).toString()); 
 		ArrayList<Question> actual = null;
 		for (int i = 0;i<5;i++){
 			actual = aQC.search("Searchable", null);
